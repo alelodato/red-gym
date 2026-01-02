@@ -55,18 +55,20 @@ export default function ContactPage() {
             >
               Invia
             </button>
-
-            <p className="text-xs text-black/60">
-              Poi lo colleghiamo a Web3Forms/Email: ora è UI pronta.
-            </p>
           </form>
 
           <div className="mt-8 rounded-lg overflow-hidden border border-brand-gray200">
             <div className="bg-brand-black text-white text-sm font-semibold px-4 py-3">
-              Google Maps (placeholder)
+              Dove Siamo
             </div>
-            <div className="h-56 bg-black/5 flex items-center justify-center text-sm text-black/60">
-              Incolla qui iframe Google Maps
+            <div className="mt-8 rounded-lg overflow-hidden border border-brand-gray200">
+              <iframe
+                className="w-full h-64"
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.216478787936!2d12.621904015713814!3d41.99959437921157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1325c9b42fa47a3f%3A0x8e8b16b55b4b7f9e!2sVia%20delle%20Molette%2C%20245%2C%2000013%20Fonte%20Nuova%20RM%2C%20Italia!5e0!3m2!1sit!2sit!4v1704440000000!5m2!1sit!2sit"
+              />
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section className="relative">
       <div className="absolute inset-0">
-        <img src="/images/hero.jpg" alt="Allenamento in palestra" className="h-full w-full object-cover" />
+        <img src="hero.jpg" alt="Allenamento in palestra" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-black/55" />
       </div>
 

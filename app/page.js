@@ -12,12 +12,12 @@ export default function HomePage() {
       <Section className="bg-brand-offwhite">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="section-title text-sm text-black/70">La tua palestra, senza scuse</p>
+            <p className="section-title text-sm text-black/70">La tua palestra.</p>
             <h2 className="font-heading uppercase tracking-wide text-3xl sm:text-4xl">
-              Risultati veri. Metodo serio.
+              Risultati veri.
             </h2>
           </div>
-          <Button href="/about" variant="outline">About la palestra</Button>
+          <Button href="/about" variant="outline">La palestra</Button>
         </div>
 
         <div className="mt-8">
@@ -64,7 +64,7 @@ export default function HomePage() {
 
             <div className="relative overflow-hidden rounded-xl shadow-soft">
               <img
-                src="/images/community.jpg"
+                src="homep2.jpg"
                 alt="Allenamento con bilanciere"
                 className="h-full w-full object-cover min-h-[340px]"
               />

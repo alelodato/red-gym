@@ -3,17 +3,17 @@ export default function FeatureGrid() {
     {
       title: "Guidati da professionisti",
       text: "Programmi personalizzati, tecnica corretta e motivazione costante per risultati reali.",
-      img: "/images/grid-1.jpg",
+      img: "card1.jpg",
     },
     {
       title: "Palestra completa e dinamica",
       text: "Sala pesi, attrezzature moderne, area cardio e functional. Spazi per ogni disciplina.",
-      img: "/images/grid-2.jpg",
+      img: "card2.jpg",
     },
     {
       title: "Allenati con la community",
       text: "Un ambiente serio, energico e stimolante. Qui non molli a metà.",
-      img: "/images/grid-3.jpg",
+      img: "card3.jpg",
     },
   ];
 
