@@ -1,12 +1,17 @@
 import Section from "@/components/Section";
 import Button from "@/components/Button";
 
+function toPublicSrc(path) {
+  if (!path) return "";
+  return path.startsWith("/") ? path : `/${path}`;
+}
+
 const COURSES = [
   {
     id: "sala-pesi",
     title: "Sala Pesi & Fitness",
     subtitle: "Forza, ipertrofia, tonificazione e ricomposizione corporea",
-    image: "sala-pesi.jpg",
+    image: "sala-pesi.png",
     description:
       "Allenamenti strutturati per migliorare forza, massa muscolare e forma fisica generale. Programmi su misura in base al tuo livello, con focus su tecnica corretta, progressioni e risultati misurabili.",
     schedule: [
@@ -31,7 +36,7 @@ const COURSES = [
     id: "pilates",
     title: "Pilates",
     subtitle: "Postura, controllo, mobilità e benessere",
-    image: "pilates.jpg",
+    image: "salute.png",
     description:
       "Lezioni ideali per migliorare postura e stabilità, aumentare mobilità e ridurre tensioni. Adatto sia a principianti che a chi vuole integrare un lavoro più tecnico e controllato nel proprio allenamento.",
     schedule: [
@@ -56,9 +61,9 @@ const COURSES = [
     id: "boxe",
     title: "Boxe",
     subtitle: "Tecnica, coordinazione, resistenza e condizionamento",
-    image: "boxe.jpg",
+    image: "boxe.png",
     description:
-      "Allenamenti dedicati a tecnica di base e avanzata, lavoro al sacco, combinazioni, coordinazione e condizionamento fisico. Perfetto sia per chi inizia sia per chi vuole allenarsi in modo intenso e strutturato.",
+      "Allenamenti dedicati a tecnica di base e avanzata, lavoro al sacco, combinazioni, coordinazione e condizionamento fisico. Disponibile anche un percorso di prepugilistica (propedeutica) per costruire basi tecniche, ritmo e disciplina.",
     schedule: [
       { day: "Martedì", time: "20:00 – 21:00" },
       { day: "Giovedì", time: "20:00 – 21:00" },
@@ -75,7 +80,7 @@ const COURSES = [
     id: "mma",
     title: "MMA",
     subtitle: "Striking, grappling e preparazione completa",
-    image: "mma.jpg",
+    image: "mma.png",
     description:
       "Percorsi che uniscono striking e grappling, con lavoro atletico e condizionamento. Allenamento completo per sviluppare tecnica, forza, resistenza e mentalità.",
     schedule: [
@@ -90,6 +95,44 @@ const COURSES = [
       },
     ],
   },
+  {
+    id: "karate",
+    title: "Karate",
+    subtitle: "Disciplina, coordinazione e crescita tecnica",
+    image: "karate.png",
+    description:
+      "Un corso completo per sviluppare tecnica, coordinazione, controllo e disciplina. Adatto a diversi livelli, con progressione strutturata e attenzione alla sicurezza.",
+    schedule: [
+      { day: "Da definire", time: "—" },
+      { day: "Da definire", time: "—" },
+    ],
+    trainers: [
+      {
+        name: "Insegnante di Karate",
+        image: "karate-coach.jpg",
+        bio: "Percorsi tecnici con progressioni chiare, lavoro su postura, coordinazione e controllo, adatti a principianti e avanzati.",
+      },
+    ],
+  },
+  {
+    id: "judo",
+    title: "Judo",
+    subtitle: "Tecnica, controllo e preparazione fisica",
+    image: "judo.png",
+    description:
+      "Allenamenti dedicati a tecnica, equilibrio e controllo, con un lavoro progressivo su preparazione fisica e coordinazione. Ideale per sviluppare sicurezza e consapevolezza del corpo.",
+    schedule: [
+      { day: "Da definire", time: "—" },
+      { day: "Da definire", time: "—" },
+    ],
+    trainers: [
+      {
+        name: "Insegnante di Judo",
+        image: "judo-coach.jpg",
+        bio: "Allenamenti strutturati su tecnica e progressione, con attenzione a sicurezza, controllo e preparazione.",
+      },
+    ],
+  },
 ];
 
 function ScheduleTable({ schedule }) {
@@ -100,7 +143,10 @@ function ScheduleTable({ schedule }) {
       </div>
       <div className="divide-y divide-brand-gray200 bg-white">
         {schedule.map((s) => (
-          <div key={s.day} className="flex items-center justify-between px-4 py-3 text-sm">
+          <div
+            key={s.day + s.time}
+            className="flex items-center justify-between px-4 py-3 text-sm"
+          >
             <span className="text-black/70">{s.day}</span>
             <span className="font-semibold text-brand-black">{s.time}</span>
           </div>
@@ -112,26 +158,46 @@ function ScheduleTable({ schedule }) {
 
 function TrainersBlock({ trainers }) {
   return (
-    <div className="mt-7">
+    <div>
       <p className="section-title text-brand-red text-sm">Trainer</p>
 
-      <div className="mt-4 space-y-5">
+      <div className="mt-6 space-y-6">
         {trainers.map((t, idx) => (
-          <div key={idx} className="grid sm:grid-cols-12 gap-4 items-center">
-            <div className="sm:col-span-3 rounded-lg overflow-hidden border border-brand-gray200">
-              <img
-                src={t.image}
-                alt={t.name}
-                className="h-[140px] w-full object-cover"
-              />
-            </div>
-            <div className="sm:col-span-9">
-              <p className="font-heading uppercase tracking-wide text-lg">
-                {t.name}
-              </p>
-              <p className="mt-1 text-sm text-black/70 leading-relaxed">
-                {t.bio}
-              </p>
+          <div
+            key={idx}
+            className="rounded-xl bg-white border border-brand-gray200 overflow-hidden"
+          >
+            <div className="grid md:grid-cols-12">
+              {/* Immagine */}
+              <div className="md:col-span-4 relative h-[240px] sm:h-[260px]">
+                <img
+                  src={toPublicSrc(t.image)}
+                  alt={t.name}
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/10" />
+              </div>
+
+              {/* Contenuto */}
+              <div className="md:col-span-8 p-6 sm:p-7">
+                <h3 className="font-heading uppercase tracking-wide text-xl">
+                  {t.name}
+                </h3>
+
+                <p className="mt-3 text-black/70 leading-relaxed">
+                  {t.bio}
+                </p>
+
+                {/* spazio pronto per info extra */}
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <span className="rounded-full border border-brand-gray200 px-3 py-1 text-xs font-semibold text-black/60">
+                    Qualifica certificata
+                  </span>
+                  <span className="rounded-full border border-brand-gray200 px-3 py-1 text-xs font-semibold text-black/60">
+                    Esperienza sul campo
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         ))}
@@ -142,37 +208,63 @@ function TrainersBlock({ trainers }) {
 
 function CourseSection({ course, invert = false }) {
   return (
-    <section id={course.id} className="rounded-xl bg-white border border-brand-gray200 overflow-hidden">
+    <section
+      id={course.id}
+      className="rounded-xl bg-white border border-brand-gray200 overflow-hidden"
+    >
+      {/* RIGA 1 */}
       <div className="grid lg:grid-cols-12">
-        {/* Immagine */}
-        <div className={`lg:col-span-5 relative min-h-[260px] sm:min-h-[340px] ${invert ? "lg:order-2" : "lg:order-1"}`}>
-          <img
-            src={course.image}
-            alt={course.title}
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/10" />
+        {/* IMMAGINE */}
+        <div
+          className={[
+            "lg:col-span-5",
+            "border-b lg:border-b-0",
+            invert ? "lg:order-2 lg:border-l" : "lg:order-1 lg:border-r",
+            "border-brand-gray200",
+          ].join(" ")}
+        >
+          {/* Altezza fissa: più facile trovare foto adatta */}
+          <div className="relative h-[260px] sm:h-[320px] lg:h-[380px]">
+            <img
+              src={course.image}
+              alt={course.title}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/10" />
+          </div>
         </div>
 
-        {/* Contenuto */}
-        <div className={`lg:col-span-7 p-7 sm:p-10 ${invert ? "lg:order-1" : "lg:order-2"}`}>
+        {/* CONTENUTI */}
+        <div
+          className={[
+            "lg:col-span-7 p-7 sm:p-10",
+            invert ? "lg:order-1" : "lg:order-2",
+          ].join(" ")}
+        >
           <p className="section-title text-brand-red text-sm">{course.subtitle}</p>
+
           <h2 className="font-heading uppercase tracking-wide text-3xl sm:text-4xl mt-2">
             {course.title}
           </h2>
+
           <p className="mt-4 text-black/70 leading-relaxed max-w-3xl">
             {course.description}
           </p>
 
           <ScheduleTable schedule={course.schedule} />
 
-          <TrainersBlock trainers={course.trainers} />
-
-          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+          <div className="mt-7 flex flex-col sm:flex-row gap-3">
             <Button href="/contact">Prenota / Info</Button>
-            <Button href="/pricing" variant="outline">Vedi abbonamenti</Button>
+            <Button href="/pricing" variant="outline">
+              Vedi abbonamenti
+            </Button>
           </div>
         </div>
+      </div>
+
+      {/* RIGA 2: TRAINER FULL WIDTH */}
+      <div className="border-t border-brand-gray200 bg-brand-offwhite p-7 sm:p-10">
+        <TrainersBlock trainers={course.trainers} />
       </div>
     </section>
   );
@@ -209,6 +301,8 @@ export default function CoursesPage() {
 
       <div className="mt-10 space-y-10">
         {COURSES.map((course, idx) => (
+          // Prima sezione: immagine a sinistra (invert false)
+          // Poi alterniamo per rendere tutto più interessante
           <CourseSection key={course.id} course={course} invert={idx % 2 === 1} />
         ))}
       </div>

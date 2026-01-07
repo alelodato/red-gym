@@ -13,7 +13,7 @@ export default function FeatureGrid() {
     {
       title: "Allenati con la community",
       text: "Un ambiente serio, energico e stimolante. Qui non molli a metà.",
-      img: "card3.jpg",
+      img: "community.png",
     },
   ];
 
