@@ -41,7 +41,15 @@ function SplitSection({ kicker, title, text, image, alt, invert = false, cta }) 
   return (
     <section className="rounded-xl bg-white border border-brand-gray200 overflow-hidden">
       <div className="grid lg:grid-cols-12">
-        {/* Immagine */}
+        {/* HEADER MOBILE (titolo sopra immagine) */}
+        <div className="p-7 sm:p-10 lg:hidden">
+          {kicker ? <p className="section-title text-brand-red text-sm">{kicker}</p> : null}
+          <h2 className="font-heading uppercase tracking-wide text-2xl sm:text-3xl mt-2">
+            {title}
+          </h2>
+        </div>
+
+        {/* Immagine (su mobile viene subito dopo header mobile) */}
         <div
           className={[
             "lg:col-span-5 relative h-[240px] sm:h-[320px] lg:h-[360px]",
@@ -56,22 +64,23 @@ function SplitSection({ kicker, title, text, image, alt, invert = false, cta }) 
           <div className="absolute inset-0 bg-black/10" />
         </div>
 
-        {/* Testo */}
+        {/* Testo (su desktop include anche titolo; su mobile solo testo/cta) */}
         <div
           className={[
             "lg:col-span-7 p-7 sm:p-10",
             invert ? "lg:order-1" : "lg:order-2",
           ].join(" ")}
         >
-          {kicker ? (
-            <p className="section-title text-brand-red text-sm">{kicker}</p>
-          ) : null}
+          {/* HEADER DESKTOP (titolo nel blocco testo come prima) */}
+          <div className="hidden lg:block">
+            {kicker ? <p className="section-title text-brand-red text-sm">{kicker}</p> : null}
+            <h2 className="font-heading uppercase tracking-wide text-2xl sm:text-3xl mt-2">
+              {title}
+            </h2>
+          </div>
 
-          <h2 className="font-heading uppercase tracking-wide text-2xl sm:text-3xl mt-2">
-            {title}
-          </h2>
-
-          <p className="mt-4 text-black/70 leading-relaxed max-w-2xl">{text}</p>
+          {/* su mobile mettiamo meno spazio sopra perché titolo è già sopra */}
+          <p className="mt-0 lg:mt-4 text-black/70 leading-relaxed max-w-2xl">{text}</p>
 
           {cta ? <div className="mt-7">{cta}</div> : null}
         </div>
@@ -109,7 +118,6 @@ function DiagonalBand({
             {title}
           </h3>
 
-          {/* opzionale: chips */}
           <div className="mt-4 flex flex-wrap gap-2">
             {["Sala pesi", "Combattimento", "Community"].map((x) => (
               <span
@@ -126,13 +134,11 @@ function DiagonalBand({
   );
 }
 
-function FinalCtaHero({
-  image = "hero-final.jpg",
-}) {
+function FinalCtaHero({ image = "hero-final.jpg" }) {
   return (
     <section className="relative bg-brand-red overflow-hidden">
       {/* Background image */}
-      <div className="relative h-[420px] sm:h-[460px] lg:h-[520px]">
+      <div className="relative min-h-[520px] sm:min-h-[560px] lg:h-[520px]">
         <img
           src={toPublicSrc(image)}
           alt="Vieni a trovarci"
@@ -140,19 +146,22 @@ function FinalCtaHero({
         />
         <div className="absolute inset-0 bg-black/60" />
 
-        {/* Taglio diagonale sopra (opzionale ma figo) */}
+        {/* Taglio diagonale sopra (opzionale) */}
         <div className="absolute -top-1 left-0 right-0 h-16 sm:h-20 bg-brand-red [clip-path:polygon(0_0,100%_0,100%_55%,0_100%)]" />
-      </div>
 
-      {/* Contenuto */}
-      <div className="absolute inset-0 flex items-end sm:items-center">
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pb-8 sm:pb-0">
-          <div className="rounded-2xl border border-white/15 bg-black/35 p-7 sm:p-10 lg:p-12 shadow-soft">
+        {/* Contenuto: su mobile è “incollato” dentro l’immagine, su desktop torna la card */}
+        <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-10 lg:py-0 lg:absolute lg:inset-0 lg:flex lg:items-center">
+          <div
+            className={[
+              // mobile: nessuna “card”, solo spacing e testo sopra immagine
+              "rounded-none border-0 bg-transparent shadow-none p-0",
+              // desktop: card overlay come prima
+              "lg:rounded-2xl lg:border lg:border-white/15 lg:bg-black/35 lg:p-10 lg:shadow-soft",
+            ].join(" ")}
+          >
             <div className="grid gap-6 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-8">
-                <p className="text-sm font-semibold text-white/70">
-                  Vieni a trovarci
-                </p>
+                <p className="text-sm font-semibold text-white/70">Vieni a trovarci</p>
 
                 <h2 className="font-heading uppercase tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl mt-2">
                   Il modo migliore per capire è vivere l’ambiente.
@@ -180,12 +189,16 @@ function FinalCtaHero({
                   className="inline-flex items-center justify-center
                              w-full sm:w-auto min-w-[220px]
                              rounded-md px-5 py-3 text-sm font-semibold tracking-wide
-                             border border-white text-white
-                             hover:bg-white hover:text-brand-red transition-colors"
+                             border border-white text-white hover:bg-white hover:text-brand-red transition-colors"
                 >
                   Guarda i corsi
                 </a>
               </div>
+            </div>
+
+            {/* Mobile: un leggero “base” per dare struttura senza diventare card */}
+            <div className="mt-8 lg:hidden">
+              <div className="h-[1px] w-full bg-white/15" />
             </div>
           </div>
         </div>
@@ -197,16 +210,32 @@ function FinalCtaHero({
 export default function AboutPage() {
   return (
     <div className="bg-brand-red">
+      {/* HERO: su mobile voglio titolo -> foto -> resto contenuto (desktop invariato) */}
       <Section className="bg-brand-red">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+            {/* TESTO */}
             <div>
-              {/* su rosso: testo in bianco */}
               <p className="section-title text-white/90">Chi siamo</p>
 
               <h1 className="font-heading uppercase tracking-wide text-white text-4xl sm:text-5xl mt-2">
                 Una palestra grande, conosciuta, con risultati concreti.
               </h1>
+
+              {/* IMMAGINE SOLO MOBILE: subito dopo il titolo */}
+              <div className="mt-5 lg:hidden">
+                <div className="rounded-2xl overflow-hidden shadow-soft border border-white/10">
+                  <div className="relative">
+                    <img
+                      src={toPublicSrc("about.jpg")}
+                      alt="Red Gym - panoramica sala pesi"
+                      className="w-full h-[260px] sm:h-[340px] object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/25" />
+                    <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
+                  </div>
+                </div>
+              </div>
 
               <p className="mt-5 text-white/85 leading-relaxed">
                 {SITE.name} è un punto di riferimento sul territorio: sala pesi completa, aree dedicate al
@@ -218,12 +247,11 @@ export default function AboutPage() {
                 Metodo, disciplina e ambiente: qui l’allenamento è serio, ma la motivazione la trovi ogni giorno.
               </p>
 
-              {/* Bottoni adattati per background rosso (testo invariato) */}
               <div className="mt-7 flex gap-3 flex-col sm:flex-row">
                 <a
                   href="/courses"
                   className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold tracking-wide
-                             bg-white text-brand-red hover:bg-white/90 transition-colors"
+                       bg-white text-brand-red hover:bg-white/90 transition-colors"
                 >
                   Scopri corsi e attività
                 </a>
@@ -231,20 +259,21 @@ export default function AboutPage() {
                 <a
                   href="/contact"
                   className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold tracking-wide
-                             border border-white text-white hover:bg-white hover:text-brand-red transition-colors"
+                       border border-white text-white hover:bg-white hover:text-brand-red transition-colors"
                 >
                   Contattaci
                 </a>
               </div>
             </div>
 
-            <div className="lg:pr-0">
+            {/* IMMAGINE SOLO DESKTOP: layout invariato */}
+            <div className="hidden lg:block lg:pr-0">
               <div className="rounded-2xl overflow-hidden shadow-soft border border-white/10 lg:rounded-l-2xl lg:rounded-r-none lg:ml-6">
                 <div className="relative">
                   <img
                     src={toPublicSrc("about.jpg")}
                     alt="Red Gym - panoramica sala pesi"
-                    className="w-full h-[380px] sm:h-[420px] object-cover"
+                    className="w-full h-[420px] object-cover"
                   />
                   <div className="absolute inset-0 bg-black/25" />
                   <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
@@ -255,7 +284,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Blocchi successivi: mix con WhiteBlock (layout e testi invariati) */}
+      {/* Blocchi successivi */}
       <div className="space-y-6 sm:space-y-8 lg:space-y-10">
         {/* AMBIENTI (WhiteBlock) */}
         <WhiteBlock>
@@ -306,7 +335,9 @@ export default function AboutPage() {
             />
           </div>
         </WhiteBlock>
+
         <DiagonalBand image="pic-diagonal.jpg" />
+
         <WhiteBlock>
           <div className="space-y-8">
             <SplitSection
@@ -335,6 +366,7 @@ export default function AboutPage() {
             />
           </div>
         </WhiteBlock>
+
         <FinalCtaHero image="hero-final.jpg" />
       </div>
     </div>
