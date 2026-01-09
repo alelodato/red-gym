@@ -48,16 +48,32 @@ function SectionHead({ kicker, title, lead, ctaHref, ctaLabel }) {
   );
 }
 
-function Card({ kicker, title, text, href, ctaLabel }) {
+function Card({ kicker, title, text, href, ctaLabel, imageSrc, imageAlt }) {
   return (
     <div className="rounded-xl bg-white border border-brand-gray200 p-6 sm:p-7">
       {kicker ? <p className="section-title text-brand-red">{kicker}</p> : null}
+
       <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
         {title}
       </h3>
+
+      {imageSrc ? (
+        <div className="mt-4 lg:hidden">
+          <div className="relative overflow-hidden rounded-xl shadow-soft h-[170px] sm:h-[200px] md:h-[220px]">
+            <img
+              src={toPublicSrc(imageSrc)}
+              alt={imageAlt || title}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/10" />
+          </div>
+        </div>
+      ) : null}
+
       <p className="mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
         {text}
       </p>
+
       {href ? (
         <div className="mt-6">
           <Button href={href}>{ctaLabel || "Scopri di più"}</Button>
@@ -67,14 +83,136 @@ function Card({ kicker, title, text, href, ctaLabel }) {
   );
 }
 
+function ImageGrid({ images }) {
+  return (
+    <div className="grid grid-cols-2 gap-3 sm:gap-4">
+      {images.map((img) => (
+        <div
+          key={img.src}
+          className="relative overflow-hidden rounded-xl shadow-soft h-[170px] sm:h-[190px] lg:h-[240px]"
+        >
+          <img
+            src={toPublicSrc(img.src)}
+            alt={img.alt}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/10" />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function DiagonalCuts({ flip = false, heightClass = "h-16 sm:h-20" }) {
+  // flip=false: diagonale “standard”
+  // flip=true : diagonale opposta
+  const topClip = flip
+    ? "[clip-path:polygon(0_0,100%_0,100%_100%,0_55%)]"
+    : "[clip-path:polygon(0_0,100%_0,100%_55%,0_100%)]";
+
+  const bottomClip = flip
+    ? "[clip-path:polygon(0_0,100%_45%,100%_100%,0_100%)]"
+    : "[clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]";
+
+  return (
+    <>
+      <div
+        className={[
+          "absolute -top-1 left-0 right-0 bg-brand-red",
+          heightClass,
+          topClip,
+        ].join(" ")}
+      />
+      <div
+        className={[
+          "absolute -bottom-1 left-0 right-0 bg-brand-red",
+          heightClass,
+          bottomClip,
+        ].join(" ")}
+      />
+    </>
+  );
+}
+
+function DiagonalPhoto({
+  image = "diagonal1.jpg",
+  alt = "Red Gym",
+  flip = false,
+  heightClass = "h-[280px] sm:h-[340px] lg:h-[430px]",
+}) {
+  return (
+    <section className="relative bg-brand-red overflow-hidden">
+      <div className={["relative", heightClass].join(" ")}>
+        <img
+          src={toPublicSrc(image)}
+          alt={alt}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/35" />
+        <DiagonalCuts flip={flip} heightClass="h-20 sm:h-24" />
+      </div>
+    </section>
+  );
+}
+
+function DiagonalBand({
+  image = "diagonal2.jpg",
+  kicker = "Red Gym",
+  title = "Energia. Disciplina. Risultati.",
+  chips = ["Sala pesi", "Combattimento", "Community"],
+  flip = true,
+}) {
+  return (
+    <section className="relative bg-brand-red overflow-hidden">
+      <div className="relative h-[230px] sm:h-[280px] lg:h-[340px]">
+        <img
+          src={toPublicSrc(image)}
+          alt={title}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/45" />
+        <DiagonalCuts flip={flip} heightClass="h-16 sm:h-20" />
+      </div>
+
+      <div className="absolute inset-0 flex items-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="section-title text-white/85">{kicker}</p>
+          <h3 className="font-heading uppercase tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl mt-2">
+            {title}
+          </h3>
+
+          {chips?.length ? (
+            <div className="mt-4 flex flex-wrap gap-2">
+              {chips.map((x) => (
+                <span
+                  key={x}
+                  className="rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold text-white/85"
+                >
+                  {x}
+                </span>
+              ))}
+            </div>
+          ) : null}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function HomePage() {
+  const ABOUT_IMAGES = [
+    { src: "pesi.jpg", alt: "Sala pesi moderna" },
+    { src: "combat.jpg", alt: "Sala sport da combattimento" },
+    { src: "sala.jpg", alt: "Spogliatoi e docce" },
+    { src: "community.jpg", alt: "Community Red Gym" },
+  ];
+
   return (
     <>
       <Hero />
 
       {/* Background rosso globale sotto la hero */}
       <div className="bg-brand-red">
-        {/* gap più piccolo su desktop (meno rosso “tra” le sezioni) */}
         <div className="space-y-6 sm:space-y-8 lg:space-y-10 py-8 sm:py-10 lg:py-12">
           {/* ABOUT */}
           <WhiteSection id="home-about">
@@ -86,11 +224,19 @@ export default function HomePage() {
               ctaLabel="Scopri la palestra"
             />
 
-            <div className="mt-8 lg:mt-10 grid gap-6 lg:grid-cols-12">
-              <div className="lg:col-span-7 grid gap-6 md:grid-cols-2">
+            <div className="mt-6 lg:mt-10 grid gap-6 lg:grid-cols-12">
+              {/* Desktop: grid immagini a destra (solo desktop) */}
+              <div className="order-1 lg:order-2 lg:col-span-5 hidden lg:block">
+                <ImageGrid images={ABOUT_IMAGES} />
+              </div>
+
+              {/* Card: desktop invariato; mobile: foto dentro card (no grid) */}
+              <div className="order-2 lg:order-1 lg:col-span-7 grid gap-6 md:grid-cols-2">
                 <Card
                   kicker="Ambienti"
                   title="Sala pesi moderna"
+                  imageSrc="pesi.jpg"
+                  imageAlt="Sala pesi moderna"
                   text="Attrezzature aggiornate e spazi ottimizzati per allenarti bene, senza perdere tempo."
                   href="/about"
                   ctaLabel="Vedi gli ambienti"
@@ -98,6 +244,8 @@ export default function HomePage() {
                 <Card
                   kicker="Sport da combattimento"
                   title="2 sale dedicate"
+                  imageSrc="combat.jpg"
+                  imageAlt="Sala sport da combattimento"
                   text="Spazi separati per gestire più corsi e livelli mantenendo qualità e organizzazione."
                   href="/courses"
                   ctaLabel="Scopri i corsi"
@@ -105,6 +253,8 @@ export default function HomePage() {
                 <Card
                   kicker="Comfort"
                   title="Spogliatoi & docce"
+                  imageSrc="sala.jpg"
+                  imageAlt="Spogliatoi e docce"
                   text="Armadietti, docce e spazi comodi: allenati con serenità prima e dopo la sessione."
                   href="/about"
                   ctaLabel="Dettagli"
@@ -112,35 +262,21 @@ export default function HomePage() {
                 <Card
                   kicker="Community"
                   title="Ambiente motivante"
+                  imageSrc="community.jpg"
+                  imageAlt="Community Red Gym"
                   text="Persone diverse, stesso mindset: costanza, rispetto e energia positiva."
                   href="/about"
                   ctaLabel="Leggi la storia"
                 />
               </div>
-
-              {/* Grid immagini più grande (meno “vuoto” rosso attorno) */}
-              <div className="lg:col-span-5 grid grid-cols-2 gap-3 sm:gap-4">
-                {[
-                  { src: "home-weights.jpg", alt: "Sala pesi moderna" },
-                  { src: "home-combat1.jpg", alt: "Sala sport da combattimento" },
-                  { src: "home-lockers.jpg", alt: "Spogliatoi e docce" },
-                  { src: "home-community.jpg", alt: "Community Red Gym" },
-                ].map((img) => (
-                  <div
-                    key={img.src}
-                    className="relative overflow-hidden rounded-xl shadow-soft h-[170px] sm:h-[190px] lg:h-[240px]"
-                  >
-                    <img
-                      src={toPublicSrc(img.src)}
-                      alt={img.alt}
-                      className="absolute inset-0 h-full w-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/10" />
-                  </div>
-                ))}
-              </div>
             </div>
           </WhiteSection>
+
+          <DiagonalPhoto
+            image="diagonal1.jpg"
+            alt="Red Gym - energia"
+            flip={false}
+          />
 
           {/* COURSES */}
           <WhiteSection id="home-courses">
@@ -152,8 +288,17 @@ export default function HomePage() {
               ctaLabel="Vedi corsi e orari"
             />
 
-            <div className="mt-8 lg:mt-10 grid gap-6 lg:grid-cols-12">
-              <div className="lg:col-span-7 rounded-xl border border-brand-gray200 p-6 sm:p-7 bg-white">
+            <div className="mt-6 lg:mt-10 grid gap-6 lg:grid-cols-12">
+              <div className="order-1 lg:order-2 lg:col-span-5 relative overflow-hidden rounded-xl shadow-soft min-h-[240px] sm:min-h-[300px] lg:min-h-[420px]">
+                <img
+                  src={toPublicSrc("about2.jpg")}
+                  alt="Corsi Red Gym"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/10" />
+              </div>
+
+              <div className="order-2 lg:order-1 lg:col-span-7 rounded-xl border border-brand-gray200 p-6 sm:p-7 bg-white">
                 <p className="section-title text-brand-red">In evidenza</p>
 
                 <div className="mt-4 space-y-4">
@@ -193,17 +338,16 @@ export default function HomePage() {
                   </Button>
                 </div>
               </div>
-
-              <div className="lg:col-span-5 relative overflow-hidden rounded-xl shadow-soft min-h-[320px] lg:min-h-[420px]">
-                <img
-                  src={toPublicSrc("about2.jpg")}
-                  alt="Corsi Red Gym"
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/10" />
-              </div>
             </div>
           </WhiteSection>
+
+          <DiagonalBand
+            image="diagonal2.jpg"
+            kicker="Red Gym"
+            title="Energia. Disciplina. Risultati."
+            chips={["Sala pesi", "Corsi", "Supporto"]}
+            flip={true}
+          />
 
           {/* PRICING */}
           <WhiteSection id="home-pricing">
@@ -240,6 +384,12 @@ export default function HomePage() {
             </div>
           </WhiteSection>
 
+          <DiagonalPhoto
+            image="diagonal3.jpg"
+            alt="Red Gym - community"
+            flip={false}
+          />
+
           {/* CONTACT */}
           <WhiteSection id="home-contact">
             <SectionHead
@@ -254,7 +404,9 @@ export default function HomePage() {
               <div className="lg:col-span-6 rounded-xl border border-brand-gray200 p-6 sm:p-7 bg-white">
                 <form className="grid gap-4">
                   <div>
-                    <label className="text-sm font-semibold text-black/70">Nome</label>
+                    <label className="text-sm font-semibold text-black/70">
+                      Nome
+                    </label>
                     <input
                       type="text"
                       className="mt-1 w-full rounded-md border border-brand-gray200 px-4 py-3 outline-none focus:border-brand-red"
@@ -263,7 +415,9 @@ export default function HomePage() {
                   </div>
 
                   <div>
-                    <label className="text-sm font-semibold text-black/70">Email</label>
+                    <label className="text-sm font-semibold text-black/70">
+                      Email
+                    </label>
                     <input
                       type="email"
                       className="mt-1 w-full rounded-md border border-brand-gray200 px-4 py-3 outline-none focus:border-brand-red"
@@ -272,7 +426,9 @@ export default function HomePage() {
                   </div>
 
                   <div>
-                    <label className="text-sm font-semibold text-black/70">Messaggio</label>
+                    <label className="text-sm font-semibold text-black/70">
+                      Messaggio
+                    </label>
                     <textarea
                       rows="5"
                       className="mt-1 w-full rounded-md border border-brand-gray200 px-4 py-3 outline-none focus:border-brand-red"
@@ -299,7 +455,8 @@ export default function HomePage() {
                   </div>
 
                   <p className="text-xs text-black/50">
-                    * Form placeholder: colleghiamo l’invio quando vuoi (EmailJS/Resend).
+                    * Form placeholder: colleghiamo l’invio quando vuoi
+                    (EmailJS/Resend).
                   </p>
                 </form>
               </div>
@@ -321,7 +478,8 @@ export default function HomePage() {
                     Red Gym – Fonte Nuova
                   </p>
                   <p className="mt-2 text-sm text-black/70">
-                    Inserisci qui indirizzo completo + telefono/WhatsApp quando li hai definitivi.
+                    Inserisci qui indirizzo completo + telefono/WhatsApp quando li
+                    hai definitivi.
                   </p>
                 </div>
               </div>

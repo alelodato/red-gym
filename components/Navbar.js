@@ -4,11 +4,11 @@ import Button from "./Button";
 import { SITE } from "@/lib/site";
 
 const nav = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/courses", label: "Corsi" },
-  { href: "/pricing", label: "Abbonamenti" },
-  { href: "/contact", label: "Contatti" },
+  { href: "/", label: "HOME" },
+  { href: "/about", label: "ABOUT" },
+  { href: "/courses", label: "CORSI" },
+  { href: "/pricing", label: "ABBONAMENTI" },
+  { href: "/contact", label: "CONTATTI" },
 ];
 
 export default function Navbar() {
@@ -28,13 +28,6 @@ export default function Navbar() {
               </Link>
             ))}
           </nav>
-
-          <div className="flex items-center gap-3">
-            <Button href="/contact" className="hidden sm:inline-flex">Prenota / Info</Button>
-            <Link href="/contact" className="sm:hidden text-sm font-semibold text-brand-red">
-              Contatti
-            </Link>
-          </div>
         </div>
       </Container>
     </header>

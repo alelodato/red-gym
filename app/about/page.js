@@ -138,27 +138,66 @@ function FinalCtaHero({ image = "hero-final.jpg" }) {
   return (
     <section className="relative bg-brand-red overflow-hidden">
       {/* Background image */}
-      <div className="relative min-h-[520px] sm:min-h-[560px] lg:h-[520px]">
+      <div className="relative h-[680px] sm:h-[460px] lg:h-[520px]">
         <img
           src={toPublicSrc(image)}
           alt="Vieni a trovarci"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/60" />
 
-        {/* Taglio diagonale sopra (opzionale) */}
+        {/* overlay più “leggibile” su mobile */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/55 to-black/25 sm:bg-black/60" />
+
+        {/* Taglio diagonale sopra (come prima) */}
         <div className="absolute -top-1 left-0 right-0 h-16 sm:h-20 bg-brand-red [clip-path:polygon(0_0,100%_0,100%_55%,0_100%)]" />
+      </div>
 
-        {/* Contenuto: su mobile è “incollato” dentro l’immagine, su desktop torna la card */}
-        <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-10 lg:py-0 lg:absolute lg:inset-0 lg:flex lg:items-center">
-          <div
-            className={[
-              // mobile: nessuna “card”, solo spacing e testo sopra immagine
-              "rounded-none border-0 bg-transparent shadow-none p-0",
-              // desktop: card overlay come prima
-              "lg:rounded-2xl lg:border lg:border-white/15 lg:bg-black/35 lg:p-10 lg:shadow-soft",
-            ].join(" ")}
-          >
+      {/* ===== MOBILE: tutto dentro l'immagine (no card) ===== */}
+      <div className="absolute inset-0 flex sm:hidden">
+        <div
+          className="
+            w-full px-4
+            pt-16
+            pb-[calc(env(safe-area-inset-bottom)+24px)]
+            flex flex-col justify-end
+          "
+        >
+          <p className="text-sm font-semibold text-white/80">Vieni a trovarci</p>
+
+          <h2 className="font-heading uppercase tracking-wide text-white text-3xl mt-2">
+            Il modo migliore per capire è vivere l’ambiente.
+          </h2>
+
+          <p className="mt-4 text-white/85 leading-relaxed">
+            Passa in palestra, dai un’occhiata agli spazi, parla con lo staff e scegli il percorso più adatto.
+            Compila il form e ti rispondiamo con tutte le info su corsi, orari e abbonamenti.
+          </p>
+
+          <div className="mt-6 flex flex-col gap-3">
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center w-full rounded-md px-5 py-3 text-sm font-semibold tracking-wide
+                         bg-white text-brand-red hover:bg-white/90 transition-colors"
+            >
+              Prenota / Contattaci
+            </a>
+
+            <a
+              href="/courses"
+              className="inline-flex items-center justify-center w-full rounded-md px-5 py-3 text-sm font-semibold tracking-wide
+                         border border-white/70 text-white
+                         hover:bg-white hover:text-brand-red transition-colors"
+            >
+              Guarda i corsi
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* ===== SM+ / DESKTOP: identico a prima (card) ===== */}
+      <div className="absolute inset-0 hidden sm:flex items-center">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-2xl border border-white/15 bg-black/35 p-7 sm:p-10 lg:p-12 shadow-soft">
             <div className="grid gap-6 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-8">
                 <p className="text-sm font-semibold text-white/70">Vieni a trovarci</p>
@@ -189,16 +228,12 @@ function FinalCtaHero({ image = "hero-final.jpg" }) {
                   className="inline-flex items-center justify-center
                              w-full sm:w-auto min-w-[220px]
                              rounded-md px-5 py-3 text-sm font-semibold tracking-wide
-                             border border-white text-white hover:bg-white hover:text-brand-red transition-colors"
+                             border border-white text-white
+                             hover:bg-white hover:text-brand-red transition-colors"
                 >
                   Guarda i corsi
                 </a>
               </div>
-            </div>
-
-            {/* Mobile: un leggero “base” per dare struttura senza diventare card */}
-            <div className="mt-8 lg:hidden">
-              <div className="h-[1px] w-full bg-white/15" />
             </div>
           </div>
         </div>
