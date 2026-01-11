@@ -7,7 +7,6 @@ function toPublicSrc(path) {
   return path.startsWith("/") ? path : `/${path}`;
 }
 
-/** Wrapper stile Home: grande card bianca sopra sfondo rosso */
 function WhiteBlock({ children }) {
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -148,7 +147,6 @@ function FinalCtaHero({ image = "hero-final.jpg" }) {
         <div className="absolute -top-1 left-0 right-0 h-16 sm:h-20 bg-brand-red [clip-path:polygon(0_0,100%_0,100%_55%,0_100%)]" />
       </div>
 
-      {/* ===== MOBILE: tutto dentro l'immagine (no card) ===== */}
       <div className="absolute inset-0 flex sm:hidden">
         <div
           className="
@@ -190,7 +188,6 @@ function FinalCtaHero({ image = "hero-final.jpg" }) {
         </div>
       </div>
 
-      {/* ===== SM+ / DESKTOP: identico a prima (card) ===== */}
       <div className="absolute inset-0 hidden sm:flex items-center">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-white/15 bg-black/35 p-7 sm:p-10 lg:p-12 shadow-soft">
@@ -241,7 +238,6 @@ function FinalCtaHero({ image = "hero-final.jpg" }) {
 export default function AboutPage() {
   return (
     <div className="bg-brand-red">
-      {/* ✅ HERO VERO: about.jpg come background */}
       <Section className="relative bg-brand-red overflow-hidden">
         {/* background image */}
         <div className="absolute inset-0">
