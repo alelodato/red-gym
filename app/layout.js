@@ -3,6 +3,8 @@ import { Bebas_Neue, Anton, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { SITE } from "@/lib/site";
+import ScrollToTop from "@/components/ScrollToTop";
+import BackToTop from "@/components/BackToTop";
 
 const bebas = Bebas_Neue({
   subsets: ["latin"],
@@ -31,6 +33,8 @@ export default function RootLayout({ children }) {
     <html lang="it" className={`${bebas.variable} ${anton.variable} ${inter.variable}`}>
       <body className="min-h-screen font-body bg-brand-offwhite text-brand-black">
         <Navbar />
+        <BackToTop />
+        <ScrollToTop />
         <main>{children}</main>
         <Footer />
       </body>

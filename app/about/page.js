@@ -49,7 +49,6 @@ function SplitSection({ kicker, title, text, image, alt, invert = false, cta }) 
           </h2>
         </div>
 
-        {/* Immagine (su mobile viene subito dopo header mobile) */}
         <div
           className={[
             "lg:col-span-5 relative h-[240px] sm:h-[320px] lg:h-[360px]",
@@ -64,14 +63,12 @@ function SplitSection({ kicker, title, text, image, alt, invert = false, cta }) 
           <div className="absolute inset-0 bg-black/10" />
         </div>
 
-        {/* Testo (su desktop include anche titolo; su mobile solo testo/cta) */}
         <div
           className={[
             "lg:col-span-7 p-7 sm:p-10",
             invert ? "lg:order-1" : "lg:order-2",
           ].join(" ")}
         >
-          {/* HEADER DESKTOP (titolo nel blocco testo come prima) */}
           <div className="hidden lg:block">
             {kicker ? <p className="section-title text-brand-red text-sm">{kicker}</p> : null}
             <h2 className="font-heading uppercase tracking-wide text-2xl sm:text-3xl mt-2">
@@ -79,7 +76,6 @@ function SplitSection({ kicker, title, text, image, alt, invert = false, cta }) 
             </h2>
           </div>
 
-          {/* su mobile mettiamo meno spazio sopra perché titolo è già sopra */}
           <p className="mt-0 lg:mt-4 text-black/70 leading-relaxed max-w-2xl">{text}</p>
 
           {cta ? <div className="mt-7">{cta}</div> : null}
@@ -245,73 +241,59 @@ function FinalCtaHero({ image = "hero-final.jpg" }) {
 export default function AboutPage() {
   return (
     <div className="bg-brand-red">
-      {/* HERO: su mobile voglio titolo -> foto -> resto contenuto (desktop invariato) */}
-      <Section className="bg-brand-red">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-            {/* TESTO */}
-            <div>
-              <p className="section-title text-white/90">Chi siamo</p>
+      {/* ✅ HERO VERO: about.jpg come background */}
+      <Section className="relative bg-brand-red overflow-hidden">
+        {/* background image */}
+        <div className="absolute inset-0">
+          <img
+            src={toPublicSrc("about.jpg")}
+            alt="Red Gym - panoramica sala pesi"
+            className="h-full w-full object-cover"
+          />
+          {/* overlay: leggibilità + vibe “hero” */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-brand-red/90" />
+          <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
+        </div>
 
-              <h1 className="font-heading uppercase tracking-wide text-white text-4xl sm:text-5xl mt-2">
-                Una palestra grande, conosciuta, con risultati concreti.
-              </h1>
+        {/* content */}
+        <div className="relative">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            {/* Altezza hero */}
+            <div className="min-h-[620px] sm:min-h-[680px] lg:min-h-[560px] flex items-end lg:items-center py-10 sm:py-14 lg:py-16">
+              {/* pannello contenuti (rosso, come nello screenshot) */}
+              <div className="w-full lg:max-w-2xl rounded-2xl border border-white/10 bg-brand-red/85 backdrop-blur-[2px] shadow-soft p-6 sm:p-8 lg:p-10">
+                <p className="section-title text-white/90">Chi siamo</p>
 
-              {/* IMMAGINE SOLO MOBILE: subito dopo il titolo */}
-              <div className="mt-5 lg:hidden">
-                <div className="rounded-2xl overflow-hidden shadow-soft border border-white/10">
-                  <div className="relative">
-                    <img
-                      src={toPublicSrc("about.jpg")}
-                      alt="Red Gym - panoramica sala pesi"
-                      className="w-full h-[260px] sm:h-[340px] object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/25" />
-                    <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
-                  </div>
-                </div>
-              </div>
+                <h1 className="font-heading uppercase tracking-wide text-white text-4xl sm:text-5xl mt-2">
+                  Una palestra grande, conosciuta, con risultati concreti.
+                </h1>
 
-              <p className="mt-5 text-white/85 leading-relaxed">
-                {SITE.name} è un punto di riferimento sul territorio: sala pesi completa, aree dedicate al
-                functional, cardio e una selezione di corsi pensati per ogni livello — dal principiante
-                all’atleta evoluto.
-              </p>
+                <p className="mt-5 text-white/85 leading-relaxed">
+                  {SITE.name} è un punto di riferimento sul territorio: sala pesi completa, aree dedicate al
+                  functional, cardio e una selezione di corsi pensati per ogni livello — dal principiante
+                  all’atleta evoluto.
+                </p>
 
-              <p className="mt-4 text-white/85 leading-relaxed">
-                Metodo, disciplina e ambiente: qui l’allenamento è serio, ma la motivazione la trovi ogni giorno.
-              </p>
+                <p className="mt-4 text-white/85 leading-relaxed">
+                  Metodo, disciplina e ambiente: qui l’allenamento è serio, ma la motivazione la trovi ogni giorno.
+                </p>
 
-              <div className="mt-7 flex gap-3 flex-col sm:flex-row">
-                <a
-                  href="/courses"
-                  className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold tracking-wide
-                       bg-white text-brand-red hover:bg-white/90 transition-colors"
-                >
-                  Scopri corsi e attività
-                </a>
+                <div className="mt-7 flex gap-3 flex-col sm:flex-row">
+                  <a
+                    href="/courses"
+                    className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold tracking-wide
+                               bg-white text-brand-red hover:bg-white/90 transition-colors"
+                  >
+                    Scopri corsi e attività
+                  </a>
 
-                <a
-                  href="/contact"
-                  className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold tracking-wide
-                       border border-white text-white hover:bg-white hover:text-brand-red transition-colors"
-                >
-                  Contattaci
-                </a>
-              </div>
-            </div>
-
-            {/* IMMAGINE SOLO DESKTOP: layout invariato */}
-            <div className="hidden lg:block lg:pr-0">
-              <div className="rounded-2xl overflow-hidden shadow-soft border border-white/10 lg:rounded-l-2xl lg:rounded-r-none lg:ml-6">
-                <div className="relative">
-                  <img
-                    src={toPublicSrc("about.jpg")}
-                    alt="Red Gym - panoramica sala pesi"
-                    className="w-full h-[420px] object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/25" />
-                  <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
+                  <a
+                    href="/contact"
+                    className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold tracking-wide
+                               border border-white text-white hover:bg-white hover:text-brand-red transition-colors"
+                  >
+                    Contattaci
+                  </a>
                 </div>
               </div>
             </div>
