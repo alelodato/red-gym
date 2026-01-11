@@ -40,7 +40,6 @@ function SplitSection({ kicker, title, text, image, alt, invert = false, cta }) 
   return (
     <section className="rounded-xl bg-white border border-brand-gray200 overflow-hidden">
       <div className="grid lg:grid-cols-12">
-        {/* HEADER MOBILE (titolo sopra immagine) */}
         <div className="p-7 sm:p-10 lg:hidden">
           {kicker ? <p className="section-title text-brand-red text-sm">{kicker}</p> : null}
           <h2 className="font-heading uppercase tracking-wide text-2xl sm:text-3xl mt-2">
