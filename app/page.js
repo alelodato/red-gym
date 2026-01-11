@@ -226,8 +226,8 @@ export default function HomePage() {
           <WhiteSection id="home-about" fullOnMobile>
             <SectionHead
               kicker="La palestra"
-              title="Spazi reali. Allenamento serio."
-              lead="Sala pesi moderna, aree dedicate e ambienti curati: un punto di riferimento sul territorio per chi vuole risultati concreti."
+              title="Spazi veri. Metodo. Supporto."
+              lead="Red Gym è un centro sportivo a Fonte Nuova (Roma) con ampio parcheggio e circa 1.800 mq di spazio: sala pesi completa, aree dedicate e un ambiente ordinato, motivante e seguito da professionisti."
               ctaHref="/about"
               ctaLabel="Scopri la palestra"
             />
@@ -239,38 +239,38 @@ export default function HomePage() {
 
               <div className="order-2 lg:order-1 lg:col-span-7 grid gap-6 md:grid-cols-2">
                 <Card
-                  kicker="Ambienti"
-                  title="Sala pesi moderna"
+                  kicker="Attrezzatura"
+                  title="Macchinari di livello"
                   imageSrc="pesi.jpg"
                   imageAlt="Sala pesi moderna"
-                  text="Attrezzature aggiornate e spazi ottimizzati per allenarti bene, senza perdere tempo."
+                  text="Strumenti selezionati per sicurezza, comfort ed efficacia. Non i soliti attrezzi “da catalogo”: qui trovi macchinari che fanno la differenza."
                   href="/about"
                   ctaLabel="Vedi gli ambienti"
                 />
                 <Card
                   kicker="Sport da combattimento"
-                  title="2 sale dedicate"
+                  title="Sale dedicate"
                   imageSrc="combat.jpg"
                   imageAlt="Sala sport da combattimento"
-                  text="Spazi separati per gestire più corsi e livelli mantenendo qualità e organizzazione."
+                  text="Boxe, prepugilistica, MMA e discipline tecniche: spazi organizzati e atmosfera giusta per allenarti con metodo e concentrazione."
                   href="/courses"
                   ctaLabel="Scopri i corsi"
                 />
                 <Card
-                  kicker="Comfort"
-                  title="Spogliatoi & docce"
+                  kicker="Benessere"
+                  title="Postura e salute"
                   imageSrc="sala.jpg"
                   imageAlt="Spogliatoi e docce"
-                  text="Armadietti, docce e spazi comodi: allenati con serenità prima e dopo la sessione."
-                  href="/about"
-                  ctaLabel="Dettagli"
+                  text="Allenarsi non vuol dire sempre spingersi al limite: anche mobilità, postura e benessere quotidiano fanno parte del percorso."
+                  href="/courses"
+                  ctaLabel="Vedi attività"
                 />
                 <Card
                   kicker="Community"
-                  title="Ambiente motivante"
+                  title="Rispetto e mentalità"
                   imageSrc="community.jpg"
                   imageAlt="Community Red Gym"
-                  text="Persone diverse, stesso mindset: costanza, rispetto e energia positiva."
+                  text="Disciplina, rispetto, autocontrollo. Qui non sei mai “lasciato solo”: trovi un ambiente serio, accogliente e pieno di energia positiva."
                   href="/about"
                   ctaLabel="Leggi la storia"
                 />
@@ -285,7 +285,7 @@ export default function HomePage() {
             <SectionHead
               kicker="Corsi & attività"
               title="Trova il tuo percorso."
-              lead="Ogni corso ha descrizione, orari e trainer dedicati: sala pesi/fitness, pilates, boxe (con prepugilistica), MMA, karate e judo."
+              lead="Che tu sia all’inizio o già avanzato, trovi corsi con guide competenti e progressioni chiare: sala pesi/fitness, pilates e benessere, boxe/prepugilistica, MMA, karate e judo."
               ctaHref="/courses"
               ctaLabel="Vedi corsi e orari"
             />
@@ -307,19 +307,19 @@ export default function HomePage() {
                   {[
                     {
                       t: "Sala pesi & Fitness",
-                      d: "Forza, ipertrofia, tonificazione e programmi su misura con supporto reale.",
+                      d: "Allenamento seguito e strumenti di qualità: sicurezza, efficacia e continuità per obiettivi reali.",
                     },
                     {
-                      t: "Pilates",
-                      d: "Postura, mobilità e controllo: ideale per benessere e integrazione all’allenamento.",
+                      t: "Pilates & postura",
+                      d: "Controllo, mobilità, equilibrio. Un lavoro intelligente per stare meglio e muoverti meglio.",
                     },
                     {
                       t: "Boxe + Prepugilistica",
-                      d: "Tecnica, coordinazione e condizionamento. Percorso propedeutico per costruire basi solide.",
+                      d: "Tecnica, coordinazione, fiato e disciplina. Percorso adatto a chi vuole metodo (con o senza esperienza).",
                     },
                     {
                       t: "MMA • Karate • Judo",
-                      d: "Discipline tecniche e complete: progressioni chiare e lavoro strutturato.",
+                      d: "Percorsi completi per corpo e mente: concentrazione, rispetto, progressione e allenamento serio.",
                     },
                   ].map((x) => (
                     <div key={x.t} className="border-l-4 border-brand-red pl-4">
@@ -347,7 +347,7 @@ export default function HomePage() {
             image="diagonal2.jpg"
             kicker="Red Gym"
             title="Energia. Disciplina. Risultati."
-            chips={["Sala pesi", "Corsi", "Supporto"]}
+            chips={["Metodo", "Supporto", "Qualità"]}
             flip={true}
           />
 
@@ -356,7 +356,7 @@ export default function HomePage() {
             <SectionHead
               kicker="Abbonamenti"
               title="Scegli la formula giusta."
-              lead="Opzioni mensili e annuali, pacchetti e soluzioni per corsi: trovi la formula più adatta alle tue esigenze."
+              lead="Soluzioni flessibili e percorsi dedicati: la cosa importante è allenarsi con continuità, con un ambiente che ti sostiene davvero."
               ctaHref="/pricing"
               ctaLabel="Vedi prezzi"
             />
@@ -365,21 +365,21 @@ export default function HomePage() {
               <Card
                 kicker="Flessibile"
                 title="Mensile"
-                text="Perfetto per iniziare e prendere ritmo. Entra in palestra e prova l’ambiente."
+                text="Perfetto per iniziare, prendere ritmo e capire il percorso giusto per te."
                 href="/pricing"
                 ctaLabel="Scopri"
               />
               <Card
-                kicker="Conveniente"
+                kicker="Continuità"
                 title="Annuale"
-                text="La scelta migliore se vuoi continuità e risultati nel tempo."
+                text="Se vuoi risultati concreti, la costanza è tutto. Questa è la scelta più completa."
                 href="/pricing"
                 ctaLabel="Dettagli"
               />
               <Card
                 kicker="Corsi"
                 title="Attività"
-                text="Pacchetti e accessi dedicati alle discipline e agli orari che preferisci."
+                text="Pacchetti e accessi dedicati alle discipline: scegli cosa ti rappresenta e allenati con metodo."
                 href="/pricing"
                 ctaLabel="Vedi opzioni"
               />
@@ -392,8 +392,8 @@ export default function HomePage() {
           <WhiteSection id="home-contact" fullOnMobile={false}>
             <SectionHead
               kicker="Contatti"
-              title="Vieni a trovarci."
-              lead="Compila il form per info su corsi, orari e abbonamenti. Oppure raggiungici direttamente in sede."
+              title="Scrivici o passa in sede."
+              lead="Per info su corsi, orari e abbonamenti puoi contattarci: ti rispondiamo e ti aiutiamo a scegliere il percorso più adatto."
               ctaHref="/contact"
               ctaLabel="Apri contatti"
             />
@@ -430,7 +430,7 @@ export default function HomePage() {
                     <textarea
                       rows="5"
                       className="mt-1 w-full rounded-md border border-brand-gray200 px-4 py-3 outline-none focus:border-brand-red"
-                      placeholder="Scrivi qui la tua richiesta..."
+                      placeholder="Raccontaci cosa cerchi (corsi, sala pesi, orari, obiettivi)..."
                     />
                   </div>
 
@@ -476,8 +476,8 @@ export default function HomePage() {
                     Red Gym – Fonte Nuova
                   </p>
                   <p className="mt-2 text-sm text-black/70">
-                    Inserisci qui indirizzo completo + telefono/WhatsApp quando li
-                    hai definitivi.
+                    Vieni a trovarci in sede: ampio parcheggio e spazi grandi per
+                    allenarti con calma, metodo e supporto reale.
                   </p>
                 </div>
               </div>

@@ -7,11 +7,6 @@ function toPublicSrc(path) {
   return path.startsWith("/") ? path : `/${path}`;
 }
 
-/**
- * ✅ WhiteBlock full width su mobile
- * - px-0 + rounded-none + border-x-0 su mobile
- * - boxed da sm in su
- */
 function WhiteBlock({ children }) {
   return (
     <div className="mx-auto max-w-7xl px-0 sm:px-6 lg:px-8">
@@ -121,7 +116,7 @@ function DiagonalBand({
           </h3>
 
           <div className="mt-4 flex flex-wrap gap-2">
-            {["Sala pesi", "Combattimento", "Community"].map((x) => (
+            {["Metodo", "Qualità", "Supporto"].map((x) => (
               <span
                 key={x}
                 className="rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold text-white/85"
@@ -163,13 +158,13 @@ function FinalCtaHero({ image = "hero-final.jpg" }) {
           <p className="text-sm font-semibold text-white/80">Vieni a trovarci</p>
 
           <h2 className="font-heading uppercase tracking-wide text-white text-3xl mt-2">
-            Il modo migliore per capire è vivere l’ambiente.
+            Capisci Red Gym solo quando la vivi.
           </h2>
 
           <p className="mt-4 text-white/85 leading-relaxed">
-            Passa in palestra, dai un’occhiata agli spazi, parla con lo staff e
-            scegli il percorso più adatto. Compila il form e ti rispondiamo con
-            tutte le info su corsi, orari e abbonamenti.
+            Passa in palestra, guarda gli spazi, parla con lo staff e scegli il
+            percorso più adatto. Qui trovi qualità, ordine e un supporto reale —
+            dal principiante all’atleta avanzato.
           </p>
 
           <div className="mt-6 flex flex-col gap-3">
@@ -203,13 +198,13 @@ function FinalCtaHero({ image = "hero-final.jpg" }) {
                 </p>
 
                 <h2 className="font-heading uppercase tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl mt-2">
-                  Il modo migliore per capire è vivere l’ambiente.
+                  Capisci Red Gym solo quando la vivi.
                 </h2>
 
                 <p className="mt-4 text-white/80 leading-relaxed max-w-2xl">
-                  Passa in palestra, dai un’occhiata agli spazi, parla con lo
-                  staff e scegli il percorso più adatto. Compila il form e ti
-                  rispondiamo con tutte le info su corsi, orari e abbonamenti.
+                  Passa in palestra, guarda gli spazi, parla con lo staff e scegli
+                  il percorso più adatto. Qui non sei mai “da solo”: trovi guide,
+                  metodo e un ambiente che ti spinge a fare le cose nel modo giusto.
                 </p>
               </div>
 
@@ -264,19 +259,19 @@ export default function AboutPage() {
                 <p className="section-title text-white/90">Chi siamo</p>
 
                 <h1 className="font-heading uppercase tracking-wide text-white text-4xl sm:text-5xl mt-2">
-                  Una palestra grande, conosciuta, con risultati concreti.
+                  Allenamento serio. Ambiente giusto. Risultati reali.
                 </h1>
 
                 <p className="mt-5 text-white/85 leading-relaxed">
-                  {SITE.name} è un punto di riferimento sul territorio: sala
-                  pesi completa, aree dedicate al functional, cardio e una
-                  selezione di corsi pensati per ogni livello — dal principiante
+                  {SITE.name} è un centro sportivo a Fonte Nuova (Roma) con ampio
+                  parcheggio e circa 1.800 mq di spazio: sala pesi completa, aree
+                  dedicate e corsi pensati per ogni livello — dal principiante
                   all’atleta evoluto.
                 </p>
 
                 <p className="mt-4 text-white/85 leading-relaxed">
-                  Metodo, disciplina e ambiente: qui l’allenamento è serio, ma
-                  la motivazione la trovi ogni giorno.
+                  Qui l’obiettivo è semplice: farti allenare meglio. Con metodo,
+                  disciplina e un team presente che ti segue passo dopo passo.
                 </p>
 
                 <div className="mt-7 flex gap-3 flex-col sm:flex-row">
@@ -307,37 +302,38 @@ export default function AboutPage() {
           <div className="flex flex-col gap-2">
             <p className="section-title text-brand-red">Gli ambienti</p>
             <h2 className="font-heading uppercase tracking-wide text-3xl sm:text-4xl">
-              Spazi reali, curati, pronti per allenarti sul serio.
+              Spazi grandi, curati, pensati per allenarti bene.
             </h2>
             <p className="mt-2 text-black/70 leading-relaxed max-w-3xl">
-              Ogni area della palestra è pensata per darti comfort, sicurezza e
-              continuità: dagli spazi per la sala pesi alle sale dedicate agli
-              sport da combattimento, fino a spogliatoi e docce con armadietti.
+              Red Gym è organizzata per farti vivere l’allenamento con qualità:
+              aree dedicate, attrezzatura selezionata per sicurezza e comfort, e
+              un ambiente ordinato e motivante. Allenarsi “nel modo giusto” fa la
+              differenza.
             </p>
           </div>
 
           <div className="mt-10 space-y-8">
             <SplitSection
-              kicker="Ambienti"
-              title="Sala pesi moderna e completa"
-              text="Una sala pesi ampia, organizzata e aggiornata: macchinari moderni, panche, rack e attrezzatura per lavorare in sicurezza. Gli spazi sono ottimizzati per ridurre attese e permetterti di seguire la tua scheda con continuità, sia che tu sia all’inizio sia che tu stia cercando performance."
+              kicker="Attrezzatura"
+              title="Sala pesi ampia e completa"
+              text="Una sala pesi grande e ben organizzata, con macchinari e postazioni selezionate per rispondere a esigenze diverse: forza, controllo, postura, resistenza. L’obiettivo è allenarti con efficacia e continuità, senza caos e con la sicurezza di fare gli esercizi nel modo corretto."
               image="about-weights.jpg"
               alt="Sala pesi moderna"
             />
 
             <SplitSection
               kicker="Sport da combattimento"
-              title="Due sale dedicate agli sport da combattimento"
-              text="Due ambienti separati per gestire corsi e gruppi in modo ordinato, mantenendo qualità e attenzione. Spazi ideali per boxe e prepugilistica, MMA e discipline tecniche: qui puoi allenarti con la giusta atmosfera, senza sovrapposizioni e con un’organizzazione chiara."
+              title="Sale dedicate per allenarti con concentrazione"
+              text="Per le discipline da combattimento servono spazio e atmosfera giusta: qui trovi ambienti dedicati per gestire corsi e gruppi in modo ordinato, con attenzione alla tecnica, alla sicurezza e al lavoro strutturato."
               image="about-combat-1.jpg"
               alt="Sala sport da combattimento"
               invert
             />
 
             <SplitSection
-              kicker="Seconda sala"
-              title="Più spazio, più corsi, stessa qualità"
-              text="La seconda sala permette di offrire più attività e più fasce orarie, senza sacrificare la qualità dell’allenamento. È la soluzione perfetta per una palestra avviata: più varietà per gli utenti e gestione più fluida dei corsi durante la settimana."
+              kicker="Organizzazione"
+              title="Più spazio, più qualità"
+              text="Una struttura grande funziona solo se è curata: spazi pensati per ridurre confusione, migliorare l’esperienza e permetterti di allenarti con serenità. È un dettaglio che cambia tutto quando vuoi risultati concreti."
               image="about-combat-2.jpg"
               alt="Seconda sala sport da combattimento"
             />
@@ -345,7 +341,7 @@ export default function AboutPage() {
             <SplitSection
               kicker="Comfort"
               title="Spogliatoi, docce e armadietti"
-              text="Allenarsi bene significa anche potersi gestire con comodità. Spogliatoi funzionali con armadietti e docce, pensati per offrirti un’esperienza completa prima e dopo l’allenamento, soprattutto se vieni in pausa pranzo o dopo lavoro."
+              text="Allenarsi bene significa anche gestirsi bene: spogliatoi funzionali, docce e armadietti per un’esperienza completa prima e dopo la sessione, soprattutto se vieni in pausa pranzo o dopo lavoro."
               image="about-lockers.jpg"
               alt="Spogliatoi e armadietti"
               invert
@@ -359,8 +355,8 @@ export default function AboutPage() {
           <div className="space-y-8">
             <SplitSection
               kicker="Corsi & Trainer"
-              title="Varietà, qualità e guide competenti"
-              text="Dalla sala pesi al pilates, dagli sport da combattimento alle discipline tecniche: in Red Gym trovi un’offerta completa e trainer presenti. L’approccio è pratico e misurabile: tecnica corretta, progressioni chiare e un supporto reale in base al tuo livello. Che tu stia iniziando o voglia portare le performance al prossimo step, qui trovi un percorso adatto."
+              title="Guide competenti, progressioni chiare"
+              text="In Red Gym la differenza non la fa solo l’attrezzatura: la fa il supporto. I trainer sono presenti e qualificati, pronti a seguirti che tu stia iniziando o voglia alzare il livello. Tecnica, progressione, sicurezza e un percorso adatto a te."
               image="about-trainers.jpg"
               alt="Trainer e coaching"
               cta={
@@ -375,8 +371,8 @@ export default function AboutPage() {
 
             <SplitSection
               kicker="Community"
-              title="Persone diverse, stesso mindset"
-              text="In palestra non contano solo gli attrezzi: conta l’energia. La community di Red Gym è fatta di persone con obiettivi diversi — chi vuole rimettersi in forma, chi cerca performance, chi ama i corsi, chi vive gli sport da combattimento — ma con un punto in comune: la costanza. Qui trovi un ambiente motivante, rispettoso e stimolante."
+              title="Disciplina, rispetto, autocontrollo"
+              text="Gli sport insegnano molto più che muoversi: insegnano mentalità. In palestra trovi persone diverse con obiettivi diversi, ma con un punto in comune: la costanza. Un ambiente serio, accogliente e stimolante dove l’energia è quella giusta."
               image="about-community.jpg"
               alt="Community Red Gym"
               invert
