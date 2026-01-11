@@ -23,7 +23,8 @@ function TripleDiagonalBand({
   kicker = "Red Gym",
   title = "Energia. Disciplina. Risultati.",
   subtitle = "Sala pesi • Pilates • Sport da combattimento",
-  heightClass = "h-[260px] sm:h-[320px] lg:h-[420px]",
+  // ✅ più alta su mobile
+  heightClass = "h-[340px] sm:h-[360px] lg:h-[420px]",
   reverse = false,
   className = "",
 }) {
@@ -38,37 +39,57 @@ function TripleDiagonalBand({
   return (
     <section className={`relative bg-brand-red overflow-hidden ${className}`}>
       <div className={`relative ${heightClass}`}>
+        {/* ✅ 3 immagini attaccate */}
         <div className="absolute inset-0 flex min-w-0">
           {images.map((src, idx) => (
-            <div key={idx} className="relative flex-1 min-w-0">
+            <div key={src + idx} className="relative flex-1 min-w-0">
               <img
                 src={toPublicSrc(src)}
                 alt=""
                 className="absolute inset-0 h-full w-full object-cover"
               />
+              {/* leggero separatore visivo tra le immagini (opzionale, carino su mobile) */}
+              <div className="absolute inset-y-0 right-0 w-px bg-white/10" />
             </div>
           ))}
         </div>
 
+        {/* overlay unico (leggibilità testo) */}
         <div className="absolute inset-0 bg-black/45" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20" />
 
-        <div className={`absolute -top-1 left-0 right-0 h-16 sm:h-20 bg-brand-red ${topClip}`} />
-        <div className={`absolute -bottom-1 left-0 right-0 h-16 sm:h-20 bg-brand-red ${bottomClip}`} />
+        {/* tagli diagonali sopra + sotto */}
+        <div
+          className={`absolute -top-1 left-0 right-0 h-16 sm:h-20 bg-brand-red ${topClip}`}
+        />
+        <div
+          className={`absolute -bottom-1 left-0 right-0 h-16 sm:h-20 bg-brand-red ${bottomClip}`}
+        />
       </div>
 
+      {/* testo centrato */}
       <div className="absolute inset-0 flex items-center">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {kicker ? <p className="section-title text-white/80">{kicker}</p> : null}
+          {kicker ? (
+            <p className="section-title text-white/85">{kicker}</p>
+          ) : null}
 
           {title ? (
-            <h1 className="font-heading uppercase tracking-wide text-white text-3xl sm:text-4xl lg:text-5xl mt-2">
+            <h1
+              className="
+                font-heading uppercase tracking-wide text-white
+                text-4xl sm:text-4xl lg:text-5xl
+                mt-2 leading-[0.95]
+              "
+            >
               {title}
             </h1>
           ) : null}
 
           {subtitle ? (
-            <p className="mt-3 text-white/80 max-w-2xl">{subtitle}</p>
+            <p className="mt-4 text-white/85 max-w-2xl text-base sm:text-lg leading-relaxed">
+              {subtitle}
+            </p>
           ) : null}
         </div>
       </div>
@@ -93,31 +114,38 @@ function DiagonalPromoOver65({
 
   return (
     <section className="relative bg-brand-red overflow-hidden">
-      <div className="relative h-[260px] sm:h-[350px] lg:h-[450px]">
+      {/* background (copre SEMPRE tutta l'altezza del contenuto perché sta su absolute inset-0 + section relative) */}
+      <div className="absolute inset-0">
         <img
           src={toPublicSrc(image)}
           alt={title}
-          className="absolute inset-0 h-full w-full object-cover object-top"
+          className="h-full w-full object-cover object-top"
         />
         <div className="absolute inset-0 bg-black/55" />
 
-        <div className={`absolute -top-1 left-0 right-0 h-16 sm:h-20 bg-brand-red ${topClip}`} />
-        <div className={`absolute -bottom-1 left-0 right-0 h-16 sm:h-20 bg-brand-red ${bottomClip}`} />
+        {/* tagli diagonali */}
+        <div
+          className={`absolute -top-1 left-0 right-0 h-16 sm:h-20 bg-brand-red ${topClip}`}
+        />
+        <div
+          className={`absolute -bottom-1 left-0 right-0 h-16 sm:h-20 bg-brand-red ${bottomClip}`}
+        />
       </div>
 
-      <div className="absolute inset-0 flex items-center">
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* contenuto in flow */}
+      <div className="relative">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
           <p className="section-title text-white/85">{kicker}</p>
 
-          <h3 className="font-heading uppercase tracking-wide text-white text-3xl sm:text-4xl lg:text-5xl mt-2">
+          <h3 className="font-heading uppercase tracking-wide text-white text-4xl sm:text-5xl mt-2">
             {title}
           </h3>
 
-          <p className="mt-3 text-white/85 max-w-2xl leading-relaxed">
+          <p className="mt-4 text-white/85 max-w-2xl leading-relaxed text-base sm:text-lg">
             {subtitle}
           </p>
 
-          <div className="mt-5 flex flex-col sm:flex-row gap-3">
+          <div className="mt-6 grid gap-3 sm:flex sm:flex-row">
             <a
               href="/contact"
               className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold tracking-wide

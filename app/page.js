@@ -7,12 +7,6 @@ function toPublicSrc(path) {
   return path.startsWith("/") ? path : `/${path}`;
 }
 
-/**
- * ✅ WhiteSection responsiva:
- * - default: full width su mobile (px-0, no rounded, no border-x)
- * - da sm in su: torna boxed come prima
- * - puoi disattivare con fullOnMobile={false} (per il blocco Contact)
- */
 function WhiteSection({ children, id, fullOnMobile = true }) {
   return (
     <section id={id} className="bg-brand-red">
@@ -392,7 +386,7 @@ export default function HomePage() {
             </div>
           </WhiteSection>
 
-          <DiagonalPhoto image="diagonal3.jpg" alt="Red Gym - community" flip={false} />
+          <DiagonalPhoto image="diagonal3.jpg" alt="Red Gym - community" flip={false} className="object-top" />
 
           {/* CONTACT (boxed anche su mobile) */}
           <WhiteSection id="home-contact" fullOnMobile={false}>
