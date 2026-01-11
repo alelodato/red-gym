@@ -163,12 +163,12 @@ const COURSES = [
       {
         name: "Personal Trainer – Sala Pesi",
         image: "pt1.jpg",
-        bio: "Tecnica, sicurezza e progressione: supporto reale su esecuzione, schede e miglioramento della performance.",
+        bio: "-",
       },
       {
         name: "Personal Trainer – Fitness",
         image: "pt2.jpg",
-        bio: "Percorsi su misura per dimagrimento, tonificazione e condizione fisica, con metodo e obiettivi misurabili.",
+        bio: "-",
       },
     ],
   },
@@ -178,7 +178,7 @@ const COURSES = [
     subtitle: "Postura, controllo, mobilità e benessere",
     image: "salute.png",
     description:
-      "Allenarsi non vuol dire sempre spingersi al limite: a volte vuol dire ascoltare il corpo e rimetterlo in equilibrio. Il Pilates aiuta a migliorare postura e controllo, aumentare mobilità e ridurre tensioni.\n\nÈ un percorso adatto a tutti e utile anche come integrazione alla sala pesi o agli sport da combattimento: più consapevolezza, più qualità di movimento.",
+      "Allenarsi non vuol dire sempre spingersi al limite: a volte vuol dire ascoltare il corpo e rimetterlo in equilibrio. Il Pilates aiuta a migliorare postura e controllo, aumentare mobilità e ridurre tensioni.\n\nÈ un percorso adatto a tutti e utile anche come integrazione alla sala pesi o agli sport da combattimento: più consapevolezza, più qualità di movimento.\n\n Approccio progressivo e accessibile: postura, respirazione e controllo, con attenzione ai dettagli.",
     schedule: [
       { day: "Lunedì", time: "18:30 – 19:30" },
       { day: "Mercoledì", time: "18:30 – 19:30" },
@@ -188,12 +188,12 @@ const COURSES = [
       {
         name: "Insegnante Pilates",
         image: "pil-maestra.jpg",
-        bio: "Approccio progressivo e accessibile: postura, respirazione e controllo, con attenzione ai dettagli.",
+        bio: "-",
       },
       {
         name: "Insegnante Pilates",
         image: "pil-maestra2.jpg",
-        bio: "Percorsi orientati a benessere e prevenzione: mobilità, stabilità e lavoro intelligente sul core.",
+        bio: "-",
       },
     ],
   },
@@ -205,14 +205,14 @@ const COURSES = [
     description:
       "Lo yoga migliora postura e mobilità, scioglie le tensioni e favorisce un benessere mentale concreto. La pratica unisce respiro consapevole e movimento fluido, per rafforzare il corpo in modo armonico.\n\nÈ un’attività adatta a tutti: puoi iniziare anche se non hai mai praticato, e usarla per completare il tuo allenamento settimanale.",
     schedule: [
-      { day: "Da definire", time: "—" },
-      { day: "Da definire", time: "—" },
+      { day: "-", time: "—" },
+      { day: "-", time: "—" },
     ],
     trainers: [
       {
         name: "Insegnante Yoga",
         image: "yoga-trainer.jpg",
-        bio: "Lezioni orientate a mobilità, respirazione e postura. Un percorso progressivo e adatto a ogni livello.",
+        bio: "-",
       },
     ],
   },
@@ -222,7 +222,7 @@ const COURSES = [
     subtitle: "Tecnica, fiducia e autocontrollo",
     image: "boxe.png",
     description:
-      "La boxe è uno degli sport più completi: migliora forza, resistenza, coordinazione e riflessi, ma soprattutto costruisce fiducia, autocontrollo e determinazione.\n\nIl percorso è guidato e strutturato: tecnica, lavoro al sacco, combinazioni e condizionamento. La prepugilistica è perfetta per chi vuole costruire basi solide (anche senza contatto) con metodo e disciplina.",
+      "La boxe è uno degli sport più completi: migliora forza, resistenza, coordinazione e riflessi, ma soprattutto costruisce fiducia, autocontrollo e determinazione.\n\nIl percorso è guidato e strutturato: tecnica, lavoro al sacco, combinazioni e condizionamento. La prepugilistica è perfetta per chi vuole costruire basi solide (anche senza contatto) con metodo e disciplina.\n\nAllenamenti seri e progressivi: tecnica, timing e condizionamento, con attenzione alla sicurezza e alla crescita dell’allievo.",
     schedule: [
       { day: "Martedì", time: "20:00 – 21:00" },
       { day: "Giovedì", time: "20:00 – 21:00" },
@@ -231,7 +231,7 @@ const COURSES = [
       {
         name: "Insegnante di Boxe",
         image: "boxe-coach.jpg",
-        bio: "Allenamenti seri e progressivi: tecnica, timing e condizionamento, con attenzione alla sicurezza e alla crescita dell’allievo.",
+        bio: "-",
       },
     ],
   },
@@ -241,16 +241,16 @@ const COURSES = [
     subtitle: "Potenza, tecnica e controllo",
     image: "kickboxing.jpg",
     description:
-      "La kickboxing unisce pugni e calci in un allenamento completo, dinamico e coinvolgente. Migliora potenza e resistenza, coordinazione e agilità, tecnica e concentrazione.\n\nÈ perfetta sia per chi inizia sia per chi ha già esperienza: ogni lezione è pensata per farti crescere con metodo, in sicurezza e sempre seguito.",
+      "La kickboxing unisce pugni e calci in un allenamento completo, dinamico e coinvolgente. Migliora potenza e resistenza, coordinazione e agilità, tecnica e concentrazione.\n\nÈ perfetta sia per chi inizia sia per chi ha già esperienza: ogni lezione è pensata per farti crescere con metodo, in sicurezza e sempre seguito.\n\nProgressioni chiare e lavoro tecnico: migliora sicurezza nei colpi, timing e condizionamento, senza improvvisazione.",
     schedule: [
-      { day: "Da definire", time: "—" },
-      { day: "Da definire", time: "—" },
+      { day: "-", time: "—" },
+      { day: "-", time: "—" },
     ],
     trainers: [
       {
         name: "Insegnante di Kickboxing",
         image: "kickboxing-coach.jpg",
-        bio: "Progressioni chiare e lavoro tecnico: migliora sicurezza nei colpi, timing e condizionamento, senza improvvisazione.",
+        bio: "-",
       },
     ],
   },
@@ -260,7 +260,7 @@ const COURSES = [
     subtitle: "Forza, tecnica e versatilità",
     image: "mma.png",
     description:
-      "Tecnica, potenza, concentrazione. L’MMA è uno degli sport più completi: unisce striking e grappling e sviluppa forza, resistenza, agilità e capacità di reazione.\n\nÈ un percorso adatto a tutti i livelli: si lavora con metodo e progressione, imparando sia principi tecnici che gestione del corpo e controllo, sempre in un ambiente serio e seguito.",
+      "Tecnica, potenza, concentrazione. L’MMA è uno degli sport più completi: unisce striking e grappling e sviluppa forza, resistenza, agilità e capacità di reazione.\n\nÈ un percorso adatto a tutti i livelli: si lavora con metodo e progressione, imparando sia principi tecnici che gestione del corpo e controllo, sempre in un ambiente serio e seguito. \n\nPercorso strutturato e completo: tecnica, condizionamento e progressione, con focus su sicurezza e controllo.",
     schedule: [
       { day: "Lunedì", time: "20:00 – 21:15" },
       { day: "Mercoledì", time: "20:00 – 21:15" },
@@ -269,7 +269,7 @@ const COURSES = [
       {
         name: "Insegnante di MMA",
         image: "mma-coach.jpg",
-        bio: "Percorso strutturato e completo: tecnica, condizionamento e progressione, con focus su sicurezza e controllo.",
+        bio: "-",
       },
     ],
   },
@@ -279,16 +279,16 @@ const COURSES = [
     subtitle: "Disciplina, rispetto e crescita personale",
     image: "karate.png",
     description:
-      "Il Karate è molto più di uno sport: è un percorso che forma corpo e mente. Aiuta a sviluppare postura, equilibrio e sicurezza in sé stessi, insieme a rispetto delle regole, autocontrollo e concentrazione.\n\nUn’attività adatta a bambini, ragazzi e adulti, con un approccio serio ma sempre motivante: si cresce passo dopo passo, con passione e attenzione all’allievo.",
+      "Il Karate è molto più di uno sport: è un percorso che forma corpo e mente. Aiuta a sviluppare postura, equilibrio e sicurezza in sé stessi, insieme a rispetto delle regole, autocontrollo e concentrazione.\n\nUn’attività adatta a bambini, ragazzi e adulti, con un approccio serio ma sempre motivante: si cresce passo dopo passo, con passione e attenzione all’allievo.\n\nProgressioni tecniche e lavoro sulla mentalità: postura, coordinazione e controllo, con attenzione alla crescita personale.",
     schedule: [
-      { day: "Da definire", time: "—" },
-      { day: "Da definire", time: "—" },
+      { day: "-", time: "—" },
+      { day: "-", time: "—" },
     ],
     trainers: [
       {
         name: "Insegnante di Karate",
         image: "karate-coach.jpg",
-        bio: "Progressioni tecniche e lavoro sulla mentalità: postura, coordinazione e controllo, con attenzione alla crescita personale.",
+        bio: "-",
       },
     ],
   },
@@ -298,16 +298,16 @@ const COURSES = [
     subtitle: "Tecnica, valori e controllo",
     image: "judo.png",
     description:
-      "Il Judo è disciplina, tecnica e valori. Un percorso completo che sviluppa coordinazione, equilibrio e consapevolezza del corpo, con lavoro progressivo e strutturato.\n\nAdatto a bambini, ragazzi e adulti, con gruppi suddivisi per età e livello: si impara sul serio, con rispetto e passione sul tatami.",
+      "Il Judo è disciplina, tecnica e valori. Un percorso completo che sviluppa coordinazione, equilibrio e consapevolezza del corpo, con lavoro progressivo e strutturato.\n\nAdatto a bambini, ragazzi e adulti, con gruppi suddivisi per età e livello: si impara sul serio, con rispetto e passione sul tatami. \n\nAllenamenti progressivi su tecnica e controllo, con attenzione alla sicurezza e alla crescita dell’allievo.",
     schedule: [
-      { day: "Da definire", time: "—" },
-      { day: "Da definire", time: "—" },
+      { day: "-", time: "—" },
+      { day: "-", time: "—" },
     ],
     trainers: [
       {
         name: "Insegnante di Judo",
         image: "judo-coach.jpg",
-        bio: "Allenamenti progressivi su tecnica e controllo, con attenzione alla sicurezza e alla crescita dell’allievo.",
+        bio: "-",
       },
     ],
   },
@@ -361,15 +361,6 @@ function TrainersBlock({ trainers }) {
                 </h3>
 
                 <p className="mt-3 text-black/70 leading-relaxed">{t.bio}</p>
-
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <span className="rounded-full border border-brand-gray200 px-3 py-1 text-xs font-semibold text-black/60">
-                    Qualifica certificata
-                  </span>
-                  <span className="rounded-full border border-brand-gray200 px-3 py-1 text-xs font-semibold text-black/60">
-                    Esperienza sul campo
-                  </span>
-                </div>
               </div>
             </div>
           </div>
