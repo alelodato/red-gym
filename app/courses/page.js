@@ -5,10 +5,13 @@ function toPublicSrc(path) {
   return path.startsWith("/") ? path : `/${path}`;
 }
 
+/**
+ * ✅ WhiteBlock full width su mobile
+ */
 function WhiteBlock({ children }) {
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div className="rounded-2xl bg-white border border-brand-gray200 shadow-soft p-8 sm:p-12 lg:p-14">
+    <div className="mx-auto max-w-7xl px-0 sm:px-6 lg:px-8">
+      <div className="bg-white border border-brand-gray200 shadow-soft p-8 sm:p-12 lg:p-14 rounded-none sm:rounded-2xl border-x-0 sm:border-x">
         {children}
       </div>
     </div>
@@ -35,7 +38,6 @@ function TripleDiagonalBand({
   return (
     <section className={`relative bg-brand-red overflow-hidden ${className}`}>
       <div className={`relative ${heightClass}`}>
-        {/* 3 immagini attaccate */}
         <div className="absolute inset-0 flex min-w-0">
           {images.map((src, idx) => (
             <div key={idx} className="relative flex-1 min-w-0">
@@ -48,16 +50,13 @@ function TripleDiagonalBand({
           ))}
         </div>
 
-        {/* overlay unico */}
         <div className="absolute inset-0 bg-black/45" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/10" />
 
-        {/* tagli diagonali sopra + sotto */}
         <div className={`absolute -top-1 left-0 right-0 h-16 sm:h-20 bg-brand-red ${topClip}`} />
         <div className={`absolute -bottom-1 left-0 right-0 h-16 sm:h-20 bg-brand-red ${bottomClip}`} />
       </div>
 
-      {/* testo centrato */}
       <div className="absolute inset-0 flex items-center">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {kicker ? <p className="section-title text-white/80">{kicker}</p> : null}
@@ -192,8 +191,6 @@ const COURSES = [
       },
     ],
   },
-
-  // ✅ NUOVO: Yoga (dopo Pilates, stesso WhiteBlock)
   {
     id: "yoga",
     title: "Yoga",
@@ -213,7 +210,6 @@ const COURSES = [
       },
     ],
   },
-
   {
     id: "boxe",
     title: "Boxe & Prepugilistica",
@@ -233,7 +229,6 @@ const COURSES = [
       },
     ],
   },
-
   {
     id: "kickboxing",
     title: "Kickboxing",
@@ -253,7 +248,6 @@ const COURSES = [
       },
     ],
   },
-
   {
     id: "mma",
     title: "MMA",
@@ -416,7 +410,6 @@ function CourseSection({ course, invert = false }) {
             {course.title}
           </h2>
 
-          {/* supporto newline nella descrizione (per la riga Prepugilistica) */}
           <p className="mt-4 text-black/70 leading-relaxed max-w-3xl whitespace-pre-line">
             {course.description}
           </p>
@@ -490,13 +483,13 @@ export default function CoursesPage() {
           </div>
         </WhiteBlock>
 
-        {/* Promo full width */}
         <DiagonalPromoOver65
           image="over65.jpg"
           kicker="Pilates"
           title="Sconto Over 65"
           subtitle="Tariffe dedicate: chiedi in reception o contattaci per i dettagli."
         />
+
         <WhiteBlock>
           <div className="space-y-10">
             {REST_BLOCK.map((course) => {

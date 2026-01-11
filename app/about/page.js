@@ -7,10 +7,15 @@ function toPublicSrc(path) {
   return path.startsWith("/") ? path : `/${path}`;
 }
 
+/**
+ * ✅ WhiteBlock full width su mobile
+ * - px-0 + rounded-none + border-x-0 su mobile
+ * - boxed da sm in su
+ */
 function WhiteBlock({ children }) {
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div className="rounded-2xl bg-white border border-brand-gray200 shadow-soft p-8 sm:p-12 lg:p-14">
+    <div className="mx-auto max-w-7xl px-0 sm:px-6 lg:px-8">
+      <div className="bg-white border border-brand-gray200 shadow-soft p-8 sm:p-12 lg:p-14 rounded-none sm:rounded-2xl border-x-0 sm:border-x">
         {children}
       </div>
     </div>
@@ -41,7 +46,9 @@ function SplitSection({ kicker, title, text, image, alt, invert = false, cta }) 
     <section className="rounded-xl bg-white border border-brand-gray200 overflow-hidden">
       <div className="grid lg:grid-cols-12">
         <div className="p-7 sm:p-10 lg:hidden">
-          {kicker ? <p className="section-title text-brand-red text-sm">{kicker}</p> : null}
+          {kicker ? (
+            <p className="section-title text-brand-red text-sm">{kicker}</p>
+          ) : null}
           <h2 className="font-heading uppercase tracking-wide text-2xl sm:text-3xl mt-2">
             {title}
           </h2>
@@ -68,13 +75,17 @@ function SplitSection({ kicker, title, text, image, alt, invert = false, cta }) 
           ].join(" ")}
         >
           <div className="hidden lg:block">
-            {kicker ? <p className="section-title text-brand-red text-sm">{kicker}</p> : null}
+            {kicker ? (
+              <p className="section-title text-brand-red text-sm">{kicker}</p>
+            ) : null}
             <h2 className="font-heading uppercase tracking-wide text-2xl sm:text-3xl mt-2">
               {title}
             </h2>
           </div>
 
-          <p className="mt-0 lg:mt-4 text-black/70 leading-relaxed max-w-2xl">{text}</p>
+          <p className="mt-0 lg:mt-4 text-black/70 leading-relaxed max-w-2xl">
+            {text}
+          </p>
 
           {cta ? <div className="mt-7">{cta}</div> : null}
         </div>
@@ -90,7 +101,6 @@ function DiagonalBand({
 }) {
   return (
     <section className="relative bg-brand-red overflow-hidden">
-      {/* Fascia immagine full width */}
       <div className="relative h-[220px] sm:h-[280px] lg:h-[340px]">
         <img
           src={toPublicSrc(image)}
@@ -99,12 +109,10 @@ function DiagonalBand({
         />
         <div className="absolute inset-0 bg-black/45" />
 
-        {/* Tagli diagonali (sopra + sotto) */}
         <div className="absolute -top-1 left-0 right-0 h-16 sm:h-20 bg-brand-red [clip-path:polygon(0_0,100%_0,100%_55%,0_100%)]" />
         <div className="absolute -bottom-1 left-0 right-0 h-16 sm:h-20 bg-brand-red [clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]" />
       </div>
 
-      {/* Contenuto centrato */}
       <div className="absolute inset-0 flex items-center">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="section-title text-white/80">{kicker}</p>
@@ -131,7 +139,6 @@ function DiagonalBand({
 function FinalCtaHero({ image = "hero-final.jpg" }) {
   return (
     <section className="relative bg-brand-red overflow-hidden">
-      {/* Background image */}
       <div className="relative h-[680px] sm:h-[460px] lg:h-[520px]">
         <img
           src={toPublicSrc(image)}
@@ -139,10 +146,8 @@ function FinalCtaHero({ image = "hero-final.jpg" }) {
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        {/* overlay più “leggibile” su mobile */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/55 to-black/25 sm:bg-black/60" />
 
-        {/* Taglio diagonale sopra (come prima) */}
         <div className="absolute -top-1 left-0 right-0 h-16 sm:h-20 bg-brand-red [clip-path:polygon(0_0,100%_0,100%_55%,0_100%)]" />
       </div>
 
@@ -162,8 +167,9 @@ function FinalCtaHero({ image = "hero-final.jpg" }) {
           </h2>
 
           <p className="mt-4 text-white/85 leading-relaxed">
-            Passa in palestra, dai un’occhiata agli spazi, parla con lo staff e scegli il percorso più adatto.
-            Compila il form e ti rispondiamo con tutte le info su corsi, orari e abbonamenti.
+            Passa in palestra, dai un’occhiata agli spazi, parla con lo staff e
+            scegli il percorso più adatto. Compila il form e ti rispondiamo con
+            tutte le info su corsi, orari e abbonamenti.
           </p>
 
           <div className="mt-6 flex flex-col gap-3">
@@ -192,15 +198,18 @@ function FinalCtaHero({ image = "hero-final.jpg" }) {
           <div className="rounded-2xl border border-white/15 bg-black/35 p-7 sm:p-10 lg:p-12 shadow-soft">
             <div className="grid gap-6 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-8">
-                <p className="text-sm font-semibold text-white/70">Vieni a trovarci</p>
+                <p className="text-sm font-semibold text-white/70">
+                  Vieni a trovarci
+                </p>
 
                 <h2 className="font-heading uppercase tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl mt-2">
                   Il modo migliore per capire è vivere l’ambiente.
                 </h2>
 
                 <p className="mt-4 text-white/80 leading-relaxed max-w-2xl">
-                  Passa in palestra, dai un’occhiata agli spazi, parla con lo staff e scegli il percorso più adatto.
-                  Compila il form e ti rispondiamo con tutte le info su corsi, orari e abbonamenti.
+                  Passa in palestra, dai un’occhiata agli spazi, parla con lo
+                  staff e scegli il percorso più adatto. Compila il form e ti
+                  rispondiamo con tutte le info su corsi, orari e abbonamenti.
                 </p>
               </div>
 
@@ -238,24 +247,19 @@ export default function AboutPage() {
   return (
     <div className="bg-brand-red">
       <Section className="relative bg-brand-red overflow-hidden">
-        {/* background image */}
         <div className="absolute inset-0">
           <img
             src={toPublicSrc("about.jpg")}
             alt="Red Gym - panoramica sala pesi"
             className="h-full w-full object-cover"
           />
-          {/* overlay: leggibilità + vibe “hero” */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-brand-red/90" />
           <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
         </div>
 
-        {/* content */}
         <div className="relative">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            {/* Altezza hero */}
             <div className="min-h-[620px] sm:min-h-[680px] lg:min-h-[560px] flex items-end lg:items-center py-10 sm:py-14 lg:py-16">
-              {/* pannello contenuti (rosso, come nello screenshot) */}
               <div className="w-full lg:max-w-2xl rounded-2xl border border-white/10 bg-brand-red/85 backdrop-blur-[2px] shadow-soft p-6 sm:p-8 lg:p-10">
                 <p className="section-title text-white/90">Chi siamo</p>
 
@@ -264,13 +268,15 @@ export default function AboutPage() {
                 </h1>
 
                 <p className="mt-5 text-white/85 leading-relaxed">
-                  {SITE.name} è un punto di riferimento sul territorio: sala pesi completa, aree dedicate al
-                  functional, cardio e una selezione di corsi pensati per ogni livello — dal principiante
+                  {SITE.name} è un punto di riferimento sul territorio: sala
+                  pesi completa, aree dedicate al functional, cardio e una
+                  selezione di corsi pensati per ogni livello — dal principiante
                   all’atleta evoluto.
                 </p>
 
                 <p className="mt-4 text-white/85 leading-relaxed">
-                  Metodo, disciplina e ambiente: qui l’allenamento è serio, ma la motivazione la trovi ogni giorno.
+                  Metodo, disciplina e ambiente: qui l’allenamento è serio, ma
+                  la motivazione la trovi ogni giorno.
                 </p>
 
                 <div className="mt-7 flex gap-3 flex-col sm:flex-row">
@@ -296,9 +302,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Blocchi successivi */}
       <div className="space-y-6 sm:space-y-8 lg:space-y-10">
-        {/* AMBIENTI (WhiteBlock) */}
         <WhiteBlock>
           <div className="flex flex-col gap-2">
             <p className="section-title text-brand-red">Gli ambienti</p>
@@ -306,8 +310,9 @@ export default function AboutPage() {
               Spazi reali, curati, pronti per allenarti sul serio.
             </h2>
             <p className="mt-2 text-black/70 leading-relaxed max-w-3xl">
-              Ogni area della palestra è pensata per darti comfort, sicurezza e continuità: dagli spazi per la
-              sala pesi alle sale dedicate agli sport da combattimento, fino a spogliatoi e docce con armadietti.
+              Ogni area della palestra è pensata per darti comfort, sicurezza e
+              continuità: dagli spazi per la sala pesi alle sale dedicate agli
+              sport da combattimento, fino a spogliatoi e docce con armadietti.
             </p>
           </div>
 

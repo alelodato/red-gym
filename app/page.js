@@ -7,12 +7,29 @@ function toPublicSrc(path) {
   return path.startsWith("/") ? path : `/${path}`;
 }
 
-/** Sezione “big white block” sopra background rosso */
-function WhiteSection({ children, id }) {
+/**
+ * ✅ WhiteSection responsiva:
+ * - default: full width su mobile (px-0, no rounded, no border-x)
+ * - da sm in su: torna boxed come prima
+ * - puoi disattivare con fullOnMobile={false} (per il blocco Contact)
+ */
+function WhiteSection({ children, id, fullOnMobile = true }) {
   return (
     <section id={id} className="bg-brand-red">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="rounded-2xl bg-white border border-brand-gray200 shadow-soft p-7 sm:p-10 lg:p-12">
+      <div
+        className={[
+          "mx-auto max-w-6xl",
+          fullOnMobile ? "px-0 sm:px-6 lg:px-8" : "px-4 sm:px-6 lg:px-8",
+        ].join(" ")}
+      >
+        <div
+          className={[
+            "bg-white border border-brand-gray200 shadow-soft",
+            fullOnMobile
+              ? "rounded-none sm:rounded-2xl border-x-0 sm:border-x p-7 sm:p-10 lg:p-12"
+              : "rounded-2xl p-7 sm:p-10 lg:p-12",
+          ].join(" ")}
+        >
           {children}
         </div>
       </div>
@@ -104,8 +121,6 @@ function ImageGrid({ images }) {
 }
 
 function DiagonalCuts({ flip = false, heightClass = "h-16 sm:h-20" }) {
-  // flip=false: diagonale “standard”
-  // flip=true : diagonale opposta
   const topClip = flip
     ? "[clip-path:polygon(0_0,100%_0,100%_100%,0_55%)]"
     : "[clip-path:polygon(0_0,100%_0,100%_55%,0_100%)]";
@@ -211,11 +226,10 @@ export default function HomePage() {
     <>
       <Hero />
 
-      {/* Background rosso globale sotto la hero */}
       <div className="bg-brand-red">
         <div className="space-y-6 sm:space-y-8 lg:space-y-10 py-8 sm:py-10 lg:py-12">
-          {/* ABOUT */}
-          <WhiteSection id="home-about">
+          {/* ABOUT (full width mobile) */}
+          <WhiteSection id="home-about" fullOnMobile>
             <SectionHead
               kicker="La palestra"
               title="Spazi reali. Allenamento serio."
@@ -225,12 +239,10 @@ export default function HomePage() {
             />
 
             <div className="mt-6 lg:mt-10 grid gap-6 lg:grid-cols-12">
-              {/* Desktop: grid immagini a destra (solo desktop) */}
               <div className="order-1 lg:order-2 lg:col-span-5 hidden lg:block">
                 <ImageGrid images={ABOUT_IMAGES} />
               </div>
 
-              {/* Card: desktop invariato; mobile: foto dentro card (no grid) */}
               <div className="order-2 lg:order-1 lg:col-span-7 grid gap-6 md:grid-cols-2">
                 <Card
                   kicker="Ambienti"
@@ -272,14 +284,10 @@ export default function HomePage() {
             </div>
           </WhiteSection>
 
-          <DiagonalPhoto
-            image="diagonal1.jpg"
-            alt="Red Gym - energia"
-            flip={false}
-          />
+          <DiagonalPhoto image="diagonal1.jpg" alt="Red Gym - energia" flip={false} />
 
-          {/* COURSES */}
-          <WhiteSection id="home-courses">
+          {/* COURSES (full width mobile) */}
+          <WhiteSection id="home-courses" fullOnMobile>
             <SectionHead
               kicker="Corsi & attività"
               title="Trova il tuo percorso."
@@ -349,8 +357,8 @@ export default function HomePage() {
             flip={true}
           />
 
-          {/* PRICING */}
-          <WhiteSection id="home-pricing">
+          {/* PRICING (full width mobile) */}
+          <WhiteSection id="home-pricing" fullOnMobile>
             <SectionHead
               kicker="Abbonamenti"
               title="Scegli la formula giusta."
@@ -384,14 +392,10 @@ export default function HomePage() {
             </div>
           </WhiteSection>
 
-          <DiagonalPhoto
-            image="diagonal3.jpg"
-            alt="Red Gym - community"
-            flip={false}
-          />
+          <DiagonalPhoto image="diagonal3.jpg" alt="Red Gym - community" flip={false} />
 
-          {/* CONTACT */}
-          <WhiteSection id="home-contact">
+          {/* CONTACT (boxed anche su mobile) */}
+          <WhiteSection id="home-contact" fullOnMobile={false}>
             <SectionHead
               kicker="Contatti"
               title="Vieni a trovarci."
