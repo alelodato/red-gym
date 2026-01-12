@@ -189,19 +189,6 @@ function DiagonalBand({
           <h3 className="font-heading uppercase tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl mt-2">
             {title}
           </h3>
-
-          {chips?.length ? (
-            <div className="mt-4 flex flex-wrap gap-2">
-              {chips.map((x) => (
-                <span
-                  key={x}
-                  className="rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold text-white/85"
-                >
-                  {x}
-                </span>
-              ))}
-            </div>
-          ) : null}
         </div>
       </div>
     </section>
@@ -222,11 +209,10 @@ export default function HomePage() {
 
       <div className="bg-brand-red">
         <div className="space-y-6 sm:space-y-8 lg:space-y-10 py-8 sm:py-10 lg:py-12">
-          {/* ABOUT (full width mobile) */}
           <WhiteSection id="home-about" fullOnMobile>
             <SectionHead
               kicker="La palestra"
-              title="Spazi veri. Metodo. Supporto."
+              title="Spazi ampi. Metodo. Supporto."
               lead="Red Gym è un centro sportivo a Fonte Nuova (Roma) con ampio parcheggio e circa 1.800 mq di spazio: sala pesi completa, aree dedicate e un ambiente ordinato, motivante e seguito da professionisti."
               ctaHref="/about"
               ctaLabel="Scopri la palestra"
@@ -280,7 +266,6 @@ export default function HomePage() {
 
           <DiagonalPhoto image="diagonal1.jpg" alt="Red Gym - energia" flip={false} />
 
-          {/* COURSES (full width mobile) */}
           <WhiteSection id="home-courses" fullOnMobile>
             <SectionHead
               kicker="Corsi & attività"
@@ -307,7 +292,7 @@ export default function HomePage() {
                   {[
                     {
                       t: "Sala pesi & Fitness",
-                      d: "Allenamento seguito e strumenti di qualità: sicurezza, efficacia e continuità per obiettivi reali.",
+                      d: "Metodo, supporto in sala e strumenti di qualità: sicurezza, efficacia e continuità per obiettivi reali.",
                     },
                     {
                       t: "Pilates & postura",
@@ -315,11 +300,11 @@ export default function HomePage() {
                     },
                     {
                       t: "Boxe + Prepugilistica",
-                      d: "Tecnica, coordinazione, fiato e disciplina. Percorso adatto a chi vuole metodo (con o senza esperienza).",
+                      d: "Tecnica, coordinazione, fiato e disciplina. Un percorso strutturato per imparare con metodo (con o senza esperienza).",
                     },
                     {
                       t: "MMA • Karate • Judo",
-                      d: "Percorsi completi per corpo e mente: concentrazione, rispetto, progressione e allenamento serio.",
+                      d: "Percorsi completi per corpo e mente: disciplina, controllo e crescita personale. Adatto per atleti di tutti i livelli.",
                     },
                   ].map((x) => (
                     <div key={x.t} className="border-l-4 border-brand-red pl-4">
@@ -451,11 +436,6 @@ export default function HomePage() {
                       Contatti completi
                     </a>
                   </div>
-
-                  <p className="text-xs text-black/50">
-                    * Form placeholder: colleghiamo l’invio quando vuoi
-                    (EmailJS/Resend).
-                  </p>
                 </form>
               </div>
 

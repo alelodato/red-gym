@@ -153,7 +153,7 @@ const COURSES = [
     subtitle: "Qualità, sicurezza e risultati concreti",
     image: "sala-pesi.png",
     description:
-      "Allenarsi bene significa fare le cose nel modo giusto. In sala pesi trovi spazi ampi e attrezzatura selezionata per efficacia e comfort, con la possibilità di lavorare su forza, tonificazione e ricomposizione corporea.\n\nChe tu sia alle prime armi o voglia portare il livello più in alto, l’obiettivo è sempre lo stesso: progressione, tecnica corretta e continuità.",
+      "Allenarsi bene significa fare le cose nel modo giusto. In sala pesi trovi spazi ampi e attrezzatura di ultima generazione selezionata per efficacia e comfort, con la possibilità di lavorare su forza, tonificazione e ricomposizione corporea.\n\nChe tu sia alle prime armi o voglia portare il livello più in alto, l’obiettivo è sempre lo stesso: progressione, tecnica corretta e continuità.",
     schedule: [
       { day: "Lun – Ven", time: "06:00 – 22:30" },
       { day: "Sabato", time: "08:00 – 16:00" },
@@ -161,12 +161,12 @@ const COURSES = [
     ],
     trainers: [
       {
-        name: "Personal Trainer – Sala Pesi",
+        name: "Personal Trainer 1",
         image: "pt1.jpg",
         bio: "-",
       },
       {
-        name: "Personal Trainer – Fitness",
+        name: "Personal Trainer 2",
         image: "pt2.jpg",
         bio: "-",
       },

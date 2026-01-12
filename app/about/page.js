@@ -1,6 +1,8 @@
 import Section from "@/components/Section";
 import Button from "@/components/Button";
 import { SITE } from "@/lib/site";
+import Image from "next/image";
+import Link from "next/link";
 
 function toPublicSrc(path) {
   if (!path) return "";
@@ -21,10 +23,12 @@ function FeatureCard({ title, text, image, alt }) {
   return (
     <div className="rounded-xl bg-white border border-brand-gray200 overflow-hidden">
       <div className="relative h-[200px] sm:h-[240px]">
-        <img
+        <Image
           src={toPublicSrc(image)}
           alt={alt || title}
-          className="absolute inset-0 h-full w-full object-cover"
+          fill
+          className="object-cover"
+          sizes="(max-width: 640px) 100vw, 50vw"
         />
         <div className="absolute inset-0 bg-black/10" />
       </div>
@@ -55,10 +59,12 @@ function SplitSection({ kicker, title, text, image, alt, invert = false, cta }) 
             invert ? "lg:order-2" : "lg:order-1",
           ].join(" ")}
         >
-          <img
+          <Image
             src={toPublicSrc(image)}
             alt={alt || title}
-            className="absolute inset-0 h-full w-full object-cover"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 40vw"
           />
           <div className="absolute inset-0 bg-black/10" />
         </div>
@@ -97,10 +103,12 @@ function DiagonalBand({
   return (
     <section className="relative bg-brand-red overflow-hidden">
       <div className="relative h-[220px] sm:h-[280px] lg:h-[340px]">
-        <img
+        <Image
           src={toPublicSrc(image)}
           alt={title}
-          className="absolute inset-0 h-full w-full object-cover"
+          fill
+          className="object-cover"
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-black/45" />
 
@@ -114,17 +122,6 @@ function DiagonalBand({
           <h3 className="font-heading uppercase tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl mt-2">
             {title}
           </h3>
-
-          <div className="mt-4 flex flex-wrap gap-2">
-            {["Metodo", "Qualità", "Supporto"].map((x) => (
-              <span
-                key={x}
-                className="rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold text-white/85"
-              >
-                {x}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
     </section>
@@ -135,10 +132,12 @@ function FinalCtaHero({ image = "hero-final.jpg" }) {
   return (
     <section className="relative bg-brand-red overflow-hidden">
       <div className="relative h-[680px] sm:h-[460px] lg:h-[520px]">
-        <img
+        <Image
           src={toPublicSrc(image)}
           alt="Vieni a trovarci"
-          className="absolute inset-0 h-full w-full object-cover"
+          fill
+          className="object-cover"
+          sizes="100vw"
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/55 to-black/25 sm:bg-black/60" />
@@ -168,22 +167,22 @@ function FinalCtaHero({ image = "hero-final.jpg" }) {
           </p>
 
           <div className="mt-6 flex flex-col gap-3">
-            <a
+            <Link
               href="/contact"
               className="inline-flex items-center justify-center w-full rounded-md px-5 py-3 text-sm font-semibold tracking-wide
                          bg-white text-brand-red hover:bg-white/90 transition-colors"
             >
               Prenota / Contattaci
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/courses"
               className="inline-flex items-center justify-center w-full rounded-md px-5 py-3 text-sm font-semibold tracking-wide
                          border border-white/70 text-white
                          hover:bg-white hover:text-brand-red transition-colors"
             >
-              Guarda i corsi
-            </a>
+              Scopri i corsi
+            </Link>
           </div>
         </div>
       </div>
@@ -209,7 +208,7 @@ function FinalCtaHero({ image = "hero-final.jpg" }) {
               </div>
 
               <div className="lg:col-span-4 flex flex-col gap-3 lg:items-end">
-                <a
+                <Link
                   href="/contact"
                   className="inline-flex items-center justify-center
                              w-full sm:w-auto min-w-[220px]
@@ -217,9 +216,9 @@ function FinalCtaHero({ image = "hero-final.jpg" }) {
                              bg-white text-brand-red hover:bg-white/90 transition-colors"
                 >
                   Prenota / Contattaci
-                </a>
+                </Link>
 
-                <a
+                <Link
                   href="/courses"
                   className="inline-flex items-center justify-center
                              w-full sm:w-auto min-w-[220px]
@@ -228,7 +227,7 @@ function FinalCtaHero({ image = "hero-final.jpg" }) {
                              hover:bg-white hover:text-brand-red transition-colors"
                 >
                   Guarda i corsi
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -243,10 +242,13 @@ export default function AboutPage() {
     <div className="bg-brand-red">
       <Section className="relative bg-brand-red overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src={toPublicSrc("about.jpg")}
             alt="Red Gym - panoramica sala pesi"
-            className="h-full w-full object-cover"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-brand-red/90" />
           <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
@@ -259,14 +261,14 @@ export default function AboutPage() {
                 <p className="section-title text-white/90">Chi siamo</p>
 
                 <h1 className="font-heading uppercase tracking-wide text-white text-4xl sm:text-5xl mt-2">
-                  Allenamento serio. Ambiente giusto. Risultati reali.
+                  Allenamento con metodo. <br /> Ambiente giusto. <br /> Risultati reali.
                 </h1>
 
                 <p className="mt-5 text-white/85 leading-relaxed">
                   {SITE.name} è un centro sportivo a Fonte Nuova (Roma) con ampio
                   parcheggio e circa 1.800 mq di spazio: sala pesi completa, aree
-                  dedicate e corsi pensati per ogni livello — dal principiante
-                  all’atleta evoluto.
+                  dedicate e corsi pensati per ogni livello, dal principiante
+                  all’atleta esperto.
                 </p>
 
                 <p className="mt-4 text-white/85 leading-relaxed">
@@ -275,21 +277,21 @@ export default function AboutPage() {
                 </p>
 
                 <div className="mt-7 flex gap-3 flex-col sm:flex-row">
-                  <a
+                  <Link
                     href="/courses"
                     className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold tracking-wide
                                bg-white text-brand-red hover:bg-white/90 transition-colors"
                   >
                     Scopri corsi e attività
-                  </a>
+                  </Link>
 
-                  <a
+                  <Link
                     href="/contact"
                     className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold tracking-wide
                                border border-white text-white hover:bg-white hover:text-brand-red transition-colors"
                   >
                     Contattaci
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -297,7 +299,110 @@ export default function AboutPage() {
         </div>
       </Section>
 
+      {/* ✅ NUOVO BLOCCO INTRO (subito dopo la hero) */}
       <div className="space-y-6 sm:space-y-8 lg:space-y-10">
+        <WhiteBlock>
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+            <div className="lg:col-span-7">
+              <p className="section-title text-brand-red">La nostra storia</p>
+
+              <h2 className="font-heading uppercase tracking-wide text-3xl sm:text-4xl mt-2">
+                Dal 201? la tua palestra a Fonte Nuova.
+              </h2>
+
+              <p className="mt-4 text-black/70 leading-relaxed max-w-3xl">
+                Red Gym nasce con un’idea semplice: creare uno spazio ordinato,
+                completo e concreto dove allenarsi bene ogni giorno, con la
+                tranquillità di avere ambienti curati e percorsi chiari. In questi
+                anni la palestra è cresciuta, ma l’obiettivo è rimasto lo stesso:
+                qualità, metodo e costanza.
+              </p>
+
+              <div className="mt-8 rounded-xl border border-brand-gray200 bg-brand-offwhite p-6 sm:p-7">
+                <p className="section-title text-brand-red">Il team di red gym</p>
+
+                <h3 className="font-heading uppercase tracking-wide text-xl mt-2">
+                  Donato e i suoi collaboratori
+                </h3>
+
+                <p className="mt-3 text-black/70 leading-relaxed">
+                  Qui pensavo di inserire un breve testo con foto per introdurre te e qualche altro collaboratore o socio della palestra.
+                </p>
+
+                <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-4">
+                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[140px] sm:h-[170px]">
+                    <Image
+                      src={toPublicSrc("founder.jpg")}
+                      alt="Fondatore Red Gym"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 50vw, 25vw"
+                    />
+                    <div className="absolute inset-0 bg-black/10" />
+                  </div>
+
+                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[140px] sm:h-[170px]">
+                    <Image
+                      src={toPublicSrc("team.jpg")}
+                      alt="Team Red Gym"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 50vw, 25vw"
+                    />
+                    <div className="absolute inset-0 bg-black/10" />
+                  </div>
+                </div>
+
+                <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                  <Button href="/contact">Chiedi info</Button>
+                  <Button href="/courses" variant="outline">
+                    Scopri i corsi
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5">
+              <div className="rounded-xl border border-brand-gray200 bg-white p-6 sm:p-7">
+                <p className="section-title text-brand-red">Red Gym</p>
+
+                <ul className="mt-4 space-y-3 text-sm text-black/70">
+                  <li className="flex gap-3">
+                    <span className="mt-1 h-2 w-2 rounded-full bg-brand-red shrink-0" />
+                    <span>
+                      7 anni di attività a Fonte Nuova, con una struttura ampia e organizzata.
+                    </span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="mt-1 h-2 w-2 rounded-full bg-brand-red shrink-0" />
+                    <span>
+                      Sala pesi completa, aree dedicate e corsi per ogni livello.
+                    </span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="mt-1 h-2 w-2 rounded-full bg-brand-red shrink-0" />
+                    <span>
+                      Trainer presenti: tecnica, progressione e sicurezza prima di tutto.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="mt-6 relative overflow-hidden rounded-xl shadow-soft h-[220px] sm:h-[280px] lg:h-[320px]">
+                <Image
+                  src={toPublicSrc("about-intro.jpg")}
+                  alt="Red Gym - panoramica"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                />
+                <div className="absolute inset-0 bg-black/10" />
+              </div>
+            </div>
+          </div>
+        </WhiteBlock>
+
+        {/* ⬇️ QUI SOTTO È TUTTO IDENTICO AL TUO CODICE, solo img/link già “nextizzati” sopra */}
         <WhiteBlock>
           <div className="flex flex-col gap-2">
             <p className="section-title text-brand-red">Gli ambienti</p>
@@ -317,7 +422,7 @@ export default function AboutPage() {
               kicker="Attrezzatura"
               title="Sala pesi ampia e completa"
               text="Una sala pesi grande e ben organizzata, con macchinari e postazioni selezionate per rispondere a esigenze diverse: forza, controllo, postura, resistenza. L’obiettivo è allenarti con efficacia e continuità, senza caos e con la sicurezza di fare gli esercizi nel modo corretto."
-              image="about-weights.jpg"
+              image="sala-pesi.png"
               alt="Sala pesi moderna"
             />
 
@@ -340,10 +445,10 @@ export default function AboutPage() {
 
             <SplitSection
               kicker="Comfort"
-              title="Spogliatoi, docce e armadietti"
-              text="Allenarsi bene significa anche gestirsi bene: spogliatoi funzionali, docce e armadietti per un’esperienza completa prima e dopo la sessione, soprattutto se vieni in pausa pranzo o dopo lavoro."
+              title="Ambienti curati per ogni esigenza"
+              text="Allenarsi bene significa anche gestirsi bene: spogliatoi funzionali, docce e armadietti per il tuo comfort prima e dopo la sessione, soprattutto se vieni in pausa pranzo o dopo lavoro."
               image="about-lockers.jpg"
-              alt="Spogliatoi e armadietti"
+              alt="Ambienti spogliatoi e docce"
               invert
             />
           </div>
@@ -357,7 +462,7 @@ export default function AboutPage() {
               kicker="Corsi & Trainer"
               title="Guide competenti, progressioni chiare"
               text="In Red Gym la differenza non la fa solo l’attrezzatura: la fa il supporto. I trainer sono presenti e qualificati, pronti a seguirti che tu stia iniziando o voglia alzare il livello. Tecnica, progressione, sicurezza e un percorso adatto a te."
-              image="about-trainers.jpg"
+              image="about2.jpg"
               alt="Trainer e coaching"
               cta={
                 <div className="flex flex-col sm:flex-row gap-3">
@@ -373,7 +478,7 @@ export default function AboutPage() {
               kicker="Community"
               title="Disciplina, rispetto, autocontrollo"
               text="Gli sport insegnano molto più che muoversi: insegnano mentalità. In palestra trovi persone diverse con obiettivi diversi, ma con un punto in comune: la costanza. Un ambiente serio, accogliente e stimolante dove l’energia è quella giusta."
-              image="about-community.jpg"
+              image="community.jpg"
               alt="Community Red Gym"
               invert
             />
