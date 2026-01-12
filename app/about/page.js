@@ -322,7 +322,7 @@ export default function AboutPage() {
                 <p className="section-title text-brand-red">Il team di red gym</p>
 
                 <h3 className="font-heading uppercase tracking-wide text-xl mt-2">
-                  Donato e i suoi collaboratori
+                  Donato e soci
                 </h3>
 
                 <p className="mt-3 text-black/70 leading-relaxed">

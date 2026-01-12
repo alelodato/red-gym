@@ -208,7 +208,7 @@ export default function HomePage() {
       <Hero />
 
       <div className="bg-brand-red">
-        <div className="space-y-6 sm:space-y-8 lg:space-y-10 py-8 sm:py-10 lg:py-12">
+        <div className="space-y-6 sm:space-y-8 lg:space-y-10 pb-8 sm:py-10 lg:py-12">
           <WhiteSection id="home-about" fullOnMobile>
             <SectionHead
               kicker="La palestra"
