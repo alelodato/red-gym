@@ -7,7 +7,7 @@ function toPublicSrc(path) {
 
 function WhiteBlock({ children }) {
   return (
-    <div className="mx-auto max-w-7xl px-0 sm:px-6 lg:px-8">
+    <div className="mx-auto px-0 sm:px-6 lg:px-8">
       <div className="bg-white border border-brand-gray200 shadow-soft p-8 sm:p-12 lg:p-14 rounded-none sm:rounded-2xl border-x-0 sm:border-x">
         {children}
       </div>
