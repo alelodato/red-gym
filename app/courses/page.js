@@ -20,7 +20,7 @@ function TripleDiagonalBand({
   kicker = "Red Gym",
   title = "Scegli il tuo percorso.",
   subtitle = "Ogni corso ha un metodo, una guida e un obiettivo.",
-  heightClass = "h-[420px] sm:h-[460px] lg:h-[520px] xl:h-[600px] 2xl:h-[680px]",
+  heightClass = "h-[400px] sm:h-[460px] lg:h-[520px] xl:h-[600px] 2xl:h-[680px]",
   className = "",
 }) {
   const bottomClip = "[clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]";
@@ -45,7 +45,6 @@ function TripleDiagonalBand({
           ))}
         </div>
 
-        {/* overlay per leggibilità + vibe hero */}
         <div className="absolute inset-0 bg-black/55" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-black/10" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-black/25" />
@@ -434,7 +433,7 @@ export default function CoursesPage() {
       <TripleDiagonalBand
         className="-mt-[var(--nav-h)]"
         images={["yoga.jpg", "judo-hero.jpg", "kick-hero.jpg"]}
-        kicker=""
+        kicker="Corsi"
         title="Scegli il tuo percorso."
         subtitle="Ogni corso ha un metodo, una guida e un obiettivo. Scegli cosa ti rappresenta e allenati con disciplina, sicurezza e continuità."
       />
