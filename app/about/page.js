@@ -11,7 +11,7 @@ function toPublicSrc(path) {
 
 function WhiteBlock({ children }) {
   return (
-    <div className="mx-auto max-w-7xl px-0 sm:px-6 lg:px-8">
+    <div className="mx-auto px-0 sm:px-6 lg:px-8">
       <div className="bg-white border border-brand-gray200 shadow-soft p-8 sm:p-12 lg:p-14 rounded-none sm:rounded-2xl border-x-0 sm:border-x">
         {children}
       </div>
@@ -47,7 +47,6 @@ function StatsBand({
         <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
       </div>
 
-      {/* Diagonal cuts (TOP + BOTTOM) */}
       <div className="pointer-events-none absolute -top-1 left-0 right-0 h-16 sm:h-20 bg-brand-red [clip-path:polygon(0_0,100%_0,100%_100%,0_55%)]" />
       <div className="pointer-events-none absolute -bottom-1 left-0 right-0 h-16 sm:h-20 bg-brand-red [clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]" />
 

@@ -6,14 +6,13 @@ function toPublicSrc(path) {
   return path.startsWith("/") ? path : `/${path}`;
 }
 
-const SHELL = "mx-auto w-full max-w-7xl 2xl:max-w-[1440px]";
+const SHELL = "mx-auto w-full";
 
 function WhiteSection({ children, id, fullOnMobile = true }) {
   return (
     <section id={id} className="bg-brand-red">
       <div
         className={[
-          // mobile invariato, desktop coerente
           SHELL,
           fullOnMobile ? "px-0 sm:px-6 lg:px-8" : "px-4 sm:px-6 lg:px-8",
         ].join(" ")}
