@@ -20,7 +20,7 @@ function TripleDiagonalBand({
   kicker = "Red Gym",
   title = "Scegli il tuo percorso.",
   subtitle = "Ogni corso ha un metodo, una guida e un obiettivo.",
-  heightClass = "min-h-[420px] h-[clamp(420px,55vh,720px)]",
+  heightClass = "h-[420px] sm:h-[460px] lg:h-[520px] xl:h-[600px] 2xl:h-[680px]",
   className = "",
 }) {
   const bottomClip = "[clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]";
@@ -28,7 +28,7 @@ function TripleDiagonalBand({
   return (
     <section className={`relative bg-brand-red overflow-hidden ${className}`}>
       {/* HERO */}
-      <div className={`relative ${heightClass}`}>
+      <div className="relative h-[600px] sm:h-[660px] lg:h-[740px]">
         {/* 3 immagini attaccate */}
         <div className="absolute inset-0 flex min-w-0">
           {images.map((src, idx) => (
@@ -38,7 +38,6 @@ function TripleDiagonalBand({
                 alt=""
                 className="absolute inset-0 h-full w-full object-cover"
               />
-              {/* separatore sottile (quasi invisibile) */}
               {idx < images.length - 1 ? (
                 <div className="absolute inset-y-0 right-0 w-px bg-white/10" />
               ) : null}
@@ -54,8 +53,7 @@ function TripleDiagonalBand({
         <div className={`absolute -bottom-1 left-0 right-0 h-20 sm:h-24 bg-brand-red ${bottomClip}`} />
       </div>
 
-      {/* testo hero */}
-      <div className="absolute inset-0 flex items-end sm:items-center">
+      <div className="absolute inset-0 flex items-center">
         <div className="mx-auto w-full max-w-7xl 2xl:max-w-[1440px] px-4 sm:px-6 lg:px-8">
           <div className="pb-14 sm:pb-0">
             {kicker ? <p className="section-title text-white/85">{kicker}</p> : null}

@@ -19,6 +19,93 @@ function WhiteBlock({ children }) {
   );
 }
 
+function StatsBand({
+  bgImage = "statsband.jpg",
+  kicker = "In numeri",
+  title = "Spazi, esperienza e varietà. Tutto nello stesso posto.",
+  lead = "Questi sono i dettagli che rendono Red Gym concreta: struttura ampia, anni di lavoro sul campo, percorsi diversi e attrezzatura pensata per allenarti bene.",
+}) {
+  const stats = [
+    { value: "1.800", label: "mq di struttura", note: "spazi ampi e organizzati" },
+    { value: "7", label: "anni di attività", note: "a Fonte Nuova" },
+    { value: "8+", label: "discipline", note: "corsi e percorsi per ogni livello" },
+    { value: "TOP", label: "macchinari", note: "attrezzatura di ultima generazione" },
+  ];
+
+  return (
+    <section className="relative bg-brand-red overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <img
+          src={bgImage.startsWith("/") ? bgImage : `/${bgImage}`}
+          alt=""
+          className="h-full w-full object-cover"
+        />
+        {/* overlay */}
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/35" />
+        <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
+      </div>
+
+      {/* Diagonal cuts (TOP + BOTTOM) */}
+      <div className="pointer-events-none absolute -top-1 left-0 right-0 h-16 sm:h-20 bg-brand-red [clip-path:polygon(0_0,100%_0,100%_100%,0_55%)]" />
+      <div className="pointer-events-none absolute -bottom-1 left-0 right-0 h-16 sm:h-20 bg-brand-red [clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]" />
+
+      {/* Content wrapper: enough height to avoid overflow */}
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div
+          className={[
+            // altezza: cresce su desktop per contenere heading + cards
+            "py-12 sm:py-14 lg:py-16",
+            // minimo: evita che “strabordi” su viewport bassi / zoom
+            "min-h-[520px] sm:min-h-[540px] lg:min-h-[520px]",
+            // su schermi grandi respira di più
+            "2xl:min-h-[560px] 2xl:py-20",
+            "flex items-center",
+          ].join(" ")}
+        >
+          <div className="w-full">
+            <div className="max-w-3xl">
+              <p className="section-title text-white/80">{kicker}</p>
+
+              <h3 className="font-heading uppercase tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl mt-2">
+                {title}
+              </h3>
+
+              <p className="mt-3 text-white/85 leading-relaxed">{lead}</p>
+            </div>
+
+            <div className="mt-10 grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {stats.map((s) => (
+                <div
+                  key={s.value + s.label}
+                  className="rounded-2xl border border-white/15 bg-black/30 backdrop-blur-[1px] p-6 shadow-soft"
+                >
+                  <div className="flex items-end gap-2">
+                    <span className="font-heading uppercase tracking-wide text-white text-4xl sm:text-5xl">
+                      {s.value}
+                    </span>
+                    <span className="text-white/90 font-semibold pb-1">
+                      {s.label}
+                    </span>
+                  </div>
+
+                  <p className="mt-3 text-white/75 text-sm leading-relaxed">
+                    {s.note}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* safe area iOS / piccoli viewport */}
+            <div className="h-[calc(env(safe-area-inset-bottom)+8px)]" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FeatureCard({ title, text, image, alt }) {
   return (
     <div className="rounded-xl bg-white border border-brand-gray200 overflow-hidden">
@@ -401,7 +488,8 @@ export default function AboutPage() {
           </div>
         </WhiteBlock>
 
-        {/* ⬇️ QUI SOTTO È TUTTO IDENTICO AL TUO CODICE, solo img/link già “nextizzati” sopra */}
+        <StatsBand />
+
         <WhiteBlock>
           <div className="flex flex-col gap-2">
             <p className="section-title text-brand-red">Gli ambienti</p>
