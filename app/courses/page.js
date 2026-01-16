@@ -18,23 +18,18 @@ function WhiteBlock({ children }) {
 function TripleDiagonalBand({
   images = ["yoga.jpg", "judo-hero.jpg", "kick-hero.jpg"],
   kicker = "Red Gym",
-  title = "Energia. Disciplina. Risultati.",
-  subtitle = "Sala pesi • Benessere • Sport da combattimento",
-  heightClass = "h-[340px] sm:h-[360px] lg:h-[420px]",
-  reverse = false,
+  title = "Scegli il tuo percorso.",
+  subtitle = "Ogni corso ha un metodo, una guida e un obiettivo.",
+  heightClass = "min-h-[420px] h-[clamp(420px,55vh,720px)]",
   className = "",
 }) {
-  const topClip = reverse
-    ? "[clip-path:polygon(0_0,100%_0,100%_100%,0_55%)]"
-    : "[clip-path:polygon(0_0,100%_0,100%_55%,0_100%)]";
-
-  const bottomClip = reverse
-    ? "[clip-path:polygon(0_0,100%_45%,100%_100%,0_100%)]"
-    : "[clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]";
+  const bottomClip = "[clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]";
 
   return (
     <section className={`relative bg-brand-red overflow-hidden ${className}`}>
+      {/* HERO */}
       <div className={`relative ${heightClass}`}>
+        {/* 3 immagini attaccate */}
         <div className="absolute inset-0 flex min-w-0">
           {images.map((src, idx) => (
             <div key={src + idx} className="relative flex-1 min-w-0">
@@ -43,39 +38,42 @@ function TripleDiagonalBand({
                 alt=""
                 className="absolute inset-0 h-full w-full object-cover"
               />
-              <div className="absolute inset-y-0 right-0 w-px bg-white/10" />
+              {/* separatore sottile (quasi invisibile) */}
+              {idx < images.length - 1 ? (
+                <div className="absolute inset-y-0 right-0 w-px bg-white/10" />
+              ) : null}
             </div>
           ))}
         </div>
 
-        <div className="absolute inset-0 bg-black/45" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20" />
+        {/* overlay per leggibilità + vibe hero */}
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-black/25" />
 
-        <div className={`absolute -top-1 left-0 right-0 h-16 sm:h-20 bg-brand-red ${topClip}`} />
-        <div className={`absolute -bottom-1 left-0 right-0 h-16 sm:h-20 bg-brand-red ${bottomClip}`} />
+        <div className={`absolute -bottom-1 left-0 right-0 h-20 sm:h-24 bg-brand-red ${bottomClip}`} />
       </div>
 
-      <div className="absolute inset-0 flex items-center">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {kicker ? <p className="section-title text-white/85">{kicker}</p> : null}
+      {/* testo hero */}
+      <div className="absolute inset-0 flex items-end sm:items-center">
+        <div className="mx-auto w-full max-w-7xl 2xl:max-w-[1440px] px-4 sm:px-6 lg:px-8">
+          <div className="pb-14 sm:pb-0">
+            {kicker ? <p className="section-title text-white/85">{kicker}</p> : null}
 
-          {title ? (
-            <h1
-              className="
-                font-heading uppercase tracking-wide text-white
-                text-4xl sm:text-4xl lg:text-5xl
-                mt-2 leading-[0.95]
-              "
-            >
-              {title}
-            </h1>
-          ) : null}
+            {title ? (
+              <h1 className="font-heading uppercase tracking-wide text-white mt-2 leading-[0.95]
+                             text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl">
+                {title}
+              </h1>
+            ) : null}
 
-          {subtitle ? (
-            <p className="mt-4 text-white/85 max-w-2xl text-base sm:text-lg leading-relaxed">
-              {subtitle}
-            </p>
-          ) : null}
+            {subtitle ? (
+              <p className="mt-4 text-white/85 max-w-2xl leading-relaxed
+                            text-base sm:text-lg lg:text-xl">
+                {subtitle}
+              </p>
+            ) : null}
+          </div>
         </div>
       </div>
     </section>

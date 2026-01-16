@@ -299,7 +299,6 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* ✅ NUOVO BLOCCO INTRO (subito dopo la hero) */}
       <div className="space-y-6 sm:space-y-8 lg:space-y-10">
         <WhiteBlock>
           <div className="grid gap-10 lg:grid-cols-12 lg:items-start">

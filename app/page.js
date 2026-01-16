@@ -1,5 +1,4 @@
 import Hero from "@/components/Hero";
-import Section from "@/components/Section";
 import Button from "@/components/Button";
 
 function toPublicSrc(path) {
@@ -7,12 +6,15 @@ function toPublicSrc(path) {
   return path.startsWith("/") ? path : `/${path}`;
 }
 
+const SHELL = "mx-auto w-full max-w-7xl 2xl:max-w-[1440px]";
+
 function WhiteSection({ children, id, fullOnMobile = true }) {
   return (
     <section id={id} className="bg-brand-red">
       <div
         className={[
-          "mx-auto max-w-6xl",
+          // mobile invariato, desktop coerente
+          SHELL,
           fullOnMobile ? "px-0 sm:px-6 lg:px-8" : "px-4 sm:px-6 lg:px-8",
         ].join(" ")}
       >
@@ -36,11 +38,9 @@ function SectionHead({ kicker, title, lead, ctaHref, ctaLabel }) {
     <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
       <div>
         <p className="section-title text-brand-red text-sm">{kicker}</p>
-
         <h2 className="font-heading uppercase tracking-wide mt-2 text-3xl sm:text-4xl lg:text-5xl">
           {title}
         </h2>
-
         {lead ? (
           <p className="mt-4 text-black/70 leading-relaxed max-w-2xl text-sm sm:text-[15px] lg:text-base">
             {lead}
@@ -125,38 +125,17 @@ function DiagonalCuts({ flip = false, heightClass = "h-16 sm:h-20" }) {
 
   return (
     <>
-      <div
-        className={[
-          "absolute -top-1 left-0 right-0 bg-brand-red",
-          heightClass,
-          topClip,
-        ].join(" ")}
-      />
-      <div
-        className={[
-          "absolute -bottom-1 left-0 right-0 bg-brand-red",
-          heightClass,
-          bottomClip,
-        ].join(" ")}
-      />
+      <div className={["absolute -top-1 left-0 right-0 bg-brand-red", heightClass, topClip].join(" ")} />
+      <div className={["absolute -bottom-1 left-0 right-0 bg-brand-red", heightClass, bottomClip].join(" ")} />
     </>
   );
 }
 
-function DiagonalPhoto({
-  image = "diagonal1.jpg",
-  alt = "Red Gym",
-  flip = false,
-  heightClass = "h-[280px] sm:h-[340px] lg:h-[430px]",
-}) {
+function DiagonalPhoto({ image = "diagonal1.jpg", alt = "Red Gym", flip = false, heightClass = "h-[280px] sm:h-[340px] lg:h-[430px]" }) {
   return (
     <section className="relative bg-brand-red overflow-hidden">
       <div className={["relative", heightClass].join(" ")}>
-        <img
-          src={toPublicSrc(image)}
-          alt={alt}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        <img src={toPublicSrc(image)} alt={alt} className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-black/35" />
         <DiagonalCuts flip={flip} heightClass="h-20 sm:h-24" />
       </div>
@@ -164,27 +143,17 @@ function DiagonalPhoto({
   );
 }
 
-function DiagonalBand({
-  image = "diagonal2.jpg",
-  kicker = "Red Gym",
-  title = "Energia. Disciplina. Risultati.",
-  chips = ["Sala pesi", "Combattimento", "Community"],
-  flip = true,
-}) {
+function DiagonalBand({ image = "diagonal2.jpg", kicker = "Red Gym", title = "Energia. Disciplina. Risultati.", flip = true }) {
   return (
     <section className="relative bg-brand-red overflow-hidden">
       <div className="relative h-[230px] sm:h-[280px] lg:h-[340px]">
-        <img
-          src={toPublicSrc(image)}
-          alt={title}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        <img src={toPublicSrc(image)} alt={title} className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-black/45" />
         <DiagonalCuts flip={flip} heightClass="h-16 sm:h-20" />
       </div>
 
       <div className="absolute inset-0 flex items-center">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className={[SHELL, "px-4 sm:px-6 lg:px-8"].join(" ")}>
           <p className="section-title text-white/85">{kicker}</p>
           <h3 className="font-heading uppercase tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl mt-2">
             {title}
@@ -290,30 +259,14 @@ export default function HomePage() {
 
                 <div className="mt-4 space-y-4">
                   {[
-                    {
-                      t: "Sala pesi & Fitness",
-                      d: "Metodo, supporto in sala e strumenti di qualità: sicurezza, efficacia e continuità per obiettivi reali.",
-                    },
-                    {
-                      t: "Pilates & postura",
-                      d: "Controllo, mobilità, equilibrio. Un lavoro intelligente per stare meglio e muoverti meglio.",
-                    },
-                    {
-                      t: "Boxe + Prepugilistica",
-                      d: "Tecnica, coordinazione, fiato e disciplina. Un percorso strutturato per imparare con metodo (con o senza esperienza).",
-                    },
-                    {
-                      t: "MMA • Karate • Judo",
-                      d: "Percorsi completi per corpo e mente: disciplina, controllo e crescita personale. Adatto per atleti di tutti i livelli.",
-                    },
+                    { t: "Sala pesi & Fitness", d: "Metodo, supporto in sala e strumenti di qualità: sicurezza, efficacia e continuità per obiettivi reali." },
+                    { t: "Pilates & postura", d: "Controllo, mobilità, equilibrio. Un lavoro intelligente per stare meglio e muoverti meglio." },
+                    { t: "Boxe + Prepugilistica", d: "Tecnica, coordinazione, fiato e disciplina. Un percorso strutturato per imparare con metodo (con o senza esperienza)." },
+                    { t: "MMA • Karate • Judo", d: "Percorsi completi per corpo e mente: disciplina, controllo e crescita personale. Adatto per atleti di tutti i livelli." },
                   ].map((x) => (
                     <div key={x.t} className="border-l-4 border-brand-red pl-4">
-                      <p className="font-heading uppercase tracking-wide text-lg">
-                        {x.t}
-                      </p>
-                      <p className="mt-1 text-sm text-black/70 leading-relaxed">
-                        {x.d}
-                      </p>
+                      <p className="font-heading uppercase tracking-wide text-lg">{x.t}</p>
+                      <p className="mt-1 text-sm text-black/70 leading-relaxed">{x.d}</p>
                     </div>
                   ))}
                 </div>
@@ -328,15 +281,8 @@ export default function HomePage() {
             </div>
           </WhiteSection>
 
-          <DiagonalBand
-            image="diagonal2.jpg"
-            kicker="Red Gym"
-            title="Energia. Disciplina. Risultati."
-            chips={["Metodo", "Supporto", "Qualità"]}
-            flip={true}
-          />
+          <DiagonalBand image="diagonal2.jpg" kicker="Red Gym" title="Energia. Disciplina. Risultati." flip />
 
-          {/* PRICING (full width mobile) */}
           <WhiteSection id="home-pricing" fullOnMobile>
             <SectionHead
               kicker="Abbonamenti"
@@ -347,33 +293,14 @@ export default function HomePage() {
             />
 
             <div className="mt-8 lg:mt-10 grid gap-6 lg:grid-cols-3">
-              <Card
-                kicker="Flessibile"
-                title="Mensile"
-                text="Perfetto per iniziare, prendere ritmo e capire il percorso giusto per te."
-                href="/pricing"
-                ctaLabel="Scopri"
-              />
-              <Card
-                kicker="Continuità"
-                title="Annuale"
-                text="Se vuoi risultati concreti, la costanza è tutto. Questa è la scelta più completa."
-                href="/pricing"
-                ctaLabel="Dettagli"
-              />
-              <Card
-                kicker="Corsi"
-                title="Attività"
-                text="Pacchetti e accessi dedicati alle discipline: scegli cosa ti rappresenta e allenati con metodo."
-                href="/pricing"
-                ctaLabel="Vedi opzioni"
-              />
+              <Card kicker="Flessibile" title="Mensile" text="Perfetto per iniziare, prendere ritmo e capire il percorso giusto per te." href="/pricing" ctaLabel="Scopri" />
+              <Card kicker="Continuità" title="Annuale" text="Se vuoi risultati concreti, la costanza è tutto. Questa è la scelta più completa." href="/pricing" ctaLabel="Dettagli" />
+              <Card kicker="Corsi" title="Attività" text="Pacchetti e accessi dedicati alle discipline: scegli cosa ti rappresenta e allenati con metodo." href="/pricing" ctaLabel="Vedi opzioni" />
             </div>
           </WhiteSection>
 
-          <DiagonalPhoto image="diagonal3.jpg" alt="Red Gym - community" flip={false} className="object-top" />
+          <DiagonalPhoto image="diagonal3.jpg" alt="Red Gym - community" flip={false} />
 
-          {/* CONTACT (boxed anche su mobile) */}
           <WhiteSection id="home-contact" fullOnMobile={false}>
             <SectionHead
               kicker="Contatti"
@@ -387,9 +314,7 @@ export default function HomePage() {
               <div className="lg:col-span-6 rounded-xl border border-brand-gray200 p-6 sm:p-7 bg-white">
                 <form className="grid gap-4">
                   <div>
-                    <label className="text-sm font-semibold text-black/70">
-                      Nome
-                    </label>
+                    <label className="text-sm font-semibold text-black/70">Nome</label>
                     <input
                       type="text"
                       className="mt-1 w-full rounded-md border border-brand-gray200 px-4 py-3 outline-none focus:border-brand-red"
@@ -398,9 +323,7 @@ export default function HomePage() {
                   </div>
 
                   <div>
-                    <label className="text-sm font-semibold text-black/70">
-                      Email
-                    </label>
+                    <label className="text-sm font-semibold text-black/70">Email</label>
                     <input
                       type="email"
                       className="mt-1 w-full rounded-md border border-brand-gray200 px-4 py-3 outline-none focus:border-brand-red"
@@ -409,9 +332,7 @@ export default function HomePage() {
                   </div>
 
                   <div>
-                    <label className="text-sm font-semibold text-black/70">
-                      Messaggio
-                    </label>
+                    <label className="text-sm font-semibold text-black/70">Messaggio</label>
                     <textarea
                       rows="5"
                       className="mt-1 w-full rounded-md border border-brand-gray200 px-4 py-3 outline-none focus:border-brand-red"
@@ -422,16 +343,14 @@ export default function HomePage() {
                   <div className="flex flex-col sm:flex-row gap-3">
                     <button
                       type="button"
-                      className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold
-                                 bg-brand-red text-white hover:opacity-90 transition"
+                      className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold bg-brand-red text-white hover:opacity-90 transition"
                     >
                       Invia richiesta
                     </button>
 
                     <a
                       href="/contact"
-                      className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold
-                                 border border-brand-gray200 text-black/70 hover:border-brand-red hover:text-brand-red transition"
+                      className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold border border-brand-gray200 text-black/70 hover:border-brand-red hover:text-brand-red transition"
                     >
                       Contatti completi
                     </a>
@@ -452,12 +371,9 @@ export default function HomePage() {
                 </div>
 
                 <div className="p-6 sm:p-7">
-                  <p className="font-heading uppercase tracking-wide text-lg">
-                    Red Gym – Fonte Nuova
-                  </p>
+                  <p className="font-heading uppercase tracking-wide text-lg">Red Gym – Fonte Nuova</p>
                   <p className="mt-2 text-sm text-black/70">
-                    Vieni a trovarci in sede: ampio parcheggio e spazi grandi per
-                    allenarti con calma, metodo e supporto reale.
+                    Vieni a trovarci in sede: ampio parcheggio e spazi grandi per allenarti con calma, metodo e supporto reale.
                   </p>
                 </div>
               </div>

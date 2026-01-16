@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Container from "./Container";
 import { SITE } from "@/lib/site";
 
 const nav = [
@@ -13,6 +12,10 @@ const nav = [
   { href: "/pricing", label: "ABBONAMENTI" },
   { href: "/contact", label: "CONTATTI" },
 ];
+
+// ✅ Gabbia unica per desktop (riduce “rosso laterale” e accentramento percepito)
+// mobile invariato
+const SHELL = "mx-auto w-full max-w-7xl 2xl:max-w-[1440px] px-4 sm:px-6 lg:px-8";
 
 function BurgerIcon({ open }) {
   return (
@@ -68,16 +71,40 @@ export default function Navbar() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
+  // ✅ Imposta CSS var --nav-h (serve per hero = 100vh - nav)
+  useEffect(() => {
+    const header = document.getElementById("site-header");
+    if (!header) return;
+
+    const setVar = () => {
+      const h = header.getBoundingClientRect().height;
+      document.documentElement.style.setProperty("--nav-h", `${Math.round(h)}px`);
+    };
+
+    setVar();
+
+    const ro = new ResizeObserver(() => setVar());
+    ro.observe(header);
+
+    window.addEventListener("resize", setVar);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", setVar);
+    };
+  }, []);
+
   return (
     <>
-      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-brand-gray200">
-        <Container>
+      <header
+        id="site-header"
+        className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-brand-gray200"
+      >
+        {/* ✅ header full width, contenuto in gabbia coerente */}
+        <div className={SHELL}>
           <div className="flex items-center justify-between py-3">
             <Link href="/" className="flex items-center gap-3">
               <div className="h-9 w-9 rounded bg-brand-red" aria-hidden />
-              <span className="font-heading text-lg tracking-wide">
-                {SITE.name}
-              </span>
+              <span className="font-heading text-lg tracking-wide">{SITE.name}</span>
             </Link>
 
             {/* Desktop nav */}
@@ -104,7 +131,7 @@ export default function Navbar() {
               <BurgerIcon open={open} />
             </button>
           </div>
-        </Container>
+        </div>
       </header>
 
       {/* OVERLAY FULLSCREEN (fuori dall'header) */}
@@ -134,8 +161,8 @@ export default function Navbar() {
           role="dialog"
           aria-modal="true"
         >
-          <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            {/* top row */}
+          {/* ✅ stessa gabbia della navbar */}
+          <div className={SHELL}>
             <div className="flex items-center justify-between py-4">
               <div className="flex items-center gap-3">
                 <div className="h-9 w-9 rounded bg-brand-red" aria-hidden />
@@ -151,7 +178,6 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* links */}
             <div className="pb-5">
               <div className="grid gap-3">
                 {nav.map((i) => {
@@ -192,7 +218,6 @@ export default function Navbar() {
                 </Link>
               </div>
 
-              {/* safe area iOS */}
               <div className="h-[calc(env(safe-area-inset-bottom)+12px)]" />
             </div>
           </div>
