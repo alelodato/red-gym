@@ -1,3 +1,8 @@
+"use client";
+
+import { useState } from "react";
+import SafeguardingModal from "@/components/SafeguardingModal";
+import StatsCounterBand from "@/components/StatsCounterBand";
 import Hero from "@/components/Hero";
 import Button from "@/components/Button";
 
@@ -130,13 +135,68 @@ function DiagonalCuts({ flip = false, heightClass = "h-16 sm:h-20" }) {
   );
 }
 
-function DiagonalPhoto({ image = "diagonal1.jpg", alt = "Red Gym", flip = false, heightClass = "h-[280px] sm:h-[340px] lg:h-[430px]" }) {
+function DiagonalPhoto({
+  image = "diagonal1.jpg",
+  alt = "Red Gym",
+  flip = false,
+  heightClass = "h-[280px] sm:h-[340px] lg:h-[430px]",
+  showSafeguarding = false,
+  onOpenSafeguarding,
+  safeguardingEmail = "vito.lettieri@email.it",
+}) {
   return (
     <section className="relative bg-brand-red overflow-hidden">
       <div className={["relative", heightClass].join(" ")}>
-        <img src={toPublicSrc(image)} alt={alt} className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-black/35" />
+        <img
+          src={toPublicSrc(image)}
+          alt={alt}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+
+        {/* overlay base */}
+        <div className="absolute inset-0 bg-black/40" />
+
         <DiagonalCuts flip={flip} heightClass="h-20 sm:h-24" />
+
+        {showSafeguarding && (
+          <div className="absolute inset-0 flex items-center">
+            <div className={[SHELL, "px-4 sm:px-6 lg:px-8"].join(" ")}>
+              {/* pannello testo */}
+              <div className="max-w-3xl bg-black/45 backdrop-blur-sm rounded-xl px-6 py-6 sm:px-8 sm:py-7">
+                <p className="section-title text-white/80 tracking-widest">
+                  SAFEGUARDING
+                </p>
+
+                <h3 className="mt-2 font-heading uppercase tracking-wide text-white
+                               text-2xl sm:text-3xl lg:text-4xl leading-tight">
+                  Tutela, rispetto e sicurezza
+                </h3>
+
+                <p className="mt-4 text-white/90 leading-relaxed
+                              text-sm sm:text-base lg:text-lg">
+                  Red Gym promuove un ambiente sicuro, inclusivo e rispettoso per
+                  tutti. Per segnalazioni o richieste di chiarimento, è possibile
+                  consultare l’informativa sul{" "}
+                  <button
+                    type="button"
+                    onClick={onOpenSafeguarding}
+                    className="font-semibold underline underline-offset-4 hover:text-white"
+                  >
+                    safeguarding
+                  </button>{" "}
+                  oppure contattare il responsabile all’indirizzo{" "}
+                  <a
+                    href={`mailto:${safeguardingEmail}`}
+                    className="font-semibold underline underline-offset-4 hover:text-white"
+                  >
+                    {safeguardingEmail}
+                  </a>
+                  .
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
@@ -170,6 +230,7 @@ export default function HomePage() {
     { src: "sala.jpg", alt: "Spogliatoi e docce" },
     { src: "community.jpg", alt: "Community Red Gym" },
   ];
+  const [openSafeguarding, setOpenSafeguarding] = useState(false);
 
   return (
     <>
@@ -232,7 +293,7 @@ export default function HomePage() {
             </div>
           </WhiteSection>
 
-          <DiagonalPhoto image="diagonal1.jpg" alt="Red Gym - energia" flip={false} />
+          <StatsCounterBand />
 
           <WhiteSection id="home-courses" fullOnMobile>
             <SectionHead
@@ -298,7 +359,19 @@ export default function HomePage() {
             </div>
           </WhiteSection>
 
-          <DiagonalPhoto image="diagonal3.jpg" alt="Red Gym - community" flip={false} />
+          <DiagonalPhoto
+            image="diagonal3.jpg"
+            alt="Red Gym - energia"
+            flip={false}
+            showSafeguarding
+            safeguardingEmail="vito.lettieri@email.it"
+            onOpenSafeguarding={() => setOpenSafeguarding(true)}
+          />
+
+          <SafeguardingModal
+            open={openSafeguarding}
+            onClose={() => setOpenSafeguarding(false)}
+          />
 
           <WhiteSection id="home-contact" fullOnMobile={false}>
             <SectionHead

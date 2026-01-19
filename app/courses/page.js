@@ -58,15 +58,19 @@ function TripleDiagonalBand({
             {kicker ? <p className="section-title text-white/85">{kicker}</p> : null}
 
             {title ? (
-              <h1 className="font-heading uppercase tracking-wide text-white mt-2 leading-[0.95]
-                             text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl">
+              <h1
+                className="font-heading uppercase tracking-wide text-white mt-2 leading-[0.95]
+                             text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl"
+              >
                 {title}
               </h1>
             ) : null}
 
             {subtitle ? (
-              <p className="mt-4 text-white/85 max-w-2xl leading-relaxed
-                            text-base sm:text-lg lg:text-xl">
+              <p
+                className="mt-4 text-white/85 max-w-2xl leading-relaxed
+                            text-base sm:text-lg lg:text-xl"
+              >
                 {subtitle}
               </p>
             ) : null}
@@ -155,16 +159,8 @@ const COURSES = [
       { day: "Domenica", time: "08:00 – 13:00" },
     ],
     trainers: [
-      {
-        name: "Personal Trainer 1",
-        image: "pt1.jpg",
-        bio: "-",
-      },
-      {
-        name: "Personal Trainer 2",
-        image: "pt2.jpg",
-        bio: "-",
-      },
+      { name: "Personal Trainer 1", image: "pt1.jpg", bio: "-" },
+      { name: "Personal Trainer 2", image: "pt2.jpg", bio: "-" },
     ],
   },
   {
@@ -180,16 +176,8 @@ const COURSES = [
       { day: "Venerdì", time: "13:00 – 14:00" },
     ],
     trainers: [
-      {
-        name: "Insegnante Pilates",
-        image: "pil-maestra.jpg",
-        bio: "-",
-      },
-      {
-        name: "Insegnante Pilates",
-        image: "pil-maestra2.jpg",
-        bio: "-",
-      },
+      { name: "Insegnante Pilates", image: "pil-maestra.jpg", bio: "-" },
+      { name: "Insegnante Pilates", image: "pil-maestra2.jpg", bio: "-" },
     ],
   },
   {
@@ -203,13 +191,7 @@ const COURSES = [
       { day: "-", time: "—" },
       { day: "-", time: "—" },
     ],
-    trainers: [
-      {
-        name: "Insegnante Yoga",
-        image: "yoga-trainer.jpg",
-        bio: "-",
-      },
-    ],
+    trainers: [{ name: "Insegnante Yoga", image: "yoga-trainer.jpg", bio: "-" }],
   },
   {
     id: "boxe",
@@ -222,13 +204,7 @@ const COURSES = [
       { day: "Martedì", time: "20:00 – 21:00" },
       { day: "Giovedì", time: "20:00 – 21:00" },
     ],
-    trainers: [
-      {
-        name: "Insegnante di Boxe",
-        image: "boxe-coach.jpg",
-        bio: "-",
-      },
-    ],
+    trainers: [{ name: "Insegnante di Boxe", image: "boxe-coach.jpg", bio: "-" }],
   },
   {
     id: "kickboxing",
@@ -241,13 +217,7 @@ const COURSES = [
       { day: "-", time: "—" },
       { day: "-", time: "—" },
     ],
-    trainers: [
-      {
-        name: "Insegnante di Kickboxing",
-        image: "kickboxing-coach.jpg",
-        bio: "-",
-      },
-    ],
+    trainers: [{ name: "Insegnante di Kickboxing", image: "kickboxing-coach.jpg", bio: "-" }],
   },
   {
     id: "mma",
@@ -260,14 +230,10 @@ const COURSES = [
       { day: "Lunedì", time: "20:00 – 21:15" },
       { day: "Mercoledì", time: "20:00 – 21:15" },
     ],
-    trainers: [
-      {
-        name: "Insegnante di MMA",
-        image: "mma-coach.jpg",
-        bio: "-",
-      },
-    ],
+    trainers: [{ name: "Insegnante di MMA", image: "mma-coach.jpg", bio: "-" }],
   },
+
+  // ✅ KARATE: da 1 -> 2 trainer
   {
     id: "karate",
     title: "Karate",
@@ -280,13 +246,12 @@ const COURSES = [
       { day: "-", time: "—" },
     ],
     trainers: [
-      {
-        name: "Insegnante di Karate",
-        image: "karate-coach.jpg",
-        bio: "-",
-      },
+      { name: "Insegnante di Karate", image: "karate-coach.jpg", bio: "-" },
+      { name: "Istruttore Karate 2", image: "karate-coach-2.jpg", bio: "-" },
     ],
   },
+
+  // ✅ JUDO: da 1 -> 5 trainer
   {
     id: "judo",
     title: "Judo",
@@ -299,11 +264,11 @@ const COURSES = [
       { day: "-", time: "—" },
     ],
     trainers: [
-      {
-        name: "Insegnante di Judo",
-        image: "judo-coach.jpg",
-        bio: "-",
-      },
+      { name: "Insegnante di Judo", image: "judo-coach.jpg", bio: "-" },
+      { name: "Istruttore Judo 2", image: "judo-coach-2.jpg", bio: "-" },
+      { name: "Istruttore Judo 3", image: "judo-coach-3.jpg", bio: "-" },
+      { name: "Istruttore Judo 4", image: "judo-coach-4.jpg", bio: "-" },
+      { name: "Istruttore Judo 5", image: "judo-coach-5.jpg", bio: "-" },
     ],
   },
 ];
@@ -311,9 +276,7 @@ const COURSES = [
 function ScheduleTable({ schedule }) {
   return (
     <div className="mt-5 rounded-lg border border-brand-gray200 overflow-hidden">
-      <div className="bg-brand-black text-white px-4 py-3 text-sm font-semibold">
-        Orari
-      </div>
+      <div className="bg-brand-black text-white px-4 py-3 text-sm font-semibold">Orari</div>
       <div className="divide-y divide-brand-gray200 bg-white">
         {schedule.map((s) => (
           <div
