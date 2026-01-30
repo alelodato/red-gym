@@ -8,11 +8,19 @@ export default function Footer() {
         <div className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-3">
           <div>
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded bg-brand-red" aria-hidden />
-              <div>
-                <p className="font-heading tracking-wide">{SITE.name}</p>
-                <p className="text-sm text-black/70">{SITE.city}</p>
-              </div>
+              <img
+                src="/logo-positivo.png"
+                alt="Red Gym"
+                width={200}
+                height={64}
+                priority
+                className="
+                                h-8 w-auto
+                                sm:h-9
+                                lg:h-12
+                                xl:h-14
+                              "
+              />
             </div>
             <p className="mt-4 text-sm text-black/70 max-w-sm">
               Palestra completa e dinamica: sala pesi, cardio, functional, corsi e coaching.
