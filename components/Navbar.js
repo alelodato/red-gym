@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { SITE } from "@/lib/site";
 
@@ -13,8 +14,7 @@ const nav = [
   { href: "/contact", label: "CONTATTI" },
 ];
 
-// ✅ Gabbia unica per desktop (riduce “rosso laterale” e accentramento percepito)
-// mobile invariato
+// Gabbia coerente con il resto del sito
 const SHELL = "mx-auto w-full max-w-7xl 2xl:max-w-[1440px] px-4 sm:px-6 lg:px-8";
 
 function BurgerIcon({ open }) {
@@ -46,12 +46,12 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
-  // Chiudi menu quando cambi pagina
+  // Chiudi menu al cambio pagina
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
-  // Blocca scroll sotto quando menu è aperto
+  // Blocca scroll sotto al drawer
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
@@ -61,17 +61,15 @@ export default function Navbar() {
     };
   }, [open]);
 
-  // Chiudi con ESC
+  // ESC per chiudere
   useEffect(() => {
     if (!open) return;
-    const onKey = (e) => {
-      if (e.key === "Escape") setOpen(false);
-    };
+    const onKey = (e) => e.key === "Escape" && setOpen(false);
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  // ✅ Imposta CSS var --nav-h (serve per hero = 100vh - nav)
+  // CSS var --nav-h (serve alle hero)
   useEffect(() => {
     const header = document.getElementById("site-header");
     if (!header) return;
@@ -82,11 +80,10 @@ export default function Navbar() {
     };
 
     setVar();
-
-    const ro = new ResizeObserver(() => setVar());
+    const ro = new ResizeObserver(setVar);
     ro.observe(header);
-
     window.addEventListener("resize", setVar);
+
     return () => {
       ro.disconnect();
       window.removeEventListener("resize", setVar);
@@ -97,28 +94,58 @@ export default function Navbar() {
     <>
       <header
         id="site-header"
-        className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-brand-gray200"
+        className="sticky top-0 z-50 bg-white border-b border-brand-gray200"
       >
-        {/* ✅ header full width, contenuto in gabbia coerente */}
         <div className={SHELL}>
-          <div className="flex items-center justify-between py-3">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="h-9 w-9 rounded bg-brand-red" aria-hidden />
-              <span className="font-heading text-lg tracking-wide">{SITE.name}</span>
+          {/* Navbar più alta */}
+          <div className="flex items-center justify-between py-4 lg:py-6">
+            {/* LOGO */}
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/logo-positivo.png"
+                alt="Red Gym"
+                width={200}
+                height={64}
+                priority
+                className="
+                  h-8 w-auto
+                  sm:h-9
+                  lg:h-12
+                  xl:h-14
+                "
+              />
             </Link>
 
             {/* Desktop nav */}
-            <nav className="hidden md:flex items-center gap-6">
-              {nav.map((i) => (
-                <Link
-                  key={i.href}
-                  href={i.href}
-                  className="text-sm font-semibold text-brand-black/80 hover:text-brand-red transition-colors"
-                >
-                  {i.label}
-                </Link>
-              ))}
+            <nav className="hidden md:flex items-center gap-8">
+              {nav.map((i) => {
+                const active = pathname === i.href;
+                return (
+                  <Link
+                    key={i.href}
+                    href={i.href}
+                    className={[
+                      "text-sm lg:text-base font-semibold tracking-wide transition-colors",
+                      active
+                        ? "text-brand-red"
+                        : "text-brand-black/80 hover:text-brand-red",
+                    ].join(" ")}
+                  >
+                    {i.label}
+                  </Link>
+                );
+              })}
             </nav>
+
+            {/* CTA desktop */}
+            <div className="hidden md:flex">
+              <Link
+                href="/contact"
+                className="rounded-md bg-brand-red px-5 py-3 text-sm lg:text-base font-semibold text-white hover:opacity-90 transition"
+              >
+                Richiedi info
+              </Link>
+            </div>
 
             {/* Mobile burger */}
             <button
@@ -134,23 +161,21 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* OVERLAY FULLSCREEN (fuori dall'header) */}
+      {/* OVERLAY MOBILE */}
       <div
         className={[
           "fixed inset-0 z-[60] md:hidden transition-opacity",
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
         ].join(" ")}
-        aria-hidden={!open}
       >
-        {/* sfondo scuro */}
+        {/* sfondo */}
         <button
-          type="button"
           className="absolute inset-0 bg-black/55"
           onClick={() => setOpen(false)}
           aria-label="Chiudi menu"
         />
 
-        {/* pannello bianco (drawer) */}
+        {/* drawer */}
         <div
           className={[
             "absolute left-0 right-0 top-0",
@@ -158,19 +183,18 @@ export default function Navbar() {
             "transition-transform duration-200",
             open ? "translate-y-0" : "-translate-y-4",
           ].join(" ")}
-          role="dialog"
-          aria-modal="true"
         >
-          {/* ✅ stessa gabbia della navbar */}
           <div className={SHELL}>
             <div className="flex items-center justify-between py-4">
-              <div className="flex items-center gap-3">
-                <div className="h-9 w-9 rounded bg-brand-red" aria-hidden />
-                <span className="font-heading tracking-wide">MENU</span>
-              </div>
+              <Image
+                src="/logo-positivo.png"
+                alt="Red Gym"
+                width={140}
+                height={40}
+                className="h-8 w-auto"
+              />
 
               <button
-                type="button"
                 className="text-sm font-semibold text-black/60 hover:text-brand-red transition-colors"
                 onClick={() => setOpen(false)}
               >
@@ -188,9 +212,7 @@ export default function Navbar() {
                       href={i.href}
                       onClick={() => setOpen(false)}
                       className={[
-                        "rounded-xl border px-4 py-4",
-                        "font-heading uppercase tracking-wide",
-                        "transition-colors",
+                        "rounded-xl border px-4 py-4 font-heading uppercase tracking-wide transition-colors",
                         active
                           ? "border-brand-red bg-brand-red text-white"
                           : "border-brand-gray200 bg-white text-brand-black hover:border-brand-red hover:text-brand-red",
