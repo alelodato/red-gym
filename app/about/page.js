@@ -401,27 +401,41 @@ export default function AboutPage() {
                   Donato ha fondato Red Gym per offrire un ambiente dove la passione per lo sport incontra un'organizzazione professionale. Con un focus costante sulla tecnica corretta e sul supporto all'atleta, Donato e il suo team lavorano ogni giorno per garantire che ogni iscritto abbia gli strumenti giusti per raggiungere i propri obiettivi, in un clima di rispetto e disciplina.
                 </p>
 
-                <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-6">
-                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[240px] sm:h-[350px] lg:h-[450px]">
-                    <Image
-                      src={toPublicSrc("founder.jpg")}
-                      alt="Donato - Fondatore Red Gym"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 50vw, 40vw"
-                    />
-                    <div className="absolute inset-0 bg-black/10" />
+                <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {/* Foto Donato */}
+                  <div className="flex flex-col">
+                    <div className="relative overflow-hidden rounded-xl shadow-soft h-[400px] sm:h-[350px] lg:h-[450px]">
+                      <Image
+                        src={toPublicSrc("founder.jpg")}
+                        alt="Donato Domenicone - Fondatore Red Gym"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                      />
+                      <div className="absolute inset-0 bg-black/10" />
+                    </div>
+                    <div className="mt-4">
+                      <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">Donato Domenicone</h4>
+                      <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">Fondatore e Titolare di Red Gym</p>
+                    </div>
                   </div>
 
-                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[240px] sm:h-[350px] lg:h-[450px]">
-                    <Image
-                      src={toPublicSrc("team.jpg")}
-                      alt="Team Red Gym"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 50vw, 40vw"
-                    />
-                    <div className="absolute inset-0 bg-black/10" />
+                  {/* Foto Vito */}
+                  <div className="flex flex-col">
+                    <div className="relative overflow-hidden rounded-xl shadow-soft h-[400px] sm:h-[350px] lg:h-[450px]">
+                      <Image
+                        src={toPublicSrc("team.jpg")}
+                        alt="Vito Lettieri - Direttore Red Gym"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                      />
+                      <div className="absolute inset-0 bg-black/10" />
+                    </div>
+                    <div className="mt-4">
+                      <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">Vito Lettieri</h4>
+                      <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">Direttore Red Gym</p>
+                    </div>
                   </div>
                 </div>
 
@@ -445,7 +459,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
               {/* Card Gaia */}
               <div className="flex flex-col">
                 <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft">
