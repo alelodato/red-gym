@@ -26,6 +26,10 @@ const inter = Inter({
 export const metadata = {
   title: SITE.name,
   description: SITE.tagline,
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -38,6 +42,27 @@ export default function RootLayout({ children }) {
         <main>{children}</main>
         <Footer />
       </body>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SportsActivityLocation",
+            name: "Red Gym",
+            image: "https://www.redgym.it/og-image.jpg",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Via delle Molette 245",
+              addressLocality: "Fonte Nuova",
+              addressRegion: "RM",
+              postalCode: "00013",
+              addressCountry: "IT",
+            },
+            telephone: "+39XXXXXXXXXX",
+            url: "https://www.redgym.it",
+          }),
+        }}
+      />
     </html>
   );
 }

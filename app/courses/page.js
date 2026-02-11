@@ -152,15 +152,20 @@ const COURSES = [
     subtitle: "Qualità, sicurezza e risultati concreti",
     image: "sala-pesi.png",
     description:
-      "Allenarsi bene significa fare le cose nel modo giusto. In sala pesi trovi spazi ampi e attrezzatura di ultima generazione selezionata per efficacia e comfort, con la possibilità di lavorare su forza, tonificazione e ricomposizione corporea.\n\nChe tu sia alle prime armi o voglia portare il livello più in alto, l’obiettivo è sempre lo stesso: progressione, tecnica corretta e continuità.",
+      "Allenarsi bene significa fare le cose nel modo giusto. In sala pesi trovi spazi ampi e attrezzatura di ultima generazione selezionata per efficacia e comfort, con la possibilità di lavorare su forza, tonificazione e ricomposizione corporea.\n\nChe tu sia alle prime armi o voglia portare il livello più in alto, l'obiettivo è sempre lo stesso: progressione, tecnica corretta e continuità.",
     schedule: [
       { day: "Lun – Ven", time: "06:00 – 22:30" },
       { day: "Sabato", time: "08:00 – 16:00" },
       { day: "Domenica", time: "08:00 – 13:00" },
     ],
     trainers: [
-      { name: "Personal Trainer 1", image: "pt1.jpg", bio: "-" },
-      { name: "Personal Trainer 2", image: "pt2.jpg", bio: "-" },
+      { name: "DANIELE", image: "DANIELE.jpeg", bio: "-" },
+      { name: "EMANUELE", image: "EMANUELE.jpeg", bio: "-" },
+      { name: "ROBERTO", image: "ROBERTO.jpeg", bio: "-" },
+      { name: "EUGENIA", image: "EUGENIA.jpeg", bio: "-" },
+      { name: "GARY", image: "GARY.jpeg", bio: "-" },
+      { name: "JACOPO", image: "JACOPO.jpeg", bio: "-" },
+      { name: "LUIGI", image: "LUIGI.jpeg", bio: "-" },
     ],
   },
   {
@@ -176,8 +181,7 @@ const COURSES = [
       { day: "Venerdì", time: "13:00 – 14:00" },
     ],
     trainers: [
-      { name: "Insegnante Pilates", image: "pil-maestra.jpg", bio: "-" },
-      { name: "Insegnante Pilates", image: "pil-maestra2.jpg", bio: "-" },
+      { name: "MORENA", image: "MORENA.jpeg", bio: "ISTRUTTRICE PILATES E POSTURALE" },
     ],
   },
   {
@@ -186,12 +190,12 @@ const COURSES = [
     subtitle: "Respiro, equilibrio e movimento consapevole",
     image: "yoga.jpg",
     description:
-      "Lo yoga migliora postura e mobilità, scioglie le tensioni e favorisce un benessere mentale concreto. La pratica unisce respiro consapevole e movimento fluido, per rafforzare il corpo in modo armonico.\n\nÈ un’attività adatta a tutti: puoi iniziare anche se non hai mai praticato, e usarla per completare il tuo allenamento settimanale.",
+      "Lo yoga migliora postura e mobilità, scioglie le tensioni e favorisce un benessere mentale concreto. La pratica unisce respiro consapevole e movimento fluido, per rafforzare il corpo in modo armonico.\n\nÈ un'attività adatta a tutti: puoi iniziare anche se non hai mai praticato, e usarla per completare il tuo allenamento settimanale.",
     schedule: [
       { day: "-", time: "—" },
       { day: "-", time: "—" },
     ],
-    trainers: [{ name: "Insegnante Yoga", image: "yoga-trainer.jpg", bio: "-" }],
+    trainers: [{ name: "CLAUDIA", image: "CLAUDIA.jpeg", bio: "ISTRUTTRICE YOGA" }],
   },
   {
     id: "boxe",
@@ -199,12 +203,15 @@ const COURSES = [
     subtitle: "Tecnica, fiducia e autocontrollo",
     image: "boxe.png",
     description:
-      "La boxe è uno degli sport più completi: migliora forza, resistenza, coordinazione e riflessi, ma soprattutto costruisce fiducia, autocontrollo e determinazione.\n\nIl percorso è guidato e strutturato: tecnica, lavoro al sacco, combinazioni e condizionamento. La prepugilistica è perfetta per chi vuole costruire basi solide (anche senza contatto) con metodo e disciplina.\n\nAllenamenti seri e progressivi: tecnica, timing e condizionamento, con attenzione alla sicurezza e alla crescita dell’allievo.",
+      "La boxe è uno degli sport più completi: migliora forza, resistenza, coordinazione e riflessi, ma soprattutto costruisce fiducia, autocontrollo e determinazione.\n\nIl percorso è guidato e strutturato: tecnica, lavoro al sacco, combinazioni e condizionamento. La prepugilistica è perfetta per chi vuole costruire basi solide (anche senza contatto) con metodo e disciplina.\n\nAllenamenti seri e progressivi: tecnica, timing e condizionamento, con attenzione alla sicurezza e alla crescita dell'allievo.",
     schedule: [
       { day: "Martedì", time: "20:00 – 21:00" },
       { day: "Giovedì", time: "20:00 – 21:00" },
     ],
-    trainers: [{ name: "Insegnante di Boxe", image: "boxe-coach.jpg", bio: "-" }],
+    trainers: [
+      { name: "ADRIANO", image: "ADRIANO.jpeg", bio: "ISTRUTTORE PUGILATO E FUNZIONALE" },
+      { name: "PAOLO", image: "PAOLO.jpeg", bio: "MAESTRO PUGILATO" },
+    ],
   },
   {
     id: "kickboxing",
@@ -217,7 +224,7 @@ const COURSES = [
       { day: "-", time: "—" },
       { day: "-", time: "—" },
     ],
-    trainers: [{ name: "Insegnante di Kickboxing", image: "kickboxing-coach.jpg", bio: "-" }],
+    trainers: [{ name: "NATALINO", image: "NATALINO.jpeg", bio: "MAESTRO KICKBOXING" }],
   },
   {
     id: "mma",
@@ -225,50 +232,44 @@ const COURSES = [
     subtitle: "Forza, tecnica e versatilità",
     image: "mma.png",
     description:
-      "Tecnica, potenza, concentrazione. L’MMA è uno degli sport più completi: unisce striking e grappling e sviluppa forza, resistenza, agilità e capacità di reazione.\n\nÈ un percorso adatto a tutti i livelli: si lavora con metodo e progressione, imparando sia principi tecnici che gestione del corpo e controllo, sempre in un ambiente serio e seguito. \n\nPercorso strutturato e completo: tecnica, condizionamento e progressione, con focus su sicurezza e controllo.",
+      "Tecnica, potenza, concentrazione. L'MMA è uno degli sport più completi: unisce striking e grappling e sviluppa forza, resistenza, agilità e capacità di reazione.\n\nÈ un percorso adatto a tutti i livelli: si lavora con metodo e progressione, imparando sia principi tecnici che gestione del corpo e controllo, sempre in un ambiente serio e seguito. \n\nPercorso strutturato e completo: tecnica, condizionamento e progressione, con focus su sicurezza e controllo.",
     schedule: [
       { day: "Lunedì", time: "20:00 – 21:15" },
       { day: "Mercoledì", time: "20:00 – 21:15" },
     ],
-    trainers: [{ name: "Insegnante di MMA", image: "mma-coach.jpg", bio: "-" }],
+    trainers: [{ name: "ASTERIO LUCCHESINI", image: "ASTERIO.jpeg", bio: "MAESTRO GRAPPLING" }],
   },
 
-  // ✅ KARATE: da 1 -> 2 trainer
   {
     id: "karate",
     title: "Karate",
     subtitle: "Disciplina, rispetto e crescita personale",
     image: "karate.png",
     description:
-      "Il Karate è molto più di uno sport: è un percorso che forma corpo e mente. Aiuta a sviluppare postura, equilibrio e sicurezza in sé stessi, insieme a rispetto delle regole, autocontrollo e concentrazione.\n\nUn’attività adatta a bambini, ragazzi e adulti, con un approccio serio ma sempre motivante: si cresce passo dopo passo, con passione e attenzione all’allievo.\n\nProgressioni tecniche e lavoro sulla mentalità: postura, coordinazione e controllo, con attenzione alla crescita personale.",
+      "Il Karate è molto più di uno sport: è un percorso che forma corpo e mente. Aiuta a sviluppare postura, equilibrio e sicurezza in sé stessi, insieme a rispetto delle regole, autocontrollo e concentrazione.\n\nUn'attività adatta a bambini, ragazzi e adulti, con un approccio serio ma sempre motivante: si cresce passo dopo passo, con passione e attenzione all'allievo.\n\nProgressioni tecniche e lavoro sulla mentalità: postura, coordinazione e controllo, con attenzione alla crescita personale.",
     schedule: [
       { day: "-", time: "—" },
       { day: "-", time: "—" },
     ],
     trainers: [
-      { name: "Insegnante di Karate", image: "karate-coach.jpg", bio: "-" },
-      { name: "Istruttore Karate 2", image: "karate-coach-2.jpg", bio: "-" },
+      { name: "MASSIMO", image: "MASSIMO.jpeg", bio: "MAESTRO KARATE" },
     ],
   },
 
-  // ✅ JUDO: da 1 -> 5 trainer
   {
     id: "judo",
     title: "Judo",
     subtitle: "Tecnica, valori e controllo",
     image: "judo.png",
     description:
-      "Il Judo è disciplina, tecnica e valori. Un percorso completo che sviluppa coordinazione, equilibrio e consapevolezza del corpo, con lavoro progressivo e strutturato.\n\nAdatto a bambini, ragazzi e adulti, con gruppi suddivisi per età e livello: si impara sul serio, con rispetto e passione sul tatami. \n\nAllenamenti progressivi su tecnica e controllo, con attenzione alla sicurezza e alla crescita dell’allievo.",
+      "Il Judo è disciplina, tecnica e valori. Un percorso completo che sviluppa coordinazione, equilibrio e consapevolezza del corpo, con lavoro progressivo e strutturato.\n\nAdatto a bambini, ragazzi e adulti, con gruppi suddivisi per età e livello: si impara sul serio, con rispetto e passione sul tatami. \n\nAllenamenti progressivi su tecnica e controllo, con attenzione alla sicurezza e alla crescita dell'allievo.",
     schedule: [
       { day: "-", time: "—" },
       { day: "-", time: "—" },
     ],
     trainers: [
-      { name: "Insegnante di Judo", image: "judo-coach.jpg", bio: "-" },
-      { name: "Istruttore Judo 2", image: "judo-coach-2.jpg", bio: "-" },
-      { name: "Istruttore Judo 3", image: "judo-coach-3.jpg", bio: "-" },
-      { name: "Istruttore Judo 4", image: "judo-coach-4.jpg", bio: "-" },
-      { name: "Istruttore Judo 5", image: "judo-coach-5.jpg", bio: "-" },
+      { name: "MICHELA", image: "MICHELA.jpeg", bio: "MAESTRA JUDO" },
+      { name: "VITTORIA", image: "VITTORIA.jpeg", bio: "MAESTRA JUDO" },
     ],
   },
 ];
@@ -292,34 +293,63 @@ function ScheduleTable({ schedule }) {
   );
 }
 
-function TrainersBlock({ trainers }) {
+function SingleTrainerBlock({ trainer }) {
   return (
     <div>
-      <p className="section-title text-brand-red text-sm">Trainer</p>
+      <p className="section-title text-brand-red text-sm mb-6">Trainer</p>
 
-      <div className="mt-6 space-y-6">
+      <div className="max-w-3xl mx-auto">
+        <div className="rounded-xl bg-white border border-brand-gray200 overflow-hidden">
+          <div className="grid md:grid-cols-12">
+            <div className="md:col-span-4 relative h-[240px] sm:h-[280px]">
+              <img
+                src={toPublicSrc(trainer.image)}
+                alt={trainer.name}
+                className="absolute inset-0 h-full w-full object-cover object-top"
+              />
+              <div className="absolute inset-0 bg-black/5" />
+            </div>
+
+            <div className="md:col-span-8 p-6 sm:p-7">
+              <h3 className="font-heading uppercase tracking-wide text-xl">
+                {trainer.name}
+              </h3>
+
+              <p className="mt-3 text-black/70 leading-relaxed">{trainer.bio}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MultipleTrainersBlock({ trainers }) {
+  return (
+    <div>
+      <p className="section-title text-brand-red text-sm mb-5">Trainer</p>
+
+      <div className="grid sm:grid-cols-2 gap-5">
         {trainers.map((t, idx) => (
           <div
             key={idx}
-            className="rounded-xl bg-white border border-brand-gray200 overflow-hidden"
+            className="rounded-lg bg-white border border-brand-gray200 overflow-hidden"
           >
-            <div className="grid md:grid-cols-12">
-              <div className="md:col-span-4 relative h-[240px] sm:h-[260px]">
-                <img
-                  src={toPublicSrc(t.image)}
-                  alt={t.name}
-                  className="absolute inset-0 h-full w-full object-cover object-top"
-                />
-                <div className="absolute inset-0 bg-black/10" />
-              </div>
+            <div className="relative h-[280px]">
+              <img
+                src={toPublicSrc(t.image)}
+                alt={t.name}
+                className="absolute inset-0 h-full w-full object-cover object-top"
+              />
+              <div className="absolute inset-0 bg-black/5" />
+            </div>
 
-              <div className="md:col-span-8 p-6 sm:p-7">
-                <h3 className="font-heading uppercase tracking-wide text-xl">
-                  {t.name}
-                </h3>
+            <div className="p-5">
+              <h3 className="font-heading uppercase tracking-wide text-lg">
+                {t.name}
+              </h3>
 
-                <p className="mt-3 text-black/70 leading-relaxed">{t.bio}</p>
-              </div>
+              <p className="mt-2 text-black/70 text-sm leading-relaxed">{t.bio}</p>
             </div>
           </div>
         ))}
@@ -328,7 +358,38 @@ function TrainersBlock({ trainers }) {
   );
 }
 
+function WeightRoomTrainersBlock({ trainers }) {
+  return (
+    <div>
+      <p className="font-heading uppercase tracking-wide text-2xl sm:text-3xl text-brand-black text-center mb-8">
+        I NOSTRI ISTRUTTORI DI SALA PESI
+      </p>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        {trainers.map((t, idx) => (
+          <div key={idx} className="flex flex-col items-center">
+            <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-brand-gray200 border border-brand-gray200">
+              <img
+                src={toPublicSrc(t.image)}
+                alt={t.name}
+                className="absolute inset-0 h-full w-full object-cover object-top"
+              />
+              <div className="absolute inset-0 bg-black/5" />
+            </div>
+            <p className="mt-3 font-heading uppercase tracking-wide text-center text-sm sm:text-base text-brand-black">
+              {t.name}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function CourseSection({ course, invert = false }) {
+  const isWeightRoom = course.id === "sala-pesi";
+  const hasSingleTrainer = course.trainers.length === 1;
+  
   return (
     <section
       id={course.id}
@@ -381,7 +442,13 @@ function CourseSection({ course, invert = false }) {
       </div>
 
       <div className="border-t border-brand-gray200 bg-brand-offwhite p-7 sm:p-10">
-        <TrainersBlock trainers={course.trainers} />
+        {isWeightRoom ? (
+          <WeightRoomTrainersBlock trainers={course.trainers} />
+        ) : hasSingleTrainer ? (
+          <SingleTrainerBlock trainer={course.trainers[0]} />
+        ) : (
+          <MultipleTrainersBlock trainers={course.trainers} />
+        )}
       </div>
     </section>
   );

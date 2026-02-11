@@ -182,12 +182,12 @@ function DiagonalPhoto({
                     onClick={onOpenSafeguarding}
                     className="font-semibold underline underline-offset-4 hover:text-white"
                   >
-                    safeguarding
+                    SAFEGUARDING
                   </button>{" "}
                   oppure contattare il responsabile all’indirizzo{" "}
                   <a
                     href={`mailto:${safeguardingEmail}`}
-                    className="font-semibold underline underline-offset-4 hover:text-white"
+                    className="font-semibold hover:text-white"
                   >
                     {safeguardingEmail}
                   </a>

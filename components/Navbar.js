@@ -14,7 +14,6 @@ const nav = [
   { href: "/contact", label: "CONTATTI" },
 ];
 
-// Gabbia coerente con il resto del sito
 const SHELL = "mx-auto w-full max-w-7xl 2xl:max-w-[1440px] px-4 sm:px-6 lg:px-8";
 
 function BurgerIcon({ open }) {
@@ -136,16 +135,6 @@ export default function Navbar() {
                 );
               })}
             </nav>
-
-            {/* CTA desktop */}
-            <div className="hidden md:flex">
-              <Link
-                href="/contact"
-                className="rounded-md bg-brand-red px-5 py-3 text-sm lg:text-base font-semibold text-white hover:opacity-90 transition"
-              >
-                Richiedi info
-              </Link>
-            </div>
 
             {/* Mobile burger */}
             <button
