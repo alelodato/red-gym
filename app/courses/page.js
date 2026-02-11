@@ -211,6 +211,7 @@ const COURSES = [
     trainers: [
       { name: "ADRIANO", image: "ADRIANO.jpeg", bio: "ISTRUTTORE PUGILATO E FUNZIONALE" },
       { name: "PAOLO", image: "PAOLO.jpeg", bio: "MAESTRO PUGILATO" },
+      { name: "ALEX", image: "ALEX.jpeg", bio: "-" },
     ],
   },
   {
@@ -237,7 +238,7 @@ const COURSES = [
       { day: "Lunedì", time: "20:00 – 21:15" },
       { day: "Mercoledì", time: "20:00 – 21:15" },
     ],
-    trainers: [{ name: "ASTERIO LUCCHESINI", image: "ASTERIO.jpeg", bio: "MAESTRO GRAPPLING" }],
+    trainers: [{ name: "ASTERIO", image: "ASTERIO.jpeg", bio: "MAESTRO GRAPPLING" }],
   },
 
   {
@@ -253,6 +254,7 @@ const COURSES = [
     ],
     trainers: [
       { name: "MASSIMO", image: "MASSIMO.jpeg", bio: "MAESTRO KARATE" },
+      { name: "BARBARA", image: "BARBARA.jpeg", bio: "MAESTRA KARATE" },
     ],
   },
 
@@ -298,19 +300,18 @@ function SingleTrainerBlock({ trainer }) {
     <div>
       <p className="section-title text-brand-red text-sm mb-6">Trainer</p>
 
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-2xl mx-auto">
         <div className="rounded-xl bg-white border border-brand-gray200 overflow-hidden">
-          <div className="grid md:grid-cols-12">
-            <div className="md:col-span-4 relative h-[240px] sm:h-[280px]">
+          <div className="grid sm:grid-cols-5">
+            <div className="sm:col-span-2 relative h-[380px] sm:h-[420px]">
               <img
                 src={toPublicSrc(trainer.image)}
                 alt={trainer.name}
-                className="absolute inset-0 h-full w-full object-cover object-top"
+                className="absolute inset-0 h-full w-full object-contain object-center bg-white"
               />
-              <div className="absolute inset-0 bg-black/5" />
             </div>
 
-            <div className="md:col-span-8 p-6 sm:p-7">
+            <div className="sm:col-span-3 p-6 sm:p-7 flex flex-col justify-center">
               <h3 className="font-heading uppercase tracking-wide text-xl">
                 {trainer.name}
               </h3>
@@ -335,13 +336,12 @@ function MultipleTrainersBlock({ trainers }) {
             key={idx}
             className="rounded-lg bg-white border border-brand-gray200 overflow-hidden"
           >
-            <div className="relative h-[280px]">
+            <div className="relative h-[400px]">
               <img
                 src={toPublicSrc(t.image)}
                 alt={t.name}
-                className="absolute inset-0 h-full w-full object-cover object-top"
+                className="absolute inset-0 h-full w-full object-contain object-center bg-white"
               />
-              <div className="absolute inset-0 bg-black/5" />
             </div>
 
             <div className="p-5">
@@ -365,18 +365,17 @@ function WeightRoomTrainersBlock({ trainers }) {
         I NOSTRI ISTRUTTORI DI SALA PESI
       </p>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
         {trainers.map((t, idx) => (
           <div key={idx} className="flex flex-col items-center">
-            <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-brand-gray200 border border-brand-gray200">
+            <div className="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-white border border-brand-gray200">
               <img
                 src={toPublicSrc(t.image)}
                 alt={t.name}
-                className="absolute inset-0 h-full w-full object-cover object-top"
+                className="absolute inset-0 h-full w-full object-contain object-center"
               />
-              <div className="absolute inset-0 bg-black/5" />
             </div>
-            <p className="mt-3 font-heading uppercase tracking-wide text-center text-sm sm:text-base text-brand-black">
+            <p className="mt-3 font-heading uppercase tracking-wide text-center text-xs sm:text-sm text-brand-black">
               {t.name}
             </p>
           </div>
