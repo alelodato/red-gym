@@ -210,7 +210,7 @@ const COURSES = [
     ],
     trainers: [
       { name: "ADRIANO", image: "ADRIANO.jpeg", bio: "ISTRUTTORE PUGILATO E FUNZIONALE" },
-      { name: "PAOLO", image: "PAOLO.jpeg", bio: "MAESTRO PUGILATO" },
+      { name: "PAOLO", image: "PAOLO.jpeg", bio: "MAESTRO PUGILATO" },    
       { name: "ALEX", image: "ALEX.jpeg", bio: "-" },
     ],
   },
@@ -316,7 +316,7 @@ function SingleTrainerBlock({ trainer }) {
                 {trainer.name}
               </h3>
 
-              <p className="mt-3 text-black/70 leading-relaxed">{trainer.bio}</p>
+              <p className="text-brand-red font-bold mt-1">{trainer.bio}</p>
             </div>
           </div>
         </div>
@@ -349,7 +349,7 @@ function MultipleTrainersBlock({ trainers }) {
                 {t.name}
               </h3>
 
-              <p className="mt-2 text-black/70 text-sm leading-relaxed">{t.bio}</p>
+              <p className="text-brand-red font-bold mt-1">{t.bio}</p>
             </div>
           </div>
         ))}
@@ -360,22 +360,56 @@ function MultipleTrainersBlock({ trainers }) {
 
 function WeightRoomTrainersBlock({ trainers }) {
   return (
-    <div>
+    <div className="px-4 sm:px-0">
       <p className="font-heading uppercase tracking-wide text-2xl sm:text-3xl text-brand-black text-center mb-8">
         I NOSTRI ISTRUTTORI DI SALA PESI
       </p>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
-        {trainers.map((t, idx) => (
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+        {trainers.slice(0, 4).map((t, idx) => (
           <div key={idx} className="flex flex-col items-center">
-            <div className="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-white border border-brand-gray200">
+            <div className="relative w-full aspect-[3/4] rounded-none sm:rounded-lg overflow-hidden bg-white border-y sm:border border-brand-gray200">
               <img
                 src={toPublicSrc(t.image)}
                 alt={t.name}
                 className="absolute inset-0 h-full w-full object-contain object-center"
               />
             </div>
-            <p className="mt-3 font-heading uppercase tracking-wide text-center text-xs sm:text-sm text-brand-black">
+            <p className="my-3 font-heading uppercase tracking-wide text-center text-xs sm:text-sm text-brand-black">
+              {t.name}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 mt-4 sm:mt-6 max-w-4xl mx-auto">
+        {trainers.slice(4, 7).map((t, idx) => (
+          <div key={idx} className="flex flex-col items-center">
+            <div className="relative w-full aspect-[3/4] rounded-none sm:rounded-lg overflow-hidden bg-white border-y sm:border border-brand-gray200">
+              <img
+                src={toPublicSrc(t.image)}
+                alt={t.name}
+                className="absolute inset-0 h-full w-full object-contain object-center"
+              />
+            </div>
+            <p className="my-3 font-heading uppercase tracking-wide text-center text-xs sm:text-sm text-brand-black">
+              {t.name}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 mt-4 sm:mt-6 max-w-4xl mx-auto">
+        {trainers.slice(7).map((t, idx) => (
+          <div key={idx} className="flex flex-col items-center">
+            <div className="relative w-full aspect-[3/4] rounded-none sm:rounded-lg overflow-hidden bg-white border-y sm:border border-brand-gray200">
+              <img
+                src={toPublicSrc(t.image)}
+                alt={t.name}
+                className="absolute inset-0 h-full w-full object-contain object-center"
+              />
+            </div>
+            <p className="my-3 font-heading uppercase tracking-wide text-center text-xs sm:text-sm text-brand-black">
               {t.name}
             </p>
           </div>
@@ -440,7 +474,7 @@ function CourseSection({ course, invert = false }) {
         </div>
       </div>
 
-      <div className="border-t border-brand-gray200 bg-brand-offwhite p-7 sm:p-10">
+      <div className={`border-t border-brand-gray200 bg-brand-offwhite ${isWeightRoom ? 'p-0 py-8 sm:p-10' : 'p-7 sm:p-10'}`}>
         {isWeightRoom ? (
           <WeightRoomTrainersBlock trainers={course.trainers} />
         ) : hasSingleTrainer ? (
@@ -526,6 +560,55 @@ export default function CoursesPage() {
           </div>
         </WhiteBlock>
       </div>
+
+      {/* Sezione finale CTA con 2 foto e taglio diagonale */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 flex">
+          {/* Foto sinistra con clip diagonale */}
+          <div className="relative w-1/2 [clip-path:polygon(0_0,100%_0,85%_100%,0_100%)]">
+            <img
+              src={toPublicSrc("boxe.png")}
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+          
+          {/* Foto destra con clip diagonale */}
+          <div className="relative w-1/2 [clip-path:polygon(15%_0,100%_0,100%_100%,0_100%)]">
+            <img
+              src={toPublicSrc("sala-pesi.png")}
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+        </div>
+
+        {/* Overlay scuro */}
+        <div className="absolute inset-0 bg-black/65" />
+
+        {/* Contenuto */}
+        <div className="relative py-16 sm:py-20 lg:py-24">
+          <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="font-heading uppercase tracking-wide text-white text-3xl sm:text-4xl lg:text-5xl">
+              Inizia il tuo percorso
+            </h2>
+            
+            <p className="mt-6 text-white/85 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
+              Hai trovato il corso che fa per te? Siamo qui per rispondere a ogni tua domanda e aiutarti a scegliere il percorso più adatto ai tuoi obiettivi. Contattaci per maggiori informazioni, orari dettagliati o per prenotare una lezione di prova.
+            </p>
+
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-md px-8 py-4 text-base font-semibold tracking-wide
+                           bg-brand-red text-white hover:bg-brand-red/90 transition-colors"
+              >
+                Contattaci
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

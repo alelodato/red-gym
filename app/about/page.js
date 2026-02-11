@@ -50,15 +50,12 @@ function StatsBand({
       <div className="pointer-events-none absolute -top-1 left-0 right-0 h-16 sm:h-20 bg-brand-red [clip-path:polygon(0_0,100%_0,100%_100%,0_55%)]" />
       <div className="pointer-events-none absolute -bottom-1 left-0 right-0 h-16 sm:h-20 bg-brand-red [clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]" />
 
-      {/* Content wrapper: enough height to avoid overflow */}
+      {/* Content wrapper */}
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div
           className={[
-            // altezza: cresce su desktop per contenere heading + cards
             "py-12 sm:py-14 lg:py-16",
-            // minimo: evita che “strabordi” su viewport bassi / zoom
             "min-h-[520px] sm:min-h-[540px] lg:min-h-[520px]",
-            // su schermi grandi respira di più
             "2xl:min-h-[560px] 2xl:py-20",
             "flex items-center",
           ].join(" ")}
@@ -66,11 +63,9 @@ function StatsBand({
           <div className="w-full">
             <div className="max-w-3xl">
               <p className="section-title text-white/80">{kicker}</p>
-
               <h3 className="font-heading uppercase tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl mt-2">
                 {title}
               </h3>
-
               <p className="mt-3 text-white/85 leading-relaxed">{lead}</p>
             </div>
 
@@ -88,41 +83,16 @@ function StatsBand({
                       {s.label}
                     </span>
                   </div>
-
                   <p className="mt-3 text-white/75 text-sm leading-relaxed">
                     {s.note}
                   </p>
                 </div>
               ))}
             </div>
-
-            {/* safe area iOS / piccoli viewport */}
-            <div className="h-[calc(env(safe-area-inset-bottom)+8px)]" />
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function FeatureCard({ title, text, image, alt }) {
-  return (
-    <div className="rounded-xl bg-white border border-brand-gray200 overflow-hidden">
-      <div className="relative h-[200px] sm:h-[240px]">
-        <Image
-          src={toPublicSrc(image)}
-          alt={alt || title}
-          fill
-          className="object-cover"
-          sizes="(max-width: 640px) 100vw, 50vw"
-        />
-        <div className="absolute inset-0 bg-black/10" />
-      </div>
-      <div className="p-6">
-        <h3 className="font-heading uppercase tracking-wide text-xl">{title}</h3>
-        <p className="mt-2 text-black/70 leading-relaxed">{text}</p>
-      </div>
-    </div>
   );
 }
 
@@ -388,57 +358,74 @@ export default function AboutPage() {
       <div className="space-y-6 sm:space-y-8 lg:space-y-10">
         <WhiteBlock>
           <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-12">
               <p className="section-title text-brand-red">La nostra storia</p>
 
               <h2 className="font-heading uppercase tracking-wide text-3xl sm:text-4xl mt-2">
-                Dal 201? la tua palestra a Fonte Nuova.
+                Dal 2018 la tua palestra a Fonte Nuova.
               </h2>
 
               <p className="mt-4 text-black/70 leading-relaxed max-w-3xl">
-                Red Gym nasce con un’idea semplice: creare uno spazio ordinato,
+                Red Gym nasce nel 2018 con un’idea semplice: creare uno spazio ordinato,
                 completo e concreto dove allenarsi bene ogni giorno, con la
                 tranquillità di avere ambienti curati e percorsi chiari. In questi
                 anni la palestra è cresciuta, ma l’obiettivo è rimasto lo stesso:
-                qualità, metodo e costanza.
+                qualità, metodo e costanza, diventando il punto di riferimento per il fitness vicino Roma.
               </p>
-
-              <div className="mt-8 rounded-xl border border-brand-gray200 bg-brand-offwhite p-6 sm:p-7">
-                <p className="section-title text-brand-red">Il team di red gym</p>
-
-                <h3 className="font-heading uppercase tracking-wide text-xl mt-2">
-                  Donato e soci
-                </h3>
-
-                <p className="mt-3 text-black/70 leading-relaxed">
-                  Qui pensavo di inserire un breve testo con foto per introdurre te e qualche altro collaboratore o socio della palestra.
-                </p>
-
-                <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-4">
-                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[140px] sm:h-[170px]">
+              <div className="mb-14 py-12">
+                <div className="px-0 sm:px-6 lg:px-12">
+                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[280px] sm:h-[400px] lg:h-[500px]">
                     <Image
-                      src={toPublicSrc("founder.jpg")}
-                      alt="Fondatore Red Gym"
+                      src={toPublicSrc("about-intro.jpg")}
+                      alt="Red Gym - panoramica"
                       fill
                       className="object-cover"
-                      sizes="(max-width: 640px) 50vw, 25vw"
+                      priority
+                      sizes="100vw"
+                    />
+                    <div className="absolute inset-0 bg-black/5" />
+                  </div>
+                  <p className="mt-4 text-center text-sm sm:text-base text-black/60 italic leading-relaxed">
+                    La palestra si trova all'interno del complesso del **Centro Commerciale La Fonte**, un punto strategico a Fonte Nuova (Roma) con ampio parcheggio dedicato per i nostri soci.
+                  </p>
+                </div>
+              </div>
+              <div className="mt-10 rounded-xl border border-brand-gray200 bg-brand-offwhite p-8 sm:p-10 lg:p-12">
+                <p className="section-title text-brand-red">Il team di red gym</p>
+
+                <h3 className="font-heading uppercase tracking-wide text-2xl mt-2">
+                  Donato e la visione Red Gym
+                </h3>
+
+                <p className="mt-4 text-black/70 leading-relaxed max-w-3xl">
+                  Donato ha fondato Red Gym per offrire un ambiente dove la passione per lo sport incontra un'organizzazione professionale. Con un focus costante sulla tecnica corretta e sul supporto all'atleta, Donato e il suo team lavorano ogni giorno per garantire che ogni iscritto abbia gli strumenti giusti per raggiungere i propri obiettivi, in un clima di rispetto e disciplina.
+                </p>
+
+                <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-6">
+                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[240px] sm:h-[350px] lg:h-[450px]">
+                    <Image
+                      src={toPublicSrc("founder.jpg")}
+                      alt="Donato - Fondatore Red Gym"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 50vw, 40vw"
                     />
                     <div className="absolute inset-0 bg-black/10" />
                   </div>
 
-                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[140px] sm:h-[170px]">
+                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[240px] sm:h-[350px] lg:h-[450px]">
                     <Image
                       src={toPublicSrc("team.jpg")}
                       alt="Team Red Gym"
                       fill
                       className="object-cover"
-                      sizes="(max-width: 640px) 50vw, 25vw"
+                      sizes="(max-width: 640px) 50vw, 40vw"
                     />
                     <div className="absolute inset-0 bg-black/10" />
                   </div>
                 </div>
 
-                <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                <div className="mt-8 flex flex-col sm:flex-row gap-3">
                   <Button href="/contact">Chiedi info</Button>
                   <Button href="/courses" variant="outline">
                     Scopri i corsi
@@ -446,42 +433,48 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="lg:col-span-5">
-              <div className="rounded-xl border border-brand-gray200 bg-white p-6 sm:p-7">
-                <p className="section-title text-brand-red">Red Gym</p>
+          {/* SECTION RECEPTION STAFF */}
+          <div className="mt-20 border-t border-brand-gray100 pt-16">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <p className="section-title text-brand-red">Il primo sorriso</p>
+              <h2 className="font-heading uppercase tracking-wide text-3xl sm:text-4xl mt-2">Alla Red Gym sono tutti benvenuti</h2>
+              <p className="mt-4 text-black/70 leading-relaxed">
+                Alla Red Gym l'accoglienza è fondamentale. Il nostro staff di reception è pronto ad aiutarti per ogni esigenza, rendendo la tua esperienza in palestra fluida e piacevole sin dal primo ingresso.
+              </p>
+            </div>
 
-                <ul className="mt-4 space-y-3 text-sm text-black/70">
-                  <li className="flex gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-brand-red shrink-0" />
-                    <span>
-                      7 anni di attività a Fonte Nuova, con una struttura ampia e organizzata.
-                    </span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-brand-red shrink-0" />
-                    <span>
-                      Sala pesi completa, aree dedicate e corsi per ogni livello.
-                    </span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-brand-red shrink-0" />
-                    <span>
-                      Trainer presenti: tecnica, progressione e sicurezza prima di tutto.
-                    </span>
-                  </li>
-                </ul>
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 items-center">
+              {/* Card Gaia */}
+              <div className="flex flex-col">
+                <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft">
+                  <Image src={toPublicSrc("GAIA.jpeg")} alt="Gaia - Reception Red Gym" fill className="object-cover" />
+                  <div className="absolute inset-0 bg-black/5" />
+                </div>
+                <div className="mt-4">
+                  <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">Gaia</h4>
+                  <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">Reception & Segreteria</p>
+                </div>
               </div>
 
-              <div className="mt-6 relative overflow-hidden rounded-xl shadow-soft h-[220px] sm:h-[280px] lg:h-[320px]">
-                <Image
-                  src={toPublicSrc("about-intro.jpg")}
-                  alt="Red Gym - panoramica"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                />
-                <div className="absolute inset-0 bg-black/10" />
+              {/* Testo centrale per Desktop */}
+              <div className="hidden lg:flex flex-col items-center justify-center p-8 text-center italic text-black/60 border-x border-brand-gray200 h-full">
+                <p className="text-lg leading-relaxed">
+                  "Crediamo che un ambiente accogliente sia il primo passo per un allenamento di successo. Siamo qui per supportarti in ogni fase del tuo percorso."
+                </p>
+              </div>
+
+              {/* Card Eleonora */}
+              <div className="flex flex-col">
+                <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft">
+                  <Image src={toPublicSrc("ELEONORA.jpeg")} alt="Eleonora - Reception Red Gym" fill className="object-cover" />
+                  <div className="absolute inset-0 bg-black/5" />
+                </div>
+                <div className="mt-4">
+                  <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">Eleonora</h4>
+                  <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">Reception & Segreteria</p>
+                </div>
               </div>
             </div>
           </div>
