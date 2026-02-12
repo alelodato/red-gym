@@ -147,22 +147,34 @@ function DiagonalPhoto({
   return (
     <section className="relative bg-brand-red overflow-hidden">
       <div className={["relative", heightClass].join(" ")}>
-        <img
-          src={toPublicSrc(image)}
-          alt={alt}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        {/* Desktop: foto con taglio diagonale */}
+        <div className="hidden sm:block absolute inset-0">
+          <img
+            src={toPublicSrc(image)}
+            alt={alt}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          {/* overlay base */}
+          <div className="absolute inset-0 bg-black/40" />
+          <DiagonalCuts flip={flip} heightClass="h-20 sm:h-24" />
+        </div>
 
-        {/* overlay base */}
-        <div className="absolute inset-0 bg-black/40" />
-
-        <DiagonalCuts flip={flip} heightClass="h-20 sm:h-24" />
+        {/* Mobile: foto dritta come background */}
+        <div className="sm:hidden absolute inset-0">
+          <img
+            src={toPublicSrc(image)}
+            alt={alt}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          {/* overlay base */}
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
 
         {showSafeguarding && (
           <div className="absolute inset-0 flex items-center">
             <div className={[SHELL, "px-4 sm:px-6 lg:px-8"].join(" ")}>
               {/* pannello testo */}
-              <div className="max-w-3xl bg-black/45 backdrop-blur-sm rounded-xl px-6 py-6 sm:px-8 sm:py-7">
+              <div className="max-w-3xl backdrop-blur-sm rounded-xl px-4 py-4 sm:px-8 sm:py-7 sm:mt-6">
                 <p className="section-title text-white/80 tracking-widest">
                   SAFEGUARDING
                 </p>
@@ -176,7 +188,7 @@ function DiagonalPhoto({
                               text-sm sm:text-base lg:text-lg">
                   Red Gym promuove un ambiente sicuro, inclusivo e rispettoso per
                   tutti. Per segnalazioni o richieste di chiarimento, è possibile
-                  consultare l’informativa sul{" "}
+                  consultare l'informativa sul{" "}
                   <button
                     type="button"
                     onClick={onOpenSafeguarding}
@@ -184,7 +196,7 @@ function DiagonalPhoto({
                   >
                     SAFEGUARDING
                   </button>{" "}
-                  oppure contattare il responsabile all’indirizzo{" "}
+                  oppure contattare il responsabile all'indirizzo{" "}
                   <a
                     href={`mailto:${safeguardingEmail}`}
                     className="font-semibold hover:text-white"
