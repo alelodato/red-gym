@@ -54,7 +54,7 @@ function StatsBand({
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div
           className={[
-            "py-12 sm:py-14 lg:py-16",
+            "py-16 sm:py-20 lg:py-16",
             "min-h-[520px] sm:min-h-[540px] lg:min-h-[520px]",
             "2xl:min-h-[560px] 2xl:py-20",
             "flex items-center",
@@ -451,7 +451,7 @@ export default function AboutPage() {
 
           {/* SECTION RECEPTION STAFF */}
           <div className="mt-20 border-t border-brand-gray100 pt-16">
-            <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="text-center max-w-2xl mx-auto mb-10">
               <p className="section-title text-brand-red">Il primo sorriso</p>
               <h2 className="font-heading uppercase tracking-wide text-3xl sm:text-4xl mt-2">Alla Red Gym sono tutti benvenuti</h2>
               <p className="mt-4 text-black/70 leading-relaxed">
@@ -462,11 +462,11 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
               {/* Card Gaia */}
               <div className="flex flex-col">
-                <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft">
+                <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft mx-6 my-6 lg:mx-0 lg:my-0">
                   <Image src={toPublicSrc("GAIA.jpeg")} alt="Gaia - Reception Red Gym" fill className="object-cover" />
                   <div className="absolute inset-0 bg-black/5" />
                 </div>
-                <div className="mt-4">
+                <div className="mt-4 mx-6 lg:mx-0">
                   <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">Gaia</h4>
                   <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">Reception & Segreteria</p>
                 </div>
@@ -481,11 +481,11 @@ export default function AboutPage() {
 
               {/* Card Eleonora */}
               <div className="flex flex-col">
-                <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft">
+                <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft mx-6 my-6 lg:mx-0 lg:my-0">
                   <Image src={toPublicSrc("ELEONORA.jpeg")} alt="Eleonora - Reception Red Gym" fill className="object-cover" />
                   <div className="absolute inset-0 bg-black/5" />
                 </div>
-                <div className="mt-4">
+                <div className="mt-4 mx-6 lg:mx-0">
                   <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">Eleonora</h4>
                   <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">Reception & Segreteria</p>
                 </div>

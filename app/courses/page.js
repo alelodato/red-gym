@@ -20,7 +20,6 @@ function TripleDiagonalBand({
   kicker = "Red Gym",
   title = "Scegli il tuo percorso.",
   subtitle = "Ogni corso ha un metodo, una guida e un obiettivo.",
-  heightClass = "h-[400px] sm:h-[460px] lg:h-[520px] xl:h-[600px] 2xl:h-[680px]",
   className = "",
 }) {
   const bottomClip = "[clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]";
@@ -29,51 +28,66 @@ function TripleDiagonalBand({
     <section className={`relative bg-brand-red overflow-hidden ${className}`}>
       {/* HERO */}
       <div className="relative h-[600px] sm:h-[660px] lg:h-[740px]">
-        {/* 3 immagini attaccate */}
-        <div className="absolute inset-0 flex min-w-0">
+
+        {/* MOBILE: 2 immagini */}
+        <div className="absolute inset-0 grid grid-cols-2 sm:hidden">
+          <div className="relative">
+            <img
+              src={toPublicSrc(images[0])}
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+          <div className="relative">
+            <img
+              src={toPublicSrc(images[1])}
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+        </div>
+
+        {/* DESKTOP: 3 immagini */}
+        <div className="absolute inset-0 hidden sm:grid sm:grid-cols-3">
           {images.map((src, idx) => (
-            <div key={src + idx} className="relative flex-1 min-w-0">
+            <div key={src + idx} className="relative">
               <img
                 src={toPublicSrc(src)}
                 alt=""
                 className="absolute inset-0 h-full w-full object-cover"
               />
-              {idx < images.length - 1 ? (
-                <div className="absolute inset-y-0 right-0 w-px bg-white/10" />
-              ) : null}
             </div>
           ))}
         </div>
 
+        {/* Overlay */}
         <div className="absolute inset-0 bg-black/55" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-black/10" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-black/25" />
 
+        {/* Taglio diagonale sotto */}
         <div className={`absolute -bottom-1 left-0 right-0 h-20 sm:h-24 bg-brand-red ${bottomClip}`} />
       </div>
 
+      {/* Contenuto */}
       <div className="absolute inset-0 flex items-center">
         <div className="mx-auto w-full max-w-7xl 2xl:max-w-[1440px] px-4 sm:px-6 lg:px-8">
           <div className="pb-14 sm:pb-0">
-            {kicker ? <p className="section-title text-white/85">{kicker}</p> : null}
+            {kicker && <p className="section-title text-white/85">{kicker}</p>}
 
-            {title ? (
-              <h1
-                className="font-heading uppercase tracking-wide text-white mt-2 leading-[0.95]
-                             text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl"
-              >
+            {title && (
+              <h1 className="font-heading uppercase tracking-wide text-white mt-2 leading-[0.95]
+                             text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl">
                 {title}
               </h1>
-            ) : null}
+            )}
 
-            {subtitle ? (
-              <p
-                className="mt-4 text-white/85 max-w-2xl leading-relaxed
-                            text-base sm:text-lg lg:text-xl"
-              >
+            {subtitle && (
+              <p className="mt-4 text-white/85 max-w-2xl leading-relaxed
+                            text-base sm:text-lg lg:text-xl">
                 {subtitle}
               </p>
-            ) : null}
+            )}
           </div>
         </div>
       </div>
@@ -111,7 +125,7 @@ function DiagonalPromoOver65({
       </div>
 
       <div className="relative">
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-20">
           <p className="section-title text-white/85">{kicker}</p>
 
           <h3 className="font-heading uppercase tracking-wide text-white text-4xl sm:text-5xl mt-2">
@@ -210,7 +224,7 @@ const COURSES = [
     ],
     trainers: [
       { name: "ADRIANO", image: "ADRIANO.jpeg", bio: "ISTRUTTORE PUGILATO E FUNZIONALE" },
-      { name: "PAOLO", image: "PAOLO.jpeg", bio: "MAESTRO PUGILATO" },    
+      { name: "PAOLO", image: "PAOLO.jpeg", bio: "MAESTRO PUGILATO" },
       { name: "ALEX", image: "ALEX.jpeg", bio: "-" },
     ],
   },
@@ -422,7 +436,7 @@ function WeightRoomTrainersBlock({ trainers }) {
 function CourseSection({ course, invert = false }) {
   const isWeightRoom = course.id === "sala-pesi";
   const hasSingleTrainer = course.trainers.length === 1;
-  
+
   return (
     <section
       id={course.id}
@@ -561,25 +575,31 @@ export default function CoursesPage() {
         </WhiteBlock>
       </div>
 
-      {/* Sezione finale CTA con 2 foto e taglio diagonale */}
+      {/* Sezione finale CTA con 2 foto e taglio diagonale (NO seam) */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 flex">
-          {/* Foto sinistra con clip diagonale */}
-          <div className="relative w-1/2 [clip-path:polygon(0_0,100%_0,85%_100%,0_100%)]">
+        {/* Background unico (2 metà) */}
+        <div className="absolute inset-0 grid grid-cols-2">
+          <div className="relative">
             <img
               src={toPublicSrc("boxe.png")}
               alt=""
               className="absolute inset-0 h-full w-full object-cover"
             />
           </div>
-          
-          {/* Foto destra con clip diagonale */}
-          <div className="relative w-1/2 [clip-path:polygon(15%_0,100%_0,100%_100%,0_100%)]">
+          <div className="relative">
             <img
               src={toPublicSrc("sala-pesi.png")}
               alt=""
               className="absolute inset-0 h-full w-full object-cover"
             />
+          </div>
+        </div>
+
+        {/* Diagonale centrale: è un "cut" decorativo sopra, non un bordo tra due clip */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* triangolo che crea la diagonale (colore preso dal background: nessuna riga) */}
+          <div className="absolute inset-y-0 left-1/2 w-[22vw] -translate-x-1/2">
+            <div className="h-full w-full [clip-path:polygon(0_0,100%_0,0_100%)] bg-black/0" />
           </div>
         </div>
 
@@ -592,16 +612,18 @@ export default function CoursesPage() {
             <h2 className="font-heading uppercase tracking-wide text-white text-3xl sm:text-4xl lg:text-5xl">
               Inizia il tuo percorso
             </h2>
-            
+
             <p className="mt-6 text-white/85 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
-              Hai trovato il corso che fa per te? Siamo qui per rispondere a ogni tua domanda e aiutarti a scegliere il percorso più adatto ai tuoi obiettivi. Contattaci per maggiori informazioni, orari dettagliati o per prenotare una lezione di prova.
+              Hai trovato il corso che fa per te? Siamo qui per rispondere a ogni tua domanda e
+              aiutarti a scegliere il percorso più adatto ai tuoi obiettivi. Contattaci per maggiori
+              informazioni, orari dettagliati o per prenotare una lezione di prova.
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/contact"
                 className="inline-flex items-center justify-center rounded-md px-8 py-4 text-base font-semibold tracking-wide
-                           bg-brand-red text-white hover:bg-brand-red/90 transition-colors"
+                     bg-brand-red text-white hover:bg-brand-red/90 transition-colors"
               >
                 Contattaci
               </a>

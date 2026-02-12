@@ -98,7 +98,7 @@ export default function Navbar() {
         <div className={SHELL}>
           {/* Navbar più alta */}
           <div className="flex items-center justify-between py-4 lg:py-6">
-            {/* LOGO */}
+            {/* LOGO - Ingrandito */}
             <Link href="/" className="flex items-center">
               <Image
                 src="/logo-positivo.png"
@@ -107,10 +107,11 @@ export default function Navbar() {
                 height={64}
                 priority
                 className="
-                  h-8 w-auto
-                  sm:h-9
-                  lg:h-12
-                  xl:h-14
+                  h-10 w-auto
+                  sm:h-12
+                  lg:h-14
+                  xl:h-16
+                  2xl:h-[72px]
                 "
               />
             </Link>
@@ -178,9 +179,9 @@ export default function Navbar() {
               <Image
                 src="/logo-positivo.png"
                 alt="Red Gym"
-                width={140}
-                height={40}
-                className="h-8 w-auto"
+                width={180}
+                height={50}
+                className="h-10 w-auto"
               />
 
               <button
