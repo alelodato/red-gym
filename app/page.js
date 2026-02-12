@@ -464,7 +464,6 @@ export default function HomePage() {
 
             <div className="mt-8 lg:mt-10 grid gap-6 lg:grid-cols-12">
               <div className="lg:col-span-6 rounded-xl border border-brand-gray200 p-6 sm:p-7 bg-white">
-                <div className="mt-6 rounded-xl bg-white border border-brand-gray200 p-6">
                             <p className="font-heading uppercase tracking-wide">Recapiti</p>
                             <div className="mt-3 space-y-2 text-sm text-black/70">
                               <p>Email: email@email.com</p>
@@ -476,7 +475,6 @@ export default function HomePage() {
                               <Button href="#" variant="primary">Apri WhatsApp</Button>
                               <Button href="#" variant="outline">Apri Instagram</Button>
                             </div>
-                          </div>
               </div>
 
               <div className="lg:col-span-6 rounded-xl overflow-hidden border border-brand-gray200 bg-white">
