@@ -386,7 +386,16 @@ export default function AboutPage() {
                     <div className="absolute inset-0 bg-black/5" />
                   </div>
                   <p className="mt-4 text-center text-sm sm:text-base text-black/60 italic leading-relaxed">
-                    La palestra si trova all'interno del complesso del **Centro Commerciale La Fonte**, un punto strategico a Fonte Nuova (Roma) con ampio parcheggio dedicato per i nostri soci.
+                    La palestra si trova all'interno del complesso del{" "}
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=Centro+Commerciale+La+Fonte+Fonte+Nuova+Roma"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-brand-red hover:underline"
+                    >
+                      Centro Commerciale La Fonte
+                    </a>
+                    , un punto strategico a Fonte Nuova (Roma) con ampio parcheggio dedicato per i nostri soci.
                   </p>
                 </div>
               </div>
