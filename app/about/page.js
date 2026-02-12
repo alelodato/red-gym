@@ -461,10 +461,11 @@ export default function AboutPage() {
           {/* SECTION RECEPTION STAFF */}
           <div className="mt-20 border-t border-brand-gray100 pt-16">
             <div className="text-center max-w-2xl mx-auto mb-10">
-              <p className="section-title text-brand-red">Il primo sorriso</p>
-              <h2 className="font-heading uppercase tracking-wide text-3xl sm:text-4xl mt-2">Alla Red Gym sono tutti benvenuti</h2>
+              <p className="section-title text-brand-red">Accoglienza & Professionalità</p>
+              <h2 className="font-heading uppercase tracking-wide text-3xl sm:text-4xl mt-2">Alla Red Gym ti senti a casa</h2>
               <p className="mt-4 text-black/70 leading-relaxed">
-                Alla Red Gym l'accoglienza è fondamentale. Il nostro staff di reception è pronto ad aiutarti per ogni esigenza, rendendo la tua esperienza in palestra fluida e piacevole sin dal primo ingresso.
+                Per noi l’accoglienza non è un dettaglio, è il primo passo del tuo percorso.
+                Le nostre receptionist ti accolgono con professionalità e attenzione, pronte ad ascoltare le tue esigenze e a guidarti fin dal primo ingresso.
               </p>
             </div>
 
@@ -484,7 +485,8 @@ export default function AboutPage() {
               {/* Testo centrale per Desktop */}
               <div className="hidden lg:flex flex-col items-center justify-center p-8 text-center italic text-black/60 border-x border-brand-gray200 h-full">
                 <p className="text-lg leading-relaxed">
-                  "Crediamo che un ambiente accogliente sia il primo passo per un allenamento di successo. Siamo qui per supportarti in ogni fase del tuo percorso."
+                  "Che tu venga per informarti, iniziare un nuovo allenamento o semplicemente chiedere un consiglio, troverai sempre un sorriso e una presenza disponibile. <br />
+                  Per noi sentirsi a proprio agio è fondamentale quanto allenarsi bene."
                 </p>
               </div>
 
