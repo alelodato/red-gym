@@ -245,7 +245,7 @@ function FinalCtaHero({ image = "hero-final.jpg" }) {
 
       <div className="absolute inset-0 hidden sm:flex items-center">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl border border-white/15 bg-black/35 p-7 sm:p-10 lg:p-12 shadow-soft">
+          <div className="rounded-2xl p-7 sm:p-10 lg:p-12 shadow-soft">
             <div className="grid gap-6 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-8">
                 <p className="text-sm font-semibold text-white/70">
