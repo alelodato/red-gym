@@ -11,9 +11,6 @@ export default function ContactPage() {
           <h1 className="font-heading uppercase tracking-wide text-4xl sm:text-5xl mt-2">
             Vieni a trovarci o scrivici.
           </h1>
-          <p className="mt-4 text-black/70 leading-relaxed">
-            Compila il modulo per info su corsi, abbonamenti o per prenotare una prova.
-          </p>
 
           <div className="mt-6 rounded-xl bg-white border border-brand-gray200 p-6">
             <p className="font-heading uppercase tracking-wide">Recapiti</p>
@@ -31,31 +28,6 @@ export default function ContactPage() {
         </div>
 
         <div className="rounded-xl bg-white border border-brand-gray200 p-6">
-          <p className="font-heading uppercase tracking-wide text-xl">Scrivici</p>
-
-          <form className="mt-5 space-y-4">
-            <div>
-              <label className="text-sm font-semibold">Nome</label>
-              <input className="mt-2 w-full rounded-md border border-brand-gray200 px-4 py-3 outline-none focus:ring-2 focus:ring-brand-red" />
-            </div>
-
-            <div>
-              <label className="text-sm font-semibold">Email</label>
-              <input type="email" className="mt-2 w-full rounded-md border border-brand-gray200 px-4 py-3 outline-none focus:ring-2 focus:ring-brand-red" />
-            </div>
-
-            <div>
-              <label className="text-sm font-semibold">Messaggio</label>
-              <textarea rows={5} className="mt-2 w-full rounded-md border border-brand-gray200 px-4 py-3 outline-none focus:ring-2 focus:ring-brand-red" />
-            </div>
-
-            <button
-              type="button"
-              className="w-full rounded-md bg-brand-red px-5 py-3 text-sm font-semibold tracking-wide text-white hover:bg-brand-redHover transition-colors"
-            >
-              Invia
-            </button>
-          </form>
 
           <div className="mt-8 rounded-lg overflow-hidden border border-brand-gray200">
             <div className="bg-brand-black text-white text-sm font-semibold px-4 py-3">

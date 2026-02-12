@@ -464,50 +464,19 @@ export default function HomePage() {
 
             <div className="mt-8 lg:mt-10 grid gap-6 lg:grid-cols-12">
               <div className="lg:col-span-6 rounded-xl border border-brand-gray200 p-6 sm:p-7 bg-white">
-                <form className="grid gap-4">
-                  <div>
-                    <label className="text-sm font-semibold text-black/70">Nome</label>
-                    <input
-                      type="text"
-                      className="mt-1 w-full rounded-md border border-brand-gray200 px-4 py-3 outline-none focus:border-brand-red"
-                      placeholder="Il tuo nome"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="text-sm font-semibold text-black/70">Email</label>
-                    <input
-                      type="email"
-                      className="mt-1 w-full rounded-md border border-brand-gray200 px-4 py-3 outline-none focus:border-brand-red"
-                      placeholder="nome@email.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="text-sm font-semibold text-black/70">Messaggio</label>
-                    <textarea
-                      rows="5"
-                      className="mt-1 w-full rounded-md border border-brand-gray200 px-4 py-3 outline-none focus:border-brand-red"
-                      placeholder="Raccontaci cosa cerchi (corsi, sala pesi, orari, obiettivi)..."
-                    />
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <button
-                      type="button"
-                      className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold bg-brand-red text-white hover:opacity-90 transition"
-                    >
-                      Invia richiesta
-                    </button>
-
-                    <a
-                      href="/contact"
-                      className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold border border-brand-gray200 text-black/70 hover:border-brand-red hover:text-brand-red transition"
-                    >
-                      Contatti completi
-                    </a>
-                  </div>
-                </form>
+                <div className="mt-6 rounded-xl bg-white border border-brand-gray200 p-6">
+                            <p className="font-heading uppercase tracking-wide">Recapiti</p>
+                            <div className="mt-3 space-y-2 text-sm text-black/70">
+                              <p>Email: email@email.com</p>
+                              <p>Telefono: 06 XXX XXX XXX</p>
+                              <p>Indirizzo: Via Delle Molette 245/257, Fonte Nuova 00013(RM)</p>
+                            </div>
+                
+                            <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                              <Button href="#" variant="primary">Apri WhatsApp</Button>
+                              <Button href="#" variant="outline">Apri Instagram</Button>
+                            </div>
+                          </div>
               </div>
 
               <div className="lg:col-span-6 rounded-xl overflow-hidden border border-brand-gray200 bg-white">
