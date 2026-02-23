@@ -16,9 +16,15 @@ function WhiteBlock({ children }) {
 }
 
 function PhotoHeroBand({
-  image = "pricing-hero.jpg",
+  image = "reception.jpg",
   kicker = "Abbonamenti",
-  title = "Prezzi e formule. Scegli il percorso giusto per te.",
+  title = (
+    <>
+    Prezzi e formule. 
+    <br />
+    Scegli il percorso giusto per te.
+    </>
+  ),
   subtitle =
     "Prezzi chiari e soluzioni flessibili: sala pesi con diverse fasce orarie e corsi dedicati. Se vuoi, scrivici e ti aiutiamo a scegliere in base ai tuoi obiettivi e agli orari.",
   className = "",
@@ -229,7 +235,7 @@ function ExtraCoursesGrid() {
 export default function PricingPage() {
   return (
     <div className="bg-brand-red">
-      <PhotoHeroBand className="-mt-[var(--nav-h)]" image="pricing-hero.jpg" />
+      <PhotoHeroBand className="-mt-[var(--nav-h)]" image="reception (3).webp" />
 
       <div className="space-y-6 sm:space-y-8 lg:space-y-10 py-8 sm:py-10 lg:py-12">
         {/* SALA PESI / FITNESS */}

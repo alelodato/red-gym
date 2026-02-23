@@ -18,7 +18,7 @@ export default function Hero() {
 
       <div className="absolute inset-0">
         <img
-          src="reception (3).webp"
+          src="hero.jpg"
           alt="Allenamento in palestra"
           className="h-full w-full object-cover"
         />
