@@ -299,7 +299,7 @@ export default function AboutPage() {
       <Section className="relative bg-brand-red overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src={toPublicSrc("about.jpg")}
+            src={toPublicSrc("palestra7.webp")}
             alt="Red Gym - panoramica sala pesi"
             fill
             className="object-cover"
@@ -313,7 +313,7 @@ export default function AboutPage() {
         <div className="relative">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="min-h-[620px] sm:min-h-[680px] lg:min-h-[560px] flex items-end lg:items-center py-10 sm:py-14 lg:py-16">
-              <div className="w-full lg:max-w-2xl rounded-2xl border border-white/10 bg-brand-red/85 backdrop-blur-[2px] shadow-soft p-6 sm:p-8 lg:p-10">
+              <div className="w-full lg:max-w-2xl rounded-2xl p-6 sm:p-8 lg:p-10">
                 <p className="section-title text-white/90">Chi siamo</p>
 
                 <h1 className="font-heading uppercase tracking-wide text-white text-4xl sm:text-5xl mt-2">
@@ -376,7 +376,7 @@ export default function AboutPage() {
                 <div className="px-0 sm:px-6 lg:px-12">
                   <div className="relative overflow-hidden rounded-xl shadow-soft h-[280px] sm:h-[400px] lg:h-[500px]">
                     <Image
-                      src={toPublicSrc("about-intro.jpg")}
+                      src={toPublicSrc("reception.jpg")}
                       alt="Red Gym - panoramica"
                       fill
                       className="object-cover"
@@ -526,7 +526,7 @@ export default function AboutPage() {
               kicker="Attrezzatura"
               title="Sala pesi ampia e completa"
               text="Una sala pesi grande e ben organizzata, con macchinari e postazioni selezionate per rispondere a esigenze diverse: forza, controllo, postura, resistenza. L’obiettivo è allenarti con efficacia e continuità, senza caos e con la sicurezza di fare gli esercizi nel modo corretto."
-              image="sala-pesi.png"
+              image="palestra2.webp"
               alt="Sala pesi moderna"
             />
 
@@ -534,7 +534,7 @@ export default function AboutPage() {
               kicker="Sport da combattimento"
               title="Sale dedicate per allenarti con concentrazione"
               text="Per le discipline da combattimento servono spazio e atmosfera giusta: qui trovi ambienti dedicati per gestire corsi e gruppi in modo ordinato, con attenzione alla tecnica, alla sicurezza e al lavoro strutturato."
-              image="about-combat-1.jpg"
+              image="sala3.jpg"
               alt="Sala sport da combattimento"
               invert
             />
@@ -543,17 +543,8 @@ export default function AboutPage() {
               kicker="Organizzazione"
               title="Più spazio, più qualità"
               text="Una struttura grande funziona solo se è curata: spazi pensati per ridurre confusione, migliorare l’esperienza e permetterti di allenarti con serenità. È un dettaglio che cambia tutto quando vuoi risultati concreti."
-              image="about-combat-2.jpg"
+              image="sala1.jpeg"
               alt="Seconda sala sport da combattimento"
-            />
-
-            <SplitSection
-              kicker="Comfort"
-              title="Ambienti curati per ogni esigenza"
-              text="Allenarsi bene significa anche gestirsi bene: spogliatoi funzionali, docce e armadietti per il tuo comfort prima e dopo la sessione, soprattutto se vieni in pausa pranzo o dopo lavoro."
-              image="about-lockers.jpg"
-              alt="Ambienti spogliatoi e docce"
-              invert
             />
           </div>
         </WhiteBlock>
@@ -589,7 +580,7 @@ export default function AboutPage() {
           </div>
         </WhiteBlock>
 
-        <FinalCtaHero image="hero-final.jpg" />
+        <FinalCtaHero image="palestra3.jpg" />
       </div>
     </div>
   );

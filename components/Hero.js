@@ -18,7 +18,7 @@ export default function Hero() {
 
       <div className="absolute inset-0">
         <img
-          src="hero.jpg"
+          src="reception (3).webp"
           alt="Allenamento in palestra"
           className="h-full w-full object-cover"
         />
@@ -46,14 +46,13 @@ export default function Hero() {
                 ALLENATI MEGLIO.
               </span>
               <span className="display-title block text-5xl sm:text-6xl lg:text-7xl text-brand-red">
-                VIVI MEGLIO
+                VIVI MEGLIO.
               </span>
             </h1>
 
             <p className="mt-4 text-white/85 max-w-2xl 2xl:max-w-3xl leading-relaxed
               text-base sm:text-lg lg:text-xl 2xl:text-2xl">
-              Alla {SITE.name} trasformi il tuo corpo e la tua energia. Programmi su
-              misura, tecnica, motivazione e un ambiente che ti spinge a dare il massimo.
+              {SITE.name} e' la tua palestra a Fonte Nuova: sala pesi, allenamento funzionale e sport da combattimento. Scopri i nostri corsi e allenati con noi!
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
