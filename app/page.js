@@ -136,13 +136,6 @@ function DiagonalPromoOver65({
   subtitle = "Tariffe dedicate: chiedi in reception o contattaci per tutti i dettagli.",
   reverse = false,
 }) {
-  const topClip = reverse
-    ? "[clip-path:polygon(0_0,100%_0,100%_100%,0_55%)]"
-    : "[clip-path:polygon(0_0,100%_0,100%_55%,0_100%)]";
-
-  const bottomClip = reverse
-    ? "[clip-path:polygon(0_0,100%_45%,100%_100%,0_100%)]"
-    : "[clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]";
 
   return (
     <section className="relative overflow-hidden mt-8">
@@ -153,9 +146,6 @@ function DiagonalPromoOver65({
           className="h-full w-full object-cover object-top"
         />
         <div className="absolute inset-0 bg-black/55" />
-
-        <div className={`hidden sm:block absolute -top-1 left-0 right-0 h-20 bg-brand-red ${topClip}`} />
-        <div className={`hidden sm:block absolute -bottom-1 left-0 right-0 h-20 bg-brand-red ${bottomClip}`} />
       </div>
 
       <div className="relative">
@@ -269,12 +259,12 @@ function DiagonalPhoto({
   );
 }
 
-function DiagonalBand({ image = "diagonal2.jpg", kicker = "Red Gym", title = "Energia. Disciplina. Risultati.", flip = true }) {
+function DiagonalBand({ image = "palestra1.webp", kicker = "Red Gym", title = "Energia. Disciplina. Risultati.", flip = true }) {
   return (
     <section className="relative bg-brand-red overflow-hidden">
       <div className="relative h-[230px] sm:h-[280px] lg:h-[340px]">
         <img src={toPublicSrc(image)} alt={title} className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 bg-black/65" />
         <DiagonalCuts flip={flip} heightClass="h-16 sm:h-20" />
       </div>
 
@@ -292,10 +282,10 @@ function DiagonalBand({ image = "diagonal2.jpg", kicker = "Red Gym", title = "En
 
 export default function HomePage() {
   const ABOUT_IMAGES = [
-    { src: "pesi.jpg", alt: "Sala pesi moderna" },
+    { src: "palestra6.webp", alt: "Sala pesi moderna" },
     { src: "combat.jpg", alt: "Sala sport da combattimento" },
-    { src: "sala.jpg", alt: "Spogliatoi e docce" },
-    { src: "community.jpg", alt: "Community Red Gym" },
+    { src: "yoga.jpg", alt: "Benessere" },
+    { src: "community.jpeg", alt: "Community Red Gym" },
   ];
   const [openSafeguarding, setOpenSafeguarding] = useState(false);
 
@@ -325,7 +315,7 @@ export default function HomePage() {
                 <Card
                   kicker="Attrezzatura"
                   title="Macchinari di livello"
-                  imageSrc="pesi.jpg"
+                  imageSrc="palestra6.webp"
                   imageAlt="Sala pesi moderna"
                   text='Strumenti selezionati per sicurezza, comfort ed efficacia. Non i soliti attrezzi "da catalogo": qui trovi macchinari che fanno la differenza.'
                   href="/about"
@@ -343,7 +333,7 @@ export default function HomePage() {
                 <Card
                   kicker="Benessere"
                   title="Postura e salute"
-                  imageSrc="sala.jpg"
+                  imageSrc="yoga.jpg"
                   imageAlt="Spogliatoi e docce"
                   text="Allenarsi non vuol dire sempre spingersi al limite: anche mobilità, postura e benessere quotidiano fanno parte del percorso."
                   href="/courses"
@@ -352,7 +342,7 @@ export default function HomePage() {
                 <Card
                   kicker="Community"
                   title="Rispetto e mentalità"
-                  imageSrc="community.jpg"
+                  imageSrc="community.jpeg"
                   imageAlt="Community Red Gym"
                   text="Disciplina, rispetto, autocontrollo. Qui non sei mai 'lasciato solo': trovi un ambiente serio, accogliente e pieno di energia positiva."
                   href="/about"
@@ -376,7 +366,7 @@ export default function HomePage() {
             <div className="mt-6 lg:mt-10 grid gap-6 lg:grid-cols-12">
               <div className="order-1 lg:order-2 lg:col-span-5 relative overflow-hidden rounded-xl shadow-soft min-h-[240px] sm:min-h-[300px] lg:min-h-[420px]">
                 <img
-                  src={toPublicSrc("about2.jpg")}
+                  src={toPublicSrc("rgym2.jpeg")}
                   alt="Corsi Red Gym"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
@@ -411,7 +401,7 @@ export default function HomePage() {
             </div>
           </WhiteSection>
 
-          <DiagonalBand image="diagonal2.jpg" kicker="Red Gym" title="Energia. Disciplina. Risultati." flip />
+          <DiagonalBand image="palestra1.webp" kicker="Red Gym" title="Energia. Disciplina. Risultati." flip />
 
           <WhiteSection id="home-pricing">
             <SectionHead
@@ -419,7 +409,7 @@ export default function HomePage() {
               title="Scegli la formula giusta."
               lead="Soluzioni flessibili e percorsi dedicati: la cosa importante è allenarsi con continuità, con un ambiente che ti sostiene davvero."
               ctaHref="/pricing"
-              ctaLabel="Vedi prezzi"
+              ctaLabel="Vedi piani e abbonamenti"
             />
 
             {/* Aumentato gap su mobile: gap-10 */}
@@ -435,7 +425,7 @@ export default function HomePage() {
               subtitle="Tariffe dedicate: chiedi in reception o contattaci per tutti i dettagli."
             />
           </WhiteSection>
-          
+
           <DiagonalPhoto
             image="diagonal3.jpg"
             alt="Red Gym - energia"
@@ -449,7 +439,7 @@ export default function HomePage() {
             open={openSafeguarding}
             onClose={() => setOpenSafeguarding(false)}
           />
-          
+
           <WhiteSection id="home-contact">
             <SectionHead
               kicker="Contatti"
@@ -463,18 +453,24 @@ export default function HomePage() {
               <div className="lg:col-span-6 sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
                 <p className="font-heading uppercase tracking-wide">Recapiti</p>
                 <div className="mt-3 space-y-2 text-sm text-black/70">
-                  <p>Email: email@email.com</p>
-                  <p>Telefono: 06 XXX XXX XXX</p>
+                  <p>Email: info@redgym.eu</p>
+                  <p>Telefono: 349 6504500</p>
                   <p>Indirizzo: Via Delle Molette 245/257, Fonte Nuova 00013(RM)</p>
                 </div>
 
                 <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                  <Button href="#" variant="primary">Apri WhatsApp</Button>
-                  <Button href="#" variant="outline">Apri Instagram</Button>
+                  <Button href="https://wa.me/393496504500" variant="primary">Apri WhatsApp</Button>
+                  <Button href="https://www.instagram.com/red.gym.fontenuova/" variant="outline">Apri Instagram</Button>
                 </div>
               </div>
 
               <div className="lg:col-span-6 sm:rounded-xl overflow-hidden sm:border sm:border-brand-gray200 sm:bg-white">
+                <div className="p-6 sm:p-7">
+                  <p className="font-heading uppercase tracking-wide text-lg">Red Gym – Fonte Nuova</p>
+                  <p className="mt-2 text-sm text-black/70">
+                    Vieni a trovarci in sede: ampio parcheggio e spazi grandi per allenarti con calma, metodo e supporto reale.
+                  </p>
+                </div>
                 <div className="relative h-[360px] sm:h-[420px] lg:h-[460px]">
                   <iframe
                     title="Google Maps - Red Gym"
@@ -484,13 +480,6 @@ export default function HomePage() {
                     referrerPolicy="no-referrer-when-downgrade"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.216478787936!2d12.621904015713814!3d41.99959437921157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1325c9b42fa47a3f%3A0x8e8b16b55b4b7f9e!2sVia%20delle%20Molette%2C%20245%2C%2000013%20Fonte%20Nuova%20RM%2C%20Italia!5e0!3m2!1sit!2sit!4v1704440000000!5m2!1sit!2sit"
                   />
-                </div>
-
-                <div className="p-6 sm:p-7">
-                  <p className="font-heading uppercase tracking-wide text-lg">Red Gym – Fonte Nuova</p>
-                  <p className="mt-2 text-sm text-black/70">
-                    Vieni a trovarci in sede: ampio parcheggio e spazi grandi per allenarti con calma, metodo e supporto reale.
-                  </p>
                 </div>
               </div>
             </div>

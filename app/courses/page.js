@@ -173,7 +173,7 @@ const COURSES = [
     id: "sala-pesi",
     title: "Sala Pesi & Fitness",
     subtitle: "Qualità, sicurezza e risultati concreti",
-    image: "sala-pesi.png",
+    image: "palestra5.webp",
     description:
       "Allenarsi bene significa fare le cose nel modo giusto. In sala pesi trovi spazi ampi e attrezzatura di ultima generazione selezionata per efficacia e comfort, con la possibilità di lavorare su forza, tonificazione e ricomposizione corporea.\n\nChe tu sia alle prime armi o voglia portare il livello più in alto, l'obiettivo è sempre lo stesso: progressione, tecnica corretta e continuità.",
     schedule: [
@@ -195,7 +195,7 @@ const COURSES = [
     id: "pilates",
     title: "Pilates",
     subtitle: "Postura, controllo, mobilità e benessere",
-    image: "salute.png",
+    image: "pilates.jpg",
     description:
       "Allenarsi non vuol dire sempre spingersi al limite: a volte vuol dire ascoltare il corpo e rimetterlo in equilibrio. Il Pilates aiuta a migliorare postura e controllo, aumentare mobilità e ridurre tensioni.\n\nÈ un percorso adatto a tutti e utile anche come integrazione alla sala pesi o agli sport da combattimento: più consapevolezza, più qualità di movimento.\n\n Approccio progressivo e accessibile: postura, respirazione e controllo, con attenzione ai dettagli.",
     schedule: [
@@ -241,7 +241,7 @@ const COURSES = [
     id: "kickboxing",
     title: "Kickboxing",
     subtitle: "Potenza, tecnica e controllo",
-    image: "kickboxing.jpg",
+    image: "kick.jpeg",
     description:
       "La kickboxing unisce pugni e calci in un allenamento completo, dinamico e coinvolgente. Migliora potenza e resistenza, coordinazione e agilità, tecnica e concentrazione.\n\nÈ perfetta sia per chi inizia sia per chi ha già esperienza: ogni lezione è pensata per farti crescere con metodo, in sicurezza e sempre seguito.\n\nProgressioni chiare e lavoro tecnico: migliora sicurezza nei colpi, timing e condizionamento, senza improvvisazione.",
     schedule: [
@@ -285,7 +285,7 @@ const COURSES = [
     id: "judo",
     title: "Judo",
     subtitle: "Tecnica, valori e controllo",
-    image: "judo.png",
+    image: "judo-hero.jpg",
     description:
       "Il Judo è disciplina, tecnica e valori. Un percorso completo che sviluppa coordinazione, equilibrio e consapevolezza del corpo, con lavoro progressivo e strutturato.\n\nAdatto a bambini, ragazzi e adulti, con gruppi suddivisi per età e livello: si impara sul serio, con rispetto e passione sul tatami. \n\nAllenamenti progressivi su tecnica e controllo, con attenzione alla sicurezza e alla crescita dell'allievo.",
     schedule: [
@@ -525,7 +525,7 @@ export default function CoursesPage() {
       />
 
       {/* Eliminato space-y su mobile */}
-      <div className="space-y-0 sm:space-y-8 lg:space-y-10 py-8 sm:py-10 lg:py-12 pb-0">
+      <div className="space-y-0 sm:space-y-8 lg:space-y-10 pb-8 sm:py-10 lg:py-12 pb-0">
         <WhiteBlock>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -587,17 +587,10 @@ export default function CoursesPage() {
 
       {/* Sezione finale CTA */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid grid-cols-2">
-          <div className="relative">
+        <div className="absolute inset-0">
+          <div>
             <img
-              src={toPublicSrc("boxe.png")}
-              alt=""
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
-          <div className="relative">
-            <img
-              src={toPublicSrc("sala-pesi.png")}
+              src={toPublicSrc("combat.jpg")}
               alt=""
               className="absolute inset-0 h-full w-full object-cover"
             />

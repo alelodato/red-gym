@@ -7,9 +7,17 @@ function toPublicSrc(path) {
 
 function WhiteBlock({ children }) {
   return (
-    <div className="mx-auto px-0 sm:px-6 lg:px-8">
-      <div className="bg-white border border-brand-gray200 shadow-soft p-8 sm:p-12 lg:p-14 rounded-none sm:rounded-2xl border-x-0 sm:border-x">
+    <div className="bg-brand-red">
+      {/* Mobile: contenuto diretto senza padding/bordi */}
+      <div className="sm:hidden bg-white py-8 px-4">
         {children}
+      </div>
+
+      {/* Desktop: con container e bordi */}
+      <div className="hidden sm:block px-6 lg:px-8">
+        <div className="bg-white border border-brand-gray200 shadow-soft rounded-2xl p-10 lg:p-12">
+          {children}
+        </div>
       </div>
     </div>
   );
@@ -33,7 +41,8 @@ function PhotoHeroBand({
 
   return (
     <section className={`relative bg-brand-red overflow-hidden ${className}`}>
-      <div className="relative h-[520px] sm:h-[620px] lg:h-[720px]">
+      {/* Mobile: hero più compatta */}
+      <div className="relative h-[480px] sm:h-[620px] lg:h-[720px]">
         <img
           src={toPublicSrc(image)}
           alt=""
@@ -44,31 +53,32 @@ function PhotoHeroBand({
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-black/10" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-black/25" />
 
-        <div className={`absolute -bottom-1 left-0 right-0 h-20 sm:h-24 bg-brand-red ${bottomClip}`} />
+        {/* Banda diagonale solo desktop */}
+        <div className={`hidden sm:block absolute -bottom-1 left-0 right-0 h-24 bg-brand-red ${bottomClip}`} />
       </div>
 
-      {/* Contenuto: stessi margini delle altre pagine */}
-      <div className="absolute inset-0 flex items-center">
+      {/* Contenuto posizionato meglio su mobile con padding-top */}
+      <div className="absolute inset-0 flex items-end sm:items-center">
         <div className="mx-auto w-full max-w-7xl 2xl:max-w-[1440px] px-4 sm:px-6 lg:px-8">
-          <div className="pb-14 sm:pb-0">
+          <div className="pt-24 pb-4 sm:pt-0 sm:pb-0">
             {kicker ? <p className="section-title text-white/85">{kicker}</p> : null}
 
             {title ? (
               <h1
-                className="font-heading uppercase tracking-wide text-white mt-2 leading-[0.95]
-                           text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl"
+                className="font-heading uppercase tracking-wide text-white mt-2 leading-tight
+                           text-3xl sm:text-5xl lg:text-6xl 2xl:text-7xl"
               >
                 {title}
               </h1>
             ) : null}
 
             {subtitle ? (
-              <p className="mt-4 text-white/85 max-w-2xl leading-relaxed text-base sm:text-lg lg:text-xl">
+              <p className="mt-4 text-white/85 max-w-2xl leading-relaxed text-sm sm:text-lg lg:text-xl">
                 {subtitle}
               </p>
             ) : null}
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <Button href="/contact">Chiedi info</Button>
               <Button href="/courses" variant="outline">
                 Scopri i corsi
@@ -109,7 +119,7 @@ const GYM_PLANS = [
       { name: "1 fascia oraria (20/23)", price: "280€", note: "+ iscr. annuale 20€" },
     ],
     paymentNote:
-      "Modalità di pagamento: contanti / bancomat. In 2 rate: 1ª all’acquisto, 2ª entro 30 gg.",
+      "Modalità di pagamento: contanti / bancomat. In 2 rate: 1ª all'acquisto, 2ª entro 30 gg.",
   },
   {
     duration: "12 mesi",
@@ -120,7 +130,7 @@ const GYM_PLANS = [
       { name: "1 fascia oraria (20/23)", price: "470€", note: "+ iscr. inclusa" },
     ],
     paymentNote:
-      "Modalità di pagamento: contanti / bancomat. Unica soluzione (omaggio: borsone) oppure in 2 rate: 1ª all’acquisto, 2ª entro 30 gg (omaggio: borsone).",
+      "Modalità di pagamento: contanti / bancomat. Unica soluzione (omaggio: borsone) oppure in 2 rate: 1ª all'acquisto, 2ª entro 30 gg (omaggio: borsone).",
   },
 ];
 
@@ -163,7 +173,7 @@ function PriceGrid({ groups }) {
       {groups.map((g) => (
         <div
           key={g.duration}
-          className="rounded-xl border border-brand-gray200 bg-white overflow-hidden"
+          className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-white overflow-hidden"
         >
           <div className="bg-brand-black text-white px-5 py-4">
             <p className="font-heading uppercase tracking-wide text-lg">{g.duration}</p>
@@ -202,7 +212,7 @@ function ExtraCoursesGrid() {
   return (
     <div className="grid gap-6 lg:grid-cols-2">
       {EXTRA_COURSES.map((c) => (
-        <div key={c.title} className="rounded-xl border border-brand-gray200 bg-white overflow-hidden">
+        <div key={c.title} className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-white overflow-hidden">
           <div className="bg-brand-black text-white px-5 py-4">
             <p className="font-heading uppercase tracking-wide text-lg">{c.title}</p>
           </div>
@@ -237,7 +247,8 @@ export default function PricingPage() {
     <div className="bg-brand-red">
       <PhotoHeroBand className="-mt-[var(--nav-h)]" image="reception (3).webp" />
 
-      <div className="space-y-6 sm:space-y-8 lg:space-y-10 py-8 sm:py-10 lg:py-12">
+      {/* Eliminato space-y su mobile */}
+      <div className="space-y-0 sm:space-y-8 lg:space-y-10 py-0 sm:py-10 lg:py-12 pb-0">
         {/* SALA PESI / FITNESS */}
         <WhiteBlock>
           <p className="section-title text-brand-red">Sala pesi & Fitness</p>
@@ -254,21 +265,21 @@ export default function PricingPage() {
           </div>
 
           <div className="mt-10 grid gap-4 lg:grid-cols-3">
-            <div className="rounded-xl border border-brand-gray200 bg-brand-offwhite p-6">
+            <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-brand-offwhite p-6">
               <p className="font-heading uppercase tracking-wide text-lg">Over 65</p>
               <p className="mt-2 text-black/70">
                 <span className="font-semibold text-brand-black">-20%</span> su tutte le soluzioni.
               </p>
             </div>
 
-            <div className="rounded-xl border border-brand-gray200 bg-brand-offwhite p-6">
+            <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-brand-offwhite p-6">
               <p className="font-heading uppercase tracking-wide text-lg">Weekend & Festivi</p>
               <p className="mt-2 text-black/70">
                 Le opzioni con fascia oraria nel weekend e festivi <span className="font-semibold text-brand-black">non hanno limiti di orario</span>.
               </p>
             </div>
 
-            <div className="rounded-xl border border-brand-gray200 bg-brand-offwhite p-6">
+            <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-brand-offwhite p-6">
               <p className="font-heading uppercase tracking-wide text-lg">Nucleo familiare</p>
               <p className="mt-2 text-black/70">
                 <span className="font-semibold text-brand-black">-10%</span> dal 2° componente (applicarsi sulla quota più bassa).
@@ -277,12 +288,12 @@ export default function PricingPage() {
             </div>
           </div>
 
-          <div className="mt-6 rounded-xl border border-brand-gray200 bg-white p-6 sm:p-7">
+          <div className="mt-6 sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-white p-6 sm:p-7">
             <p className="font-heading uppercase tracking-wide text-lg">Convenzioni</p>
             <p className="mt-2 text-black/70 leading-relaxed">
-              Convenzioni con: <span className="font-semibold text-brand-black">Forze dell’Ordine</span>,{" "}
-              <span className="font-semibold text-brand-black">Dipendenti C.C. “La Fonte”</span>,{" "}
-              <span className="font-semibold text-brand-black">“Conad”</span>,{" "}
+              Convenzioni con: <span className="font-semibold text-brand-black">Forze dell'Ordine</span>,{" "}
+              <span className="font-semibold text-brand-black">Dipendenti C.C. "La Fonte"</span>,{" "}
+              <span className="font-semibold text-brand-black">"Conad"</span>,{" "}
               <span className="font-semibold text-brand-black">Amm. Comune Fonte Nuova</span>.{" "}
               Agevolazione personale non cedibile e non estendibile al nucleo familiare.
             </p>
@@ -311,7 +322,7 @@ export default function PricingPage() {
             <ExtraCoursesGrid />
           </div>
 
-          <div className="mt-8 rounded-xl border border-brand-gray200 bg-brand-offwhite p-6 sm:p-7">
+          <div className="mt-8 sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-brand-offwhite p-6 sm:p-7">
             <p className="font-heading uppercase tracking-wide text-lg">Certificato medico</p>
             <p className="mt-2 text-black/70 leading-relaxed">
               Consegnare il <span className="font-semibold text-brand-black">certificato medico sportivo non agonistico</span>{" "}
