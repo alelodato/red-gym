@@ -7,9 +7,17 @@ function toPublicSrc(path) {
 
 function WhiteBlock({ children }) {
   return (
-    <div className="mx-auto px-0 sm:px-6 lg:px-8">
-      <div className="bg-white border border-brand-gray200 shadow-soft p-8 sm:p-12 lg:p-14 rounded-none sm:rounded-2xl border-x-0 sm:border-x">
+    <div className="bg-brand-red">
+      {/* Mobile: contenuto diretto senza padding/bordi */}
+      <div className="sm:hidden bg-white py-8 px-4">
         {children}
+      </div>
+
+      {/* Desktop: con container e bordi */}
+      <div className="hidden sm:block px-6 lg:px-8">
+        <div className="bg-white border border-brand-gray200 shadow-soft rounded-2xl p-10 lg:p-12">
+          {children}
+        </div>
       </div>
     </div>
   );
@@ -65,8 +73,8 @@ function TripleDiagonalBand({
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-black/10" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-black/25" />
 
-        {/* Taglio diagonale sotto */}
-        <div className={`absolute -bottom-1 left-0 right-0 h-20 sm:h-24 bg-brand-red ${bottomClip}`} />
+        {/* Taglio diagonale sotto - solo desktop */}
+        <div className={`hidden sm:block absolute -bottom-1 left-0 right-0 h-24 bg-brand-red ${bottomClip}`} />
       </div>
 
       {/* Contenuto */}
@@ -120,8 +128,9 @@ function DiagonalPromoOver65({
         />
         <div className="absolute inset-0 bg-black/55" />
 
-        <div className={`absolute -top-1 left-0 right-0 h-16 sm:h-20 bg-brand-red ${topClip}`} />
-        <div className={`absolute -bottom-1 left-0 right-0 h-16 sm:h-20 bg-brand-red ${bottomClip}`} />
+        {/* Tagli diagonali solo desktop */}
+        <div className={`hidden sm:block absolute -top-1 left-0 right-0 h-20 bg-brand-red ${topClip}`} />
+        <div className={`hidden sm:block absolute -bottom-1 left-0 right-0 h-20 bg-brand-red ${bottomClip}`} />
       </div>
 
       <div className="relative">
@@ -292,9 +301,9 @@ const COURSES = [
 
 function ScheduleTable({ schedule }) {
   return (
-    <div className="mt-5 rounded-lg border border-brand-gray200 overflow-hidden">
+    <div className="mt-5 sm:rounded-lg sm:border sm:border-brand-gray200 overflow-hidden">
       <div className="bg-brand-black text-white px-4 py-3 text-sm font-semibold">Orari</div>
-      <div className="divide-y divide-brand-gray200 bg-white">
+      <div className="divide-y divide-brand-gray200 sm:bg-white">
         {schedule.map((s) => (
           <div
             key={s.day + s.time}
@@ -315,7 +324,7 @@ function SingleTrainerBlock({ trainer }) {
       <p className="section-title text-brand-red text-sm mb-6">Trainer</p>
 
       <div className="max-w-2xl mx-auto">
-        <div className="rounded-xl bg-white border border-brand-gray200 overflow-hidden">
+        <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 overflow-hidden">
           <div className="grid sm:grid-cols-5">
             <div className="sm:col-span-2 relative h-[380px] sm:h-[420px]">
               <img
@@ -348,7 +357,7 @@ function MultipleTrainersBlock({ trainers }) {
         {trainers.map((t, idx) => (
           <div
             key={idx}
-            className="rounded-lg bg-white border border-brand-gray200 overflow-hidden"
+            className="sm:rounded-lg sm:bg-white sm:border sm:border-brand-gray200 overflow-hidden"
           >
             <div className="relative h-[400px]">
               <img
@@ -440,7 +449,7 @@ function CourseSection({ course, invert = false }) {
   return (
     <section
       id={course.id}
-      className="rounded-xl bg-white border border-brand-gray200 overflow-hidden"
+      className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 overflow-hidden"
     >
       <div className="grid lg:grid-cols-12">
         <div
@@ -463,7 +472,7 @@ function CourseSection({ course, invert = false }) {
 
         <div
           className={[
-            "lg:col-span-7 p-7 sm:p-10",
+            "lg:col-span-7 py-7 sm:p-10",
             invert ? "lg:order-1" : "lg:order-2",
           ].join(" ")}
         >
@@ -488,7 +497,7 @@ function CourseSection({ course, invert = false }) {
         </div>
       </div>
 
-      <div className={`border-t border-brand-gray200 bg-brand-offwhite ${isWeightRoom ? 'p-0 py-8 sm:p-10' : 'p-7 sm:p-10'}`}>
+      <div className={`border-t border-brand-gray200 bg-brand-offwhite ${isWeightRoom ? 'p-0 py-8 sm:p-10' : 'py-7 sm:p-10'}`}>
         {isWeightRoom ? (
           <WeightRoomTrainersBlock trainers={course.trainers} />
         ) : hasSingleTrainer ? (
@@ -515,7 +524,8 @@ export default function CoursesPage() {
         subtitle="Ogni corso ha un metodo, una guida e un obiettivo. Scegli cosa ti rappresenta e allenati con disciplina, sicurezza e continuità."
       />
 
-      <div className="space-y-6 sm:space-y-8 lg:space-y-10 py-8 sm:py-10 lg:py-12">
+      {/* Eliminato space-y su mobile */}
+      <div className="space-y-0 sm:space-y-8 lg:space-y-10 py-8 sm:py-10 lg:py-12 pb-0">
         <WhiteBlock>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -538,7 +548,7 @@ export default function CoursesPage() {
             ))}
           </div>
 
-          <div className="mt-10 space-y-10">
+          <div className="mt-10 space-y-0 sm:space-y-10">
             {TOP_BLOCK.map((course) => {
               const idx = COURSES.findIndex((x) => x.id === course.id);
               return (
@@ -560,7 +570,7 @@ export default function CoursesPage() {
         />
 
         <WhiteBlock>
-          <div className="space-y-10">
+          <div className="space-y-0 sm:space-y-10">
             {REST_BLOCK.map((course) => {
               const idx = COURSES.findIndex((x) => x.id === course.id);
               return (
@@ -575,9 +585,8 @@ export default function CoursesPage() {
         </WhiteBlock>
       </div>
 
-      {/* Sezione finale CTA con 2 foto e taglio diagonale (NO seam) */}
+      {/* Sezione finale CTA */}
       <section className="relative overflow-hidden">
-        {/* Background unico (2 metà) */}
         <div className="absolute inset-0 grid grid-cols-2">
           <div className="relative">
             <img
@@ -595,18 +604,14 @@ export default function CoursesPage() {
           </div>
         </div>
 
-        {/* Diagonale centrale: è un "cut" decorativo sopra, non un bordo tra due clip */}
         <div className="absolute inset-0 pointer-events-none">
-          {/* triangolo che crea la diagonale (colore preso dal background: nessuna riga) */}
           <div className="absolute inset-y-0 left-1/2 w-[22vw] -translate-x-1/2">
             <div className="h-full w-full [clip-path:polygon(0_0,100%_0,0_100%)] bg-black/0" />
           </div>
         </div>
 
-        {/* Overlay scuro */}
         <div className="absolute inset-0 bg-black/65" />
 
-        {/* Contenuto */}
         <div className="relative py-16 sm:py-20 lg:py-24">
           <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="font-heading uppercase tracking-wide text-white text-3xl sm:text-4xl lg:text-5xl">
