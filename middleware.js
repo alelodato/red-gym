@@ -11,7 +11,7 @@ export function middleware(req) {
     // lascia passare assets di Next e file statici necessari
     const allowed =
       pathname === "/maintenance.html" ||
-      pathname === "/logo-redgym.png" ||
+      pathname === "/logo-negativo.png" ||
       pathname.startsWith("/_next") ||
       pathname.startsWith("/favicon") ||
       pathname === "/robots.txt";
