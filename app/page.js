@@ -16,8 +16,8 @@ const SHELL = "mx-auto w-full";
 function WhiteSection({ children, id }) {
   return (
     <section id={id} className="bg-brand-red">
-      {/* Mobile: contenuto diretto senza bordi, con più respiro */}
-      <div className="sm:hidden bg-white py-12 px-5">
+      {/* Mobile: contenuto diretto senza padding/bordi */}
+      <div className="sm:hidden bg-white py-8 px-4">
         {children}
       </div>
 
@@ -33,14 +33,14 @@ function WhiteSection({ children, id }) {
 
 function SectionHead({ kicker, title, lead, ctaHref, ctaLabel }) {
   return (
-    <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+    <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
       <div>
         <p className="section-title text-brand-red text-sm">{kicker}</p>
-        <h2 className="font-heading uppercase tracking-wide mt-3 text-3xl sm:text-4xl lg:text-5xl">
+        <h2 className="font-heading uppercase tracking-wide mt-2 text-3xl sm:text-4xl lg:text-5xl">
           {title}
         </h2>
         {lead ? (
-          <p className="mt-6 text-black/70 leading-7 sm:leading-relaxed max-w-2xl text-sm sm:text-[15px] lg:text-base">
+          <p className="mt-4 text-black/70 leading-relaxed max-w-2xl text-sm sm:text-[15px] lg:text-base">
             {lead}
           </p>
         ) : null}
@@ -62,13 +62,13 @@ function Card({ kicker, title, text, href, ctaLabel, imageSrc, imageAlt }) {
     <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
       {kicker ? <p className="section-title text-brand-red">{kicker}</p> : null}
 
-      <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-3">
+      <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
         {title}
       </h3>
 
       {imageSrc ? (
-        <div className="mt-5 lg:hidden">
-          <div className="relative overflow-hidden rounded-xl shadow-soft h-[180px] sm:h-[200px] md:h-[220px]">
+        <div className="mt-4 lg:hidden">
+          <div className="relative overflow-hidden rounded-xl shadow-soft h-[170px] sm:h-[200px] md:h-[220px]">
             <img
               src={toPublicSrc(imageSrc)}
               alt={imageAlt || title}
@@ -79,12 +79,12 @@ function Card({ kicker, title, text, href, ctaLabel, imageSrc, imageAlt }) {
         </div>
       ) : null}
 
-      <p className="mt-5 text-black/70 leading-7 sm:leading-relaxed text-sm sm:text-[14px]">
+      <p className="mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
         {text}
       </p>
 
       {href ? (
-        <div className="mt-7">
+        <div className="mt-6">
           <Button href={href}>{ctaLabel || "Scopri di più"}</Button>
         </div>
       ) : null}
@@ -114,29 +114,17 @@ function ImageGrid({ images }) {
 
 function DiagonalCuts({ flip = false, heightClass = "h-16 sm:h-20" }) {
   const topClip = flip
-    ? "sm:[clip-path:polygon(0_0,100%_0,100%_100%,0_55%)]"
-    : "sm:[clip-path:polygon(0_0,100%_0,100%_55%,0_100%)]";
+    ? "[clip-path:polygon(0_0,100%_0,100%_100%,0_55%)]"
+    : "[clip-path:polygon(0_0,100%_0,100%_55%,0_100%)]";
 
   const bottomClip = flip
-    ? "sm:[clip-path:polygon(0_0,100%_45%,100%_100%,0_100%)]"
-    : "sm:[clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]";
+    ? "[clip-path:polygon(0_0,100%_45%,100%_100%,0_100%)]"
+    : "[clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]";
 
   return (
     <>
-      <div
-        className={[
-          "absolute -top-1 left-0 right-0 bg-brand-red",
-          heightClass,
-          topClip,
-        ].join(" ")}
-      />
-      <div
-        className={[
-          "absolute -bottom-1 left-0 right-0 bg-brand-red",
-          heightClass,
-          bottomClip,
-        ].join(" ")}
-      />
+      <div className={`hidden sm:block absolute -top-1 left-0 right-0 bg-brand-red ${heightClass} ${topClip}`} />
+      <div className={`hidden sm:block absolute -bottom-1 left-0 right-0 bg-brand-red ${heightClass} ${bottomClip}`} />
     </>
   );
 }
@@ -148,14 +136,13 @@ function DiagonalPromoOver65({
   subtitle = "Tariffe dedicate: chiedi in reception o contattaci per tutti i dettagli.",
   reverse = false,
 }) {
-  // Desktop: diagonali. Mobile: nessuna banda rossa (zero spazi rossi).
   const topClip = reverse
-    ? "sm:[clip-path:polygon(0_0,100%_0,100%_100%,0_55%)]"
-    : "sm:[clip-path:polygon(0_0,100%_0,100%_55%,0_100%)]";
+    ? "[clip-path:polygon(0_0,100%_0,100%_100%,0_55%)]"
+    : "[clip-path:polygon(0_0,100%_0,100%_55%,0_100%)]";
 
   const bottomClip = reverse
-    ? "sm:[clip-path:polygon(0_0,100%_45%,100%_100%,0_100%)]"
-    : "sm:[clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]";
+    ? "[clip-path:polygon(0_0,100%_45%,100%_100%,0_100%)]"
+    : "[clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]";
 
   return (
     <section className="relative overflow-hidden mt-8">
@@ -167,28 +154,23 @@ function DiagonalPromoOver65({
         />
         <div className="absolute inset-0 bg-black/55" />
 
-        {/* Bande SOLO desktop (su mobile niente rosso) */}
-        <div
-          className={`hidden sm:block absolute -top-1 left-0 right-0 h-16 sm:h-20 bg-brand-red ${topClip}`}
-        />
-        <div
-          className={`hidden sm:block absolute -bottom-1 left-0 right-0 h-16 sm:h-20 bg-brand-red ${bottomClip}`}
-        />
+        <div className={`hidden sm:block absolute -top-1 left-0 right-0 h-20 bg-brand-red ${topClip}`} />
+        <div className={`hidden sm:block absolute -bottom-1 left-0 right-0 h-20 bg-brand-red ${bottomClip}`} />
       </div>
 
       <div className="relative">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-20">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-20">
           <p className="section-title text-white/85">{kicker}</p>
 
           <h3 className="font-heading uppercase tracking-wide text-white text-4xl sm:text-5xl mt-2">
             {title}
           </h3>
 
-          <p className="mt-6 text-white/85 max-w-2xl leading-7 sm:leading-relaxed text-base sm:text-lg">
+          <p className="mt-4 text-white/85 max-w-2xl leading-relaxed text-base sm:text-lg">
             {subtitle}
           </p>
 
-          <div className="mt-7 grid gap-3 sm:flex sm:flex-row">
+          <div className="mt-6 grid gap-3 sm:flex sm:flex-row">
             <a
               href="/contact"
               className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold tracking-wide
@@ -221,45 +203,47 @@ function DiagonalPhoto({
   safeguardingEmail = "vito.lettieri@email.it",
 }) {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative bg-brand-red overflow-hidden">
       <div className={["relative", heightClass].join(" ")}>
-        {/* Background immagine */}
-        <div className="absolute inset-0">
+        {/* Desktop: foto con taglio diagonale */}
+        <div className="hidden sm:block absolute inset-0">
           <img
             src={toPublicSrc(image)}
             alt={alt}
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-black/40" />
+          <DiagonalCuts flip={flip} heightClass="h-20 sm:h-24" />
+        </div>
 
-          {/* Bande SOLO desktop (su mobile niente rosso) */}
-          <div className="hidden sm:block">
-            <DiagonalCuts flip={flip} heightClass="h-20 sm:h-24" />
-          </div>
+        {/* Mobile: foto dritta come background */}
+        <div className="sm:hidden absolute inset-0">
+          <img
+            src={toPublicSrc(image)}
+            alt={alt}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
 
         {showSafeguarding && (
           <div className="absolute inset-0 flex items-center">
-            <div className={[SHELL, "px-5 sm:px-6 lg:px-8"].join(" ")}>
-              <div className="max-w-3xl backdrop-blur-sm rounded-xl px-6 py-6 sm:px-8 sm:py-7 sm:mt-6">
+            <div className={[SHELL, "px-4 sm:px-6 lg:px-8"].join(" ")}>
+              <div className="max-w-3xl backdrop-blur-sm rounded-xl px-4 py-4 sm:px-8 sm:py-7 sm:mt-6">
                 <p className="section-title text-white/80 tracking-widest">
                   SAFEGUARDING
                 </p>
 
-                <h3
-                  className="mt-3 font-heading uppercase tracking-wide text-white
-                             text-2xl sm:text-3xl lg:text-4xl leading-tight"
-                >
+                <h3 className="mt-2 font-heading uppercase tracking-wide text-white
+                               text-2xl sm:text-3xl lg:text-4xl leading-tight">
                   Tutela, rispetto e sicurezza
                 </h3>
 
-                <p
-                  className="mt-6 text-white/90 leading-7 sm:leading-relaxed
-                             text-sm sm:text-base lg:text-lg"
-                >
+                <p className="mt-4 text-white/90 leading-relaxed
+                              text-sm sm:text-base lg:text-lg">
                   Red Gym promuove un ambiente sicuro, inclusivo e rispettoso per
                   tutti. Per segnalazioni o richieste di chiarimento, è possibile
-                  consultare l&apos;informativa sul{" "}
+                  consultare l'informativa sul{" "}
                   <button
                     type="button"
                     onClick={onOpenSafeguarding}
@@ -267,7 +251,7 @@ function DiagonalPhoto({
                   >
                     SAFEGUARDING
                   </button>{" "}
-                  oppure contattare il responsabile all&apos;indirizzo{" "}
+                  oppure contattare il responsabile all'indirizzo{" "}
                   <a
                     href={`mailto:${safeguardingEmail}`}
                     className="font-semibold hover:text-white"
@@ -285,32 +269,19 @@ function DiagonalPhoto({
   );
 }
 
-function DiagonalBand({
-  image = "diagonal2.jpg",
-  kicker = "Red Gym",
-  title = "Energia. Disciplina. Risultati.",
-  flip = true,
-}) {
+function DiagonalBand({ image = "diagonal2.jpg", kicker = "Red Gym", title = "Energia. Disciplina. Risultati.", flip = true }) {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative bg-brand-red overflow-hidden">
       <div className="relative h-[230px] sm:h-[280px] lg:h-[340px]">
-        <img
-          src={toPublicSrc(image)}
-          alt={title}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        <img src={toPublicSrc(image)} alt={title} className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-black/45" />
-
-        {/* Bande SOLO desktop (su mobile niente rosso) */}
-        <div className="hidden sm:block">
-          <DiagonalCuts flip={flip} heightClass="h-16 sm:h-20" />
-        </div>
+        <DiagonalCuts flip={flip} heightClass="h-16 sm:h-20" />
       </div>
 
       <div className="absolute inset-0 flex items-center">
-        <div className={[SHELL, "px-5 sm:px-6 lg:px-8"].join(" ")}>
+        <div className={[SHELL, "px-4 sm:px-6 lg:px-8"].join(" ")}>
           <p className="section-title text-center text-white/85">{kicker}</p>
-          <h3 className="font-heading uppercase text-center tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl mt-3">
+          <h3 className="font-heading uppercase text-center tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl mt-2">
             {title}
           </h3>
         </div>
@@ -333,8 +304,8 @@ export default function HomePage() {
       <Hero />
 
       <div className="bg-brand-red">
-        {/* NIENTE padding-bottom qui: l’ultimo elemento deve finire sulla mappa */}
-        <div className="space-y-6 sm:space-y-8 lg:space-y-10 pb-0 sm:py-10 lg:py-12">
+        {/* Eliminato space-y su mobile */}
+        <div className="space-y-0 sm:space-y-8 lg:space-y-10 pb-0 sm:py-10 lg:py-12">
           <WhiteSection id="home-about">
             <SectionHead
               kicker="La palestra"
@@ -344,18 +315,19 @@ export default function HomePage() {
               ctaLabel="Scopri la palestra"
             />
 
-            <div className="mt-8 lg:mt-10 grid gap-8 lg:grid-cols-12">
+            {/* Aumentato gap su mobile: gap-10 invece di gap-6 */}
+            <div className="mt-6 lg:mt-10 grid gap-10 lg:grid-cols-12">
               <div className="order-1 lg:order-2 lg:col-span-5 hidden lg:block">
                 <ImageGrid images={ABOUT_IMAGES} />
               </div>
 
-              <div className="order-2 lg:order-1 lg:col-span-7 grid gap-8 md:grid-cols-2">
+              <div className="order-2 lg:order-1 lg:col-span-7 grid gap-10 md:grid-cols-2">
                 <Card
                   kicker="Attrezzatura"
                   title="Macchinari di livello"
                   imageSrc="pesi.jpg"
                   imageAlt="Sala pesi moderna"
-                  text="Strumenti selezionati per sicurezza, comfort ed efficacia. Non i soliti attrezzi 'da catalogo': qui trovi macchinari che fanno la differenza."
+                  text='Strumenti selezionati per sicurezza, comfort ed efficacia. Non i soliti attrezzi "da catalogo": qui trovi macchinari che fanno la differenza.'
                   href="/about"
                   ctaLabel="Vedi gli ambienti"
                 />
@@ -401,8 +373,8 @@ export default function HomePage() {
               ctaLabel="Vedi corsi e orari"
             />
 
-            <div className="mt-8 lg:mt-10 grid gap-8 lg:grid-cols-12">
-              <div className="order-1 lg:order-2 lg:col-span-5 relative overflow-hidden rounded-xl shadow-soft min-h-[260px] sm:min-h-[300px] lg:min-h-[420px]">
+            <div className="mt-6 lg:mt-10 grid gap-6 lg:grid-cols-12">
+              <div className="order-1 lg:order-2 lg:col-span-5 relative overflow-hidden rounded-xl shadow-soft min-h-[240px] sm:min-h-[300px] lg:min-h-[420px]">
                 <img
                   src={toPublicSrc("about2.jpg")}
                   alt="Corsi Red Gym"
@@ -414,38 +386,22 @@ export default function HomePage() {
               <div className="order-2 lg:order-1 lg:col-span-7 sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
                 <p className="section-title text-brand-red">In evidenza</p>
 
-                {/* PIU GAP TRA I PARAGRAFI */}
-                <div className="mt-6 space-y-8">
+                {/* Aumentato spazio tra i paragrafi: space-y-8 su mobile */}
+                <div className="mt-4 space-y-8 sm:space-y-4">
                   {[
-                    {
-                      t: "Sala pesi & Fitness",
-                      d: "Metodo, supporto in sala e strumenti di qualità: sicurezza, efficacia e continuità per obiettivi reali.",
-                    },
-                    {
-                      t: "Pilates & postura",
-                      d: "Controllo, mobilità, equilibrio. Un lavoro intelligente per stare meglio e muoverti meglio.",
-                    },
-                    {
-                      t: "Boxe + Prepugilistica",
-                      d: "Tecnica, coordinazione, fiato e disciplina. Un percorso strutturato per imparare con metodo (con o senza esperienza).",
-                    },
-                    {
-                      t: "MMA • Karate • Judo",
-                      d: "Percorsi completi per corpo e mente: disciplina, controllo e crescita personale. Adatto per atleti di tutti i livelli.",
-                    },
+                    { t: "Sala pesi & Fitness", d: "Metodo, supporto in sala e strumenti di qualità: sicurezza, efficacia e continuità per obiettivi reali." },
+                    { t: "Pilates & postura", d: "Controllo, mobilità, equilibrio. Un lavoro intelligente per stare meglio e muoverti meglio." },
+                    { t: "Boxe + Prepugilistica", d: "Tecnica, coordinazione, fiato e disciplina. Un percorso strutturato per imparare con metodo (con o senza esperienza)." },
+                    { t: "MMA • Karate • Judo", d: "Percorsi completi per corpo e mente: disciplina, controllo e crescita personale. Adatto per atleti di tutti i livelli." },
                   ].map((x) => (
                     <div key={x.t} className="border-l-4 border-brand-red pl-4">
-                      <p className="font-heading uppercase tracking-wide text-lg">
-                        {x.t}
-                      </p>
-                      <p className="mt-3 text-sm text-black/70 leading-7 sm:leading-relaxed">
-                        {x.d}
-                      </p>
+                      <p className="font-heading uppercase tracking-wide text-lg">{x.t}</p>
+                      <p className="mt-1 text-sm text-black/70 leading-relaxed">{x.d}</p>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                <div className="mt-6 flex flex-col sm:flex-row gap-3">
                   <Button href="/courses">Vai ai corsi</Button>
                   <Button href="/contact" variant="outline">
                     Chiedi info
@@ -455,12 +411,7 @@ export default function HomePage() {
             </div>
           </WhiteSection>
 
-          <DiagonalBand
-            image="diagonal2.jpg"
-            kicker="Red Gym"
-            title="Energia. Disciplina. Risultati."
-            flip
-          />
+          <DiagonalBand image="diagonal2.jpg" kicker="Red Gym" title="Energia. Disciplina. Risultati." flip />
 
           <WhiteSection id="home-pricing">
             <SectionHead
@@ -471,30 +422,12 @@ export default function HomePage() {
               ctaLabel="Vedi prezzi"
             />
 
-            <div className="mt-8 lg:mt-10 grid gap-8 lg:grid-cols-3">
-              <Card
-                kicker="Flessibile"
-                title="Mensile"
-                text="Perfetto per iniziare, prendere ritmo e capire il percorso giusto per te."
-                href="/pricing"
-                ctaLabel="Scopri"
-              />
-              <Card
-                kicker="Continuità"
-                title="Annuale"
-                text="Se vuoi risultati concreti, la costanza è tutto. Questa è la scelta più completa."
-                href="/pricing"
-                ctaLabel="Dettagli"
-              />
-              <Card
-                kicker="Corsi"
-                title="Attività"
-                text="Pacchetti e accessi dedicati alle discipline: scegli cosa ti rappresenta e allenati con metodo."
-                href="/pricing"
-                ctaLabel="Vedi opzioni"
-              />
+            {/* Aumentato gap su mobile: gap-10 */}
+            <div className="mt-8 lg:mt-10 grid gap-10 lg:grid-cols-3 lg:gap-6">
+              <Card kicker="Flessibile" title="Mensile" text="Perfetto per iniziare, prendere ritmo e capire il percorso giusto per te." href="/pricing" ctaLabel="Scopri" />
+              <Card kicker="Continuità" title="Annuale" text="Se vuoi risultati concreti, la costanza è tutto. Questa è la scelta più completa." href="/pricing" ctaLabel="Dettagli" />
+              <Card kicker="Corsi" title="Attività" text="Pacchetti e accessi dedicati alle discipline: scegli cosa ti rappresenta e allenati con metodo." href="/pricing" ctaLabel="Vedi opzioni" />
             </div>
-
             <DiagonalPromoOver65
               image="over65.jpg"
               kicker="Benessere"
@@ -502,7 +435,7 @@ export default function HomePage() {
               subtitle="Tariffe dedicate: chiedi in reception o contattaci per tutti i dettagli."
             />
           </WhiteSection>
-
+          
           <DiagonalPhoto
             image="diagonal3.jpg"
             alt="Red Gym - energia"
@@ -516,8 +449,7 @@ export default function HomePage() {
             open={openSafeguarding}
             onClose={() => setOpenSafeguarding(false)}
           />
-
-          {/* ULTIMO BLOCCO: DEVE FINIRE SULLA MAPPA */}
+          
           <WhiteSection id="home-contact">
             <SectionHead
               kicker="Contatti"
@@ -527,30 +459,23 @@ export default function HomePage() {
               ctaLabel="Apri contatti"
             />
 
-            <div className="mt-8 lg:mt-10 grid gap-8 lg:grid-cols-12">
+            <div className="mt-8 lg:mt-10 grid gap-6 lg:grid-cols-12">
               <div className="lg:col-span-6 sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
                 <p className="font-heading uppercase tracking-wide">Recapiti</p>
-                <div className="mt-5 space-y-4 text-sm text-black/70">
+                <div className="mt-3 space-y-2 text-sm text-black/70">
                   <p>Email: email@email.com</p>
                   <p>Telefono: 06 XXX XXX XXX</p>
-                  <p>
-                    Indirizzo: Via Delle Molette 245/257, Fonte Nuova 00013(RM)
-                  </p>
+                  <p>Indirizzo: Via Delle Molette 245/257, Fonte Nuova 00013(RM)</p>
                 </div>
 
-                <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                  <Button href="#" variant="primary">
-                    Apri WhatsApp
-                  </Button>
-                  <Button href="#" variant="outline">
-                    Apri Instagram
-                  </Button>
+                <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                  <Button href="#" variant="primary">Apri WhatsApp</Button>
+                  <Button href="#" variant="outline">Apri Instagram</Button>
                 </div>
               </div>
 
               <div className="lg:col-span-6 sm:rounded-xl overflow-hidden sm:border sm:border-brand-gray200 sm:bg-white">
-                {/* MAPPA: ultimo elemento visivo (nessun padding dopo) */}
-                <div className="relative h-[380px] sm:h-[420px] lg:h-[460px]">
+                <div className="relative h-[360px] sm:h-[420px] lg:h-[460px]">
                   <iframe
                     title="Google Maps - Red Gym"
                     className="absolute inset-0 h-full w-full"
@@ -562,12 +487,9 @@ export default function HomePage() {
                 </div>
 
                 <div className="p-6 sm:p-7">
-                  <p className="font-heading uppercase tracking-wide text-lg">
-                    Red Gym – Fonte Nuova
-                  </p>
-                  <p className="mt-4 text-sm text-black/70 leading-7 sm:leading-relaxed">
-                    Vieni a trovarci in sede: ampio parcheggio e spazi grandi per
-                    allenarti con calma, metodo e supporto reale.
+                  <p className="font-heading uppercase tracking-wide text-lg">Red Gym – Fonte Nuova</p>
+                  <p className="mt-2 text-sm text-black/70">
+                    Vieni a trovarci in sede: ampio parcheggio e spazi grandi per allenarti con calma, metodo e supporto reale.
                   </p>
                 </div>
               </div>
