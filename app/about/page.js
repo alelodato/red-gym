@@ -184,7 +184,7 @@ function DiagonalBand({
   );
 }
 
-function FinalCtaHero({ image = "hero-final.jpg" }) {
+function FinalCtaHero({ image = "/hero-final.jpg" }) {
   return (
     <section className="relative bg-brand-red overflow-hidden">
       <div className="relative h-[680px] sm:h-[460px] lg:h-[520px]">
@@ -580,7 +580,7 @@ export default function AboutPage() {
           </div>
         </WhiteBlock>
 
-        <FinalCtaHero image="palestra3.jpg" />
+        <FinalCtaHero image="/palestra3.webp" />
       </div>
     </div>
   );
