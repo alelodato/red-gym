@@ -357,17 +357,16 @@ export default function AboutPage() {
               </p>
               <div className="mb-14 py-12">
                 <div className="px-0 sm:px-6 lg:px-12">
-                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[280px] sm:h-[400px] lg:h-[500px]">
-                    <Image
-                      src={toPublicSrc("reception.jpg")}
-                      alt="Red Gym - panoramica"
-                      fill
-                      className="object-cover"
-                      priority
-                      sizes="100vw"
-                    />
-                    <div className="absolute inset-0 bg-black/5" />
-                  </div>
+                  <div className="relative h-[360px] sm:h-[420px] lg:h-[460px]">
+                  <iframe
+                    title="Google Maps - Red Gym"
+                    className="absolute inset-0 h-full w-full"
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.216478787936!2d12.621904015713814!3d41.99959437921157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1325c9b42fa47a3f%3A0x8e8b16b55b4b7f9e!2sVia%20delle%20Molette%2C%20245%2C%2000013%20Fonte%20Nuova%20RM%2C%20Italia!5e0!3m2!1sit!2sit!4v1704440000000!5m2!1sit!2sit"
+                  />
+                </div>
                   <p className="mt-4 text-center text-sm sm:text-base text-black/60 italic leading-relaxed">
                     La palestra si trova all'interno del complesso del{" "}
                     <a

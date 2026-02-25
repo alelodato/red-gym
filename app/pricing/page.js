@@ -24,7 +24,7 @@ function WhiteBlock({ children }) {
 }
 
 function PhotoHeroBand({
-  image = "reception.jpg",
+  image = "palestra4.jpg",
   kicker = "Abbonamenti",
   title = (
     <>
@@ -245,7 +245,7 @@ function ExtraCoursesGrid() {
 export default function PricingPage() {
   return (
     <div className="bg-brand-red">
-      <PhotoHeroBand className="-mt-[var(--nav-h)]" image="reception (3).webp" />
+      <PhotoHeroBand className="-mt-[var(--nav-h)]" image="palestra4.jpg" />
 
       {/* Eliminato space-y su mobile */}
       <div className="space-y-0 sm:space-y-8 lg:space-y-10 py-0 sm:py-10 lg:py-12 pb-0">

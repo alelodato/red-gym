@@ -177,9 +177,9 @@ const COURSES = [
     description:
       "Allenarsi bene significa fare le cose nel modo giusto. In sala pesi trovi spazi ampi e attrezzatura di ultima generazione selezionata per efficacia e comfort, con la possibilità di lavorare su forza, tonificazione e ricomposizione corporea.\n\nChe tu sia alle prime armi o voglia portare il livello più in alto, l'obiettivo è sempre lo stesso: progressione, tecnica corretta e continuità.",
     schedule: [
-      { day: "Lun – Ven", time: "06:00 – 22:30" },
-      { day: "Sabato", time: "08:00 – 16:00" },
-      { day: "Domenica", time: "08:00 – 13:00" },
+      { day: "Lun – Ven", time: "07:00 – 23:00" },
+      { day: "Sabato", time: "08:00 – 18:00" },
+      { day: "Domenica", time: "09:00 – 13:00" },
     ],
     trainers: [
       { name: "DANIELE", image: "DANIELE.jpeg", bio: "-" },
@@ -192,19 +192,38 @@ const COURSES = [
     ],
   },
   {
-    id: "pilates",
-    title: "Pilates",
+    id: "tacfit",
+    title: "TACFIT",
+    subtitle: "Allenamento funzionale e tattico",
+    image: "functional.jpg",
+    description:
+      "TACFIT è un sistema di allenamento funzionale che integra mobilità, forza e condizionamento. Un approccio completo per migliorare performance fisica, resistenza e capacità di adattamento.\n\nPerfetto per chi cerca un allenamento intenso, progressivo e basato su movimenti naturali del corpo, con focus su sicurezza e tecnica corretta.",
+    schedule: [
+      { day: "Lunedì", time: "21:00" },
+      { day: "Mercoledì", time: "21:00" },
+      { day: "Venerdì", time: "21:00" },
+    ],
+    trainers: [
+      { name: "ALEX", image: "ALEX.jpeg", bio: "ISTRUTTORE FUNZIONALE/TAC FIT" },
+    ],
+  },
+  {
+    id: "ginnastica-salute",
+    title: "Ginnastica per la Salute",
     subtitle: "Postura, controllo, mobilità e benessere",
     image: "pilates.jpg",
     description:
-      "Allenarsi non vuol dire sempre spingersi al limite: a volte vuol dire ascoltare il corpo e rimetterlo in equilibrio. Il Pilates aiuta a migliorare postura e controllo, aumentare mobilità e ridurre tensioni.\n\nÈ un percorso adatto a tutti e utile anche come integrazione alla sala pesi o agli sport da combattimento: più consapevolezza, più qualità di movimento.\n\n Approccio progressivo e accessibile: postura, respirazione e controllo, con attenzione ai dettagli.",
+      "Allenarsi non vuol dire sempre spingersi al limite: a volte vuol dire ascoltare il corpo e rimetterlo in equilibrio. La ginnastica per la salute aiuta a migliorare postura e controllo, aumentare mobilità e ridurre tensioni.\n\nÈ un percorso adatto a tutti e utile anche come integrazione alla sala pesi o agli sport da combattimento: più consapevolezza, più qualità di movimento.\n\nApproccio progressivo e accessibile: postura, respirazione e controllo, con attenzione ai dettagli.",
     schedule: [
-      { day: "Lunedì", time: "18:30 – 19:30" },
-      { day: "Mercoledì", time: "18:30 – 19:30" },
-      { day: "Venerdì", time: "13:00 – 14:00" },
+      { day: "Lunedì", time: "09:00" },
+      { day: "Martedì", time: "09:00" },
+      { day: "Mercoledì", time: "09:00" },
+      { day: "Giovedì", time: "09:00" },
+      { day: "Venerdì", time: "09:00, 11:00" },
+      { day: "Sabato", time: "11:00" },
     ],
     trainers: [
-      { name: "MORENA", image: "MORENA.jpeg", bio: "ISTRUTTRICE PILATES E POSTURALE" },
+      { name: "MORENA", image: "MORENA.jpeg", bio: "ISTRUTTRICE GINNASTICA PER LA SALUTE" },
     ],
   },
   {
@@ -215,8 +234,7 @@ const COURSES = [
     description:
       "Lo yoga migliora postura e mobilità, scioglie le tensioni e favorisce un benessere mentale concreto. La pratica unisce respiro consapevole e movimento fluido, per rafforzare il corpo in modo armonico.\n\nÈ un'attività adatta a tutti: puoi iniziare anche se non hai mai praticato, e usarla per completare il tuo allenamento settimanale.",
     schedule: [
-      { day: "-", time: "—" },
-      { day: "-", time: "—" },
+      { day: "Sabato", time: "11:00" },
     ],
     trainers: [{ name: "CLAUDIA", image: "CLAUDIA.jpeg", bio: "ISTRUTTRICE YOGA" }],
   },
@@ -227,14 +245,30 @@ const COURSES = [
     image: "boxe.png",
     description:
       "La boxe è uno degli sport più completi: migliora forza, resistenza, coordinazione e riflessi, ma soprattutto costruisce fiducia, autocontrollo e determinazione.\n\nIl percorso è guidato e strutturato: tecnica, lavoro al sacco, combinazioni e condizionamento. La prepugilistica è perfetta per chi vuole costruire basi solide (anche senza contatto) con metodo e disciplina.\n\nAllenamenti seri e progressivi: tecnica, timing e condizionamento, con attenzione alla sicurezza e alla crescita dell'allievo.",
-    schedule: [
-      { day: "Martedì", time: "20:00 – 21:00" },
-      { day: "Giovedì", time: "20:00 – 21:00" },
+    schedules: [
+      {
+        title: "Boxe",
+        schedule: [
+          { day: "Martedì", time: "20:30" },
+          { day: "Giovedì", time: "20:30" },
+          { day: "Sabato", time: "19:30" },
+        ],
+      },
+      {
+        title: "Prepugilistica/Funzionale",
+        schedule: [
+          { day: "Lunedì", time: "10:00, 13:30, 18:00, 19:00, 20:00" },
+          { day: "Martedì", time: "10:00, 13:30" },
+          { day: "Mercoledì", time: "10:00, 13:30, 18:00, 19:00, 20:00" },
+          { day: "Giovedì", time: "10:00, 13:30" },
+          { day: "Venerdì", time: "10:00, 13:30, 17:30, 18:30, 19:00" },
+          { day: "Sabato", time: "10:00, 17:30" },
+        ],
+      },
     ],
     trainers: [
-      { name: "ADRIANO", image: "ADRIANO.jpeg", bio: "ISTRUTTORE PUGILATO E FUNZIONALE" },
-      { name: "PAOLO", image: "PAOLO.jpeg", bio: "MAESTRO PUGILATO" },
-      { name: "ALEX", image: "ALEX.jpeg", bio: "-" },
+      { name: "ADRIANO SPERANDIO", image: "ADRIANO.jpeg", bio: "ISTRUTTORE PREPUGILISTICA/FUNZIONALE" },
+      { name: "PAOLO SPERANDIO", image: "PAOLO.jpeg", bio: "MAESTRO BOXE" },
     ],
   },
   {
@@ -245,25 +279,25 @@ const COURSES = [
     description:
       "La kickboxing unisce pugni e calci in un allenamento completo, dinamico e coinvolgente. Migliora potenza e resistenza, coordinazione e agilità, tecnica e concentrazione.\n\nÈ perfetta sia per chi inizia sia per chi ha già esperienza: ogni lezione è pensata per farti crescere con metodo, in sicurezza e sempre seguito.\n\nProgressioni chiare e lavoro tecnico: migliora sicurezza nei colpi, timing e condizionamento, senza improvvisazione.",
     schedule: [
-      { day: "-", time: "—" },
-      { day: "-", time: "—" },
+      { day: "Martedì", time: "20:30" },
+      { day: "Sabato", time: "19:30" },
     ],
-    trainers: [{ name: "NATALINO", image: "NATALINO.jpeg", bio: "MAESTRO KICKBOXING" }],
+    trainers: [{ name: "ANTON IOAN CATALIN", image: "NATALINO.jpeg", bio: "MAESTRO KICKBOXING" }],
   },
   {
     id: "mma",
-    title: "MMA",
+    title: "MMA/Grappling",
     subtitle: "Forza, tecnica e versatilità",
     image: "mma.png",
     description:
-      "Tecnica, potenza, concentrazione. L'MMA è uno degli sport più completi: unisce striking e grappling e sviluppa forza, resistenza, agilità e capacità di reazione.\n\nÈ un percorso adatto a tutti i livelli: si lavora con metodo e progressione, imparando sia principi tecnici che gestione del corpo e controllo, sempre in un ambiente serio e seguito. \n\nPercorso strutturato e completo: tecnica, condizionamento e progressione, con focus su sicurezza e controllo.",
+      "Tecnica, potenza, concentrazione. L'MMA è uno degli sport più completi: unisce striking e grappling e sviluppa forza, resistenza, agilità e capacità di reazione.\n\nÈ un percorso adatto a tutti i livelli: si lavora con metodo e progressione, imparando sia principi tecnici che gestione del corpo e controllo, sempre in un ambiente serio e seguito.\n\nPercorso strutturato e completo: tecnica, condizionamento e progressione, con focus su sicurezza e controllo.",
     schedule: [
-      { day: "Lunedì", time: "20:00 – 21:15" },
-      { day: "Mercoledì", time: "20:00 – 21:15" },
+      { day: "Lunedì", time: "19:45" },
+      { day: "Mercoledì", time: "19:45" },
+      { day: "Venerdì", time: "19:45" },
     ],
-    trainers: [{ name: "ASTERIO", image: "ASTERIO.jpeg", bio: "MAESTRO GRAPPLING" }],
+    trainers: [{ name: "ASTERIO LUCCHESINI", image: "ASTERIO.jpeg", bio: "MAESTRO MMA/GRAPPLING" }],
   },
-
   {
     id: "karate",
     title: "Karate",
@@ -271,37 +305,87 @@ const COURSES = [
     image: "karate.png",
     description:
       "Il Karate è molto più di uno sport: è un percorso che forma corpo e mente. Aiuta a sviluppare postura, equilibrio e sicurezza in sé stessi, insieme a rispetto delle regole, autocontrollo e concentrazione.\n\nUn'attività adatta a bambini, ragazzi e adulti, con un approccio serio ma sempre motivante: si cresce passo dopo passo, con passione e attenzione all'allievo.\n\nProgressioni tecniche e lavoro sulla mentalità: postura, coordinazione e controllo, con attenzione alla crescita personale.",
-    schedule: [
-      { day: "-", time: "—" },
-      { day: "-", time: "—" },
+    schedules: [
+      {
+        title: "Karate Bambini 4-6 Anni",
+        schedule: [
+          { day: "Martedì", time: "17:00" },
+          { day: "Mercoledì", time: "17:00" },
+          { day: "Giovedì", time: "17:00" },
+          { day: "Venerdì", time: "17:00" },
+        ],
+      },
+      {
+        title: "Karate Bambini 7-11 Anni",
+        schedule: [
+          { day: "Martedì", time: "18:00" },
+          { day: "Mercoledì", time: "18:00" },
+          { day: "Giovedì", time: "18:00" },
+        ],
+      },
+      {
+        title: "Karate Ragazzi",
+        schedule: [
+          { day: "Martedì", time: "19:00" },
+          { day: "Mercoledì", time: "19:00" },
+          { day: "Giovedì", time: "19:00" },
+        ],
+      },
+      {
+        title: "Karate Agonisti/Pre-Agonisti",
+        schedule: [
+          { day: "Sabato", time: "10:00" },
+        ],
+      },
     ],
     trainers: [
-      { name: "MASSIMO", image: "MASSIMO.jpeg", bio: "MAESTRO KARATE" },
-      { name: "BARBARA", image: "BARBARA.jpeg", bio: "MAESTRA KARATE" },
+      { name: "MASSIMO MONTECCHIANI", image: "MASSIMO.jpeg", bio: "MAESTRO KARATE" },
+      { name: "BARBARA MONTECCHIANI", image: "BARBARA.jpeg", bio: "MAESTRA KARATE" },
     ],
   },
-
   {
     id: "judo",
     title: "Judo",
     subtitle: "Tecnica, valori e controllo",
     image: "judo-hero.jpg",
     description:
-      "Il Judo è disciplina, tecnica e valori. Un percorso completo che sviluppa coordinazione, equilibrio e consapevolezza del corpo, con lavoro progressivo e strutturato.\n\nAdatto a bambini, ragazzi e adulti, con gruppi suddivisi per età e livello: si impara sul serio, con rispetto e passione sul tatami. \n\nAllenamenti progressivi su tecnica e controllo, con attenzione alla sicurezza e alla crescita dell'allievo.",
-    schedule: [
-      { day: "-", time: "—" },
-      { day: "-", time: "—" },
+      "Il Judo è disciplina, tecnica e valori. Un percorso completo che sviluppa coordinazione, equilibrio e consapevolezza del corpo, con lavoro progressivo e strutturato.\n\nAdatto a bambini, ragazzi e adulti, con gruppi suddivisi per età e livello: si impara sul serio, con rispetto e passione sul tatami.\n\nAllenamenti progressivi su tecnica e controllo, con attenzione alla sicurezza e alla crescita dell'allievo.",
+    schedules: [
+      {
+        title: "Judo Bambini 4-7 Anni",
+        schedule: [
+          { day: "Lunedì", time: "17:00" },
+          { day: "Mercoledì", time: "17:00" },
+          { day: "Venerdì", time: "17:00" },
+        ],
+      },
+      {
+        title: "Judo Ragazzi 8-12 Anni",
+        schedule: [
+          { day: "Lunedì", time: "18:00" },
+          { day: "Mercoledì", time: "18:00" },
+          { day: "Venerdì", time: "18:00" },
+        ],
+      },
+      {
+        title: "Judo Adulti",
+        schedule: [
+          { day: "Lunedì", time: "19:45" },
+          { day: "Mercoledì", time: "19:45" },
+          { day: "Venerdì", time: "19:45" },
+        ],
+      },
     ],
     trainers: [
-      { name: "MICHELA", image: "MICHELA.jpeg", bio: "MAESTRA JUDO" },
-      { name: "VITTORIA", image: "VITTORIA.jpeg", bio: "MAESTRA JUDO" },
+      { name: "MICHELA MUCCIOLI", image: "MICHELA.jpeg", bio: "MAESTRA JUDO" },
+      { name: "VITTORINA DI VINCENZO", image: "VITTORIA.jpeg", bio: "MAESTRA JUDO" },
     ],
   },
 ];
 
 function ScheduleTable({ schedule }) {
   return (
-    <div className="mt-5 sm:rounded-lg sm:border sm:border-brand-gray200 overflow-hidden">
+    <div className="sm:rounded-lg sm:border sm:border-brand-gray200 overflow-hidden">
       <div className="bg-brand-black text-white px-4 py-3 text-sm font-semibold">Orari</div>
       <div className="divide-y divide-brand-gray200 sm:bg-white">
         {schedule.map((s) => (
@@ -313,6 +397,28 @@ function ScheduleTable({ schedule }) {
             <span className="font-semibold text-brand-black">{s.time}</span>
           </div>
         ))}
+      </div>
+    </div>
+  );
+}
+
+function SingleScheduleBlock({ item }) {
+  return (
+    <div>
+      <p className="font-heading uppercase tracking-wide text-base mb-3">{item.title}</p>
+      <div className="sm:rounded-lg sm:border sm:border-brand-gray200 overflow-hidden">
+        <div className="bg-brand-black text-white px-4 py-3 text-sm font-semibold">Orari</div>
+        <div className="divide-y divide-brand-gray200 sm:bg-white">
+          {item.schedule.map((s) => (
+            <div
+              key={s.day + s.time}
+              className="flex items-center justify-between px-4 py-3 text-sm"
+            >
+              <span className="text-black/70">{s.day}</span>
+              <span className="font-semibold text-brand-black">{s.time}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -445,13 +551,34 @@ function WeightRoomTrainersBlock({ trainers }) {
 function CourseSection({ course, invert = false }) {
   const isWeightRoom = course.id === "sala-pesi";
   const hasSingleTrainer = course.trainers.length === 1;
+  const hasMultipleSchedules = course.schedules && course.schedules.length > 0;
+
+  // Calcola distribuzione tabelle se presenti più schedule
+  let leftSchedules = [];
+  let rightSchedules = [];
+  
+  if (hasMultipleSchedules) {
+    const totalSchedules = course.schedules.length;
+    const leftCount = Math.ceil(totalSchedules / 2);
+    leftSchedules = course.schedules.slice(0, leftCount);
+    rightSchedules = course.schedules.slice(leftCount);
+  }
 
   return (
     <section
       id={course.id}
       className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 overflow-hidden"
     >
+      {/* Mobile: Titolo prima della foto */}
+      <div className="lg:hidden py-7 px-4">
+        <p className="section-title text-brand-red text-sm">{course.subtitle}</p>
+        <h2 className="font-heading uppercase tracking-wide text-3xl sm:text-4xl mt-2">
+          {course.title}
+        </h2>
+      </div>
+
       <div className="grid lg:grid-cols-12">
+        {/* FOTO */}
         <div
           className={[
             "lg:col-span-5",
@@ -468,25 +595,58 @@ function CourseSection({ course, invert = false }) {
             />
             <div className="absolute inset-0 bg-black/10" />
           </div>
+
+          {/* TABELLE DESTRA (sotto la foto) - solo su desktop con più tabelle */}
+          {hasMultipleSchedules && rightSchedules.length > 0 && (
+            <div className="hidden lg:block p-10 space-y-6">
+              {rightSchedules.map((item, idx) => (
+                <SingleScheduleBlock key={idx} item={item} />
+              ))}
+            </div>
+          )}
         </div>
 
+        {/* TESTO + TABELLE SINISTRA */}
         <div
           className={[
             "lg:col-span-7 py-7 sm:p-10",
             invert ? "lg:order-1" : "lg:order-2",
           ].join(" ")}
         >
-          <p className="section-title text-brand-red text-sm">{course.subtitle}</p>
-
-          <h2 className="font-heading uppercase tracking-wide text-3xl sm:text-4xl mt-2">
-            {course.title}
-          </h2>
+          {/* Desktop: titolo qui */}
+          <div className="hidden lg:block">
+            <p className="section-title text-brand-red text-sm">{course.subtitle}</p>
+            <h2 className="font-heading uppercase tracking-wide text-3xl sm:text-4xl mt-2">
+              {course.title}
+            </h2>
+          </div>
 
           <p className="mt-4 text-black/70 leading-relaxed max-w-3xl whitespace-pre-line">
             {course.description}
           </p>
 
-          <ScheduleTable schedule={course.schedule} />
+          {/* TABELLE */}
+          {hasMultipleSchedules ? (
+            <div className="mt-5 space-y-6">
+              {/* Mobile: tutte le tabelle in colonna */}
+              <div className="lg:hidden space-y-6">
+                {course.schedules.map((item, idx) => (
+                  <SingleScheduleBlock key={idx} item={item} />
+                ))}
+              </div>
+
+              {/* Desktop: solo tabelle sinistra */}
+              <div className="hidden lg:block space-y-6">
+                {leftSchedules.map((item, idx) => (
+                  <SingleScheduleBlock key={idx} item={item} />
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="mt-5">
+              <ScheduleTable schedule={course.schedule} />
+            </div>
+          )}
 
           <div className="mt-7 flex flex-col sm:flex-row gap-3">
             <Button href="/contact">Prenota / Info</Button>
@@ -511,8 +671,8 @@ function CourseSection({ course, invert = false }) {
 }
 
 export default function CoursesPage() {
-  const TOP_BLOCK = COURSES.slice(0, 3);
-  const REST_BLOCK = COURSES.slice(3);
+  const TOP_BLOCK = COURSES.slice(0, 4);
+  const REST_BLOCK = COURSES.slice(4);
 
   return (
     <div className="bg-brand-red">

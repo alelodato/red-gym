@@ -259,7 +259,7 @@ function DiagonalPhoto({
   );
 }
 
-function DiagonalBand({ image = "palestra1.webp", kicker = "Red Gym", title = "Energia. Disciplina. Risultati.", flip = true }) {
+function DiagonalBand({ image = "palestra1.webp", kicker = "Red Gym", title = "Sport & Benessere", flip = true }) {
   return (
     <section className="relative bg-brand-red overflow-hidden">
       <div className="relative h-[230px] sm:h-[280px] lg:h-[340px]">
