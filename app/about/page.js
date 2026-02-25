@@ -515,7 +515,7 @@ export default function AboutPage() {
               kicker="Sport da combattimento"
               title="Sale dedicate per allenarti con concentrazione"
               text="Per le discipline da combattimento servono spazio e atmosfera giusta: qui trovi ambienti dedicati per gestire corsi e gruppi in modo ordinato, con attenzione alla tecnica, alla sicurezza e al lavoro strutturato."
-              image="/sala3.jpg"
+              image="/sala3.JPG"
               alt="Sala sport da combattimento"
               invert
             />
@@ -554,7 +554,7 @@ export default function AboutPage() {
               kicker="Community"
               title="Disciplina, rispetto, autocontrollo"
               text="Gli sport insegnano molto più che muoversi: insegnano mentalità. In palestra trovi persone diverse con obiettivi diversi, ma con un punto in comune: la costanza. Un ambiente serio, accogliente e stimolante dove l'energia è quella giusta."
-              image="/community.jpg"
+              image="/community.jpeg"
               alt="Community Red Gym"
               invert
             />
