@@ -507,7 +507,7 @@ export default function AboutPage() {
               kicker="Attrezzatura"
               title="Sala pesi ampia e completa"
               text="Una sala pesi grande e ben organizzata, con macchinari e postazioni selezionate per rispondere a esigenze diverse: forza, controllo, postura, resistenza. L'obiettivo è allenarti con efficacia e continuità, senza caos e con la sicurezza di fare gli esercizi nel modo corretto."
-              image="palestra2.webp"
+              image="/palestra2.webp"
               alt="Sala pesi moderna"
             />
 
@@ -515,7 +515,7 @@ export default function AboutPage() {
               kicker="Sport da combattimento"
               title="Sale dedicate per allenarti con concentrazione"
               text="Per le discipline da combattimento servono spazio e atmosfera giusta: qui trovi ambienti dedicati per gestire corsi e gruppi in modo ordinato, con attenzione alla tecnica, alla sicurezza e al lavoro strutturato."
-              image="sala3.jpg"
+              image="/sala3.jpg"
               alt="Sala sport da combattimento"
               invert
             />
@@ -524,7 +524,7 @@ export default function AboutPage() {
               kicker="Organizzazione"
               title="Più spazio, più qualità"
               text="Una struttura grande funziona solo se è curata: spazi pensati per ridurre confusione, migliorare l'esperienza e permetterti di allenarti con serenità. È un dettaglio che cambia tutto quando vuoi risultati concreti."
-              image="sala1.jpeg"
+              image="/sala1.jpeg"
               alt="Seconda sala sport da combattimento"
             />
           </div>
@@ -538,7 +538,7 @@ export default function AboutPage() {
               kicker="Corsi & Trainer"
               title="Guide competenti, progressioni chiare"
               text="In Red Gym la differenza non la fa solo l'attrezzatura: la fa il supporto. I trainer sono presenti e qualificati, pronti a seguirti che tu stia iniziando o voglia alzare il livello. Tecnica, progressione, sicurezza e un percorso adatto a te."
-              image="about2.jpg"
+              image="/about2.jpg"
               alt="Trainer e coaching"
               cta={
                 <div className="flex flex-col sm:flex-row gap-3">
@@ -554,7 +554,7 @@ export default function AboutPage() {
               kicker="Community"
               title="Disciplina, rispetto, autocontrollo"
               text="Gli sport insegnano molto più che muoversi: insegnano mentalità. In palestra trovi persone diverse con obiettivi diversi, ma con un punto in comune: la costanza. Un ambiente serio, accogliente e stimolante dove l'energia è quella giusta."
-              image="community.jpg"
+              image="/community.jpg"
               alt="Community Red Gym"
               invert
             />
