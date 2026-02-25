@@ -9,6 +9,68 @@ function toPublicSrc(path) {
   return path.startsWith("/") ? path : `/${path}`;
 }
 
+function PhotoHeroBand({
+  image = "palestra4.webp",
+  kicker = "Abbonamenti",
+  title = (
+    <>
+      Ambiente giusto. <br /> Risultati reali.
+    </>
+  ),
+  subtitle =
+  "RED GYM è un centro sportivo a Fonte Nuova (Roma) con ampio parcheggio e circa 1.800 mq di spazio: sala pesi completa, aree dedicate e corsi pensati per ogni livello, dal principiante all'atleta esperto.",
+  className = "",
+}) {
+
+  return (
+    <section className={`relative bg-brand-red overflow-hidden ${className}`}>
+      {/* Mobile: hero più compatta */}
+      <div className="relative h-[480px] sm:h-[620px] lg:h-[720px]">
+        <img
+          src={toPublicSrc(image)}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+
+        <div className="absolute inset-0 bg-black/75" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-black/25" />
+      </div>
+
+      {/* Contenuto posizionato meglio su mobile con padding-top */}
+      <div className="absolute inset-0 flex items-end sm:items-center">
+        <div className="mx-auto w-full max-w-7xl 2xl:max-w-[1440px] px-4 sm:px-6 lg:px-8">
+          <div className="pt-24 pb-4 sm:pt-0 sm:pb-0">
+            {kicker ? <p className="section-title text-white/85">{kicker}</p> : null}
+
+            {title ? (
+              <h1
+                className="font-heading uppercase tracking-wide text-white mt-2 leading-tight
+                           text-3xl sm:text-5xl lg:text-6xl 2xl:text-7xl"
+              >
+                {title}
+              </h1>
+            ) : null}
+
+            {subtitle ? (
+              <p className="mt-4 text-white/85 max-w-2xl leading-relaxed text-sm sm:text-lg lg:text-xl">
+                {subtitle}
+              </p>
+            ) : null}
+
+            <div className="mt-6 flex flex-col sm:flex-row gap-3">
+              <Button href="/contact">Chiedi info</Button>
+              <Button href="/courses" variant="outline">
+                Scopri i corsi
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function WhiteBlock({ children }) {
   return (
     <div className="bg-brand-red">
@@ -281,64 +343,9 @@ function FinalCtaHero({ image = "/hero-final.jpg" }) {
 export default function AboutPage() {
   return (
     <div className="bg-brand-red">
-      <Section className="relative bg-brand-red overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src={toPublicSrc("palestra7.webp")}
-            alt="Red Gym - panoramica sala pesi"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-brand-red/90" />
-          <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
-        </div>
+      <PhotoHeroBand className="-mt-[var(--nav-h)]" image="palestra7.webp" />
 
-        <div className="relative">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="min-h-[500px] sm:min-h-[680px] lg:min-h-[560px] flex items-end sm:items-center py-8 sm:py-14 lg:py-16">
-              <div className="w-full lg:max-w-2xl rounded-none sm:rounded-2xl p-0 sm:p-8 lg:p-10 pb-8 sm:pb-8">
-                <p className="section-title text-white/90">Chi siamo</p>
-
-                <h1 className="font-heading uppercase tracking-wide text-white text-3xl sm:text-5xl mt-2 leading-tight">
-                  Allenamento con metodo. <br /> Ambiente giusto. <br /> Risultati reali.
-                </h1>
-
-                <p className="mt-4 text-white/85 leading-relaxed text-sm sm:text-base">
-                  {SITE.name} è un centro sportivo a Fonte Nuova (Roma) con ampio
-                  parcheggio e circa 1.800 mq di spazio: sala pesi completa, aree
-                  dedicate e corsi pensati per ogni livello, dal principiante
-                  all'atleta esperto.
-                </p>
-
-                <p className="mt-3 text-white/85 leading-relaxed text-sm sm:text-base">
-                  Qui l'obiettivo è semplice: farti allenare meglio. Con metodo,
-                  disciplina e un team presente che ti segue passo dopo passo.
-                </p>
-
-                <div className="mt-6 flex gap-3 flex-col sm:flex-row">
-                  <Link
-                    href="/courses"
-                    className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold tracking-wide bg-white text-brand-red hover:bg-white/90 transition-colors"
-                  >
-                    Scopri corsi e attività
-                  </Link>
-
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold tracking-wide border border-white text-white hover:bg-white hover:text-brand-red transition-colors"
-                  >
-                    Contattaci
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      <div className="space-y-0 sm:space-y-8 lg:space-y-10">
+      <div className="space-y-0 sm:space-y-8 lg:space-y-10 sm:py-10 lg:py-12">
         <WhiteBlock>
           <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-12">
@@ -363,14 +370,8 @@ export default function AboutPage() {
                 {/* COLONNA DESTRA: FOTO */}
                 <div className="mt-8 lg:mt-0">
                   <div className="relative overflow-hidden rounded-xl h-[280px] sm:h-[400px]">
-                    <Image
-                      src={toPublicSrc("la-fonte.webp")}
-                      alt="Red Gym - panoramica"
-                      fill
-                      className="object-contain"
-                      priority
-                    />
-                    <div className="absolute inset-0 bg-black/5" />
+                    <iframe src="https://www.google.com/maps/embed?pb=!4v1772036816336!6m8!1m7!1s647rvD25mgsqmeDhXUMgoQ!2m2!1d42.00111503796409!2d12.66803763518375!3f337.2800964449892!4f6.287296922872244!5f0.7820865974627469" width="600" height="450" style={{border:0}} allowFullscreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                    <div className="absolute bg-black/5 pointer-events-auto" />
                   </div>
                   <p className="mt-4 text-center text-sm sm:text-base text-black/60 italic leading-relaxed">
                     La palestra si trova all'interno del complesso del{" "}

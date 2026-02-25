@@ -24,7 +24,7 @@ function WhiteBlock({ children }) {
 }
 
 function PhotoHeroBand({
-  image = "palestra4.jpg",
+  image = "palestra4.webp",
   kicker = "Abbonamenti",
   title = (
     <>
@@ -37,7 +37,6 @@ function PhotoHeroBand({
     "Prezzi chiari e soluzioni flessibili: sala pesi con diverse fasce orarie e corsi dedicati. Se vuoi, scrivici e ti aiutiamo a scegliere in base ai tuoi obiettivi e agli orari.",
   className = "",
 }) {
-  const bottomClip = "[clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]";
 
   return (
     <section className={`relative bg-brand-red overflow-hidden ${className}`}>
@@ -49,12 +48,9 @@ function PhotoHeroBand({
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
 
-        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-black/75" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-black/10" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-black/25" />
-
-        {/* Banda diagonale solo desktop */}
-        <div className={`hidden sm:block absolute -bottom-1 left-0 right-0 h-24 bg-brand-red ${bottomClip}`} />
       </div>
 
       {/* Contenuto posizionato meglio su mobile con padding-top */}
@@ -245,7 +241,7 @@ function ExtraCoursesGrid() {
 export default function PricingPage() {
   return (
     <div className="bg-brand-red">
-      <PhotoHeroBand className="-mt-[var(--nav-h)]" image="palestra4.jpg" />
+      <PhotoHeroBand className="-mt-[var(--nav-h)]" image="palestra4.webp" />
 
       {/* Eliminato space-y su mobile */}
       <div className="space-y-0 sm:space-y-8 lg:space-y-10 py-0 sm:py-10 lg:py-12 pb-0">

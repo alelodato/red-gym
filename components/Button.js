@@ -3,7 +3,7 @@ import Link from "next/link";
 const variants = {
   primary: "bg-brand-red text-white hover:bg-brand-redHover",
   outline: "border border-brand-red text-brand-red hover:bg-brand-red hover:text-white",
-  dark: "bg-brand-black text-white hover:bg-brand-gray900",
+  white: "bg-brand-white text-red hover:bg-brand-whiteHover",
 };
 
 export default function Button({ href, children, variant = "primary", className = "" }) {

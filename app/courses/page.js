@@ -30,7 +30,6 @@ function TripleDiagonalBand({
   subtitle = "Ogni corso ha un metodo, una guida e un obiettivo.",
   className = "",
 }) {
-  const bottomClip = "[clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]";
 
   return (
     <section className={`relative bg-brand-red overflow-hidden ${className}`}>
@@ -72,9 +71,6 @@ function TripleDiagonalBand({
         <div className="absolute inset-0 bg-black/55" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-black/10" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-black/25" />
-
-        {/* Taglio diagonale sotto - solo desktop */}
-        <div className={`hidden sm:block absolute -bottom-1 left-0 right-0 h-24 bg-brand-red ${bottomClip}`} />
       </div>
 
       {/* Contenuto */}
@@ -96,6 +92,12 @@ function TripleDiagonalBand({
                 {subtitle}
               </p>
             )}
+            <div className="mt-6 flex flex-col sm:flex-row gap-3">
+              <Button href="/contact">Chiedi maggiori info</Button>
+              <Button href="/pricing" variant="outline">
+                I nostri piani e abbonamenti
+              </Button>
+            </div>
           </div>
         </div>
       </div>
@@ -195,7 +197,7 @@ const COURSES = [
     id: "tacfit",
     title: "TACFIT",
     subtitle: "Allenamento funzionale e tattico",
-    image: "functional.jpg",
+    image: "tacfit.webp",
     description:
       "TACFIT è un sistema di allenamento funzionale che integra mobilità, forza e condizionamento. Un approccio completo per migliorare performance fisica, resistenza e capacità di adattamento.\n\nPerfetto per chi cerca un allenamento intenso, progressivo e basato su movimenti naturali del corpo, con focus su sicurezza e tecnica corretta.",
     schedule: [
@@ -556,7 +558,7 @@ function CourseSection({ course, invert = false }) {
   // Calcola distribuzione tabelle se presenti più schedule
   let leftSchedules = [];
   let rightSchedules = [];
-  
+
   if (hasMultipleSchedules) {
     const totalSchedules = course.schedules.length;
     const leftCount = Math.ceil(totalSchedules / 2);
@@ -683,7 +685,6 @@ export default function CoursesPage() {
         title="Scegli il tuo percorso."
         subtitle="Ogni corso ha un metodo, una guida e un obiettivo. Scegli cosa ti rappresenta e allenati con disciplina, sicurezza e continuità."
       />
-
       {/* Eliminato space-y su mobile */}
       <div className="space-y-0 sm:space-y-8 lg:space-y-10 pb-8 sm:py-10 lg:py-12 pb-0">
         <WhiteBlock>

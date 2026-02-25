@@ -1,73 +1,61 @@
-import Button from "./Button";
-import Container from "./Container";
-import { SITE } from "@/lib/site";
+function Hero({
+  image = "hero1.webp",
+  kicker = "RED GYM - FONTE NUOVA",
+  title = (
+    <>
+      ALLENATI MEGLIO. <br /> VIVI MEGLIO.
+    </>
+  ),
+  subtitle =
+  "RED GYM e' la tua palestra a Fonte Nuova: sala pesi, allenamento funzionale e sport da combattimento. Scopri i nostri corsi e allenati con noi!",
+  className = "",
+}) {
 
-export default function Hero() {
   return (
-    <section
-      className="relative"
-      style={{
-        minHeight: "calc(100svh - var(--nav-h))",
-      }}
-    >
-      <div
-        className="absolute inset-0"
-        style={{ minHeight: "calc(100vh - var(--nav-h))" }}
-        aria-hidden="true"
-      />
-
-      <div className="absolute inset-0">
+    <section className={`relative bg-brand-red overflow-hidden ${className}`}>
+      {/* Mobile: hero più compatta */}
+      <div className="relative h-[480px] sm:h-[620px] lg:h-[720px]">
         <img
-          src="hero1.webp"
-          alt="Allenamento in palestra"
-          className="h-full w-full object-cover"
+          src={toPublicSrc(image)}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-black/55" />
+
+        <div className="absolute inset-0 bg-black/75" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-black/25" />
       </div>
 
-      <Container>
-        <div
-          className="
-            relative
-            min-h-[inherit]
-            flex
-            items-end sm:items-center
-            py-16 sm:py-20 lg:py-24
-          "
-        >
-          <div>
-            <p className="section-title text-white/90 text-sm">
-              {SITE.name} — {SITE.city}
-            </p>
+      {/* Contenuto posizionato meglio su mobile con padding-top */}
+      <div className="absolute inset-0 flex items-end sm:items-center">
+        <div className="mx-auto w-full max-w-7xl 2xl:max-w-[1440px] px-4 sm:px-6 lg:px-8">
+          <div className="pt-24 pb-4 sm:pt-0 sm:pb-0">
+            {kicker ? <p className="section-title text-white/85">{kicker}</p> : null}
 
-            <h1 className="font-heading uppercase tracking-wide text-white mt-2 leading-[0.95]
-               text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl">
-              <span className="display-title block text-5xl sm:text-6xl lg:text-7xl">
-                ALLENATI MEGLIO.
-              </span>
-              <span className="display-title block text-5xl sm:text-6xl lg:text-7xl text-brand-red">
-                VIVI MEGLIO.
-              </span>
-            </h1>
-
-            <p className="mt-4 text-white/85 max-w-2xl 2xl:max-w-3xl leading-relaxed
-              text-base sm:text-lg lg:text-xl 2xl:text-2xl">
-              {SITE.name} e' la tua palestra a Fonte Nuova: sala pesi, allenamento funzionale e sport da combattimento. Scopri i nostri corsi e allenati con noi!
-            </p>
-
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Button href="/courses">Vai ai corsi</Button>
-              <Button
-                href="/about"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-brand-black"
+            {title ? (
+              <h1
+                className="font-heading uppercase tracking-wide text-white mt-2 leading-tight
+                           text-3xl sm:text-5xl lg:text-6xl 2xl:text-7xl"
               >
+                {title}
+              </h1>
+            ) : null}
+
+            {subtitle ? (
+              <p className="mt-4 text-white/85 max-w-2xl leading-relaxed text-sm sm:text-lg lg:text-xl">
+                {subtitle}
+              </p>
+            ) : null}
+
+            <div className="mt-6 flex flex-col sm:flex-row gap-3">
+              <Button href="/courses">I nostri corsi</Button>
+              <Button href="/about" variant="outline">
                 Scopri la palestra
               </Button>
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }
