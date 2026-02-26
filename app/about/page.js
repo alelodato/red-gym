@@ -216,7 +216,7 @@ function SplitSection({ kicker, title, text, image, alt, invert = false, cta }) 
 }
 
 function DiagonalBand({
-  image = "diagonal3.jpg",
+  image = "diagonal3.webp",
   kicker = "Red Gym",
   title = "Energia. Disciplina. Risultati.",
 }) {
@@ -565,7 +565,7 @@ Un contesto ordinato e specifico per lavorare su tecnica, disciplina, coordinazi
           </div>
         </WhiteBlock>
 
-        <DiagonalBand image="diagonal3.jpg" />
+        <DiagonalBand image="diagonal3.webp" />
 
         <WhiteBlock>
           <div className="space-y-0 sm:space-y-8">

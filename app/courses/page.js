@@ -101,7 +101,7 @@ function TripleDiagonalBand({
 }
 
 function DiagonalPromoOver65({
-  image = "over65.jpg",
+  image = "over65.webp",
   kicker = "Benessere",
   title = "Sconto Over 65",
   subtitle = "Tariffe dedicate: chiedi in reception o contattaci per tutti i dettagli.",
@@ -773,7 +773,7 @@ export default function CoursesPage() {
         </WhiteBlock>
 
         <DiagonalPromoOver65
-          image="over65.jpg"
+          image="over65.webp"
           kicker="Benessere"
           title="Sconto Over 65"
           subtitle="Tariffe dedicate: chiedi in reception o contattaci per tutti i dettagli."
