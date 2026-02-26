@@ -25,73 +25,65 @@ function WhiteBlock({ children }) {
 
 function TripleDiagonalBand({
   images = ["yoga.jpg", "judo-hero.jpg", "kick-hero.jpg"],
+  mobileImage = "judo-hero.jpg",
   kicker = "Red Gym",
   title = "Scegli il tuo percorso.",
   subtitle = "Ogni corso ha un metodo, una guida e un obiettivo.",
   className = "",
 }) {
-
   return (
     <section className={`relative bg-brand-red overflow-hidden ${className}`}>
-      {/* HERO */}
-      <div className="relative h-[600px] sm:h-[660px] lg:h-[740px]">
-
-        {/* MOBILE: 2 immagini */}
-        <div className="absolute inset-0 grid grid-cols-2 sm:hidden">
-          <div className="relative">
-            <img
-              src={toPublicSrc(images[0])}
-              alt=""
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
-          <div className="relative">
-            <img
-              src={toPublicSrc(images[1])}
-              alt=""
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
+      {/* HERO: stessa altezza delle altre pagine */}
+      <div className="relative h-[600px] sm:h-[620px] lg:h-[720px]">
+        {/* MOBILE: 1 immagine (judo-hero) */}
+        <div className="absolute inset-0 sm:hidden">
+          <img
+            src={toPublicSrc(mobileImage)}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover object-center"
+          />
         </div>
 
-        {/* DESKTOP: 3 immagini */}
+        {/* DESKTOP/TABLET: 3 immagini */}
         <div className="absolute inset-0 hidden sm:grid sm:grid-cols-3">
-          {images.map((src, idx) => (
+          {images.slice(0, 3).map((src, idx) => (
             <div key={src + idx} className="relative">
               <img
                 src={toPublicSrc(src)}
                 alt=""
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover object-center"
               />
             </div>
           ))}
         </div>
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/55" />
+        {/* Overlay (stesso identico della Hero standard) */}
+        <div className="absolute inset-0 bg-black/65" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-black/10" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-black/25" />
       </div>
 
-      {/* Contenuto */}
+      {/* Contenuto: identico alla Hero standard */}
       <div className="absolute inset-0 flex items-center">
         <div className="mx-auto w-full max-w-7xl 2xl:max-w-[1440px] px-4 sm:px-6 lg:px-8">
-          <div className="pb-14 sm:pb-0">
-            {kicker && <p className="section-title text-white/85">{kicker}</p>}
+          <div>
+            {kicker ? <p className="section-title text-white/85">{kicker}</p> : null}
 
-            {title && (
-              <h1 className="font-heading uppercase tracking-wide text-white mt-2 leading-[0.95]
-                             text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl">
+            {title ? (
+              <h1
+                className="font-heading uppercase tracking-wide text-white mt-2 leading-tight
+                           text-3xl sm:text-5xl lg:text-6xl 2xl:text-7xl"
+              >
                 {title}
               </h1>
-            )}
+            ) : null}
 
-            {subtitle && (
-              <p className="mt-4 text-white/85 max-w-2xl leading-relaxed
-                            text-base sm:text-lg lg:text-xl">
+            {subtitle ? (
+              <p className="mt-4 text-white/85 max-w-2xl leading-relaxed text-sm sm:text-lg lg:text-xl">
                 {subtitle}
               </p>
-            )}
+            ) : null}
+
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <Button href="/contact">Chiedi maggiori info</Button>
               <Button href="/pricing" variant="outline">
