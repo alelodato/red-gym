@@ -25,7 +25,7 @@ function PhotoHeroBand({
   return (
     <section className={`relative bg-brand-red overflow-hidden ${className}`}>
       {/* Mobile: hero più compatta */}
-      <div className="relative h-[480px] sm:h-[620px] lg:h-[720px]">
+      <div className="relative h-[600px] sm:h-[620px] lg:h-[720px]">
         <img
           src={toPublicSrc(image)}
           alt=""
@@ -38,7 +38,7 @@ function PhotoHeroBand({
       </div>
 
       {/* Contenuto posizionato meglio su mobile con padding-top */}
-      <div className="absolute inset-0 flex items-end sm:items-center">
+      <div className="absolute inset-0 flex items-center sm:items-center">
         <div className="mx-auto w-full max-w-7xl 2xl:max-w-[1440px] px-4 sm:px-6 lg:px-8">
           <div className="pt-24 pb-4 sm:pt-0 sm:pb-0">
             {kicker ? <p className="section-title text-white/85">{kicker}</p> : null}
