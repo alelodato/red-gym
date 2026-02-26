@@ -27,8 +27,8 @@ function WhiteBlock({ children }) {
 }
 
 function TripleDiagonalBand({
-  images = ["yoga.jpg", "judo-hero.jpg", "kick-hero.jpg"],
-  mobileImage = "judo-hero.jpg",
+  images = ["yoga.webp", "judo-hero.webp", "kick-hero.webp"],
+  mobileImage = "judo-hero.webp",
   kicker = "Red Gym",
   title = "Scegli il tuo percorso.",
   subtitle = "Ogni corso ha un metodo, una guida e un obiettivo.",
@@ -240,7 +240,7 @@ const COURSES = [
     id: "yoga",
     title: "Yoga",
     subtitle: "Respiro, equilibrio e movimento consapevole",
-    image: "yoga.jpg",
+    image: "yoga.webp",
     description:
       "Lo yoga migliora postura e mobilità, scioglie le tensioni e favorisce un benessere mentale concreto. La pratica unisce respiro consapevole e movimento fluido, per rafforzare il corpo in modo armonico.\n\nÈ un'attività adatta a tutti: puoi iniziare anche se non hai mai praticato, e usarla per completare il tuo allenamento settimanale.",
     schedule: [
@@ -371,7 +371,7 @@ const COURSES = [
     id: "judo",
     title: "Judo",
     subtitle: "Tecnica, valori e controllo",
-    image: "judo-hero.jpg",
+    image: "judo-hero.webp",
     description:
       "Il Judo è disciplina, tecnica e valori. Un percorso completo che sviluppa coordinazione, equilibrio e consapevolezza del corpo, con lavoro progressivo e strutturato.\n\nAdatto a bambini, ragazzi e adulti, con gruppi suddivisi per età e livello: si impara sul serio, con rispetto e passione sul tatami.\n\nAllenamenti progressivi su tecnica e controllo, con attenzione alla sicurezza e alla crescita dell'allievo.",
     schedules: [
@@ -729,7 +729,7 @@ export default function CoursesPage() {
     <div className="bg-brand-red">
       <TripleDiagonalBand
         className="-mt-[var(--nav-h)]"
-        images={["yoga.jpg", "judo-hero.jpg", "kick-hero.jpg"]}
+        images={["yoga.webp", "judo-hero.webp", "kick-hero.webp"]}
         kicker="Corsi"
         title="Scegli il tuo percorso."
         subtitle="Ogni corso ha un metodo, una guida e un obiettivo. Scegli cosa ti rappresenta e allenati con disciplina, sicurezza e continuità."
