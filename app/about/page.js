@@ -99,7 +99,7 @@ function StatsBand({
     { value: "1.800", label: "mq di struttura", note: "spazi ampi e organizzati" },
     { value: "7", label: "anni di attività", note: "a Fonte Nuova" },
     { value: "8+", label: "discipline", note: "corsi e percorsi per ogni livello" },
-    { value: "TOP", label: "macchinari", note: "attrezzatura di ultima generazione" },
+    { value: "TOP", label: "macchinari", note: "Macchinari professionali Olicrom e attrezzatura di ultima generazione" },
   ];
 
   return (
@@ -133,7 +133,7 @@ function StatsBand({
               <p className="mt-3 text-white/85 leading-relaxed">{lead}</p>
             </div>
 
-            <div className="mt-10 grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-5 mb-5 grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {stats.map((s) => (
                 <div
                   key={s.value + s.label}

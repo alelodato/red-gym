@@ -21,7 +21,7 @@ function Hero({
     </>
   ),
   subtitle =
-    "RED GYM e' la tua palestra a Fonte Nuova: sala pesi, allenamento funzionale e sport da combattimento. Scopri i nostri corsi e allenati con noi!",
+  "RED GYM e' la tua palestra a Fonte Nuova: sala pesi, allenamento funzionale e sport da combattimento. Scopri i nostri corsi e allenati con noi!",
   className = "",
 }) {
   return (
@@ -357,7 +357,7 @@ function DiagonalBand({ image = "palestra1.webp", kicker = "Red Gym", title = "S
 export default function HomePage() {
   const ABOUT_IMAGES = [
     { src: "palestra6.webp", alt: "Sala pesi moderna" },
-    { src: "combat.jpg", alt: "Sala sport da combattimento" },
+    { src: "sala1.jpeg", alt: "Sala sport da combattimento" },
     { src: "yoga.jpg", alt: "Benessere" },
     { src: "community.jpeg", alt: "Community Red Gym" },
   ];
@@ -378,27 +378,35 @@ export default function HomePage() {
             />
 
             {/* Aumentato gap su mobile: gap-10 invece di gap-6 */}
-            <div className="mt-6 lg:mt-10 grid gap-10 lg:grid-cols-12">
-              <div className="order-1 lg:order-2 lg:col-span-5 hidden lg:block">
-                <ImageGrid images={ABOUT_IMAGES} />
+            <div className="mt-6 lg:mt-10">
+              {/* ROW 1: Macchinari (sinistra) + ImageGrid (destra) */}
+              <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+                <div>
+                  <Card
+                    kicker="Attrezzatura e Sport da Combattimento"
+                    title="Macchinari e Sale Dedicate"
+                    imageSrc="palestra6.webp"
+                    imageAlt="Sala pesi moderna e sport da combattimento"
+                    text="Strumenti selezionati per sicurezza, comfort ed efficacia: qui trovi macchinari che fanno la differenza. E per chi ama il combattimento, spazi dedicati a Boxe, MMA e arti marziali — organizzati e con l'atmosfera giusta per allenarti con metodo e concentrazione."
+                    href="/about"
+                    ctaLabel="Scopri la palestra"
+                  />
+                </div>
+                <div className="hidden lg:block">
+                  <ImageGrid images={ABOUT_IMAGES} />
+                </div>
               </div>
 
-              <div className="order-2 lg:order-1 lg:col-span-7 grid gap-10 md:grid-cols-2">
+              {/* ROW 2: Benessere (sinistra) + Community (destra) */}
+              <div className="grid gap-10 lg:grid-cols-2 mt-10">
                 <Card
-                  kicker="Attrezzatura e Ambienti"
-                  title="Macchinari di livello"
-                  imageSrc="palestra6.webp"
-                  imageAlt="Sala pesi moderna"
-                  text='Strumenti selezionati per sicurezza, comfort ed efficacia. Non i soliti attrezzi "da catalogo": qui trovi macchinari che fanno la differenza.'
-                />
-                <Card
-                  kicker="Sport da combattimento"
-                  title="Sale dedicate"
-                  imageSrc="sala2.jpeg"
-                  imageAlt="Sala sport da combattimento"
-                  text="Boxe, prepugilistica, MMA e discipline tecniche: spazi organizzati e atmosfera giusta per allenarti con metodo e concentrazione."
-                  href="/about"
-                  ctaLabel="Scopri la palestra"
+                  kicker="Benessere"
+                  title="Mente e Corpo in Equilibrio"
+                  imageSrc="benessere.webp"
+                  imageAlt="Corsi di yoga e ginnastica dolce"
+                  text="Yoga, pilates, ginnastica posturale e corsi pensati per il tuo benessere a 360°. Un approccio più dolce all'allenamento, ideale per ritrovare equilibrio, flessibilità e serenità — adatto a ogni età e livello."
+                  href="/courses"
+                  ctaLabel="I nostri corsi"
                 />
                 <Card
                   kicker="Community"
@@ -466,16 +474,33 @@ export default function HomePage() {
             <SectionHead
               kicker="Abbonamenti"
               title="Scegli la formula giusta."
-              lead="Soluzioni flessibili e percorsi dedicati: la cosa importante è allenarsi con continuità, con un ambiente che ti sostiene davvero."
+              lead="Prezzi chiari, nessuna sorpresa. Che tu venga una volta a settimana o ti alleni ogni giorno, c'è una soluzione pensata per te."
               ctaHref="/pricing"
               ctaLabel="Vedi piani e abbonamenti"
             />
 
-            {/* Aumentato gap su mobile: gap-10 */}
             <div className="mt-8 lg:mt-10 grid gap-10 lg:grid-cols-3 lg:gap-6">
-              <Card kicker="Flessibile" title="Mensile" text="Perfetto per iniziare, prendere ritmo e capire il percorso giusto per te." href="/pricing#pesi" ctaLabel="Scopri" />
-              <Card kicker="Continuità" title="Annuale" text="Se vuoi risultati concreti, la costanza è tutto. Questa è la scelta più completa." href="/pricing#annuale" ctaLabel="Dettagli" />
-              <Card kicker="Corsi" title="Attività" text="Pacchetti e accessi dedicati alle discipline: scegli cosa ti rappresenta e allenati con metodo." href="/pricing#corsi" ctaLabel="Vedi opzioni" />
+              <Card
+                kicker="Sala Pesi & Fitness"
+                title="Entra e allenati"
+                text="Accesso libero alla sala pesi con fasce orarie flessibili. Scegli l'orario che fa per te — da 1 mese fino all'annuale, con sconti dedicati."
+                href="/pricing#pesi"
+                ctaLabel="Vedi gli abbonamenti"
+              />
+              <Card
+                kicker="Massimo risparmio"
+                title="Formula annuale"
+                text="L'abbonamento annuale è la scelta di chi vuole risultati veri. Iscrizione inclusa, possibilità di rateizzare e omaggio borsone."
+                href="/pricing#annuale"
+                ctaLabel="Scopri il piano annuale"
+              />
+              <Card
+                kicker="Corsi & Discipline"
+                title="Boxe, Judo, Karate e altro"
+                text="Pacchetti mensili dedicati per ogni disciplina: Boxe, Judo, Grappling, Karate. Già socio? Aggiungi un corso a soli 40€."
+                href="/pricing#corsi"
+                ctaLabel="Esplora i corsi"
+              />
             </div>
           </WhiteSection>
           <DiagonalPromoOver65

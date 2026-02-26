@@ -200,11 +200,8 @@ const COURSES = [
         title: "Funzionale",
         schedule: [
           { day: "Lunedì", time: "10:00, 13:30, 18:00, 19:00, 20:00" },
-          { day: "Martedì", time: "10:00, 13:30" },
           { day: "Mercoledì", time: "10:00, 13:30, 18:00, 19:00, 20:00" },
-          { day: "Giovedì", time: "10:00, 13:30" },
-          { day: "Venerdì", time: "10:00, 13:30, 17:30, 18:30, 19:00" },
-          { day: "Sabato", time: "10:00, 17:30" },
+          { day: "Venerdì", time: "10:00, 13:30, 17:30, 18:30, 21:00" },
         ],
       },
       {
@@ -230,7 +227,7 @@ const COURSES = [
     schedule: [
       { day: "Lunedì", time: "09:00" },
       { day: "Martedì", time: "09:00" },
-      { day: "Mercoledì", time: "09:00" },
+      { day: "Mercoledì", time: "09:00, 11:00" },
       { day: "Giovedì", time: "09:00" },
       { day: "Venerdì", time: "09:00, 11:00" },
       { day: "Sabato", time: "11:00" },
@@ -259,23 +256,41 @@ const COURSES = [
     description:
       "La boxe è uno degli sport più completi: migliora forza, resistenza, coordinazione e riflessi, ma soprattutto costruisce fiducia, autocontrollo e determinazione.\n\nIl percorso è guidato e strutturato: tecnica, lavoro al sacco, combinazioni e condizionamento. La prepugilistica è perfetta per chi vuole costruire basi solide (anche senza contatto) con metodo e disciplina.\n\nAllenamenti seri e progressivi: tecnica, timing e condizionamento, con attenzione alla sicurezza e alla crescita dell'allievo.",
     schedules: [
+
       {
         title: "Boxe",
+        trainer: "Sperandio",
         schedule: [
-          { day: "Martedì", time: "20:30" },
-          { day: "Giovedì", time: "20:30" },
+          { day: "Martedì", time: "19:00" },
+          { day: "Giovedì", time: "19:00" },
           { day: "Sabato", time: "19:30" },
+        ],
+      },
+      {
+        title: "Boxe Agonisti",
+        trainer: "Sperandio",
+        schedule: [
+          { day: "Lunedì", time: "16:00" },
+          { day: "Martedì", time: "16:00" },
+          { day: "Mercoledì", time: "16:00" },
+          { day: "Giovedì", time: "16:00" },
+          { day: "Sabato", time: "16:00" },
+        ],
+      },
+      {
+        title: "Boxe Amatoriale Bambini",
+        trainer: "Sperandio",
+        schedule: [
+          { day: "Martedì", time: "17:30" },
+          { day: "Giovedì", time: "17:30" },
         ],
       },
       {
         title: "Prepugilistica",
         schedule: [
-          { day: "Lunedì", time: "10:00, 13:30, 18:00, 19:00, 20:00" },
           { day: "Martedì", time: "10:00, 13:30" },
-          { day: "Mercoledì", time: "10:00, 13:30, 18:00, 19:00, 20:00" },
           { day: "Giovedì", time: "10:00, 13:30" },
-          { day: "Venerdì", time: "10:00, 13:30, 17:30, 18:30, 19:00" },
-          { day: "Sabato", time: "10:00, 17:30" },
+          { day: "Sabato", time: "10:00" },
         ],
       },
     ],
@@ -293,7 +308,7 @@ const COURSES = [
       "La kickboxing unisce pugni e calci in un allenamento completo, dinamico e coinvolgente. Migliora potenza e resistenza, coordinazione e agilità, tecnica e concentrazione.\n\nÈ perfetta sia per chi inizia sia per chi ha già esperienza: ogni lezione è pensata per farti crescere con metodo, in sicurezza e sempre seguito.\n\nProgressioni chiare e lavoro tecnico: migliora sicurezza nei colpi, timing e condizionamento, senza improvvisazione.",
     schedule: [
       { day: "Martedì", time: "20:30" },
-      { day: "Sabato", time: "19:30" },
+      { day: "Giovedì", time: "20:30" },
     ],
     trainers: [{ name: "ANTON IOAN CATALIN", image: "NATALINO.jpeg", bio: "MAESTRO KICKBOXING" }],
   },
@@ -323,16 +338,13 @@ const COURSES = [
         title: "Karate Bambini 4-6 Anni",
         schedule: [
           { day: "Martedì", time: "17:00" },
-          { day: "Mercoledì", time: "17:00" },
           { day: "Giovedì", time: "17:00" },
-          { day: "Venerdì", time: "17:00" },
         ],
       },
       {
         title: "Karate Bambini 7-11 Anni",
         schedule: [
           { day: "Martedì", time: "18:00" },
-          { day: "Mercoledì", time: "18:00" },
           { day: "Giovedì", time: "18:00" },
         ],
       },
@@ -340,7 +352,6 @@ const COURSES = [
         title: "Karate Ragazzi",
         schedule: [
           { day: "Martedì", time: "19:00" },
-          { day: "Mercoledì", time: "19:00" },
           { day: "Giovedì", time: "19:00" },
         ],
       },
