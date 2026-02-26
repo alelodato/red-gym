@@ -17,8 +17,8 @@ function Hero({
   kicker = "",
   title = (
     <>
-      <span className="text-brand-red text-4xl sm:text-6xl lg:text-7xl">RED GYM</span> 
-      < br /> 
+      <span className="text-brand-red text-4xl sm:text-6xl lg:text-7xl">RED GYM</span>
+      < br />
       LA TUA PALESTRA <br /> A FONTE NUOVA.
     </>
   ),
@@ -108,7 +108,7 @@ function SectionHead({ kicker, title, lead, ctaHref, ctaLabel }) {
           {title}
         </h2>
         {lead ? (
-          <p className="mt-4 text-black/70 leading-relaxed max-w-2xl text-sm sm:text-[15px] lg:text-base">
+          <p className="mt-4 text-black/70 leading-relaxed max-w-2xl text-sm sm:text-[15px] lg:text-[18px]">
             {lead}
           </p>
         ) : null}
@@ -130,7 +130,7 @@ function Card({ kicker, title, text, href, ctaLabel, imageSrc, imageAlt }) {
     <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
       {kicker ? <p className="section-title text-brand-red">{kicker}</p> : null}
 
-      <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
+      <h3 className="font-heading uppercase tracking-wide text-xl sm:text-4xl mt-2">
         {title}
       </h3>
 
@@ -147,7 +147,7 @@ function Card({ kicker, title, text, href, ctaLabel, imageSrc, imageAlt }) {
         </div>
       ) : null}
 
-      <p className="mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
+      <p className="mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px] lg:text-[18px]">
         {text}
       </p>
 
