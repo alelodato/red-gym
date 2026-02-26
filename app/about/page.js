@@ -537,26 +537,28 @@ export default function AboutPage() {
 
           <div className="mt-10 space-y-0 sm:space-y-8">
             <SplitSection
-              kicker="Attrezzatura"
+              kicker="RED GYM"
               title="Sala pesi ampia e completa"
-              text="Una sala pesi grande e ben organizzata, con macchinari e postazioni selezionate per rispondere a esigenze diverse: forza, controllo, postura, resistenza. L'obiettivo è allenarti con efficacia e continuità, senza caos e con la sicurezza di fare gli esercizi nel modo corretto."
+              text="Una sala pesi grande e ben organizzata, con macchinari selezionati per allenare forza e tono in sicurezza. Trovi postazioni guidate e isotoniche Olicrom, pesi liberi e aree dedicate per un percorso completo: ipertrofia, postura, resistenza e performance. Spazi curati, layout ordinato e attrezzatura sempre pronta: ti alleni bene, con continuità."
               image="/palestra2.webp"
               alt="Sala pesi moderna"
             />
 
             <SplitSection
-              kicker="Sport da combattimento"
-              title="Sale dedicate per allenarti con concentrazione"
-              text="Per le discipline da combattimento servono spazio e atmosfera giusta: qui trovi ambienti dedicati per gestire corsi e gruppi in modo ordinato, con attenzione alla tecnica, alla sicurezza e al lavoro strutturato."
+              kicker="RED GYM"
+              title="Sala Attività & Combattimento"
+              text="All’interno della struttura principale trovi una seconda sala dedicata alle attività dinamiche e agli sport da combattimento: prepugilistica, boxe, pilates, TACFIT e allenamento funzionale.
+Uno spazio versatile, organizzato per alternare lavoro tecnico, condizionamento e potenziamento, con attrezzatura adeguata e ambienti pensati per allenarsi con intensità ma in sicurezza."
               image="/sala3.JPG"
               alt="Sala sport da combattimento"
               invert
             />
 
             <SplitSection
-              kicker="Organizzazione"
-              title="Più spazio, più qualità"
-              text="Una struttura grande funziona solo se è curata: spazi pensati per ridurre confusione, migliorare l'esperienza e permetterti di allenarti con serenità. È un dettaglio che cambia tutto quando vuoi risultati concreti."
+              kicker="RED GYM"
+              title="Sala Arti Marziali"
+              text="Spazio dedicato alle arti marziali tradizionali, con area tatami attrezzata per Judo e Karate. La sala si trova al primo piano del Centro Commerciale La Fonte, in un ambiente separato dalla palestra principale, così da garantire concentrazione, sicurezza e continuità durante le lezioni.
+Un contesto ordinato e specifico per lavorare su tecnica, disciplina, coordinazione e crescita personale, dai più piccoli agli adulti."
               image="/sala1.jpeg"
               alt="Seconda sala sport da combattimento"
             />

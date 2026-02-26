@@ -63,7 +63,7 @@ export default function ContactPage() {
                     Apri WhatsApp
                   </Button>
                   <Button 
-                    href="https://www.instagram.com/redgym_fonenuova"
+                    href="https://www.instagram.com/red.gym.fontenuova/"
                     variant="outline"
                     target="_blank"
                   >

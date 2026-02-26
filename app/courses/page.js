@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect } from "react";
 import Button from "@/components/Button";
 
 function toPublicSrc(path) {
@@ -186,19 +189,35 @@ const COURSES = [
     ],
   },
   {
-    id: "tacfit",
-    title: "TACFIT",
-    subtitle: "Allenamento funzionale e tattico",
+    id: "allenamento-funzionale",
+    title: "Allenamento Funzionale & TacFit",
+    subtitle: "Movimento naturale, forza e performance",
     image: "tacfit.webp",
     description:
-      "TACFIT è un sistema di allenamento funzionale che integra mobilità, forza e condizionamento. Un approccio completo per migliorare performance fisica, resistenza e capacità di adattamento.\n\nPerfetto per chi cerca un allenamento intenso, progressivo e basato su movimenti naturali del corpo, con focus su sicurezza e tecnica corretta.",
-    schedule: [
-      { day: "Lunedì", time: "21:00" },
-      { day: "Mercoledì", time: "21:00" },
-      { day: "Venerdì", time: "21:00" },
+      "L'allenamento funzionale si basa su movimenti naturali del corpo: spingere, tirare, sollevare, saltare e ruotare. È un metodo che migliora forza, mobilità, stabilità e resistenza in modo completo e integrato.\n\nSi lavora con pesi liberi, kettlebell, TRX, corpo libero e attrezzi specifici.\n\nTACFIT è una specializzazione dell'allenamento funzionale con focus tattico e ad alta intensità. Nato per preparare operatori militari e di sicurezza, combina mobilità, forza esplosiva e condizionamento cardiovascolare in protocolli strutturati e progressivi. Ideale per chi vuole portare il funzionale a un livello superiore.\n\nPerfetto per chi cerca un allenamento dinamico, vario e ad alta intensità, con focus su tecnica, sicurezza e progressione costante.",
+    schedules: [
+      {
+        title: "Funzionale",
+        schedule: [
+          { day: "Lunedì", time: "10:00, 13:30, 18:00, 19:00, 20:00" },
+          { day: "Martedì", time: "10:00, 13:30" },
+          { day: "Mercoledì", time: "10:00, 13:30, 18:00, 19:00, 20:00" },
+          { day: "Giovedì", time: "10:00, 13:30" },
+          { day: "Venerdì", time: "10:00, 13:30, 17:30, 18:30, 19:00" },
+          { day: "Sabato", time: "10:00, 17:30" },
+        ],
+      },
+      {
+        title: "TACFIT",
+        schedule: [
+          { day: "Lunedì", time: "21:00" },
+          { day: "Mercoledì", time: "21:00" },
+        ],
+      },
     ],
     trainers: [
       { name: "ALEX", image: "ALEX.jpeg", bio: "ISTRUTTORE FUNZIONALE/TAC FIT" },
+      { name: "ADRIANO SPERANDIO", image: "ADRIANO.jpeg", bio: "ISTRUTTORE PREPUGILISTICA/FUNZIONALE" },
     ],
   },
   {
@@ -249,7 +268,7 @@ const COURSES = [
         ],
       },
       {
-        title: "Prepugilistica/Funzionale",
+        title: "Prepugilistica",
         schedule: [
           { day: "Lunedì", time: "10:00, 13:30, 18:00, 19:00, 20:00" },
           { day: "Martedì", time: "10:00, 13:30" },
@@ -561,7 +580,7 @@ function CourseSection({ course, invert = false }) {
   return (
     <section
       id={course.id}
-      className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 overflow-hidden"
+      className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 overflow-hidden scroll-mt-32"
     >
       {/* Mobile: Titolo prima della foto */}
       <div className="lg:hidden py-7 px-4">
@@ -665,8 +684,35 @@ function CourseSection({ course, invert = false }) {
 }
 
 export default function CoursesPage() {
-  const TOP_BLOCK = COURSES.slice(0, 4);
-  const REST_BLOCK = COURSES.slice(4);
+  const TOP_BLOCK = COURSES.slice(0, 5);
+  const REST_BLOCK = COURSES.slice(5);
+
+  useEffect(() => {
+    // Gestisce il click sui link di navigazione
+    const handleHashClick = (e) => {
+      const target = e.target.closest('a');
+      const hash = target?.hash;
+
+      if (hash && hash.startsWith('#')) {
+        e.preventDefault();
+        const element = document.querySelector(hash);
+
+        if (element) {
+          const offset = 120; // Offset per navbar + margine
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+    };
+
+    document.addEventListener('click', handleHashClick);
+    return () => document.removeEventListener('click', handleHashClick);
+  }, []);
 
   return (
     <div className="bg-brand-red">
