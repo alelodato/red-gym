@@ -14,7 +14,7 @@ const SHELL = "mx-auto w-full";
 
 function Hero({
   image = "hero1.webp",
-  kicker = "RED GYM - FONTE NUOVA",
+  kicker = "RED GYM",
   title = (
     <>
       ALLENATI MEGLIO. <br /> VIVI MEGLIO.
@@ -197,9 +197,16 @@ function DiagonalPromoOver65({
   subtitle = "Tariffe dedicate: chiedi in reception o contattaci per tutti i dettagli.",
   reverse = false,
 }) {
+  const topClip = reverse
+    ? "[clip-path:polygon(0_0,100%_0,100%_100%,0_55%)]"
+    : "[clip-path:polygon(0_0,100%_0,100%_55%,0_100%)]";
+
+  const bottomClip = reverse
+    ? "[clip-path:polygon(0_0,100%_45%,100%_100%,0_100%)]"
+    : "[clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]";
 
   return (
-    <section className="relative overflow-hidden mt-8">
+    <section className="relative bg-brand-red overflow-hidden">
       <div className="absolute inset-0">
         <img
           src={toPublicSrc(image)}
@@ -207,6 +214,10 @@ function DiagonalPromoOver65({
           className="h-full w-full object-cover object-top"
         />
         <div className="absolute inset-0 bg-black/55" />
+
+        {/* Tagli diagonali solo desktop */}
+        <div className={`hidden sm:block absolute -top-1 left-0 right-0 h-20 bg-brand-red ${topClip}`} />
+        <div className={`hidden sm:block absolute -bottom-1 left-0 right-0 h-20 bg-brand-red ${bottomClip}`} />
       </div>
 
       <div className="relative">
@@ -264,7 +275,6 @@ function DiagonalPhoto({
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-black/40" />
-          <DiagonalCuts flip={flip} heightClass="h-20 sm:h-24" />
         </div>
 
         {/* Mobile: foto dritta come background */}
@@ -352,18 +362,16 @@ export default function HomePage() {
 
   return (
     <>
-      <Hero className="-mt-[var(--nav-h)]" image="hero1.webp"/>
+      <Hero className="-mt-[var(--nav-h)]" image="hero1.webp" />
 
       <div className="bg-brand-red">
         {/* Eliminato space-y su mobile */}
-        <div className="space-y-0 sm:space-y-8 lg:space-y-10 pb-0 sm:py-10 lg:py-12">
+        <div className="space-y-0 sm:space-y-8 lg:space-y-10 pb-0 sm:pt-10 lg:pt-12">
           <WhiteSection id="home-about">
             <SectionHead
               kicker="La palestra"
               title="Spazi ampi. Metodo. Supporto."
               lead="Red Gym è un centro sportivo a Fonte Nuova (Roma) con ampio parcheggio e circa 1.800 mq di spazio: sala pesi completa, aree dedicate e un ambiente ordinato, motivante e seguito da professionisti."
-              ctaHref="/about"
-              ctaLabel="Scopri la palestra"
             />
 
             {/* Aumentato gap su mobile: gap-10 invece di gap-6 */}
@@ -374,40 +382,29 @@ export default function HomePage() {
 
               <div className="order-2 lg:order-1 lg:col-span-7 grid gap-10 md:grid-cols-2">
                 <Card
-                  kicker="Attrezzatura"
+                  kicker="Attrezzatura e Ambienti"
                   title="Macchinari di livello"
                   imageSrc="palestra6.webp"
                   imageAlt="Sala pesi moderna"
                   text='Strumenti selezionati per sicurezza, comfort ed efficacia. Non i soliti attrezzi "da catalogo": qui trovi macchinari che fanno la differenza.'
-                  href="/about"
-                  ctaLabel="Vedi gli ambienti"
                 />
                 <Card
                   kicker="Sport da combattimento"
                   title="Sale dedicate"
-                  imageSrc="combat.jpg"
+                  imageSrc="sala2.jpeg"
                   imageAlt="Sala sport da combattimento"
                   text="Boxe, prepugilistica, MMA e discipline tecniche: spazi organizzati e atmosfera giusta per allenarti con metodo e concentrazione."
-                  href="/courses"
-                  ctaLabel="Scopri i corsi"
-                />
-                <Card
-                  kicker="Benessere"
-                  title="Postura e salute"
-                  imageSrc="yoga.jpg"
-                  imageAlt="Spogliatoi e docce"
-                  text="Allenarsi non vuol dire sempre spingersi al limite: anche mobilità, postura e benessere quotidiano fanno parte del percorso."
-                  href="/courses"
-                  ctaLabel="Vedi attività"
+                  href="/about"
+                  ctaLabel="Scopri la palestra"
                 />
                 <Card
                   kicker="Community"
                   title="Rispetto e mentalità"
                   imageSrc="community.jpeg"
                   imageAlt="Community Red Gym"
-                  text="Disciplina, rispetto, autocontrollo. Qui non sei mai 'lasciato solo': trovi un ambiente serio, accogliente e pieno di energia positiva."
-                  href="/about"
-                  ctaLabel="Leggi la storia"
+                  text="Disciplina, rispetto, autocontrollo. Qui non sei mai 'lasciato solo': trovi un ambiente serio, accogliente e pieno di energia positiva. Contattaci ed entra a far parte della community!"
+                  href="/contact"
+                  ctaLabel="Contattaci"
                 />
               </div>
             </div>
@@ -420,8 +417,6 @@ export default function HomePage() {
               kicker="Corsi & attività"
               title="Trova il tuo percorso."
               lead="Che tu sia all'inizio o già avanzato, trovi corsi con guide competenti e progressioni chiare: sala pesi/fitness, pilates e benessere, boxe/prepugilistica, MMA, karate e judo."
-              ctaHref="/courses"
-              ctaLabel="Vedi corsi e orari"
             />
 
             <div className="mt-6 lg:mt-10 grid gap-6 lg:grid-cols-12">
@@ -475,26 +470,18 @@ export default function HomePage() {
 
             {/* Aumentato gap su mobile: gap-10 */}
             <div className="mt-8 lg:mt-10 grid gap-10 lg:grid-cols-3 lg:gap-6">
-              <Card kicker="Flessibile" title="Mensile" text="Perfetto per iniziare, prendere ritmo e capire il percorso giusto per te." href="/pricing" ctaLabel="Scopri" />
-              <Card kicker="Continuità" title="Annuale" text="Se vuoi risultati concreti, la costanza è tutto. Questa è la scelta più completa." href="/pricing" ctaLabel="Dettagli" />
-              <Card kicker="Corsi" title="Attività" text="Pacchetti e accessi dedicati alle discipline: scegli cosa ti rappresenta e allenati con metodo." href="/pricing" ctaLabel="Vedi opzioni" />
+              <Card kicker="Flessibile" title="Mensile" text="Perfetto per iniziare, prendere ritmo e capire il percorso giusto per te." href="/pricing#pesi" ctaLabel="Scopri" />
+              <Card kicker="Continuità" title="Annuale" text="Se vuoi risultati concreti, la costanza è tutto. Questa è la scelta più completa." href="/pricing#annuale" ctaLabel="Dettagli" />
+              <Card kicker="Corsi" title="Attività" text="Pacchetti e accessi dedicati alle discipline: scegli cosa ti rappresenta e allenati con metodo." href="/pricing#corsi" ctaLabel="Vedi opzioni" />
             </div>
-            <DiagonalPromoOver65
-              image="over65.jpg"
-              kicker="Benessere"
-              title="Sconto Over 65"
-              subtitle="Tariffe dedicate: chiedi in reception o contattaci per tutti i dettagli."
-            />
           </WhiteSection>
-
-          <DiagonalPhoto
-            image="diagonal3.jpg"
-            alt="Red Gym - energia"
-            flip={false}
-            showSafeguarding
-            safeguardingEmail="vito.lettieri@email.it"
-            onOpenSafeguarding={() => setOpenSafeguarding(true)}
+          <DiagonalPromoOver65
+            image="over65.jpg"
+            kicker="Benessere"
+            title="Sconto Over 65"
+            subtitle="Tariffe dedicate: chiedi in reception o contattaci per tutti i dettagli."
           />
+
 
           <SafeguardingModal
             open={openSafeguarding}
@@ -545,6 +532,14 @@ export default function HomePage() {
               </div>
             </div>
           </WhiteSection>
+          <DiagonalPhoto
+            image="reception (4).webp"
+            alt="Red Gym - energia"
+            flip={false}
+            showSafeguarding
+            safeguardingEmail="vito.lettieri@email.it"
+            onOpenSafeguarding={() => setOpenSafeguarding(true)}
+          />
         </div>
       </div>
     </>

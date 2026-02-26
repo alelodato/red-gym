@@ -11,7 +11,7 @@ function toPublicSrc(path) {
 
 function PhotoHeroBand({
   image = "palestra4.webp",
-  kicker = "Abbonamenti",
+  kicker = "Chi Siamo",
   title = (
     <>
       Ambiente giusto. <br /> Risultati reali.

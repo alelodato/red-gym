@@ -21,19 +21,19 @@ function BurgerIcon({ open }) {
     <div className="relative h-5 w-6" aria-hidden>
       <span
         className={[
-          "absolute left-0 top-0 h-[2px] w-6 rounded bg-brand-black transition",
+          "absolute left-0 top-0 h-[2px] w-6 rounded bg-brand-red transition",
           open ? "translate-y-[9px] rotate-45" : "",
         ].join(" ")}
       />
       <span
         className={[
-          "absolute left-0 top-[9px] h-[2px] w-6 rounded bg-brand-black transition",
+          "absolute left-0 top-[9px] h-[2px] w-6 rounded bg-brand-red transition",
           open ? "opacity-0" : "opacity-100",
         ].join(" ")}
       />
       <span
         className={[
-          "absolute left-0 top-[18px] h-[2px] w-6 rounded bg-brand-black transition",
+          "absolute left-0 top-[18px] h-[2px] w-6 rounded bg-brand-red transition",
           open ? "-translate-y-[9px] -rotate-45" : "",
         ].join(" ")}
       />
@@ -140,7 +140,7 @@ export default function Navbar() {
             {/* Mobile burger */}
             <button
               type="button"
-              className="md:hidden inline-flex items-center justify-center rounded-lg border border-brand-gray200 bg-white px-3 py-2 shadow-soft"
+              className="md:hidden inline-flex items-center justify-center rounded-lgpx-3 py-2"
               onClick={() => setOpen((v) => !v)}
               aria-label={open ? "Chiudi menu" : "Apri menu"}
               aria-expanded={open}
