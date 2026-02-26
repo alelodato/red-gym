@@ -60,14 +60,21 @@ export default function ContactPage() {
                     variant="primary"
                     target="_blank"
                   >
-                    Apri WhatsApp
+                    WhatsApp
                   </Button>
                   <Button 
                     href="https://www.instagram.com/red.gym.fontenuova/"
                     variant="outline"
                     target="_blank"
                   >
-                    Apri Instagram
+                    Instagram
+                  </Button>
+                  <Button 
+                    href="https://www.facebook.com/RedGymPalestra/"
+                    variant="primary"
+                    target="_blank"
+                  >
+                    Facebook
                   </Button>
                 </div>
               </div>

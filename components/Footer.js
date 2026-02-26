@@ -50,6 +50,7 @@ export default function Footer() {
             <p className="section-title text-sm mt-6">Social</p>
             <ul className="mt-3 flex gap-4 text-sm font-semibold">
               <a className="hover:text-brand-red" href={SITE.socials.instagram}>Instagram</a>
+              <a className="hover:text-brand-red" href={SITE.socials.facebook}>Facebook</a>
             </ul>
           </div>
         </div>
