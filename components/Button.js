@@ -2,8 +2,8 @@ import Link from "next/link";
 
 const variants = {
   primary: "bg-brand-red text-white hover:bg-brand-redHover",
-  outline: "border border-brand-red text-brand-red hover:bg-brand-red hover:text-white",
-  white: "bg-brand-white text-red hover:bg-brand-whiteHover",
+  outline: "border border-brand-red text-brand-red hover:bg-brand-red hover:text-brand-white",
+  white: "border border-brand-white text-brand-white hover:bg-brand-white hover:text-brand-red",
 };
 
 export default function Button({ href, children, variant = "primary", className = "" }) {

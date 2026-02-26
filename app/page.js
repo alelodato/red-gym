@@ -17,9 +17,9 @@ function Hero({
   kicker = "",
   title = (
     <>
-      RED GYM. 
+      <span className="text-brand-red text-4xl sm:text-6xl lg:text-7xl">RED GYM</span> 
       < br /> 
-      LA TUA PALESTRA A FONTE NUOVA.
+      LA TUA PALESTRA <br /> A FONTE NUOVA.
     </>
   ),
   subtitle =
@@ -70,7 +70,7 @@ function Hero({
 
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <Button href="/courses">I nostri corsi</Button>
-              <Button href="/about" variant="outline">
+              <Button href="/about" variant="white">
                 Scopri la palestra
               </Button>
             </div>

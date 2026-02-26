@@ -57,21 +57,21 @@ export default function ContactPage() {
                 <div className="mt-6 flex flex-col sm:flex-row gap-3">
                   <Button 
                     href={`https://wa.me/${SITE.phone.replace(/\s/g, '')}`}
-                    variant="primary"
+                    variant="outline"
                     target="_blank"
                   >
                     WhatsApp
                   </Button>
                   <Button 
                     href="https://www.instagram.com/red.gym.fontenuova/"
-                    variant="outline"
+                    variant="primary"
                     target="_blank"
                   >
                     Instagram
                   </Button>
                   <Button 
                     href="https://www.facebook.com/RedGymPalestra/"
-                    variant="primary"
+                    variant="outline"
                     target="_blank"
                   >
                     Facebook
