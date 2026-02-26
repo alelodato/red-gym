@@ -90,7 +90,7 @@ function WhiteBlock({ children }) {
 }
 
 function StatsBand({
-  bgImage = "statsband.jpg",
+  bgImage = "palestra7.webp",
   kicker = "In numeri",
   title = "Spazi, esperienza e varietà. Tutto nello stesso posto.",
   lead = "Questi sono i dettagli che rendono Red Gym concreta: struttura ampia, anni di lavoro sul campo, percorsi diversi e attrezzatura pensata per allenarti bene.",
@@ -216,7 +216,7 @@ function SplitSection({ kicker, title, text, image, alt, invert = false, cta }) 
 }
 
 function DiagonalBand({
-  image = "pic-diagonal.jpg",
+  image = "diagonal3.jpg",
   kicker = "Red Gym",
   title = "Energia. Disciplina. Risultati.",
 }) {
@@ -345,7 +345,7 @@ export default function AboutPage() {
     <div className="bg-brand-red">
       <PhotoHeroBand className="-mt-[var(--nav-h)]" image="palestra7.webp" />
 
-      <div className="space-y-0 sm:space-y-8 lg:space-y-10 sm:py-10 lg:py-12">
+      <div className="space-y-0 sm:space-y-8 lg:space-y-10 sm:pt-10 lg:pt-12">
         <WhiteBlock>
           <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-12">
@@ -369,8 +369,8 @@ export default function AboutPage() {
 
                 {/* COLONNA DESTRA: FOTO */}
                 <div className="mt-8 lg:mt-0">
-                  <div className="relative overflow-hidden rounded-xl h-[280px] sm:h-[400px]">
-                    <iframe src="https://www.google.com/maps/embed?pb=!4v1772036816336!6m8!1m7!1s647rvD25mgsqmeDhXUMgoQ!2m2!1d42.00111503796409!2d12.66803763518375!3f337.2800964449892!4f6.287296922872244!5f0.7820865974627469" width="600" height="450" style={{border:0}} allowFullscreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                  <div className="relative overflow-x-hidden rounded-xl h-[280px] sm:h-[400px]">
+                    <iframe src="https://www.google.com/maps/embed?pb=!4v1772036816336!6m8!1m7!1s647rvD25mgsqmeDhXUMgoQ!2m2!1d42.00111503796409!2d12.66803763518375!3f337.2800964449892!4f6.287296922872244!5f0.7820865974627469" className="block w-full h-full max-w-full" style={{ border: 0 }} allowFullscreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                     <div className="absolute bg-black/5 pointer-events-auto" />
                   </div>
                   <p className="mt-4 text-center text-sm sm:text-base text-black/60 italic leading-relaxed">
@@ -455,14 +455,30 @@ export default function AboutPage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
-              <div className="flex flex-col">
-                <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft">
-                  <Image src={toPublicSrc("GAIA.jpeg")} alt="Gaia - Reception Red Gym" fill className="object-cover" />
-                  <div className="absolute inset-0 bg-black/5" />
-                </div>
-                <div className="mt-4">
-                  <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">Gaia</h4>
-                  <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">Reception & Segreteria</p>
+              <div className="flex flex-col items-center sm:items-stretch">
+
+                {/* Wrapper ristretto solo su mobile */}
+                <div className="w-4/5 max-w-[320px] sm:w-full sm:max-w-none">
+
+                  <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft">
+                    <Image
+                      src={toPublicSrc("GAIA.jpeg")}
+                      alt="Gaia - Reception Red Gym"
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/5 pointer-events-none" />
+                  </div>
+
+                  <div className="mt-4 text-left">
+                    <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">
+                      Gaia
+                    </h4>
+                    <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">
+                      Reception & Segreteria
+                    </p>
+                  </div>
+
                 </div>
               </div>
 
@@ -473,14 +489,30 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="flex flex-col">
-                <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft">
-                  <Image src={toPublicSrc("ELEONORA.jpeg")} alt="Eleonora - Reception Red Gym" fill className="object-cover" />
-                  <div className="absolute inset-0 bg-black/5" />
-                </div>
-                <div className="mt-4">
-                  <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">Eleonora</h4>
-                  <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">Reception & Segreteria</p>
+              <div className="flex flex-col items-center sm:items-stretch">
+
+                {/* Wrapper ristretto solo su mobile */}
+                <div className="w-4/5 max-w-[320px] sm:w-full sm:max-w-none">
+
+                  <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft">
+                    <Image
+                      src={toPublicSrc("ELEONORA.jpeg")}
+                      alt="Eleonora - Reception Red Gym"
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/5 pointer-events-none" />
+                  </div>
+
+                  <div className="mt-4 text-left">
+                    <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">
+                      Eleonora
+                    </h4>
+                    <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">
+                      Reception & Segreteria
+                    </p>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -531,7 +563,7 @@ export default function AboutPage() {
           </div>
         </WhiteBlock>
 
-        <DiagonalBand image="pic-diagonal.jpg" />
+        <DiagonalBand image="diagonal3.jpg" />
 
         <WhiteBlock>
           <div className="space-y-0 sm:space-y-8">
@@ -539,7 +571,7 @@ export default function AboutPage() {
               kicker="Corsi & Trainer"
               title="Guide competenti, progressioni chiare"
               text="In Red Gym la differenza non la fa solo l'attrezzatura: la fa il supporto. I trainer sono presenti e qualificati, pronti a seguirti che tu stia iniziando o voglia alzare il livello. Tecnica, progressione, sicurezza e un percorso adatto a te."
-              image="/about2.jpg"
+              image="rgym2.jpeg"
               alt="Trainer e coaching"
               cta={
                 <div className="flex flex-col sm:flex-row gap-3">
