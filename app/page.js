@@ -14,19 +14,17 @@ const SHELL = "mx-auto w-full";
 
 function Hero({
   image = "hero1.webp",
-  kicker = "RED GYM",
+  kicker = "",
   title = (
     <>
-      ALLENATI MEGLIO. <br /> VIVI MEGLIO.
+      RED GYM. 
+      < br /> 
+      LA TUA PALESTRA A FONTE NUOVA.
     </>
   ),
   subtitle =
   <>
-    RED GYM e' la tua palestra a Fonte Nuova:
-    <br />
-    sala pesi, allenamento funzionale e sport da combattimento.
-    <br />
-    Scopri i nostri corsi e allenati con noi!
+    Red Gym è la tua palestra a Fonte Nuova (RM) con sala pesi attrezzata, corsi di arti marziali, boxe e allenamento funzionale per ogni livello.
   </>,
   className = "",
 }) {
@@ -379,8 +377,8 @@ export default function HomePage() {
           <WhiteSection id="home-about">
             <SectionHead
               kicker="La palestra"
-              title="Spazi ampi. Metodo. Supporto."
-              lead="Red Gym è un centro sportivo a Fonte Nuova (Roma) con ampio parcheggio e circa 1.800 mq di spazio: sala pesi completa, aree dedicate e un ambiente ordinato, motivante e seguito da professionisti."
+              title="Perchè scegliere Red Gym?"
+              lead="Red Gym è una palestra a Fonte Nuova (RM) con oltre 1.800 mq dedicati al fitness e agli sport da combattimento. Offriamo sala pesi attrezzata con macchinari professionali, aree specifiche per boxe e arti marziali e un ambiente ordinato, motivante e seguito da istruttori qualificati. La nostra struttura è pensata per chi cerca qualità, spazio e un allenamento efficace nel cuore di Fonte Nuova."
             />
 
             {/* Aumentato gap su mobile: gap-10 invece di gap-6 */}
