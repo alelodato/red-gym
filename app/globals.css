@@ -7,3 +7,40 @@ html, body { height: 100%; }
 
 .section-title { @apply font-heading uppercase tracking-wide; }
 .display-title { @apply font-display uppercase tracking-wider; }
+
+@keyframes shimmerDiagonal {
+  0%   { transform: translateX(-140%) translateY(140%) rotate(20deg); opacity: 0; }
+  15%  { opacity: 0.7; }
+  50%  { opacity: 0.9; }
+  85%  { opacity: 0.7; }
+  100% { transform: translateX(140%) translateY(-140%) rotate(20deg); opacity: 0; }
+}
+
+.shimmer-diagonal {
+  /* “striscia” luminosa */
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255,255,255,0.0) 35%,
+    rgba(255,255,255,0.35) 50%,
+    rgba(255,255,255,0.0) 65%,
+    transparent 100%
+  );
+  animation: shimmerDiagonal 1.2s infinite;
+  mix-blend-mode: screen;
+}
+
+@keyframes rgGlow {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.45; }
+}
+
+.rg-glow {
+  background: radial-gradient(
+    circle at center,
+    rgba(0,0,0,0.12) 0%,
+    rgba(0,0,0,0.06) 35%,
+    rgba(0,0,0,0.0) 70%
+  );
+  animation: rgGlow 0.7s ease-in-out infinite;
+}

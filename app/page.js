@@ -21,7 +21,13 @@ function Hero({
     </>
   ),
   subtitle =
-  "RED GYM e' la tua palestra a Fonte Nuova: sala pesi, allenamento funzionale e sport da combattimento. Scopri i nostri corsi e allenati con noi!",
+  <>
+    RED GYM e' la tua palestra a Fonte Nuova:
+    <br />
+    sala pesi, allenamento funzionale e sport da combattimento.
+    <br />
+    Scopri i nostri corsi e allenati con noi!
+  </>,
   className = "",
 }) {
   return (
@@ -387,7 +393,7 @@ export default function HomePage() {
                     title="Macchinari e Sale Dedicate"
                     imageSrc="palestra6.webp"
                     imageAlt="Sala pesi moderna e sport da combattimento"
-                    text="Strumenti selezionati per sicurezza, comfort ed efficacia: qui trovi macchinari che fanno la differenza. E per chi ama il combattimento, spazi dedicati a Boxe, MMA e arti marziali — organizzati e con l'atmosfera giusta per allenarti con metodo e concentrazione."
+                    text="Strumenti selezionati per sicurezza, comfort ed efficacia: qui trovi macchinari che fanno la differenza. E per chi ama il combattimento, spazi dedicati a Boxe, MMA e arti marziali organizzati e con l'atmosfera giusta per allenarti con metodo e concentrazione."
                     href="/about"
                     ctaLabel="Scopri la palestra"
                   />
@@ -404,7 +410,7 @@ export default function HomePage() {
                   title="Mente e Corpo in Equilibrio"
                   imageSrc="benessere.webp"
                   imageAlt="Corsi di yoga e ginnastica dolce"
-                  text="Yoga, pilates, ginnastica posturale e corsi pensati per il tuo benessere a 360°. Un approccio più dolce all'allenamento, ideale per ritrovare equilibrio, flessibilità e serenità — adatto a ogni età e livello."
+                  text="Yoga, pilates, ginnastica posturale e corsi pensati per il tuo benessere a 360°. Un approccio più dolce all'allenamento, ideale per ritrovare equilibrio, flessibilità e serenità adatto a ogni età e livello."
                   href="/courses"
                   ctaLabel="I nostri corsi"
                 />
@@ -488,18 +494,18 @@ export default function HomePage() {
                 ctaLabel="Vedi gli abbonamenti"
               />
               <Card
-                kicker="Massimo risparmio"
-                title="Formula annuale"
-                text="L'abbonamento annuale è la scelta di chi vuole risultati veri. Iscrizione inclusa, possibilità di rateizzare e omaggio borsone."
-                href="/pricing#annuale"
-                ctaLabel="Scopri il piano annuale"
-              />
-              <Card
                 kicker="Corsi & Discipline"
                 title="Boxe, Judo, Karate e altro"
                 text="Pacchetti mensili dedicati per ogni disciplina: Boxe, Judo, Grappling, Karate. Già socio? Aggiungi un corso a soli 40€."
                 href="/pricing#corsi"
                 ctaLabel="Esplora i corsi"
+              />
+              <Card
+                kicker="Massimo risparmio"
+                title="Sconti E Promozioni"
+                text="Sconti Over 65, convenzioni e agevolazioni per il nucleo familiare e non solo."
+                href="/pricing#sconti"
+                ctaLabel="Scopri sconti e agevolazioni"
               />
             </div>
           </WhiteSection>

@@ -259,10 +259,10 @@ export default function PricingPage() {
               <PriceGrid groups={GYM_PLANS} />
             </div>
 
-            {/* TARGET "annuale" per i link da home */}
-            <div id="annuale" className="scroll-mt-[var(--nav-h)]" />
+            {/* TARGET "sconti" per i link da home */}
+            <div id="sconti" className="scroll-mt-[var(--nav-h)]" />
 
-            <div className="mt-10 grid gap-4 lg:grid-cols-3">
+            <div className="mt-10 grid gap-4 lg:grid-cols-3 scroll-mt-[var(--nav-h)]">
               <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-brand-offwhite p-6">
                 <p className="font-heading uppercase tracking-wide text-lg">Over 65</p>
                 <p className="mt-2 text-black/70">
