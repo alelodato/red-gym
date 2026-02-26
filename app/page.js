@@ -408,7 +408,7 @@ export default function HomePage() {
                 <Card
                   kicker="Benessere"
                   title="Mente e Corpo in Equilibrio"
-                  imageSrc="benessere.webp"
+                  imageSrc="yoga.jpg"
                   imageAlt="Corsi di yoga e ginnastica dolce"
                   text="Yoga, pilates, ginnastica posturale e corsi pensati per il tuo benessere a 360°. Un approccio più dolce all'allenamento, ideale per ritrovare equilibrio, flessibilità e serenità adatto a ogni età e livello."
                   href="/courses"
