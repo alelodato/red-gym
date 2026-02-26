@@ -50,7 +50,7 @@ export default function StatsCounterBand() {
     <section className="relative bg-brand-red overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="/diagonal1.jpg"
+          src="/diagonal1.webp"
           alt="Red Gym"
           className="h-full w-full object-cover"
         />

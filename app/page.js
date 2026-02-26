@@ -200,7 +200,7 @@ function DiagonalCuts({ flip = false, heightClass = "h-16 sm:h-20" }) {
 }
 
 function DiagonalPromoOver65({
-  image = "over65.jpg",
+  image = "over65.webp",
   kicker = "Benessere",
   title = "Sconto Over 65",
   subtitle = "Tariffe dedicate: chiedi in reception o contattaci per tutti i dettagli.",
@@ -265,7 +265,7 @@ function DiagonalPromoOver65({
 }
 
 function DiagonalPhoto({
-  image = "diagonal1.jpg",
+  image = "safeguarding.webp",
   alt = "Red Gym",
   flip = false,
   heightClass = "h-[280px] sm:h-[340px] lg:h-[430px]",
@@ -510,7 +510,7 @@ export default function HomePage() {
             </div>
           </WhiteSection>
           <DiagonalPromoOver65
-            image="over65.jpg"
+            image="over65.webp"
             kicker="Benessere"
             title="Sconto Over 65"
             subtitle="Tariffe dedicate: chiedi in reception o contattaci per tutti i dettagli."
@@ -567,7 +567,7 @@ export default function HomePage() {
             </div>
           </WhiteSection>
           <DiagonalPhoto
-            image="reception (4).webp"
+            image="safeguarding.webp"
             alt="Red Gym - energia"
             flip={false}
             showSafeguarding
