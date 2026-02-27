@@ -81,19 +81,19 @@ export default function ContactPage() {
 
               {/* Orari di Apertura */}
               <div className="mt-6 rounded-xl bg-white border border-brand-gray200 p-6 shadow-lg">
-                <p className="font-heading uppercase tracking-wide">Orari Segreteria</p>
+                <p className="font-heading uppercase tracking-wide">Orari di Apertura</p>
                 <div className="mt-3 space-y-2 text-sm text-black/70">
                   <div className="flex justify-between">
                     <span>Lun – Ven</span>
-                    <span className="font-semibold">07:00 – 22:00</span>
+                    <span className="font-semibold">05:00 – 23:00</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Sabato</span>
-                    <span className="font-semibold">08:00 – 18:00</span>
+                    <span className="font-semibold">08:00 – 16:00</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Domenica</span>
-                    <span className="font-semibold">09:00 – 13:00</span>
+                    <span className="font-semibold">08:00 – 13:00</span>
                   </div>
                 </div>
               </div>
