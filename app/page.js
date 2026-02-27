@@ -565,7 +565,7 @@ export default function HomePage() {
                 <div className="mt-3 space-y-2 text-sm text-black/70">
                   <p>Email: info@redgym.eu</p>
                   <p>Telefono: 349 6504500</p>
-                  <p>Indirizzo: Via Delle Molette 245/257, Fonte Nuova 00013(RM)</p>
+                  <p>Indirizzo: Via Delle Molette 245/247, Fonte Nuova 00013(RM)</p>
                 </div>
 
                 <div className="mt-6 flex flex-col sm:flex-row gap-3">

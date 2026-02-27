@@ -23,7 +23,7 @@ export default function Footer() {
               />
             </div>
             <p className="mt-4 text-sm text-black/70 max-w-sm">
-              Palestra completa e dinamica: sala pesi, cardio, functional, corsi e coaching.
+              Palestra completa e dinamica: sala pesi, corsi e coaching.
             </p>
           </div>
 
