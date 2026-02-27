@@ -349,7 +349,7 @@ export default function AboutPage() {
         <WhiteBlock>
           <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-12">
-              <div className="grid lg:grid-cols-2 lg:gap-12 items-center">
+              <div className="grid lg:grid-cols-2 lg:gap-12 lg:items-center">
                 {/* COLONNA SINISTRA: TESTO */}
                 <div>
                   <p className="section-title text-brand-red">La nostra storia</p>
@@ -357,6 +357,18 @@ export default function AboutPage() {
                   <h2 className="font-heading uppercase tracking-wide text-3xl sm:text-4xl mt-2">
                     Dal 2018 la tua palestra a Fonte Nuova.
                   </h2>
+
+                  {/* Immagine MOBILE - dopo il titolo */}
+                  <div className="mt-6 lg:hidden">
+                    <div className="relative overflow-hidden rounded-xl shadow-soft h-[250px] sm:h-[300px]">
+                      <img
+                        src={toPublicSrc("palestra1.webp")}
+                        alt="Red Gym Fonte Nuova"
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/10" />
+                    </div>
+                  </div>
 
                   <p className="mt-4 text-black/70 leading-relaxed">
                     Red Gym nasce nel 2018 con un'idea semplice: creare uno spazio ordinato,
@@ -367,9 +379,9 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                {/* COLONNA DESTRA: FOTO */}
-                <div className="mt-8 lg:mt-0">
-                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[250px] sm:h-[300px] lg:h-[360px]">
+                {/* COLONNA DESTRA: FOTO - solo DESKTOP */}
+                <div className="hidden lg:block mt-8 lg:mt-0">
+                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[360px]">
                     <img
                       src={toPublicSrc("palestra1.webp")}
                       alt="Red Gym Fonte Nuova"
@@ -378,24 +390,34 @@ export default function AboutPage() {
                     <div className="absolute inset-0 bg-black/10" />
                   </div>
                 </div>
-                <div className="relative overflow-x-hidden rounded-xl h-[280px] sm:h-[400px] mt-10">
-                  <iframe src="https://www.google.com/maps/embed?pb=!4v1772036816336!6m8!1m7!1s647rvD25mgsqmeDhXUMgoQ!2m2!1d42.00111503796409!2d12.66803763518375!3f337.2800964449892!4f6.287296922872244!5f0.7820865974627469" className="block w-full h-full max-w-full" style={{ border: 0 }} allowFullscreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-                  
-                  <div className="absolute bg-black/5 pointer-events-auto" />
-                  
+              </div>
+
+              {/* IFRAME - fuori dal grid, sotto tutto */}
+              <div className="mt-10">
+                <div className="relative overflow-hidden rounded-xl h-[280px] sm:h-[400px]">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!4v1772036816336!6m8!1m7!1s647rvD25mgsqmeDhXUMgoQ!2m2!1d42.00111503796409!2d12.66803763518375!3f337.2800964449892!4f6.287296922872244!5f0.7820865974627469"
+                    className="block w-full h-full max-w-full"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                  <div className="absolute inset-0 bg-black/5 pointer-events-none" />
                 </div>
-                <p className="mt-4 text-center text-sm sm:text-base text-black/60 italic leading-relaxed">
-                    La palestra si trova all'interno del complesso del{" "}
-                    <a
-                      href="https://www.google.com/maps/search/?api=1&query=Centro+Commerciale+La+Fonte+Fonte+Nuova+Roma"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-semibold text-brand-red hover:underline"
-                    >
-                      Centro Commerciale La Fonte
-                    </a>
-                    , un punto strategico a Fonte Nuova (Roma) con ampio parcheggio dedicato per i nostri soci.
-                  </p>
+
+                <p className="mt-4 text-center text-sm sm:text-base lg:text-xl text-black/60 italic leading-relaxed">
+                  La palestra si trova all'interno del complesso del{" "}
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Centro+Commerciale+La+Fonte+Fonte+Nuova+Roma"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-brand-red hover:underline"
+                  >
+                    Centro Commerciale La Fonte
+                  </a>
+                  , un punto strategico a Fonte Nuova (Roma) con ampio parcheggio dedicato per i nostri soci.
+                </p>
               </div>
               <div className="mt-10 sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-brand-offwhite sm:p-8 lg:p-12">
                 <p className="section-title text-brand-red">Il team di red gym</p>
