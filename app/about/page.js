@@ -103,7 +103,7 @@ function StatsBand({
   ];
 
   return (
-    <section className="relative bg-brand-red overflow-hidden">
+    <section className="relative bg-brand-red overflow-hidden" id="palestra">
       {/* Background image */}
       <div className="absolute inset-0">
         <img

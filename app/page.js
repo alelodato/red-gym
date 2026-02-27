@@ -137,7 +137,7 @@ function Card({ kicker, title, text, href, ctaLabel, imageSrc, imageAlt }) {
 
       {imageSrc ? (
         <div className="mt-4 lg:hidden">
-          <div className="relative overflow-hidden rounded-xl shadow-soft h-[170px] sm:h-[200px] md:h-[220px]">
+          <div className="relative overflow-hidden rounded-xl shadow-soft h-[250px] md:h-[220px]">
             <img
               src={toPublicSrc(imageSrc)}
               alt={imageAlt || title}
@@ -353,34 +353,108 @@ export default function HomePage() {
             <SectionHead
               kicker="La palestra"
               title="Perchè scegliere Red Gym?"
-              lead="Red Gym è una palestra a Fonte Nuova (RM) con oltre 1.800 mq dedicati al fitness e agli sport da combattimento. Offriamo sala pesi attrezzata con macchinari professionali, aree specifiche per boxe e arti marziali e un ambiente ordinato, motivante e seguito da istruttori qualificati. La nostra struttura è pensata per chi cerca qualità, spazio e un allenamento efficace nel cuore di Fonte Nuova."
             />
+
+            {/* IMMAGINE PALESTRA2 + PARAGRAFO */}
+            <div className="mt-6">
+              <div className="relative overflow-hidden rounded-xl shadow-soft h-[250px] sm:h-[300px] lg:h-[360px]">
+                <img
+                  src={toPublicSrc("palestra4.webp")}
+                  alt="Red Gym Fonte Nuova"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/10" />
+              </div>
+              <p className="mt-4 text-black/70 leading-relaxed text-sm sm:text-[15px] lg:text-[18px]">
+                Red Gym è una palestra a Fonte Nuova (RM) con oltre 1.800 mq dedicati al fitness e agli sport da combattimento. Offriamo sala pesi attrezzata con macchinari professionali, aree specifiche per boxe e arti marziali e un ambiente ordinato, motivante e seguito da istruttori qualificati. La nostra struttura è pensata per chi cerca qualità, spazio e un allenamento efficace nel cuore di Fonte Nuova.
+              </p>
+            </div>
 
             <div className="mt-10">
               <div className="grid gap-4 sm:gap-10 lg:grid-cols-2">
                 {/* COLONNA SINISTRA: 3 Card */}
                 <div className="space-y-10">
                   {/* 1. Macchinari */}
-                  <Card
-                    kicker="Attrezzatura e Sport da Combattimento"
-                    title="Macchinari e Sale Dedicate"
-                    imageSrc="palestra6.webp"
-                    imageAlt="Sala pesi moderna e sport da combattimento"
-                    text="Strumenti selezionati per sicurezza, comfort ed efficacia: qui trovi macchinari che fanno la differenza. E per chi ama il combattimento, spazi dedicati a Boxe, MMA e arti marziali organizzati e con l'atmosfera giusta per allenarti con metodo e concentrazione."
-                    href="/about"
-                    ctaLabel="Scopri la palestra"
-                  />
+                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
+                    <p className="section-title text-brand-red">Attrezzatura e Sport da Combattimento</p>
+
+                    <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
+                      Macchinari e Sale Dedicate
+                    </h3>
+
+                    {/* Immagini sovrapposte MOBILE - al posto di palestra6 */}
+                    <div className="mt-4 lg:hidden relative h-[320px]">
+                      <div className="absolute top-0 left-0 w-[55%] z-10">
+                        <div className="relative overflow-hidden rounded-xl shadow-lg h-[280px]">
+                          <img
+                            src={toPublicSrc("palestra3.webp")}
+                            alt="Sala Pesi Red Gym"
+                            className="absolute inset-0 h-full w-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/10" />
+                        </div>
+                      </div>
+                      <div className="absolute bottom-0 right-0 w-[55%]">
+                        <div className="relative overflow-hidden rounded-xl shadow-lg h-[280px]">
+                          <img
+                            src={toPublicSrc("sala2.jpeg")}
+                            alt="Sala Combattimento Red Gym"
+                            className="absolute inset-0 h-full w-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/10" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <p className="mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
+                      Strumenti selezionati per sicurezza, comfort ed efficacia: qui trovi macchinari che fanno la differenza. E per chi ama il combattimento, spazi dedicati a Boxe, MMA e arti marziali organizzati e con l'atmosfera giusta per allenarti con metodo e concentrazione.
+                    </p>
+
+                    <div className="mt-6">
+                      <Button href="/about#palestra">Scopri la palestra</Button>
+                    </div>
+                  </div>
 
                   {/* 2. Benessere */}
-                  <Card
-                    kicker="Sport & Benessere"
-                    title="Mente e Corpo in Equilibrio"
-                    imageSrc="yoga.webp"
-                    imageAlt="Sport & Benessere"
-                    text="Red Gym propone un percorso completo che unisce sport da combattimento, prepugilistica e allenamento funzionale a discipline dedicate al benessere come yoga e ginnastica posturale. Un approccio integrato per sviluppare forza, tecnica, mobilità ed equilibrio, adatto a ogni età e livello di preparazione."
-                    href="/courses"
-                    ctaLabel="I nostri corsi"
-                  />
+                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
+                    <p className="section-title text-brand-red">Sport & Benessere</p>
+
+                    <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
+                      Mente e Corpo in Equilibrio
+                    </h3>
+
+                    {/* Immagini sovrapposte MOBILE - al posto di yoga */}
+                    <div className="mt-4 lg:hidden relative h-[320px]">
+                      <div className="absolute top-0 left-0 w-[55%] z-10">
+                        <div className="relative overflow-hidden rounded-xl shadow-lg h-[280px]">
+                          <img
+                            src={toPublicSrc("yoga.webp")}
+                            alt="Yoga Red Gym"
+                            className="absolute inset-0 h-full w-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/10" />
+                        </div>
+                      </div>
+                      <div className="absolute bottom-0 right-0 w-[55%]">
+                        <div className="relative overflow-hidden rounded-xl shadow-lg h-[280px]">
+                          <img
+                            src={toPublicSrc("judo-hero.webp")}
+                            alt="Judo Red Gym"
+                            className="absolute inset-0 h-full w-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/10" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <p className="mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
+                      Red Gym propone un percorso completo che unisce sport da combattimento, prepugilistica e allenamento funzionale a discipline dedicate al benessere come yoga e ginnastica posturale. Un approccio integrato per sviluppare forza, tecnica, mobilità ed equilibrio, adatto a ogni età e livello di preparazione.
+                    </p>
+
+                    <div className="mt-6">
+                      <Button href="/courses">I nostri corsi</Button>
+                    </div>
+                  </div>
 
                   {/* 3. Trainer */}
                   <Card
@@ -394,63 +468,71 @@ export default function HomePage() {
                   />
                 </div>
 
-                {/* COLONNA DESTRA: ImageGrid + Community */}
-                <div className="space-y-10">
-                  {/* 1. ImageGrid superiore (2 immagini) */}
-                  <div className="hidden lg:block">
-                    <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                      <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
-                        <img
-                          src={toPublicSrc("palestra6.webp")}
-                          alt="Sala Pesi Red Gym"
-                          className="absolute inset-0 h-full w-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/10" />
-                      </div>
-                      <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
-                        <img
-                          src={toPublicSrc("yoga.webp")}
-                          alt="Yoga Red Gym"
-                          className="absolute inset-0 h-full w-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/10" />
-                      </div>
+                {/* COLONNA DESTRA: ImageGrid + Community Image - SOLO DESKTOP */}
+                <div className="hidden lg:block space-y-10">
+                  {/* 1. ImageGrid superiore: palestra3 + sala2 */}
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                    <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
+                      <img
+                        src={toPublicSrc("palestra3.webp")}
+                        alt="Sala Pesi Red Gym"
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/10" />
+                    </div>
+                    <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
+                      <img
+                        src={toPublicSrc("sala2.jpeg")}
+                        alt="Sala Combattimento Red Gym"
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/10" />
                     </div>
                   </div>
 
-                  {/* 2. ImageGrid inferiore (2 immagini) */}
-                  <div className="hidden lg:block">
-                    <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                      <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
-                        <img
-                          src={toPublicSrc("rgym2.jpeg")}
-                          alt="Allenamento Red Gym"
-                          className="absolute inset-0 h-full w-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/10" />
-                      </div>
-                      <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
-                        <img
-                          src={toPublicSrc("community.jpeg")}
-                          alt="Community Red Gym"
-                          className="absolute inset-0 h-full w-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/10" />
-                      </div>
+                  {/* 2. ImageGrid inferiore: yoga + judo-hero */}
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                    <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
+                      <img
+                        src={toPublicSrc("yoga.webp")}
+                        alt="Yoga Red Gym"
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/10" />
+                    </div>
+                    <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
+                      <img
+                        src={toPublicSrc("judo-hero.webp")}
+                        alt="Judo Red Gym"
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/10" />
                     </div>
                   </div>
 
-                  {/* 3. Community */}
-                  <Card
-                    kicker="Community"
-                    title="Rispetto e mentalità"
-                    imageSrc="community.jpeg"
-                    imageAlt="Community Red Gym"
-                    text="Disciplina, rispetto, autocontrollo. Qui non sei mai 'lasciato solo': trovi un ambiente serio, accogliente e pieno di energia positiva. Contattaci ed entra a far parte della community!"
-                    href="/contact"
-                    ctaLabel="Contattaci"
-                  />
+                  {/* 3. Community Image */}
+                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
+                    <img
+                      src={toPublicSrc("community.jpeg")}
+                      alt="Community Red Gym"
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/10" />
+                  </div>
                 </div>
+              </div>
+
+              {/* PARAGRAFO COMMUNITY - fuori dal grid, sotto */}
+              <div className="mt-10">
+                <Card
+                  kicker="Community"
+                  title="Rispetto e mentalità"
+                  imageSrc="community.jpeg"
+                  imageAlt="Community Red Gym"
+                  text="Disciplina, rispetto, autocontrollo. Qui non sei mai 'lasciato solo': trovi un ambiente serio, accogliente e pieno di energia positiva. Contattaci ed entra a far parte della community!"
+                  href="/contact"
+                  ctaLabel="Contattaci"
+                />
               </div>
             </div>
           </WhiteSection>
@@ -467,7 +549,7 @@ export default function HomePage() {
             <div className="mt-6 lg:mt-10 grid gap-6 lg:grid-cols-12">
               <div className="order-1 lg:order-2 lg:col-span-5 relative overflow-hidden rounded-xl shadow-soft min-h-[240px] sm:min-h-[300px] lg:min-h-[420px]">
                 <img
-                  src={toPublicSrc("mma.png")}
+                  src={toPublicSrc("rgym2.jpeg")}
                   alt="Corsi Red Gym"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
