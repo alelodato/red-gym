@@ -14,7 +14,7 @@ function PhotoHeroBand({
   kicker = "Chi Siamo",
   title = (
     <>
-      Ambiente giusto. <br /> Risultati reali.
+      Il tuo centro sportivo. <br /> Pensato per i tuoi obiettivi.
     </>
   ),
   subtitle =
@@ -369,11 +369,22 @@ export default function AboutPage() {
 
                 {/* COLONNA DESTRA: FOTO */}
                 <div className="mt-8 lg:mt-0">
-                  <div className="relative overflow-x-hidden rounded-xl h-[280px] sm:h-[400px]">
-                    <iframe src="https://www.google.com/maps/embed?pb=!4v1772036816336!6m8!1m7!1s647rvD25mgsqmeDhXUMgoQ!2m2!1d42.00111503796409!2d12.66803763518375!3f337.2800964449892!4f6.287296922872244!5f0.7820865974627469" className="block w-full h-full max-w-full" style={{ border: 0 }} allowFullscreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-                    <div className="absolute bg-black/5 pointer-events-auto" />
+                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[250px] sm:h-[300px] lg:h-[360px]">
+                    <img
+                      src={toPublicSrc("palestra1.webp")}
+                      alt="Red Gym Fonte Nuova"
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/10" />
                   </div>
-                  <p className="mt-4 text-center text-sm sm:text-base text-black/60 italic leading-relaxed">
+                </div>
+                <div className="relative overflow-x-hidden rounded-xl h-[280px] sm:h-[400px] mt-10">
+                  <iframe src="https://www.google.com/maps/embed?pb=!4v1772036816336!6m8!1m7!1s647rvD25mgsqmeDhXUMgoQ!2m2!1d42.00111503796409!2d12.66803763518375!3f337.2800964449892!4f6.287296922872244!5f0.7820865974627469" className="block w-full h-full max-w-full" style={{ border: 0 }} allowFullscreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                  
+                  <div className="absolute bg-black/5 pointer-events-auto" />
+                  
+                </div>
+                <p className="mt-4 text-center text-sm sm:text-base text-black/60 italic leading-relaxed">
                     La palestra si trova all'interno del complesso del{" "}
                     <a
                       href="https://www.google.com/maps/search/?api=1&query=Centro+Commerciale+La+Fonte+Fonte+Nuova+Roma"
@@ -385,7 +396,6 @@ export default function AboutPage() {
                     </a>
                     , un punto strategico a Fonte Nuova (Roma) con ampio parcheggio dedicato per i nostri soci.
                   </p>
-                </div>
               </div>
               <div className="mt-10 sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-brand-offwhite sm:p-8 lg:p-12">
                 <p className="section-title text-brand-red">Il team di red gym</p>
@@ -444,79 +454,6 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="mt-20 border-t border-brand-gray100 pt-16">
-            <div className="text-center max-w-2xl mx-auto mb-10">
-              <p className="section-title text-brand-red">Accoglienza & Professionalità</p>
-              <h2 className="font-heading uppercase tracking-wide text-3xl sm:text-4xl mt-2">Alla Red Gym ti senti a casa</h2>
-              <p className="mt-4 text-black/70 leading-relaxed">
-                Per noi l'accoglienza non è un dettaglio, è il primo passo del tuo percorso.
-                Le nostre receptionist ti accolgono con professionalità e attenzione, pronte ad ascoltare le tue esigenze e a guidarti fin dal primo ingresso.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
-              <div className="flex flex-col items-center sm:items-stretch">
-
-                {/* Wrapper ristretto solo su mobile */}
-                <div className="w-4/5 max-w-[320px] sm:w-full sm:max-w-none">
-
-                  <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft">
-                    <Image
-                      src={toPublicSrc("GAIA.jpeg")}
-                      alt="Gaia - Reception Red Gym"
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/5 pointer-events-none" />
-                  </div>
-
-                  <div className="mt-4 text-left">
-                    <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">
-                      Gaia
-                    </h4>
-                    <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">
-                      Reception & Segreteria
-                    </p>
-                  </div>
-
-                </div>
-              </div>
-
-              <div className="hidden lg:flex flex-col items-center justify-center p-8 text-center italic text-black/60 border-x border-brand-gray200 h-full">
-                <p className="text-lg leading-relaxed">
-                  "Che tu venga per informarti, iniziare un nuovo allenamento o semplicemente chiedere un consiglio, troverai sempre un sorriso e una presenza disponibile. <br />
-                  Per noi sentirsi a proprio agio è fondamentale quanto allenarsi bene."
-                </p>
-              </div>
-
-              <div className="flex flex-col items-center sm:items-stretch">
-
-                {/* Wrapper ristretto solo su mobile */}
-                <div className="w-4/5 max-w-[320px] sm:w-full sm:max-w-none">
-
-                  <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft">
-                    <Image
-                      src={toPublicSrc("ELEONORA.jpeg")}
-                      alt="Eleonora - Reception Red Gym"
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/5 pointer-events-none" />
-                  </div>
-
-                  <div className="mt-4 text-left">
-                    <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">
-                      Eleonora
-                    </h4>
-                    <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">
-                      Reception & Segreteria
-                    </p>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
         </WhiteBlock>
 
         <StatsBand />
@@ -568,31 +505,76 @@ Un contesto ordinato e specifico per lavorare su tecnica, disciplina, coordinazi
         <DiagonalBand image="diagonal3.webp" />
 
         <WhiteBlock>
-          <div className="space-y-0 sm:space-y-8">
-            <SplitSection
-              kicker="Corsi & Trainer"
-              title="Guide competenti, progressioni chiare"
-              text="In Red Gym la differenza non la fa solo l'attrezzatura: la fa il supporto. I trainer sono presenti e qualificati, pronti a seguirti che tu stia iniziando o voglia alzare il livello. Tecnica, progressione, sicurezza e un percorso adatto a te."
-              image="rgym2.jpeg"
-              alt="Trainer e coaching"
-              cta={
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Button href="/courses">Vedi corsi, orari e trainer</Button>
-                  <Button href="/contact" variant="outline">
-                    Chiedi informazioni
-                  </Button>
-                </div>
-              }
-            />
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <p className="section-title text-brand-red">Accoglienza & Professionalità</p>
+            <h2 className="font-heading uppercase tracking-wide text-3xl sm:text-4xl mt-2">Alla Red Gym ti senti a casa</h2>
+            <p className="mt-4 text-black/70 leading-relaxed">
+              Per noi l'accoglienza non è un dettaglio, è il primo passo del tuo percorso.
+              Le nostre receptionist ti accolgono con professionalità e attenzione, pronte ad ascoltare le tue esigenze e a guidarti fin dal primo ingresso.
+            </p>
+          </div>
 
-            <SplitSection
-              kicker="Community"
-              title="Disciplina, rispetto, autocontrollo"
-              text="Gli sport insegnano molto più che muoversi: insegnano mentalità. In palestra trovi persone diverse con obiettivi diversi, ma con un punto in comune: la costanza. Un ambiente serio, accogliente e stimolante dove l'energia è quella giusta."
-              image="/community.jpeg"
-              alt="Community Red Gym"
-              invert
-            />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
+            <div className="flex flex-col items-center sm:items-stretch">
+
+              {/* Wrapper ristretto solo su mobile */}
+              <div className="w-4/5 max-w-[320px] sm:w-full sm:max-w-none">
+
+                <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft">
+                  <Image
+                    src={toPublicSrc("GAIA.jpeg")}
+                    alt="Gaia - Reception Red Gym"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/5 pointer-events-none" />
+                </div>
+
+                <div className="mt-4 text-left">
+                  <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">
+                    Gaia
+                  </h4>
+                  <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">
+                    Reception & Segreteria
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+            <div className="hidden lg:flex flex-col items-center justify-center p-8 text-center italic text-black/60 border-x border-brand-gray200 h-full">
+              <p className="text-lg leading-relaxed">
+                "Che tu venga per informarti, iniziare un nuovo allenamento o semplicemente chiedere un consiglio, troverai sempre un sorriso e una presenza disponibile. <br />
+                Per noi sentirsi a proprio agio è fondamentale quanto allenarsi bene."
+              </p>
+            </div>
+
+            <div className="flex flex-col items-center sm:items-stretch">
+
+              {/* Wrapper ristretto solo su mobile */}
+              <div className="w-4/5 max-w-[320px] sm:w-full sm:max-w-none">
+
+                <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft">
+                  <Image
+                    src={toPublicSrc("ELEONORA.jpeg")}
+                    alt="Eleonora - Reception Red Gym"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/5 pointer-events-none" />
+                </div>
+
+                <div className="mt-4 text-left">
+                  <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">
+                    Eleonora
+                  </h4>
+                  <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">
+                    Reception & Segreteria
+                  </p>
+                </div>
+
+              </div>
+            </div>
           </div>
         </WhiteBlock>
 
