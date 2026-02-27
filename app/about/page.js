@@ -379,22 +379,39 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                {/* COLONNA DESTRA: FOTO - solo DESKTOP */}
+                {/* COLONNA DESTRA: IFRAME - solo DESKTOP */}
                 <div className="hidden lg:block mt-8 lg:mt-0">
                   <div className="relative overflow-hidden rounded-xl shadow-soft h-[360px]">
-                    <img
-                      src={toPublicSrc("palestra1.webp")}
-                      alt="Red Gym Fonte Nuova"
-                      className="absolute inset-0 h-full w-full object-cover"
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!4v1772036816336!6m8!1m7!1s647rvD25mgsqmeDhXUMgoQ!2m2!1d42.00111503796409!2d12.66803763518375!3f337.2800964449892!4f6.287296922872244!5f0.7820865974627469"
+                      className="block w-full h-full max-w-full"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
                     />
-                    <div className="absolute inset-0 bg-black/10" />
+                    <div className="absolute inset-0 bg-black/5 pointer-events-none" />
                   </div>
+                  <p className="mt-4 text-center text-sm text-black/60 italic leading-relaxed">
+                    La palestra si trova all'interno del complesso del{" "}
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=Centro+Commerciale+La+Fonte+Fonte+Nuova+Roma"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-brand-red hover:underline"
+                    >
+                      Centro Commerciale La Fonte
+                    </a>
+                    , un punto strategico a Fonte Nuova (Roma) con ampio parcheggio dedicato per i nostri soci.
+                  </p>
                 </div>
               </div>
 
-              {/* IFRAME - fuori dal grid, sotto tutto */}
-              <div className="mt-10">
-                <div className="relative overflow-hidden rounded-xl h-[280px] sm:h-[400px]">
+              
+
+              {/* IFRAME - solo MOBILE */}
+              <div className="lg:hidden mt-6">
+                <div className="relative overflow-hidden rounded-xl shadow-soft h-[280px] sm:h-[350px]">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!4v1772036816336!6m8!1m7!1s647rvD25mgsqmeDhXUMgoQ!2m2!1d42.00111503796409!2d12.66803763518375!3f337.2800964449892!4f6.287296922872244!5f0.7820865974627469"
                     className="block w-full h-full max-w-full"
@@ -405,29 +422,41 @@ export default function AboutPage() {
                   />
                   <div className="absolute inset-0 bg-black/5 pointer-events-none" />
                 </div>
+                {/* DIDASCALIA - solo MOBILE */}
+              <p className="mt-4 lg:hidden text-center text-sm sm:text-base text-black/60 italic leading-relaxed">
+                La palestra si trova all'interno del complesso del{" "}
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Centro+Commerciale+La+Fonte+Fonte+Nuova+Roma"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-brand-red hover:underline"
+                >
+                  Centro Commerciale La Fonte
+                </a>
+                , un punto strategico a Fonte Nuova (Roma) con ampio parcheggio dedicato per i nostri soci.
+              </p>
+              </div>
 
-                <p className="mt-4 text-center text-sm sm:text-base lg:text-xl text-black/60 italic leading-relaxed">
-                  La palestra si trova all'interno del complesso del{" "}
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=Centro+Commerciale+La+Fonte+Fonte+Nuova+Roma"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-brand-red hover:underline"
-                  >
-                    Centro Commerciale La Fonte
-                  </a>
-                  , un punto strategico a Fonte Nuova (Roma) con ampio parcheggio dedicato per i nostri soci.
-                </p>
+              {/* IMMAGINE PALESTRA1 FULL-WIDTH - solo DESKTOP */}
+              <div className="hidden lg:block mt-10">
+                <div className="relative overflow-hidden rounded-xl shadow-soft h-[400px]">
+                  <img
+                    src={toPublicSrc("palestra1.webp")}
+                    alt="Red Gym Fonte Nuova"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/10" />
+                </div>
               </div>
               <div className="mt-10 sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-brand-offwhite sm:p-8 lg:p-12">
                 <p className="section-title text-brand-red">Il team di red gym</p>
 
                 <h3 className="font-heading uppercase tracking-wide text-2xl mt-2">
-                  Donato e la visione Red Gym
+                  -
                 </h3>
 
                 <p className="mt-4 text-black/70 leading-relaxed max-w-3xl">
-                  Donato ha fondato Red Gym per offrire un ambiente dove la passione per lo sport incontra un'organizzazione professionale. Con un focus costante sulla tecnica corretta e sul supporto all'atleta, Donato e il suo team lavorano ogni giorno per garantire che ogni iscritto abbia gli strumenti giusti per raggiungere i propri obiettivi, in un clima di rispetto e disciplina.
+                  -
                 </p>
 
                 <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
