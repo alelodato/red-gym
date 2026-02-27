@@ -18,14 +18,15 @@ function Hero({
   title = (
     <>
       <span className="text-brand-red text-4xl sm:text-6xl lg:text-7xl">RED GYM</span>
-      < br />
+      <br />
       LA TUA PALESTRA <br /> A FONTE NUOVA.
     </>
   ),
-  subtitle =
-  <>
-    Red Gym è la tua palestra a Fonte Nuova (RM) con sala pesi attrezzata, corsi di arti marziali, boxe e allenamento funzionale per ogni livello.
-  </>,
+  subtitle = (
+    <>
+      Red Gym è la tua palestra a Fonte Nuova (RM) con sala pesi attrezzata, corsi di arti marziali, boxe e allenamento funzionale per ogni livello.
+    </>
+  ),
   className = "",
 }) {
   return (
@@ -130,7 +131,7 @@ function Card({ kicker, title, text, href, ctaLabel, imageSrc, imageAlt }) {
     <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
       {kicker ? <p className="section-title text-brand-red">{kicker}</p> : null}
 
-      <h3 className="font-heading uppercase tracking-wide text-xl sm:text-4xl mt-2">
+      <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
         {title}
       </h3>
 
@@ -147,7 +148,7 @@ function Card({ kicker, title, text, href, ctaLabel, imageSrc, imageAlt }) {
         </div>
       ) : null}
 
-      <p className="mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px] lg:text-[18px]">
+      <p className="mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
         {text}
       </p>
 
@@ -156,26 +157,6 @@ function Card({ kicker, title, text, href, ctaLabel, imageSrc, imageAlt }) {
           <Button href={href}>{ctaLabel || "Scopri di più"}</Button>
         </div>
       ) : null}
-    </div>
-  );
-}
-
-function ImageGrid({ images }) {
-  return (
-    <div className="grid grid-cols-2 gap-3 sm:gap-4">
-      {images.map((img) => (
-        <div
-          key={img.src}
-          className="relative overflow-hidden rounded-xl shadow-soft h-[170px] sm:h-[190px] lg:h-[240px]"
-        >
-          <img
-            src={toPublicSrc(img.src)}
-            alt={img.alt}
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/10" />
-        </div>
-      ))}
     </div>
   );
 }
@@ -359,12 +340,6 @@ function DiagonalBand({ image = "palestra1.webp", kicker = "Red Gym", title = "S
 }
 
 export default function HomePage() {
-  const ABOUT_IMAGES = [
-    { src: "palestra6.webp", alt: "Sala pesi moderna" },
-    { src: "sala1.jpeg", alt: "Sala sport da combattimento" },
-    { src: "yoga.webp", alt: "Benessere" },
-    { src: "community.jpeg", alt: "Community Red Gym" },
-  ];
   const [openSafeguarding, setOpenSafeguarding] = useState(false);
 
   return (
@@ -381,11 +356,11 @@ export default function HomePage() {
               lead="Red Gym è una palestra a Fonte Nuova (RM) con oltre 1.800 mq dedicati al fitness e agli sport da combattimento. Offriamo sala pesi attrezzata con macchinari professionali, aree specifiche per boxe e arti marziali e un ambiente ordinato, motivante e seguito da istruttori qualificati. La nostra struttura è pensata per chi cerca qualità, spazio e un allenamento efficace nel cuore di Fonte Nuova."
             />
 
-            {/* Aumentato gap su mobile: gap-10 invece di gap-6 */}
             <div className="mt-6 lg:mt-10">
-              {/* ROW 1: Macchinari (sinistra) + ImageGrid (destra) */}
-              <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-                <div>
+              <div className="grid gap-10 lg:grid-cols-2">
+                {/* COLONNA SINISTRA: 3 Card */}
+                <div className="space-y-10">
+                  {/* 1. Macchinari */}
                   <Card
                     kicker="Attrezzatura e Sport da Combattimento"
                     title="Macchinari e Sale Dedicate"
@@ -395,32 +370,87 @@ export default function HomePage() {
                     href="/about"
                     ctaLabel="Scopri la palestra"
                   />
-                </div>
-                <div className="hidden lg:block">
-                  <ImageGrid images={ABOUT_IMAGES} />
-                </div>
-              </div>
 
-              {/* ROW 2: Benessere (sinistra) + Community (destra) */}
-              <div className="grid gap-10 lg:grid-cols-2 mt-10">
-                <Card
-                  kicker="Benessere"
-                  title="Mente e Corpo in Equilibrio"
-                  imageSrc="yoga.webp"
-                  imageAlt="Corsi di yoga e ginnastica dolce"
-                  text="Yoga, pilates, ginnastica posturale e corsi pensati per il tuo benessere a 360°. Un approccio più dolce all'allenamento, ideale per ritrovare equilibrio, flessibilità e serenità adatto a ogni età e livello."
-                  href="/courses"
-                  ctaLabel="I nostri corsi"
-                />
-                <Card
-                  kicker="Community"
-                  title="Rispetto e mentalità"
-                  imageSrc="community.jpeg"
-                  imageAlt="Community Red Gym"
-                  text="Disciplina, rispetto, autocontrollo. Qui non sei mai 'lasciato solo': trovi un ambiente serio, accogliente e pieno di energia positiva. Contattaci ed entra a far parte della community!"
-                  href="/contact"
-                  ctaLabel="Contattaci"
-                />
+                  {/* 2. Benessere */}
+                  <Card
+                    kicker="Sport & Benessere"
+                    title="Mente e Corpo in Equilibrio"
+                    imageSrc="yoga.webp"
+                    imageAlt="Sport & Benessere"
+                    text="Red Gym propone un percorso completo che unisce sport da combattimento, prepugilistica e allenamento funzionale a discipline dedicate al benessere come yoga e ginnastica posturale. Un approccio integrato per sviluppare forza, tecnica, mobilità ed equilibrio, adatto a ogni età e livello di preparazione."
+                    href="/courses"
+                    ctaLabel="I nostri corsi"
+                  />
+
+                  {/* 3. Trainer */}
+                  <Card
+                    kicker="Il Team"
+                    title="Istruttori Qualificati e Appassionati"
+                    imageSrc="rgym2.jpeg"
+                    imageAlt="Team Red Gym"
+                    text="Ogni corso è seguito da istruttori certificati, con anni di esperienza e la passione per quello che fanno. Non troverai solo tecnici preparati, ma guide attente che ti aiutano a crescere con metodo, sicurezza e motivazione costante."
+                    href="/courses"
+                    ctaLabel="Conosci il team"
+                  />
+                </div>
+
+                {/* COLONNA DESTRA: ImageGrid + Community */}
+                <div className="space-y-10">
+                  {/* 1. ImageGrid superiore (2 immagini) */}
+                  <div className="hidden lg:block">
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                      <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
+                        <img
+                          src={toPublicSrc("palestra6.webp")}
+                          alt="Sala Pesi Red Gym"
+                          className="absolute inset-0 h-full w-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/10" />
+                      </div>
+                      <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
+                        <img
+                          src={toPublicSrc("yoga.webp")}
+                          alt="Yoga Red Gym"
+                          className="absolute inset-0 h-full w-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/10" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 2. ImageGrid inferiore (2 immagini) */}
+                  <div className="hidden lg:block">
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                      <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
+                        <img
+                          src={toPublicSrc("rgym2.jpeg")}
+                          alt="Allenamento Red Gym"
+                          className="absolute inset-0 h-full w-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/10" />
+                      </div>
+                      <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
+                        <img
+                          src={toPublicSrc("community.jpeg")}
+                          alt="Community Red Gym"
+                          className="absolute inset-0 h-full w-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/10" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 3. Community */}
+                  <Card
+                    kicker="Community"
+                    title="Rispetto e mentalità"
+                    imageSrc="community.jpeg"
+                    imageAlt="Community Red Gym"
+                    text="Disciplina, rispetto, autocontrollo. Qui non sei mai 'lasciato solo': trovi un ambiente serio, accogliente e pieno di energia positiva. Contattaci ed entra a far parte della community!"
+                    href="/contact"
+                    ctaLabel="Contattaci"
+                  />
+                </div>
               </div>
             </div>
           </WhiteSection>
@@ -437,7 +467,7 @@ export default function HomePage() {
             <div className="mt-6 lg:mt-10 grid gap-6 lg:grid-cols-12">
               <div className="order-1 lg:order-2 lg:col-span-5 relative overflow-hidden rounded-xl shadow-soft min-h-[240px] sm:min-h-[300px] lg:min-h-[420px]">
                 <img
-                  src={toPublicSrc("rgym2.jpeg")}
+                  src={toPublicSrc("mma.png")}
                   alt="Corsi Red Gym"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
@@ -507,13 +537,13 @@ export default function HomePage() {
               />
             </div>
           </WhiteSection>
+
           <DiagonalPromoOver65
             image="over65.webp"
             kicker="Benessere"
             title="Sconto Over 65"
             subtitle="Tariffe dedicate: chiedi in reception o contattaci per tutti i dettagli."
           />
-
 
           <SafeguardingModal
             open={openSafeguarding}
@@ -539,8 +569,8 @@ export default function HomePage() {
                 </div>
 
                 <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                  <Button href="https://wa.me/393496504500" variant="primary">Apri WhatsApp</Button>
-                  <Button href="https://www.instagram.com/red.gym.fontenuova/" variant="outline">Apri Instagram</Button>
+                  <Button href="https://wa.me/393496504500" variant="primary">WhatsApp</Button>
+                  <Button href="https://www.instagram.com/red.gym.fontenuova/" variant="outline">Instagram</Button>
                 </div>
               </div>
 
@@ -564,6 +594,7 @@ export default function HomePage() {
               </div>
             </div>
           </WhiteSection>
+
           <DiagonalPhoto
             image="safeguarding.webp"
             alt="Red Gym - energia"
