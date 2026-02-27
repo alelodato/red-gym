@@ -356,8 +356,8 @@ export default function HomePage() {
               lead="Red Gym è una palestra a Fonte Nuova (RM) con oltre 1.800 mq dedicati al fitness e agli sport da combattimento. Offriamo sala pesi attrezzata con macchinari professionali, aree specifiche per boxe e arti marziali e un ambiente ordinato, motivante e seguito da istruttori qualificati. La nostra struttura è pensata per chi cerca qualità, spazio e un allenamento efficace nel cuore di Fonte Nuova."
             />
 
-            <div className="mt-6 lg:mt-10">
-              <div className="grid gap-10 lg:grid-cols-2">
+            <div className="mt-10">
+              <div className="grid gap-4 sm:gap-10 lg:grid-cols-2">
                 {/* COLONNA SINISTRA: 3 Card */}
                 <div className="space-y-10">
                   {/* 1. Macchinari */}

@@ -29,13 +29,13 @@ function PhotoHeroBand({
   kicker = "Abbonamenti",
   title = (
     <>
-      Prezzi e formule.
+      Formule su misura
       <br />
-      Scegli il percorso giusto per te.
+      Per il tuo allenamento.
     </>
   ),
   subtitle =
-    "Prezzi chiari e soluzioni flessibili: sala pesi con diverse fasce orarie e corsi dedicati. Se vuoi, scrivici e ti aiutiamo a scegliere in base ai tuoi obiettivi e agli orari.",
+    "Abbonamenti su misura per ogni esigenza, con formule flessibili per sala pesi, sport da combattimento, funzionale e benessere.",
   className = "",
 }) {
   return (
@@ -70,9 +70,6 @@ function PhotoHeroBand({
 
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <Button href="/contact">Chiedi info</Button>
-              <Button href="/courses" variant="white">
-                Scopri i corsi
-              </Button>
             </div>
           </div>
         </div>
