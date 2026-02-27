@@ -443,13 +443,6 @@ export default function AboutPage() {
                     </div>
                   </div>
                 </div>
-
-                <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                  <Button href="/contact">Chiedi info</Button>
-                  <Button href="/courses" variant="outline">
-                    Scopri i corsi
-                  </Button>
-                </div>
               </div>
             </div>
           </div>
