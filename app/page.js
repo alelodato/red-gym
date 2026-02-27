@@ -32,7 +32,7 @@ function Hero({
   return (
     <section className={`relative bg-brand-red overflow-hidden ${className}`}>
       {/* Mobile fullscreen | Desktop invariato */}
-      <div className="relative h-[600px] sm:h-[620px] lg:h-[720px]">
+      <div className="relative h-[600px] sm:h-[620px] lg:h-[800px]">
         <img
           src={toPublicSrc(image)}
           alt=""
