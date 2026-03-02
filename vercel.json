@@ -1,15 +1,13 @@
 {
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/((?!maintenance.html).*)",
       "has": [{ "type": "host", "value": "redgym.it" }],
-      "status": 302,
       "dest": "/maintenance.html"
     },
     {
-      "src": "/(.*)",
+      "src": "/((?!maintenance.html).*)",
       "has": [{ "type": "host", "value": "www.redgym.it" }],
-      "status": 302,
       "dest": "/maintenance.html"
     },
 
