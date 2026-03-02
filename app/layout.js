@@ -36,12 +36,14 @@ export const metadata = {
     locale: "it_IT",
     type: "website",
   },
+  other: {
+    "color-scheme": "light",
+  },
 };
 
 export default function RootLayout({ children }) {
   const jsonLd = {
     "@context": "https://schema.org",
-    // più specifico di SportsActivityLocation:
     "@type": "HealthClub",
     name: "Red Gym",
     url: "https://www.redgym.it",

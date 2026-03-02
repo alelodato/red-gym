@@ -115,21 +115,6 @@ export default function Navbar() {
                   block dark:hidden
                 "
               />
-              <Image
-                src="/logo-negativo.png"
-                alt="Red Gym"
-                width={200}
-                height={64}
-                priority
-                className="
-                  h-10 w-auto
-                  sm:h-12
-                  lg:h-14
-                  xl:h-16
-                  2xl:h-[72px]
-                  hidden dark:block
-                "
-              />
             </Link>
 
             {/* Desktop nav */}
