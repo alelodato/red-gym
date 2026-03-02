@@ -1,12 +1,12 @@
 {
   "routes": [
     {
-      "src": "/((?!maintenance.html).*)",
+      "src": "/((?!maintenance\\.html$)(?!_next/)(?!.*\\..*).*)",
       "has": [{ "type": "host", "value": "redgym.it" }],
       "dest": "/maintenance.html"
     },
     {
-      "src": "/((?!maintenance.html).*)",
+      "src": "/((?!maintenance\\.html$)(?!_next/)(?!.*\\..*).*)",
       "has": [{ "type": "host", "value": "www.redgym.it" }],
       "dest": "/maintenance.html"
     },
