@@ -379,7 +379,7 @@ export default function HomePage() {
 
             <div className="mt-10">
               <div className="grid gap-4 sm:gap-10 lg:grid-cols-2">
-                {/* COLONNA SINISTRA: 3 Card */}
+                {/* COLONNA SINISTRA: 4 Card */}
                 <div className="space-y-12 sm:space-y-10">
                   {/* 1. Macchinari */}
                   <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
@@ -389,7 +389,7 @@ export default function HomePage() {
                       Macchinari e Sale Dedicate
                     </h3>
 
-                    {/* Immagini sovrapposte MOBILE - al posto di palestra6 */}
+                    {/* Immagini sovrapposte MOBILE */}
                     <div className="mt-6 lg:hidden relative h-[360px]">
                       <div className="absolute top-0 left-0 w-[55%] z-10">
                         <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
@@ -430,7 +430,7 @@ export default function HomePage() {
                       Mente e Corpo in Equilibrio
                     </h3>
 
-                    {/* Immagini sovrapposte MOBILE - al posto di yoga */}
+                    {/* Immagini sovrapposte MOBILE */}
                     <div className="mt-6 lg:hidden relative h-[360px]">
                       <div className="absolute top-0 left-0 w-[55%] z-10">
                         <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
@@ -464,18 +464,67 @@ export default function HomePage() {
                   </div>
 
                   {/* 3. Trainer */}
-                  <Card
-                    kicker="Il Team"
-                    title="Istruttori Qualificati e Appassionati"
-                    imageSrc="rgym2.jpeg"
-                    imageAlt="Team Red Gym"
-                    text="Ogni corso è seguito da istruttori certificati, con anni di esperienza e la passione per quello che fanno. Non troverai solo tecnici preparati, ma guide attente che ti aiutano a crescere con metodo, sicurezza e motivazione costante."
-                    href="/courses"
-                    ctaLabel="Conosci il team"
-                  />
+                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
+                    <p className="section-title text-brand-red">Il Team</p>
+
+                    <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
+                      Istruttori Qualificati e Appassionati
+                    </h3>
+
+                    {/* Immagine MOBILE */}
+                    <div className="mt-4 lg:hidden">
+                      <div className="relative overflow-hidden rounded-xl shadow-soft h-[250px] md:h-[220px]">
+                        <img
+                          src={toPublicSrc("rgym2.jpeg")}
+                          alt="Team Red Gym"
+                          className="absolute inset-0 h-full w-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/10" />
+                      </div>
+                    </div>
+
+                    <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
+                      Ogni corso è seguito da istruttori certificati, con anni di esperienza e la passione per quello che fanno. Non troverai solo tecnici preparati, ma guide attente che ti aiutano a crescere con metodo, sicurezza e motivazione costante.
+                    </p>
+
+                    <div className="mt-6">
+                      <Button href="/courses">Conosci il team</Button>
+                    </div>
+                  </div>
+
+                  {/* 4. Community */}
+                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
+                    <p className="section-title text-brand-red">Community</p>
+
+                    <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
+                      Rispetto e mentalità
+                    </h3>
+
+                    {/* Immagine MOBILE */}
+                    <div className="mt-4 lg:hidden">
+                      <div className="relative overflow-hidden rounded-xl shadow-soft h-[250px] md:h-[220px]">
+                        <img
+                          src={toPublicSrc("community.jpeg")}
+                          alt="Community Red Gym"
+                          className="absolute inset-0 h-full w-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/10" />
+                      </div>
+                    </div>
+
+                    <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px] whitespace-pre-line">
+                      Disciplina, rispetto, autocontrollo.
+
+                      Qui non sei mai 'lasciato solo': trovi un ambiente serio, accogliente e pieno di energia positiva. Contattaci ed entra a far parte della community!
+                    </p>
+
+                    <div className="mt-6">
+                      <Button href="/contact">Contattaci</Button>
+                    </div>
+                  </div>
                 </div>
 
-                {/* COLONNA DESTRA: ImageGrid + Community Image - SOLO DESKTOP */}
+                {/* COLONNA DESTRA: ImageGrid - SOLO DESKTOP */}
                 <div className="hidden lg:block space-y-10">
                   {/* 1. ImageGrid superiore: palestra3 + sala2 */}
                   <div className="grid grid-cols-2 gap-3 sm:gap-4">
@@ -517,7 +566,17 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  {/* 3. Community Image */}
+                  {/* 3. Immagine singola rgym2.jpeg - allineata con "Istruttori" */}
+                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
+                    <img
+                      src={toPublicSrc("rgym2.jpeg")}
+                      alt="Team Red Gym"
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/10" />
+                  </div>
+
+                  {/* 4. Immagine singola community.jpeg - allineata con "Community" */}
                   <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
                     <img
                       src={toPublicSrc("community.jpeg")}
@@ -528,7 +587,6 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-
             </div>
           </WhiteSection>
 
@@ -541,40 +599,95 @@ export default function HomePage() {
               lead="Che tu sia all'inizio o già ad un livello avanzato, trovi corsi con guide competenti e progressioni chiare: sala pesi/fitness, pilates e benessere, boxe/prepugilistica, MMA, karate e judo."
             />
 
-            <div className="mt-6 lg:mt-10 grid gap-6 lg:grid-cols-12">
-              <div className="order-1 lg:order-2 lg:col-span-5 relative overflow-hidden rounded-xl shadow-soft min-h-[240px] sm:min-h-[300px] lg:min-h-[420px]">
-                <img
-                  src={toPublicSrc("mma.png")}
-                  alt="Corsi Red Gym"
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/10" />
-              </div>
+            {/* Grid 2x2 Desktop, colonna singola Mobile */}
+            <div className="mt-8 lg:mt-10 grid gap-8 lg:grid-cols-2">
+              {/* 1. Sala pesi & Fitness */}
+              <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
+                <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
+                  Allenamento Funzionale & TacFit
+                </p>
 
-              <div className="order-2 lg:order-1 lg:col-span-7 sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
-
-                {/* Aumentato spazio tra i paragrafi: space-y-8 su mobile */}
-                <div className="mt-4 space-y-8 sm:space-y-4">
-                  {[
-                    { t: "Sala pesi & Fitness", d: "Metodo, supporto in sala e strumenti di qualità: sicurezza, efficacia e continuità per obiettivi reali." },
-                    { t: "Pilates & postura", d: "Controllo, mobilità, equilibrio. Un lavoro intelligente per stare meglio e muoverti meglio." },
-                    { t: "Boxe + Prepugilistica", d: "Tecnica, coordinazione, fiato e disciplina. Un percorso strutturato per imparare con metodo (con o senza esperienza)." },
-                    { t: "MMA • Karate • Judo", d: "Percorsi completi per corpo e mente: disciplina, controllo e crescita personale. Adatto per atleti di tutti i livelli." },
-                  ].map((x) => (
-                    <div key={x.t} className="border-l-4 border-brand-red pl-4">
-                      <p className="font-heading uppercase tracking-wide text-lg">{x.t}</p>
-                      <p className="mt-1 text-sm text-black/70 leading-relaxed">{x.d}</p>
-                    </div>
-                  ))}
+                <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px] sm:h-[220px]">
+                  <img
+                    src={toPublicSrc("tacfit.webp")}
+                    alt="Sala pesi Red Gym"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/10" />
                 </div>
 
-                <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                  <Button href="/courses">Vai ai corsi</Button>
-                  <Button href="/contact" variant="outline">
-                    Chiedi info
-                  </Button>
-                </div>
+                <p className="mt-4 text-sm text-black/70 leading-relaxed">
+                  Metodo, supporto in sala e strumenti di qualità: sicurezza, efficacia e continuità per obiettivi reali.
+                </p>
               </div>
+
+              {/* 2. Pilates & postura */}
+              <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
+                <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
+                  Ginnastica Per La Salute & Yoga
+                </p>
+
+                <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px] sm:h-[220px]">
+                  <img
+                    src={toPublicSrc("pilates.jpg")}
+                    alt="Pilates Red Gym"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/10" />
+                </div>
+
+                <p className="mt-4 text-sm text-black/70 leading-relaxed">
+                  Controllo, mobilità, equilibrio. Un lavoro intelligente per stare meglio e muoverti meglio.
+                </p>
+              </div>
+
+              {/* 3. Boxe + Prepugilistica */}
+              <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
+                <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
+                  Boxe • Kickboxing • Prepugilistica
+                </p>
+
+                <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px] sm:h-[220px]">
+                  <img
+                    src={toPublicSrc("boxe.webp")}
+                    alt="Boxe Red Gym"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/10" />
+                </div>
+
+                <p className="mt-4 text-sm text-black/70 leading-relaxed">
+                  Tecnica, coordinazione, fiato e disciplina. Un percorso strutturato per imparare con metodo (con o senza esperienza).
+                </p>
+              </div>
+
+              {/* 4. MMA • Karate • Judo */}
+              <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
+                <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
+                  MMA • Karate • Judo
+                </p>
+
+                <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px] sm:h-[220px]">
+                  <img
+                    src={toPublicSrc("mma.webp")}
+                    alt="Arti Marziali Red Gym"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/10" />
+                </div>
+
+                <p className="mt-4 text-sm text-black/70 leading-relaxed">
+                  Percorsi completi per corpo e mente: disciplina, controllo e crescita personale. Adatto per atleti di tutti i livelli.
+                </p>
+              </div>
+            </div>
+
+            {/* Bottoni CTA */}
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+              <Button href="/courses">Vai ai corsi</Button>
+              <Button href="/contact" variant="outline">
+                Chiedi info
+              </Button>
             </div>
           </WhiteSection>
 
