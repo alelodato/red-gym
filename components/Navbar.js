@@ -112,7 +112,6 @@ export default function Navbar() {
                   lg:h-14
                   xl:h-16
                   2xl:h-[72px]
-                  block dark:hidden
                 "
               />
             </Link>
