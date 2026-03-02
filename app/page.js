@@ -497,7 +497,7 @@ export default function HomePage() {
                     <p className="section-title text-brand-red">Community</p>
 
                     <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
-                      Rispetto e mentalità
+                      Un Ambiente Accogliente e Motivante
                     </h3>
 
                     {/* Immagine MOBILE */}
@@ -513,9 +513,7 @@ export default function HomePage() {
                     </div>
 
                     <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px] whitespace-pre-line">
-                      Disciplina, rispetto, autocontrollo.
-
-                      Qui non sei mai 'lasciato solo': trovi un ambiente serio, accogliente e pieno di energia positiva. Contattaci ed entra a far parte della community!
+                      Qui alla Red Gym non sei mai 'lasciato solo': trovi un ambiente serio, accogliente e pieno di energia positiva. Contattaci ed entra a far parte della community!
                     </p>
 
                     <div className="mt-6">
@@ -596,7 +594,7 @@ export default function HomePage() {
             <SectionHead
               kicker="Corsi & attività"
               title="Trova il tuo percorso."
-              lead="Che tu sia all'inizio o già ad un livello avanzato, trovi corsi con guide competenti e progressioni chiare: sala pesi/fitness, pilates e benessere, boxe/prepugilistica, MMA, karate e judo."
+              lead="Che tu sia all’inizio o già ad un livello avanzato, trovi corsi con guide competenti e progressioni chiare: allenamento funzionale e TACFIT, ginnastica posturale e yoga, boxe/kickboxing/prepugilistica, MMA, karate e judo."
             />
 
             {/* Grid 2x2 Desktop, colonna singola Mobile */}
@@ -617,7 +615,7 @@ export default function HomePage() {
                 </div>
 
                 <p className="mt-4 text-sm text-black/70 leading-relaxed">
-                  Metodo, supporto in sala e strumenti di qualità: sicurezza, efficacia e continuità per obiettivi reali.
+                  Forza, mobilità e condizionamento in un unico percorso. Allenamenti dinamici e ad alta intensità per migliorare performance, resistenza e controllo del corpo.
                 </p>
               </div>
 
@@ -637,7 +635,7 @@ export default function HomePage() {
                 </div>
 
                 <p className="mt-4 text-sm text-black/70 leading-relaxed">
-                  Controllo, mobilità, equilibrio. Un lavoro intelligente per stare meglio e muoverti meglio.
+                  Benessere, equilibrio e consapevolezza. Discipline che lavorano su postura, respirazione e flessibilità per ritrovare armonia tra mente e corpo.
                 </p>
               </div>
 
@@ -657,7 +655,7 @@ export default function HomePage() {
                 </div>
 
                 <p className="mt-4 text-sm text-black/70 leading-relaxed">
-                  Tecnica, coordinazione, fiato e disciplina. Un percorso strutturato per imparare con metodo (con o senza esperienza).
+                  Colpi, tecnica e strategia. Sport da ring che sviluppano potenza, velocità e concentrazione, costruendo fiducia e disciplina dentro e fuori dalla palestra.
                 </p>
               </div>
 
@@ -677,7 +675,7 @@ export default function HomePage() {
                 </div>
 
                 <p className="mt-4 text-sm text-black/70 leading-relaxed">
-                  Percorsi completi per corpo e mente: disciplina, controllo e crescita personale. Adatto per atleti di tutti i livelli.
+                  Arti marziali che formano atleti completi. Tecnica, rispetto e determinazione in percorsi che uniscono tradizione, combattimento e crescita personale.
                 </p>
               </div>
             </div>
@@ -698,15 +696,13 @@ export default function HomePage() {
               kicker="Abbonamenti"
               title="Scegli la formula giusta."
               lead="Prezzi chiari, nessuna sorpresa. Che tu venga una volta a settimana o ti alleni ogni giorno, c'è una soluzione pensata per te."
-              ctaHref="/pricing"
-              ctaLabel="Vedi piani e abbonamenti"
             />
 
             <div className="mt-8 lg:mt-10 grid gap-10 lg:grid-cols-3 lg:gap-6">
               <Card
                 kicker="Sala Pesi & Fitness"
                 title="Entra e allenati"
-                text="Accesso libero alla sala pesi con fasce orarie flessibili. Scegli l'orario che fa per te — da 1 mese fino all'annuale, con sconti dedicati."
+                text="Accesso libero alla sala pesi con fasce orarie flessibili. Scegli l'orario che fa per te da 1 mese fino all'annuale, con sconti dedicati."
                 href="/pricing#pesi"
                 ctaLabel="Vedi gli abbonamenti"
               />
