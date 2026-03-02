@@ -318,7 +318,7 @@ function DiagonalPhoto({
   );
 }
 
-function DiagonalBand({ image = "palestra1.webp", kicker = "Red Gym", title = "Sport & Benessere", flip = true }) {
+function DiagonalBand({ image = "palestra1.webp", title = "Sport & Benessere", flip = true }) {
   return (
     <section className="relative bg-brand-red overflow-hidden">
       <div className="relative h-[230px] sm:h-[280px] lg:h-[340px]">
@@ -329,8 +329,15 @@ function DiagonalBand({ image = "palestra1.webp", kicker = "Red Gym", title = "S
 
       <div className="absolute inset-0 flex items-center">
         <div className={[SHELL, "px-4 sm:px-6 lg:px-8"].join(" ")}>
-          <p className="section-title text-center text-white/85">{kicker}</p>
-          <h3 className="font-heading uppercase text-center tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl mt-2">
+          {/* Logo al posto del kicker */}
+          <div className="flex justify-center mb-3">
+            <img
+              src={toPublicSrc("logo-negativo.png")}
+              alt="Red Gym"
+              className="h-12 sm:h-14 lg:h-16 w-auto"
+            />
+          </div>
+          <h3 className="font-heading uppercase text-center tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl">
             {title}
           </h3>
         </div>
@@ -521,7 +528,7 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              
+
             </div>
           </WhiteSection>
 

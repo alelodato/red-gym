@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Button from "@/components/Button";
+import Image from "next/image";
 
 function toPublicSrc(path) {
   if (!path) return "";
@@ -629,6 +630,45 @@ function CourseSection({ course, invert = false }) {
   );
 }
 
+function DiagonalBand({
+  image = "sala3.JPG",
+  title = "Energia. Disciplina. Risultati.",
+}) {
+  return (
+    <section className="relative bg-brand-red overflow-hidden">
+      <div className="relative h-[220px] sm:h-[280px] lg:h-[340px]">
+        <Image
+          src={toPublicSrc(image)}
+          alt={title}
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-black/45" />
+
+        {/* Tagli diagonali solo su desktop */}
+        <div className="hidden sm:block absolute -top-1 left-0 right-0 h-20 bg-brand-red [clip-path:polygon(0_0,100%_0,100%_55%,0_100%)]" />
+        <div className="hidden sm:block absolute -bottom-1 left-0 right-0 h-20 bg-brand-red [clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]" />
+      </div>
+
+      <div className="absolute inset-0 flex items-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-center mb-3">
+            <img
+              src={toPublicSrc("logo-negativo.png")}
+              alt="Red Gym"
+              className="h-12 sm:h-14 lg:h-16 w-auto"
+            />
+          </div>
+          <h3 className="font-heading uppercase tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl mt-2">
+            {title}
+          </h3>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function CoursesPage() {
   const TOP_BLOCK = COURSES.slice(0, 5);
   const REST_BLOCK = COURSES.slice(5);
@@ -706,7 +746,7 @@ export default function CoursesPage() {
             })}
           </div>
         </WhiteBlock>
-
+<DiagonalBand image="sala3.JPG" />
         <WhiteBlock>
           <div className="space-y-0 sm:space-y-10">
             {REST_BLOCK.map((course) => {

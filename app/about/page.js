@@ -245,7 +245,13 @@ function DiagonalBand({
 
       <div className="absolute inset-0 flex items-center">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="section-title text-white/80">{kicker}</p>
+          <div className="flex justify-center mb-3">
+            <img
+              src={toPublicSrc("logo-negativo.png")}
+              alt="Red Gym"
+              className="h-12 sm:h-14 lg:h-16 w-auto"
+            />
+          </div>
           <h3 className="font-heading uppercase tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl mt-2">
             {title}
           </h3>
