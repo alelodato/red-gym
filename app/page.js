@@ -373,7 +373,7 @@ export default function HomePage() {
             <div className="mt-10">
               <div className="grid gap-4 sm:gap-10 lg:grid-cols-2">
                 {/* COLONNA SINISTRA: 3 Card */}
-                <div className="space-y-10">
+                <div className="space-y-12 sm:space-y-10">
                   {/* 1. Macchinari */}
                   <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
                     <p className="section-title text-brand-red">Attrezzatura e Sport da Combattimento</p>
@@ -383,9 +383,9 @@ export default function HomePage() {
                     </h3>
 
                     {/* Immagini sovrapposte MOBILE - al posto di palestra6 */}
-                    <div className="mt-4 lg:hidden relative h-[320px]">
+                    <div className="mt-6 lg:hidden relative h-[360px]">
                       <div className="absolute top-0 left-0 w-[55%] z-10">
-                        <div className="relative overflow-hidden rounded-xl shadow-lg h-[280px]">
+                        <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
                           <img
                             src={toPublicSrc("palestra3.webp")}
                             alt="Sala Pesi Red Gym"
@@ -395,7 +395,7 @@ export default function HomePage() {
                         </div>
                       </div>
                       <div className="absolute bottom-0 right-0 w-[55%]">
-                        <div className="relative overflow-hidden rounded-xl shadow-lg h-[280px]">
+                        <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
                           <img
                             src={toPublicSrc("sala2.jpeg")}
                             alt="Sala Combattimento Red Gym"
@@ -406,7 +406,7 @@ export default function HomePage() {
                       </div>
                     </div>
 
-                    <p className="mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
+                    <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
                       Strumenti selezionati per sicurezza, comfort ed efficacia: qui trovi macchinari che fanno la differenza. E per chi ama il combattimento, spazi dedicati a Boxe, MMA e arti marziali organizzati e con l'atmosfera giusta per allenarti con metodo e concentrazione.
                     </p>
 
@@ -424,9 +424,9 @@ export default function HomePage() {
                     </h3>
 
                     {/* Immagini sovrapposte MOBILE - al posto di yoga */}
-                    <div className="mt-4 lg:hidden relative h-[320px]">
+                    <div className="mt-6 lg:hidden relative h-[360px]">
                       <div className="absolute top-0 left-0 w-[55%] z-10">
-                        <div className="relative overflow-hidden rounded-xl shadow-lg h-[280px]">
+                        <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
                           <img
                             src={toPublicSrc("yoga.webp")}
                             alt="Yoga Red Gym"
@@ -436,7 +436,7 @@ export default function HomePage() {
                         </div>
                       </div>
                       <div className="absolute bottom-0 right-0 w-[55%]">
-                        <div className="relative overflow-hidden rounded-xl shadow-lg h-[280px]">
+                        <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
                           <img
                             src={toPublicSrc("judo-hero.webp")}
                             alt="Judo Red Gym"
@@ -447,7 +447,7 @@ export default function HomePage() {
                       </div>
                     </div>
 
-                    <p className="mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
+                    <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
                       Red Gym propone un percorso completo che unisce sport da combattimento, prepugilistica e allenamento funzionale a discipline dedicate al benessere come yoga e ginnastica posturale. Un approccio integrato per sviluppare forza, tecnica, mobilità ed equilibrio, adatto a ogni età e livello di preparazione.
                     </p>
 
@@ -521,6 +521,7 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
+              
             </div>
           </WhiteSection>
 
