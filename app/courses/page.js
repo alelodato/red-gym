@@ -100,71 +100,6 @@ function TripleDiagonalBand({
   );
 }
 
-function DiagonalPromoOver65({
-  image = "over65.webp",
-  kicker = "Benessere",
-  title = "Sconto Over 65",
-  subtitle = "Tariffe dedicate: chiedi in reception o contattaci per tutti i dettagli.",
-  reverse = false,
-}) {
-  const topClip = reverse
-    ? "[clip-path:polygon(0_0,100%_0,100%_100%,0_55%)]"
-    : "[clip-path:polygon(0_0,100%_0,100%_55%,0_100%)]";
-
-  const bottomClip = reverse
-    ? "[clip-path:polygon(0_0,100%_45%,100%_100%,0_100%)]"
-    : "[clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]";
-
-  return (
-    <section className="relative bg-brand-red overflow-hidden">
-      <div className="absolute inset-0">
-        <img
-          src={toPublicSrc(image)}
-          alt={title}
-          className="h-full w-full object-cover object-top"
-        />
-        <div className="absolute inset-0 bg-black/55" />
-
-        {/* Tagli diagonali solo desktop */}
-        <div className={`hidden sm:block absolute -top-1 left-0 right-0 h-20 bg-brand-red ${topClip}`} />
-        <div className={`hidden sm:block absolute -bottom-1 left-0 right-0 h-20 bg-brand-red ${bottomClip}`} />
-      </div>
-
-      <div className="relative">
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-20">
-          <p className="section-title text-white/85">{kicker}</p>
-
-          <h3 className="font-heading uppercase tracking-wide text-white text-4xl sm:text-5xl mt-2">
-            {title}
-          </h3>
-
-          <p className="mt-4 text-white/85 max-w-2xl leading-relaxed text-base sm:text-lg">
-            {subtitle}
-          </p>
-
-          <div className="mt-6 grid gap-3 sm:flex sm:flex-row">
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold tracking-wide
-                         bg-white text-brand-red hover:bg-white/90 transition-colors"
-            >
-              Chiedi info
-            </a>
-
-            <a
-              href="/pricing"
-              className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold tracking-wide
-                         border border-white/70 text-white hover:bg-white hover:text-brand-red transition-colors"
-            >
-              Vedi abbonamenti
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 const COURSES = [
   {
     id: "sala-pesi",
@@ -735,7 +670,7 @@ export default function CoursesPage() {
         subtitle="Ogni corso ha un metodo, una guida e un obiettivo. Scegli cosa ti rappresenta e allenati con disciplina, sicurezza e continuità."
       />
       {/* Eliminato space-y su mobile */}
-      <div className="space-y-0 sm:space-y-8 lg:space-y-10 pb-8 sm:py-10 lg:py-12 pb-0">
+      <div className="space-y-0 sm:space-y-8 lg:space-y-10 sm:py-10 lg:py-12 pb-0">
         <WhiteBlock>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -771,13 +706,6 @@ export default function CoursesPage() {
             })}
           </div>
         </WhiteBlock>
-
-        <DiagonalPromoOver65
-          image="over65.webp"
-          kicker="Benessere"
-          title="Sconto Over 65"
-          subtitle="Tariffe dedicate: chiedi in reception o contattaci per tutti i dettagli."
-        />
 
         <WhiteBlock>
           <div className="space-y-0 sm:space-y-10">

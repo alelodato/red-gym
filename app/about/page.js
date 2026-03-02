@@ -92,7 +92,13 @@ function WhiteBlock({ children }) {
 function StatsBand({
   bgImage = "palestra7.webp",
   kicker = "In numeri",
-  title = "Spazi, esperienza e varietà. Tutto nello stesso posto.",
+  title = (
+    <>
+      Spazi, esperienza e varietà.
+      <br />
+      Tutto nello stesso posto.
+    </>
+  ),
   lead = "Questi sono i dettagli che rendono Red Gym concreta: struttura ampia, anni di lavoro sul campo, percorsi diversi e attrezzatura pensata per allenarti bene.",
 }) {
   const stats = [
@@ -375,7 +381,7 @@ export default function AboutPage() {
                     completo e concreto dove allenarsi bene ogni giorno, con la
                     tranquillità di avere ambienti curati e percorsi chiari. In questi
                     anni la palestra è cresciuta, ma l'obiettivo è rimasto lo stesso:
-                    qualità, metodo e costanza, diventando il punto di riferimento per il fitness vicino Roma.
+                    qualità, metodo e costanza, diventando il punto di riferimento per il fitness a Fonte Nuova.
                   </p>
                 </div>
 
@@ -401,13 +407,12 @@ export default function AboutPage() {
                       className="font-semibold text-brand-red hover:underline"
                     >
                       Centro Commerciale La Fonte
-                    </a>
-                    , un punto strategico a Fonte Nuova (Roma) con ampio parcheggio dedicato per i nostri soci.
+                    </a> a Fonte Nuova (Roma), con ampio parcheggio dedicato per i nostri soci.
                   </p>
                 </div>
               </div>
 
-              
+
 
               {/* IFRAME - solo MOBILE */}
               <div className="lg:hidden mt-6">
@@ -423,18 +428,18 @@ export default function AboutPage() {
                   <div className="absolute inset-0 bg-black/5 pointer-events-none" />
                 </div>
                 {/* DIDASCALIA - solo MOBILE */}
-              <p className="mt-4 lg:hidden text-center text-sm sm:text-base text-black/60 italic leading-relaxed">
-                La palestra si trova all'interno del complesso del{" "}
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=Centro+Commerciale+La+Fonte+Fonte+Nuova+Roma"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-brand-red hover:underline"
-                >
-                  Centro Commerciale La Fonte
-                </a>
-                , un punto strategico a Fonte Nuova (Roma) con ampio parcheggio dedicato per i nostri soci.
-              </p>
+                <p className="mt-4 lg:hidden text-center text-sm sm:text-base text-black/60 italic leading-relaxed">
+                  La palestra si trova all'interno del complesso del{" "}
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Centro+Commerciale+La+Fonte+Fonte+Nuova+Roma"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-brand-red hover:underline"
+                  >
+                    Centro Commerciale La Fonte
+                  </a>
+                  , un punto strategico a Fonte Nuova (Roma) con ampio parcheggio dedicato per i nostri soci.
+                </p>
               </div>
 
               {/* IMMAGINE PALESTRA1 FULL-WIDTH - solo DESKTOP */}
@@ -518,7 +523,7 @@ export default function AboutPage() {
 
           <div className="mt-10 space-y-0 sm:space-y-8">
             <SplitSection
-              kicker="RED GYM"
+              kicker="La Palestra"
               title="Sala pesi ampia e completa"
               text="Una sala pesi grande e ben organizzata, con macchinari selezionati per allenare forza e tono in sicurezza. Trovi postazioni guidate e isotoniche Olicrom, pesi liberi e aree dedicate per un percorso completo: ipertrofia, postura, resistenza e performance. Spazi curati, layout ordinato e attrezzatura sempre pronta: ti alleni bene, con continuità."
               image="/palestra2.webp"
@@ -526,7 +531,7 @@ export default function AboutPage() {
             />
 
             <SplitSection
-              kicker="RED GYM"
+              kicker="La Palestra"
               title="Sala Attività & Combattimento"
               text="All’interno della struttura principale trovi una seconda sala dedicata alle attività dinamiche e agli sport da combattimento: prepugilistica, boxe, pilates, TACFIT e allenamento funzionale.
 Uno spazio versatile, organizzato per alternare lavoro tecnico, condizionamento e potenziamento, con attrezzatura adeguata e ambienti pensati per allenarsi con intensità ma in sicurezza."
@@ -536,7 +541,7 @@ Uno spazio versatile, organizzato per alternare lavoro tecnico, condizionamento 
             />
 
             <SplitSection
-              kicker="RED GYM"
+              kicker="La Palestra"
               title="Sala Arti Marziali"
               text="Spazio dedicato alle arti marziali tradizionali, con area tatami attrezzata per Judo e Karate. La sala si trova al primo piano del Centro Commerciale La Fonte, in un ambiente separato dalla palestra principale, così da garantire concentrazione, sicurezza e continuità durante le lezioni.
 Un contesto ordinato e specifico per lavorare su tecnica, disciplina, coordinazione e crescita personale, dai più piccoli agli adulti."
@@ -579,7 +584,7 @@ Un contesto ordinato e specifico per lavorare su tecnica, disciplina, coordinazi
                     Gaia
                   </h4>
                   <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">
-                    Reception & Segreteria
+                    Segreteria
                   </p>
                 </div>
 
@@ -613,7 +618,7 @@ Un contesto ordinato e specifico per lavorare su tecnica, disciplina, coordinazi
                     Eleonora
                   </h4>
                   <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">
-                    Reception & Segreteria
+                    Segreteria
                   </p>
                 </div>
 

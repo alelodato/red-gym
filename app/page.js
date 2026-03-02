@@ -521,23 +521,6 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-
-              {/* PARAGRAFO COMMUNITY - fuori dal grid, sotto */}
-              <div className="mt-10">
-                <Card
-                  kicker="Community"
-                  title="Rispetto e mentalità"
-                  imageSrc="community.jpeg"
-                  imageAlt="Community Red Gym"
-                  text={<>Disciplina, rispetto, autocontrollo.
-                    <br />
-                    Qui non sei mai 'lasciato solo': trovi un ambiente serio, accogliente e pieno di energia positiva.
-                    <br />
-                    Contattaci ed entra a far parte della community!</>}
-                  href="/contact"
-                  ctaLabel="Contattaci"
-                />
-              </div>
             </div>
           </WhiteSection>
 
@@ -547,7 +530,7 @@ export default function HomePage() {
             <SectionHead
               kicker="Corsi & attività"
               title="Trova il tuo percorso."
-              lead="Che tu sia all'inizio o già avanzato, trovi corsi con guide competenti e progressioni chiare: sala pesi/fitness, pilates e benessere, boxe/prepugilistica, MMA, karate e judo."
+              lead="Che tu sia all'inizio o già ad un livello avanzato, trovi corsi con guide competenti e progressioni chiare: sala pesi/fitness, pilates e benessere, boxe/prepugilistica, MMA, karate e judo."
             />
 
             <div className="mt-6 lg:mt-10 grid gap-6 lg:grid-cols-12">
@@ -561,7 +544,6 @@ export default function HomePage() {
               </div>
 
               <div className="order-2 lg:order-1 lg:col-span-7 sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
-                <p className="section-title text-brand-red">In evidenza</p>
 
                 {/* Aumentato spazio tra i paragrafi: space-y-8 su mobile */}
                 <div className="mt-4 space-y-8 sm:space-y-4">
