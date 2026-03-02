@@ -13,13 +13,12 @@ export default function Footer() {
                 alt="Red Gym"
                 width={200}
                 height={64}
-                priority
                 className="
-                                h-8 w-auto
-                                sm:h-9
-                                lg:h-12
-                                xl:h-14
-                              "
+                  h-8 w-auto
+                  sm:h-9
+                  lg:h-12
+                  xl:h-14
+                "
               />
             </div>
             <p className="mt-4 text-sm text-black/70 max-w-sm">
@@ -77,6 +76,7 @@ export default function Footer() {
                 </div>
                 <span>Seguici su Instagram</span>
               </a>
+
               {/* Facebook */}
               <a
                 href="https://www.facebook.com/redgymfontenuova"
@@ -96,7 +96,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-brand-gray200 py-6 text-xs text-black/60">
-          © {new Date().getFullYear()} {SITE.name}. Tutti i diritti riservati.
+          ©️ {new Date().getFullYear()} {SITE.name}. Tutti i diritti riservati.
         </div>
       </Container>
     </footer>

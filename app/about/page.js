@@ -4,6 +4,8 @@ import { SITE } from "@/lib/site";
 import Image from "next/image";
 import Link from "next/link";
 
+const SHELL = "mx-auto w-full";
+
 function toPublicSrc(path) {
   if (!path) return "";
   return path.startsWith("/") ? path : `/${path}`;
@@ -221,30 +223,35 @@ function SplitSection({ kicker, title, text, image, alt, invert = false, cta }) 
   );
 }
 
-function DiagonalBand({
-  image = "diagonal3.webp",
-  kicker = "Red Gym",
-  title = "Energia. Disciplina. Risultati.",
-}) {
+function DiagonalCuts({ flip = false, heightClass = "h-16 sm:h-20" }) {
+  const topClip = flip
+    ? "[clip-path:polygon(0_0,100%_0,100%_100%,0_55%)]"
+    : "[clip-path:polygon(0_0,100%_0,100%_55%,0_100%)]";
+
+  const bottomClip = flip
+    ? "[clip-path:polygon(0_0,100%_45%,100%_100%,0_100%)]"
+    : "[clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]";
+
+  return (
+    <>
+      <div className={`hidden sm:block absolute -top-1 left-0 right-0 bg-brand-red ${heightClass} ${topClip}`} />
+      <div className={`hidden sm:block absolute -bottom-1 left-0 right-0 bg-brand-red ${heightClass} ${bottomClip}`} />
+    </>
+  );
+}
+
+function DiagonalBand({ image = "diagonal3.webp", title = "Sport & Benessere", flip = true }) {
   return (
     <section className="relative bg-brand-red overflow-hidden">
-      <div className="relative h-[220px] sm:h-[280px] lg:h-[340px]">
-        <Image
-          src={toPublicSrc(image)}
-          alt={title}
-          fill
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-black/45" />
-
-        {/* Tagli diagonali solo su desktop */}
-        <div className="hidden sm:block absolute -top-1 left-0 right-0 h-20 bg-brand-red [clip-path:polygon(0_0,100%_0,100%_55%,0_100%)]" />
-        <div className="hidden sm:block absolute -bottom-1 left-0 right-0 h-20 bg-brand-red [clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]" />
+      <div className="relative h-[230px] sm:h-[280px] lg:h-[340px]">
+        <img src={toPublicSrc(image)} alt={title} className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-black/65" />
+        <DiagonalCuts flip={flip} heightClass="h-16 sm:h-20" />
       </div>
 
       <div className="absolute inset-0 flex items-center">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className={[SHELL, "px-4 sm:px-6 lg:px-8"].join(" ")}>
+          {/* Logo al posto del kicker */}
           <div className="flex justify-center mb-3">
             <img
               src={toPublicSrc("logo-negativo.png")}
@@ -252,7 +259,7 @@ function DiagonalBand({
               className="h-12 sm:h-14 lg:h-16 w-auto"
             />
           </div>
-          <h3 className="font-heading uppercase tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl mt-2">
+          <h3 className="font-heading uppercase text-center tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl">
             {title}
           </h3>
         </div>
@@ -260,6 +267,8 @@ function DiagonalBand({
     </section>
   );
 }
+
+
 
 function FinalCtaHero({ image = "/hero-final.jpg" }) {
   return (
@@ -289,7 +298,7 @@ function FinalCtaHero({ image = "/hero-final.jpg" }) {
 
           <p className="mt-4 text-white/85 leading-relaxed">
             Passa in palestra, guarda gli spazi, parla con lo staff e scegli il
-            percorso più adatto. Qui trovi qualità, ordine e un supporto reale —
+            percorso più adatto. Qui trovi qualità, ordine e un supporto reale
             dal principiante all'atleta avanzato.
           </p>
 
@@ -298,7 +307,7 @@ function FinalCtaHero({ image = "/hero-final.jpg" }) {
               href="/contact"
               className="inline-flex items-center justify-center w-full rounded-md px-5 py-3 text-sm font-semibold tracking-wide bg-white text-brand-red hover:bg-white/90 transition-colors"
             >
-              Prenota / Contattaci
+              Contattaci
             </Link>
 
             <Link

@@ -228,14 +228,6 @@ function DiagonalPromoOver65({
             >
               Chiedi info
             </a>
-
-            <a
-              href="/pricing"
-              className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold tracking-wide
-                         border border-white/70 text-white hover:bg-white hover:text-brand-red transition-colors"
-            >
-              Vedi abbonamenti
-            </a>
           </div>
         </div>
       </div>
@@ -383,10 +375,10 @@ export default function HomePage() {
                 <div className="space-y-12 sm:space-y-10">
                   {/* 1. Macchinari */}
                   <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
-                    <p className="section-title text-brand-red">Attrezzatura e Sport da Combattimento</p>
+                    <p className="section-title text-brand-red">Struttura e Spazi</p>
 
                     <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
-                      Macchinari e Sale Dedicate
+                      Attrezzature e Spazi per ogni tipo di attività
                     </h3>
 
                     {/* Immagini sovrapposte MOBILE */}
@@ -702,7 +694,7 @@ export default function HomePage() {
               <Card
                 kicker="Sala Pesi & Fitness"
                 title="Entra e allenati"
-                text="Accesso libero alla sala pesi con fasce orarie flessibili. Scegli l'orario che fa per te da 1 mese fino all'annuale, con sconti dedicati."
+                text="Accesso alla sala pesi con fasce orarie flessibili. Scegli l'orario che fa per te da 1 mese fino all'annuale, con sconti dedicati."
                 href="/pricing#pesi"
                 ctaLabel="Vedi gli abbonamenti"
               />
