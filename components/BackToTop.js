@@ -35,7 +35,7 @@ export default function BackToTop() {
       <span
         className="
           block h-3 w-3
-          border-t-2 border-l-2 border-white
+          border-t-2 border-l-2 border-white dark:border-white
           rotate-45
           translate-y-[2px]
         "
