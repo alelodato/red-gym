@@ -1,18 +1,18 @@
 {
   "routes": [
-    { "handle": "filesystem" },
-
-    {
-      "src": "/(.*)",
-      "has": [{ "type": "host", "value": "www.redgym.it" }],
-      "status": 302,
-      "headers": { "Location": "/maintenance.html" }
-    },
     {
       "src": "/(.*)",
       "has": [{ "type": "host", "value": "redgym.it" }],
       "status": 302,
-      "headers": { "Location": "/maintenance.html" }
-    }
+      "dest": "/maintenance.html"
+    },
+    {
+      "src": "/(.*)",
+      "has": [{ "type": "host", "value": "www.redgym.it" }],
+      "status": 302,
+      "dest": "/maintenance.html"
+    },
+
+    { "handle": "filesystem" }
   ]
 }
