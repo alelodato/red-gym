@@ -396,7 +396,7 @@ export default function HomePage() {
                       <div className="absolute bottom-0 right-0 w-[55%]">
                         <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
                           <img
-                            src={toPublicSrc("sala2.jpeg")}
+                            src={toPublicSrc("sala-funzionale.webp")}
                             alt="Sala Combattimento Red Gym"
                             className="absolute inset-0 h-full w-full object-cover"
                           />
@@ -528,7 +528,7 @@ export default function HomePage() {
                     </div>
                     <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
                       <img
-                        src={toPublicSrc("sala2.jpeg")}
+                        src={toPublicSrc("sala-funzionale.webp")}
                         alt="Sala Combattimento Red Gym"
                         className="absolute inset-0 h-full w-full object-cover"
                       />

@@ -101,36 +101,14 @@ function TripleDiagonalBand({
   );
 }
 
-const COURSES = [
-  {
-    id: "sala-pesi",
-    title: "Sala Pesi & Fitness",
-    subtitle: "Qualità, sicurezza e risultati concreti",
-    image: "palestra5.webp",
-    description:
-      "Allenarsi bene significa fare le cose nel modo giusto. In sala pesi trovi spazi ampi e attrezzatura di ultima generazione selezionata per efficacia e comfort, con la possibilità di lavorare su forza, tonificazione e ricomposizione corporea.\n\nChe tu sia alle prime armi o voglia portare il livello più in alto, l'obiettivo è sempre lo stesso: progressione, tecnica corretta e continuità.",
-    schedule: [
-      { day: "Lun – Ven", time: "07:00 – 23:00" },
-      { day: "Sabato", time: "08:00 – 18:00" },
-      { day: "Domenica", time: "09:00 – 13:00" },
-    ],
-    trainers: [
-      { name: "DANIELE", image: "DANIELE.jpeg", bio: "-" },
-      { name: "EMANUELE", image: "EMANUELE.jpeg", bio: "-" },
-      { name: "ROBERTO", image: "ROBERTO.jpeg", bio: "-" },
-      { name: "EUGENIA", image: "EUGENIA.jpeg", bio: "-" },
-      { name: "GARY", image: "GARY.jpeg", bio: "-" },
-      { name: "JACOPO", image: "JACOPO.jpeg", bio: "-" },
-      { name: "LUIGI", image: "LUIGI.jpeg", bio: "-" },
-    ],
-  },
+const WELLNESS_COURSES = [
   {
     id: "allenamento-funzionale",
-    title: "Allenamento Funzionale & TacFit",
+    title: "Allenamento Funzionale",
     subtitle: "Movimento naturale, forza e performance",
     image: "tacfit.webp",
     description:
-      "L'allenamento funzionale si basa su movimenti naturali del corpo: spingere, tirare, sollevare, saltare e ruotare. È un metodo che migliora forza, mobilità, stabilità e resistenza in modo completo e integrato.\n\nSi lavora con pesi liberi, kettlebell, TRX, corpo libero e attrezzi specifici.\n\nTACFIT è una specializzazione dell'allenamento funzionale con focus tattico e ad alta intensità. Nato per preparare operatori militari e di sicurezza, combina mobilità, forza esplosiva e condizionamento cardiovascolare in protocolli strutturati e progressivi. Ideale per chi vuole portare il funzionale a un livello superiore.\n\nPerfetto per chi cerca un allenamento dinamico, vario e ad alta intensità, con focus su tecnica, sicurezza e progressione costante.",
+      "L'allenamento funzionale si basa su movimenti naturali del corpo: spingere, tirare, sollevare, saltare e ruotare. È un metodo che migliora forza, mobilità, stabilità e resistenza in modo completo e integrato.\n\nSi lavora con pesi liberi, kettlebell, TRX, corpo libero e attrezzi specifici.",
     schedules: [
       {
         title: "Funzionale",
@@ -140,6 +118,20 @@ const COURSES = [
           { day: "Venerdì", time: "10:00, 13:30, 17:30, 18:30, 21:00" },
         ],
       },
+      
+    ],
+    trainers: [
+      { name: "ADRIANO SPERANDIO", image: "ADRIANO.jpeg", bio: "ISTRUTTORE PREPUGILISTICA/FUNZIONALE" },
+    ],
+  },
+  {
+    id: "tacfit",
+    title: "TacFit",
+    subtitle: "Allenamento tattico ad alta intensitá",
+    image: "tacfit.webp",
+    description:
+      "TACFIT è una specializzazione dell'allenamento funzionale con focus tattico e ad alta intensità. Nato per preparare operatori militari e di sicurezza, combina mobilità, forza esplosiva e condizionamento cardiovascolare in protocolli strutturati e progressivi. Ideale per chi vuole portare il funzionale a un livello superiore.\n\nPerfetto per chi cerca un allenamento dinamico, vario e ad alta intensità, con focus su tecnica, sicurezza e progressione costante.",
+    schedules: [
       {
         title: "TACFIT",
         schedule: [
@@ -150,7 +142,6 @@ const COURSES = [
     ],
     trainers: [
       { name: "ALEX", image: "ALEX.jpeg", bio: "ISTRUTTORE FUNZIONALE/TAC FIT" },
-      { name: "ADRIANO SPERANDIO", image: "ADRIANO.jpeg", bio: "ISTRUTTORE PREPUGILISTICA/FUNZIONALE" },
     ],
   },
   {
@@ -185,83 +176,24 @@ const COURSES = [
     trainers: [{ name: "CLAUDIA", image: "CLAUDIA.jpeg", bio: "ISTRUTTRICE YOGA" }],
   },
   {
-    id: "boxe",
-    title: "Boxe & Prepugilistica",
+    id: "prepugilistica",
+    title: "Prepugilistica",
     subtitle: "Tecnica, fiducia e autocontrollo",
     image: "boxe.png",
     description:
-      "La boxe è uno degli sport più completi: migliora forza, resistenza, coordinazione e riflessi, ma soprattutto costruisce fiducia, autocontrollo e determinazione.\n\nIl percorso è guidato e strutturato: tecnica, lavoro al sacco, combinazioni e condizionamento. La prepugilistica è perfetta per chi vuole costruire basi solide (anche senza contatto) con metodo e disciplina.\n\nAllenamenti seri e progressivi: tecnica, timing e condizionamento, con attenzione alla sicurezza e alla crescita dell'allievo.",
-    schedules: [
-
-      {
-        title: "Boxe",
-        trainer: "Sperandio",
-        schedule: [
-          { day: "Martedì", time: "19:00" },
-          { day: "Giovedì", time: "19:00" },
-          { day: "Sabato", time: "19:30" },
-        ],
-      },
-      {
-        title: "Boxe Agonisti",
-        trainer: "Sperandio",
-        schedule: [
-          { day: "Lunedì", time: "16:00" },
-          { day: "Martedì", time: "16:00" },
-          { day: "Mercoledì", time: "16:00" },
-          { day: "Giovedì", time: "16:00" },
-          { day: "Sabato", time: "16:00" },
-        ],
-      },
-      {
-        title: "Boxe Amatoriale Bambini",
-        trainer: "Sperandio",
-        schedule: [
-          { day: "Martedì", time: "17:30" },
-          { day: "Giovedì", time: "17:30" },
-        ],
-      },
-      {
-        title: "Prepugilistica",
-        schedule: [
-          { day: "Martedì", time: "10:00, 13:30" },
-          { day: "Giovedì", time: "10:00, 13:30" },
-          { day: "Sabato", time: "10:00" },
-        ],
-      },
+      "La prepugilistica è perfetta per chi vuole costruire basi solide (anche senza contatto) con metodo e disciplina. Si lavora su tecnica, lavoro al sacco, combinazioni e condizionamento.\n\nAllenamenti seri e progressivi: tecnica, timing e condizionamento, con attenzione alla sicurezza e alla crescita dell'allievo.",
+    schedule: [
+      { day: "Martedì", time: "10:00, 13:30" },
+      { day: "Giovedì", time: "10:00, 13:30" },
+      { day: "Sabato", time: "10:00" },
     ],
     trainers: [
       { name: "ADRIANO SPERANDIO", image: "ADRIANO.jpeg", bio: "ISTRUTTORE PREPUGILISTICA/FUNZIONALE" },
-      { name: "PAOLO SPERANDIO", image: "PAOLO.jpeg", bio: "MAESTRO BOXE" },
     ],
   },
-  {
-    id: "kickboxing",
-    title: "Kickboxing",
-    subtitle: "Potenza, tecnica e controllo",
-    image: "kick.jpeg",
-    description:
-      "La kickboxing unisce pugni e calci in un allenamento completo, dinamico e coinvolgente. Migliora potenza e resistenza, coordinazione e agilità, tecnica e concentrazione.\n\nÈ perfetta sia per chi inizia sia per chi ha già esperienza: ogni lezione è pensata per farti crescere con metodo, in sicurezza e sempre seguito.\n\nProgressioni chiare e lavoro tecnico: migliora sicurezza nei colpi, timing e condizionamento, senza improvvisazione.",
-    schedule: [
-      { day: "Martedì", time: "20:30" },
-      { day: "Giovedì", time: "20:30" },
-    ],
-    trainers: [{ name: "ANTON IOAN CATALIN", image: "NATALINO.jpeg", bio: "MAESTRO KICKBOXING" }],
-  },
-  {
-    id: "mma",
-    title: "MMA/Grappling",
-    subtitle: "Forza, tecnica e versatilità",
-    image: "mma.png",
-    description:
-      "Tecnica, potenza, concentrazione. L'MMA è uno degli sport più completi: unisce striking e grappling e sviluppa forza, resistenza, agilità e capacità di reazione.\n\nÈ un percorso adatto a tutti i livelli: si lavora con metodo e progressione, imparando sia principi tecnici che gestione del corpo e controllo, sempre in un ambiente serio e seguito.\n\nPercorso strutturato e completo: tecnica, condizionamento e progressione, con focus su sicurezza e controllo.",
-    schedule: [
-      { day: "Lunedì", time: "19:45" },
-      { day: "Mercoledì", time: "19:45" },
-      { day: "Venerdì", time: "19:45" },
-    ],
-    trainers: [{ name: "ASTERIO LUCCHESINI", image: "ASTERIO.jpeg", bio: "MAESTRO MMA/GRAPPLING" }],
-  },
+];
+
+const MARTIAL_ARTS_COURSES = [
   {
     id: "karate",
     title: "Karate",
@@ -341,7 +273,77 @@ const COURSES = [
       { name: "VITTORINA DI VINCENZO", image: "VITTORIA.jpeg", bio: "MAESTRA JUDO" },
     ],
   },
+  {
+    id: "kickboxing",
+    title: "Kick Boxing",
+    subtitle: "Potenza, tecnica e controllo",
+    image: "kick.jpeg",
+    description:
+      "La kickboxing unisce pugni e calci in un allenamento completo, dinamico e coinvolgente. Migliora potenza e resistenza, coordinazione e agilità, tecnica e concentrazione.\n\nÈ perfetta sia per chi inizia sia per chi ha già esperienza: ogni lezione è pensata per farti crescere con metodo, in sicurezza e sempre seguito.\n\nProgressioni chiare e lavoro tecnico: migliora sicurezza nei colpi, timing e condizionamento, senza improvvisazione.",
+    schedule: [
+      { day: "Martedì", time: "20:30" },
+      { day: "Giovedì", time: "20:30" },
+    ],
+    trainers: [{ name: "ANTON IOAN CATALIN", image: "NATALINO.jpeg", bio: "MAESTRO KICKBOXING" }],
+  },
+  {
+    id: "boxe",
+    title: "Boxe",
+    subtitle: "Tecnica, fiducia e autocontrollo",
+    image: "boxe.png",
+    description:
+      "La boxe è uno degli sport più completi: migliora forza, resistenza, coordinazione e riflessi, ma soprattutto costruisce fiducia, autocontrollo e determinazione.\n\nIl percorso è guidato e strutturato: tecnica, lavoro al sacco, combinazioni e condizionamento.\n\nAllenamenti seri e progressivi: tecnica, timing e condizionamento, con attenzione alla sicurezza e alla crescita dell'allievo.",
+    schedules: [
+      {
+        title: "Boxe",
+        trainer: "Sperandio",
+        schedule: [
+          { day: "Martedì", time: "19:00" },
+          { day: "Giovedì", time: "19:00" },
+          { day: "Sabato", time: "19:30" },
+        ],
+      },
+      {
+        title: "Boxe Agonisti",
+        trainer: "Sperandio",
+        schedule: [
+          { day: "Lunedì", time: "16:00" },
+          { day: "Martedì", time: "16:00" },
+          { day: "Mercoledì", time: "16:00" },
+          { day: "Giovedì", time: "16:00" },
+          { day: "Sabato", time: "16:00" },
+        ],
+      },
+      {
+        title: "Boxe Amatoriale Bambini",
+        trainer: "Sperandio",
+        schedule: [
+          { day: "Martedì", time: "17:30" },
+          { day: "Giovedì", time: "17:30" },
+        ],
+      },
+    ],
+    trainers: [
+      { name: "PAOLO SPERANDIO", image: "PAOLO.jpeg", bio: "MAESTRO BOXE" },
+    ],
+  },
+  {
+    id: "grappling",
+    title: "Grappling (MMA)",
+    subtitle: "Forza, tecnica e versatilità",
+    image: "mma.png",
+    description:
+      "Tecnica, potenza, concentrazione. L'MMA è uno degli sport più completi: unisce striking e grappling e sviluppa forza, resistenza, agilità e capacità di reazione.\n\nÈ un percorso adatto a tutti i livelli: si lavora con metodo e progressione, imparando sia principi tecnici che gestione del corpo e controllo, sempre in un ambiente serio e seguito.\n\nPercorso strutturato e completo: tecnica, condizionamento e progressione, con focus su sicurezza e controllo.",
+    schedule: [
+      { day: "Lunedì", time: "19:45" },
+      { day: "Mercoledì", time: "19:45" },
+      { day: "Venerdì", time: "19:45" },
+    ],
+    trainers: [{ name: "ASTERIO LUCCHESINI", image: "ASTERIO.jpeg", bio: "MAESTRO MMA/GRAPPLING" }],
+  },
 ];
+
+const ALL_COURSES = [...WELLNESS_COURSES, ...MARTIAL_ARTS_COURSES];
 
 function ScheduleTable({ schedule }) {
   return (
@@ -447,69 +449,7 @@ function MultipleTrainersBlock({ trainers }) {
   );
 }
 
-function WeightRoomTrainersBlock({ trainers }) {
-  return (
-    <div className="px-4 sm:px-0">
-      <p className="font-heading uppercase tracking-wide text-2xl sm:text-3xl text-brand-black text-center mb-8">
-        I NOSTRI ISTRUTTORI DI SALA PESI
-      </p>
-
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
-        {trainers.slice(0, 4).map((t, idx) => (
-          <div key={idx} className="flex flex-col items-center">
-            <div className="relative w-full aspect-[3/4] rounded-none sm:rounded-lg overflow-hidden bg-white border-y sm:border border-brand-gray200">
-              <img
-                src={toPublicSrc(t.image)}
-                alt={t.name}
-                className="absolute inset-0 h-full w-full object-contain object-center"
-              />
-            </div>
-            <p className="my-3 font-heading uppercase tracking-wide text-center text-xs sm:text-sm text-brand-black">
-              {t.name}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 mt-4 sm:mt-6 max-w-4xl mx-auto">
-        {trainers.slice(4, 7).map((t, idx) => (
-          <div key={idx} className="flex flex-col items-center">
-            <div className="relative w-full aspect-[3/4] rounded-none sm:rounded-lg overflow-hidden bg-white border-y sm:border border-brand-gray200">
-              <img
-                src={toPublicSrc(t.image)}
-                alt={t.name}
-                className="absolute inset-0 h-full w-full object-contain object-center"
-              />
-            </div>
-            <p className="my-3 font-heading uppercase tracking-wide text-center text-xs sm:text-sm text-brand-black">
-              {t.name}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 mt-4 sm:mt-6 max-w-4xl mx-auto">
-        {trainers.slice(7).map((t, idx) => (
-          <div key={idx} className="flex flex-col items-center">
-            <div className="relative w-full aspect-[3/4] rounded-none sm:rounded-lg overflow-hidden bg-white border-y sm:border border-brand-gray200">
-              <img
-                src={toPublicSrc(t.image)}
-                alt={t.name}
-                className="absolute inset-0 h-full w-full object-contain object-center"
-              />
-            </div>
-            <p className="my-3 font-heading uppercase tracking-wide text-center text-xs sm:text-sm text-brand-black">
-              {t.name}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function CourseSection({ course, invert = false }) {
-  const isWeightRoom = course.id === "sala-pesi";
   const hasSingleTrainer = course.trainers.length === 1;
   const hasMultipleSchedules = course.schedules && course.schedules.length > 0;
 
@@ -617,10 +557,8 @@ function CourseSection({ course, invert = false }) {
         </div>
       </div>
 
-      <div className={`border-t border-brand-gray200 bg-brand-offwhite ${isWeightRoom ? 'p-0 py-8 sm:p-10' : 'py-7 sm:p-10'}`}>
-        {isWeightRoom ? (
-          <WeightRoomTrainersBlock trainers={course.trainers} />
-        ) : hasSingleTrainer ? (
+      <div className="border-t border-brand-gray200 bg-brand-offwhite py-7 sm:p-10">
+        {hasSingleTrainer ? (
           <SingleTrainerBlock trainer={course.trainers[0]} />
         ) : (
           <MultipleTrainersBlock trainers={course.trainers} />
@@ -660,7 +598,7 @@ function DiagonalBand({
               className="h-12 sm:h-14 lg:h-16 w-auto"
             />
           </div>
-          <h3 className="font-heading uppercase tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl mt-2">
+          <h3 className="font-heading uppercase tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl mt-2 text-center">
             {title}
           </h3>
         </div>
@@ -670,9 +608,6 @@ function DiagonalBand({
 }
 
 export default function CoursesPage() {
-  const TOP_BLOCK = COURSES.slice(0, 5);
-  const REST_BLOCK = COURSES.slice(5);
-
   useEffect(() => {
     // Gestisce il click sui link di navigazione
     const handleHashClick = (e) => {
@@ -709,20 +644,21 @@ export default function CoursesPage() {
         title="Scegli il tuo percorso."
         subtitle="Ogni corso ha un metodo, una guida e un obiettivo. Scegli cosa ti rappresenta e allenati con disciplina, sicurezza e continuità."
       />
-      {/* Eliminato space-y su mobile */}
+
       <div className="space-y-0 sm:space-y-8 lg:space-y-10 sm:py-10 lg:py-12 pb-0">
+        {/* CORSI BENESSERE */}
         <WhiteBlock>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="section-title text-brand-red">RED GYM</p>
+              <p className="section-title text-brand-red">Corsi & Attività</p>
               <h2 className="font-heading uppercase tracking-wide text-4xl sm:text-5xl mt-2">
-                Corsi & Attività
+                Corsi Benessere
               </h2>
             </div>
           </div>
 
           <div className="mt-8 flex flex-wrap gap-2">
-            {COURSES.map((c) => (
+            {WELLNESS_COURSES.map((c) => (
               <a
                 key={c.id}
                 href={`#${c.id}`}
@@ -734,31 +670,49 @@ export default function CoursesPage() {
           </div>
 
           <div className="mt-10 space-y-0 sm:space-y-10">
-            {TOP_BLOCK.map((course) => {
-              const idx = COURSES.findIndex((x) => x.id === course.id);
-              return (
-                <CourseSection
-                  key={course.id}
-                  course={course}
-                  invert={idx % 2 === 1}
-                />
-              );
-            })}
+            {WELLNESS_COURSES.map((course, idx) => (
+              <CourseSection
+                key={course.id}
+                course={course}
+                invert={idx % 2 === 1}
+              />
+            ))}
           </div>
         </WhiteBlock>
-<DiagonalBand image="sala3.JPG" />
+
+        <DiagonalBand image="sala3.JPG" />
+
+        {/* CORSI ARTI MARZIALI */}
         <WhiteBlock>
-          <div className="space-y-0 sm:space-y-10">
-            {REST_BLOCK.map((course) => {
-              const idx = COURSES.findIndex((x) => x.id === course.id);
-              return (
-                <CourseSection
-                  key={course.id}
-                  course={course}
-                  invert={idx % 2 === 1}
-                />
-              );
-            })}
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="section-title text-brand-red">Corsi & Attività</p>
+              <h2 className="font-heading uppercase tracking-wide text-4xl sm:text-5xl mt-2">
+                Corsi Arti Marziali
+              </h2>
+            </div>
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-2">
+            {MARTIAL_ARTS_COURSES.map((c) => (
+              <a
+                key={c.id}
+                href={`#${c.id}`}
+                className="rounded-full border border-brand-gray200 bg-white px-4 py-2 text-sm font-semibold text-black/70 hover:border-brand-red hover:text-brand-red transition-colors"
+              >
+                {c.title}
+              </a>
+            ))}
+          </div>
+
+          <div className="mt-10 space-y-0 sm:space-y-10">
+            {MARTIAL_ARTS_COURSES.map((course, idx) => (
+              <CourseSection
+                key={course.id}
+                course={course}
+                invert={idx % 2 === 1}
+              />
+            ))}
           </div>
         </WhiteBlock>
       </div>

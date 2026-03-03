@@ -268,8 +268,6 @@ function DiagonalBand({ image = "diagonal3.webp", title = "Sport & Benessere", f
   );
 }
 
-
-
 function FinalCtaHero({ image = "/hero-final.jpg" }) {
   return (
     <section className="relative bg-brand-red overflow-hidden">
@@ -500,7 +498,7 @@ export default function AboutPage() {
                   <div className="flex flex-col">
                     <div className="relative overflow-hidden rounded-xl shadow-soft h-[400px] sm:h-[350px] lg:h-[450px]">
                       <Image
-                        src={toPublicSrc("team.jpg")}
+                        src={toPublicSrc("VITO.webp")}
                         alt="Vito Lettieri - Direttore Red Gym"
                         fill
                         className="object-cover"
@@ -539,30 +537,94 @@ export default function AboutPage() {
           <div className="mt-10 space-y-0 sm:space-y-8">
             <SplitSection
               kicker="La Palestra"
-              title="Sala pesi ampia e completa"
-              text="Una sala pesi grande e ben organizzata, con macchinari selezionati per allenare forza e tono in sicurezza. Trovi postazioni guidate e isotoniche Olicrom, pesi liberi e aree dedicate per un percorso completo: ipertrofia, postura, resistenza e performance. Spazi curati, layout ordinato e attrezzatura sempre pronta: ti alleni bene, con continuità."
+              title="Sala Pesi"
+              text="La sala pesi è ideale per chi desidera rimettersi in forma e migliorare le proprie performance sportive, all’interno troverete un’ampia gamma di macchine Panatta."
               image="/palestra2.webp"
-              alt="Sala pesi moderna"
+              alt="Sala pesi"
             />
+            <SplitSection
+              kicker="La Palestra"
+              title="Sala Olicrom"
+              text="La sala Olicrom è una novità assoluta, puoi allenarti e ottenere risultai importanti, con le macchine della linea CableQuad e TwinStrength."
+              image="/sala-olicrom.webp"
+              alt="Sala Olicrom"
+              invert
+            />
+
+            <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-brand-offwhite sm:p-8 lg:p-12">
+              <p className="section-title text-brand-red text-center mb-8">Gli istruttori di sala pesi/Olicrom</p>
+
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+                {[
+                  { name: "DANIELE", image: "DANIELE.jpeg" },
+                  { name: "EMANUELE", image: "EMANUELE.jpeg" },
+                  { name: "ROBERTO", image: "ROBERTO.jpeg" },
+                  { name: "EUGENIA", image: "EUGENIA.jpeg" },
+                ].map((t) => (
+                  <div key={t.name} className="flex flex-col items-center">
+                    <div className="relative w-full aspect-[3/4] rounded-none sm:rounded-lg overflow-hidden bg-white border-y sm:border border-brand-gray200">
+                      <Image
+                        src={toPublicSrc(t.image)}
+                        alt={t.name}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                    <p className="my-3 font-heading uppercase tracking-wide text-center text-xs sm:text-sm text-brand-black">
+                      {t.name}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 mt-4 sm:mt-6 max-w-4xl mx-auto">
+                {[
+                  { name: "GARY", image: "GARY.jpeg" },
+                  { name: "JACOPO", image: "JACOPO.jpeg" },
+                  { name: "LUIGI", image: "LUIGI.jpeg" },
+                ].map((t) => (
+                  <div key={t.name} className="flex flex-col items-center">
+                    <div className="relative w-full aspect-[3/4] rounded-none sm:rounded-lg overflow-hidden bg-white border-y sm:border border-brand-gray200">
+                      <Image
+                        src={toPublicSrc(t.image)}
+                        alt={t.name}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                    <p className="my-3 font-heading uppercase tracking-wide text-center text-xs sm:text-sm text-brand-black">
+                      {t.name}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
 
             <SplitSection
               kicker="La Palestra"
-              title="Sala Attività & Combattimento"
-              text="All’interno della struttura principale trovi una seconda sala dedicata alle attività dinamiche e agli sport da combattimento: prepugilistica, boxe, pilates, TACFIT e allenamento funzionale.
-Uno spazio versatile, organizzato per alternare lavoro tecnico, condizionamento e potenziamento, con attrezzatura adeguata e ambienti pensati per allenarsi con intensità ma in sicurezza."
-              image="/sala3.JPG"
-              alt="Sala sport da combattimento"
-              invert
+              title="Sala Funzionale"
+              text="Nella sala funzionale troverai tutte le attrezzature per diversi tipi di allenamenti specifici, utilizzando esercizi basati sui movimenti naturali del corpo per migliorare forza, coordinazione, equilibrio e stabilità."
+              image="/sala-funzionale.webp"
+              alt="Sala funzionale"
             />
 
             <SplitSection
               kicker="La Palestra"
               title="Sala Arti Marziali"
-              text="Spazio dedicato alle arti marziali tradizionali, con area tatami attrezzata per Judo e Karate. La sala si trova al primo piano del Centro Commerciale La Fonte, in un ambiente separato dalla palestra principale, così da garantire concentrazione, sicurezza e continuità durante le lezioni.
-Un contesto ordinato e specifico per lavorare su tecnica, disciplina, coordinazione e crescita personale, dai più piccoli agli adulti."
-              image="/sala1.jpeg"
-              alt="Seconda sala sport da combattimento"
+              text="L’ampia sala di arti marziali è dotata di tatami, ideale per le diverse discipline presenti all’interno dei corsi. "
+              image="/sala-arti-marziali.webp"
+              alt="Sala arti marziali"
+              invert
             />
+          </div>
+          <div className="space-y-3 text-center">
+            <h2 className="font-heading uppercase tracking-wide text-2xl sm:text-3xl mt-10">
+              SCOPRI TUTTI I CORSI E LE ATTIVITÀ.
+            </h2>
+            <p className="mt-2 text-black/70 leading-relaxed text-center">
+            Scopri tutti i corsi, le attività e gli altri istruttori nella pagina dedicata.
+            </p>
+            <Button href="/courses">Vai ai corsi</Button>
           </div>
         </WhiteBlock>
 
