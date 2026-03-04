@@ -481,7 +481,9 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-black/10" />
               </div>
               <p className="mt-4 text-black/70 leading-relaxed text-sm sm:text-[15px] lg:text-[18px]">
-                Red Gym è una palestra a Fonte Nuova (RM) con oltre 1.800 mq dedicati al fitness e agli sport da combattimento. Offriamo sala pesi attrezzata con macchinari professionali, aree specifiche per boxe e arti marziali e un ambiente ordinato, motivante e seguito da istruttori qualificati. La nostra struttura è pensata per chi cerca qualità, spazio e un allenamento efficace nel cuore di Fonte Nuova.
+                Red Gym è una palestra a Fonte Nuova (RM) con oltre 1.800 mq dedicati al fitness e agli sport da combattimento. Offriamo sale attrezzata con macchinari professionali, aree specifiche per boxe e arti marziali e un ambiente ordinato, motivante e seguito da istruttori qualificati. 
+                <br />
+                La nostra struttura è pensata per chi cerca qualità, spazio e un allenamento efficace a Fonte Nuova.
               </p>
             </div>
 
@@ -520,7 +522,9 @@ export default function HomePage() {
                     </div>
 
                     <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
-                      Sala pesi, Olicrom, funzionale e arti marziali: Red Gym offre spazi ampi attrezzati con macchinari professionali per garantire un allenamento efficace e confortevole. Che tu voglia potenziare la forza, migliorare la resistenza o praticare sport da combattimento, qui trovi tutto ciò di cui hai bisogno. 
+                      Sala pesi, Olicrom, funzionale e arti marziali: Red Gym offre spazi ampi attrezzati con macchinari professionali per garantire un allenamento efficace e confortevole. 
+                      <br />
+                      Che tu voglia potenziare forza e resistenza, praticare dicipline dedicate al benessere o sport da combattimento, qui trovi tutto ciò di cui hai bisogno. 
                     </p>
                     <div className="mt-6">
                       <Button href="/about#palestra">Scopri la palestra</Button>
