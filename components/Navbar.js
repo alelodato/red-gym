@@ -213,23 +213,6 @@ export default function Navbar() {
                   );
                 })}
               </div>
-
-              <div className="mt-5 rounded-xl border border-brand-gray200 bg-brand-offwhite p-4">
-                <p className="text-sm font-semibold text-black/70">
-                  Vuoi informazioni rapide?
-                </p>
-                <p className="mt-1 text-sm text-black/60">
-                  Scrivici e ti rispondiamo con corsi, orari e abbonamenti.
-                </p>
-                <Link
-                  href="/contact"
-                  onClick={() => setOpen(false)}
-                  className="mt-3 inline-flex w-full items-center justify-center rounded-md bg-brand-red px-5 py-3 text-sm font-semibold text-white hover:opacity-90 transition"
-                >
-                  Contattaci
-                </Link>
-              </div>
-
               <div className="h-[calc(env(safe-area-inset-bottom)+12px)]" />
             </div>
           </div>
