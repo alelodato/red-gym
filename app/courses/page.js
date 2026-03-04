@@ -548,7 +548,7 @@ function CourseSection({ course, invert = false }) {
           )}
 
           <div className="mt-7 flex flex-col sm:flex-row gap-3">
-            <Button href="/contact">Prenota / Info</Button>
+            <Button href="/contact">Chiedi maggiori info</Button>
             <Button href="/pricing" variant="outline">
               Vedi abbonamenti
             </Button>
@@ -568,7 +568,7 @@ function CourseSection({ course, invert = false }) {
 }
 
 function DiagonalBand({
-  image = "sala3.JPG",
+  image = "sala-funzionale2.webp",
   title = "Energia. Disciplina. Risultati.",
 }) {
   return (
