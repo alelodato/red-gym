@@ -786,7 +786,7 @@ export default function HomePage() {
             <SectionHead
               kicker="Abbonamenti"
               title="Scegli la formula giusta."
-              lead="Che tu venga una volta a settimana o ti alleni ogni giorno, c'è una soluzione pensata per te."
+              lead="Pacchetti flessibili e convenienti, pensati per ogni esigenza: accesso alla sala pesi, corsi e sconti dedicati e promozioni per chi vuole allenarsi con noi a lungo termine."
             />
 
             <div className="mt-8 lg:mt-10 grid gap-10 lg:grid-cols-3 lg:gap-6">
@@ -800,7 +800,7 @@ export default function HomePage() {
               <Card
                 kicker="Corsi & Discipline"
                 title="Boxe, Judo, Karate e altro"
-                text="Pacchetti mensili dedicati per ogni disciplina: Boxe, Judo, Grappling, Karate. Già socio? Aggiungi un corso a soli 40€."
+                text="Pacchetti mensili dedicati per ogni disciplina. Già socio? Aggiungi un corso a soli 40€."
                 href="/pricing#corsi"
                 ctaLabel="Esplora i corsi"
               />
