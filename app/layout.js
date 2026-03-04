@@ -3,7 +3,7 @@ import Script from "next/script";
 import { Bebas_Neue, Anton, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { SITE } from "@/lib/site";
+import CookieBanner from "@/components/CookieBanner";
 import ScrollToTop from "@/components/ScrollToTop";
 import BackToTop from "@/components/BackToTop";
 
@@ -74,6 +74,7 @@ export default function RootLayout({ children }) {
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <CookieBanner />
       </body>
     </html>
   );
