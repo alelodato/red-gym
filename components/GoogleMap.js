@@ -3,60 +3,52 @@
 import { useEffect, useState } from "react";
 
 function hasConsent() {
+  if (typeof window === "undefined") return false;
   return localStorage.getItem("cookie-consent") === "accepted";
 }
 
 export default function MapEmbed({
-  title = "Mappa",
   src,
-  height = 360,
   className = "",
+  title = "Google Maps",
 }) {
-  const [consent, setConsent] = useState(false);
+  const [accepted, setAccepted] = useState(false);
 
   useEffect(() => {
-    setConsent(hasConsent());
+    const sync = () => {
+      setAccepted(hasConsent());
+    };
+
+    sync();
+
+    window.addEventListener("cookie-consent-updated", sync);
+
+    return () =>
+      window.removeEventListener("cookie-consent-updated", sync);
   }, []);
 
-  if (!consent) {
+  if (!accepted) {
     return (
       <div
-        className={`rounded-2xl border border-brand-gray200 bg-black/80 p-6 text-white ${className}`}
-        style={{ height }}
+        className={`flex items-center justify-center bg-black/5 border border-black/10 rounded-xl ${className}`}
       >
-        <div className="h-full flex flex-col items-center justify-center text-center">
-          <p className="text-sm text-white/80">
-            Per visualizzare <span className="font-semibold">{title}</span> è necessario accettare i
-            cookie di terze parti (Google Maps).
-          </p>
-
-          <button
-            className="mt-4 rounded-md bg-brand-red px-4 py-2 text-sm font-semibold"
-            onClick={() => {
-              localStorage.setItem("cookie-consent", "accepted");
-              setConsent(true);
-              // facoltativo: avvisa anche altri componenti
-              window.dispatchEvent(new Event("cookie-consent-updated"));
-            }}
-          >
-            Abilita mappe
-          </button>
-        </div>
+        <p className="text-sm text-black/70 text-center px-6">
+          Per visualizzare la mappa è necessario accettare i cookie di terze parti.
+        </p>
       </div>
     );
   }
 
   return (
     <iframe
-      title={title}
+      key="maps-active"
       src={src}
-      width="100%"
-      height={height}
+      title={title}
+      className={`w-full h-full ${className}`}
       style={{ border: 0 }}
+      allowFullScreen
       loading="lazy"
-      allowFullScreen=""
       referrerPolicy="no-referrer-when-downgrade"
-      className={`rounded-2xl ${className}`}
     />
   );
 }

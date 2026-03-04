@@ -863,7 +863,6 @@ export default function HomePage() {
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
                     />
-                    <div className="absolute inset-0 bg-black/5 pointer-events-none" />
                   </div>
                   <p className="mt-4 text-center text-sm text-black/60 italic leading-relaxed">
                     La palestra si trova all'interno del complesso del{" "}
