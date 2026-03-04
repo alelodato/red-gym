@@ -501,14 +501,14 @@ function FinalCtaHero({ image = "/hero-final.jpg" }) {
                   href="/contact"
                   className="inline-flex items-center justify-center w-full sm:w-auto min-w-[220px] rounded-md px-5 py-3 text-sm font-semibold tracking-wide bg-white text-brand-red hover:bg-white/90 transition-colors"
                 >
-                  Prenota / Contattaci
+                  Contattaci
                 </Link>
 
                 <Link
                   href="/courses"
                   className="inline-flex items-center justify-center w-full sm:w-auto min-w-[220px] rounded-md px-5 py-3 text-sm font-semibold tracking-wide border border-white text-white hover:bg-white hover:text-brand-red transition-colors"
                 >
-                  Guarda i corsi
+                  Corsi e Attività
                 </Link>
               </div>
             </div>
@@ -910,60 +910,60 @@ export default function AboutPage() {
           </div>
 
           {/* SEGRETERIA - object-contain, più piccole e basse */}
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start max-w-5xl mx-auto">
-  <div className="flex flex-col items-center sm:items-stretch">
-    <div className="w-4/5 max-w-[280px] sm:w-full sm:max-w-none lg:max-w-[280px]">
-      <div className="relative rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft h-[350px] sm:h-[320px] lg:h-[340px]">
-        <Image
-          src={toPublicSrc("GAIA.jpeg")}
-          alt="Gaia - Reception Red Gym"
-          fill
-          className="object-contain"
-        />
-        <div className="absolute inset-0 bg-black/5 pointer-events-none" />
-      </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start max-w-5xl mx-auto">
+            <div className="flex flex-col items-center sm:items-stretch">
+              <div className="w-4/5 max-w-[280px] sm:w-full sm:max-w-none lg:max-w-[280px]">
+                <div className="relative rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft h-[350px] sm:h-[320px] lg:h-[340px]">
+                  <Image
+                    src={toPublicSrc("GAIA.jpeg")}
+                    alt="Gaia - Reception Red Gym"
+                    fill
+                    className="object-contain"
+                  />
+                  <div className="absolute inset-0 bg-black/5 pointer-events-none" />
+                </div>
 
-      <div className="mt-4 text-left">
-        <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">
-          Gaia
-        </h4>
-        <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">
-          Segreteria
-        </p>
-      </div>
-    </div>
-  </div>
+                <div className="mt-4 text-left">
+                  <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">
+                    Gaia
+                  </h4>
+                  <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">
+                    Segreteria
+                  </p>
+                </div>
+              </div>
+            </div>
 
-  <div className="hidden lg:flex flex-col items-center justify-center px-6 text-center italic text-black/60 border-x border-brand-gray200 self-center">
-    <p className="text-base leading-relaxed">
-      "Che tu venga per informarti, iniziare un nuovo allenamento o semplicemente chiedere un consiglio, troverai sempre un sorriso e una presenza disponibile. <br />
-      Per noi sentirsi a proprio agio è fondamentale quanto allenarsi bene."
-    </p>
-  </div>
+            <div className="hidden lg:flex flex-col items-center justify-center px-6 text-center italic text-black/60 border-x border-brand-gray200 self-center">
+              <p className="text-base leading-relaxed">
+                "Che tu venga per informarti, iniziare un nuovo allenamento o semplicemente chiedere un consiglio, troverai sempre un sorriso e una presenza disponibile. <br />
+                Per noi sentirsi a proprio agio è fondamentale quanto allenarsi bene."
+              </p>
+            </div>
 
-  <div className="flex flex-col items-center sm:items-stretch">
-    <div className="w-4/5 max-w-[280px] sm:w-full sm:max-w-none lg:max-w-[280px]">
-      <div className="relative rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft h-[350px] sm:h-[320px] lg:h-[340px]">
-        <Image
-          src={toPublicSrc("ELEONORA.jpeg")}
-          alt="Eleonora - Reception Red Gym"
-          fill
-          className="object-contain"
-        />
-        <div className="absolute inset-0 bg-black/5 pointer-events-none" />
-      </div>
+            <div className="flex flex-col items-center sm:items-stretch">
+              <div className="w-4/5 max-w-[280px] sm:w-full sm:max-w-none lg:max-w-[280px]">
+                <div className="relative rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft h-[350px] sm:h-[320px] lg:h-[340px]">
+                  <Image
+                    src={toPublicSrc("ELEONORA.jpeg")}
+                    alt="Eleonora - Reception Red Gym"
+                    fill
+                    className="object-contain"
+                  />
+                  <div className="absolute inset-0 bg-black/5 pointer-events-none" />
+                </div>
 
-      <div className="mt-4 text-left">
-        <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">
-          Eleonora
-        </h4>
-        <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">
-          Segreteria
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+                <div className="mt-4 text-left">
+                  <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">
+                    Eleonora
+                  </h4>
+                  <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">
+                    Segreteria
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </WhiteBlock>
 
         <FinalCtaHero image="/palestra3.webp" />
