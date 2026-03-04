@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import SafeguardingModal from "@/components/SafeguardingModal";
 import StatsCounterBand from "@/components/StatsCounterBand";
 import Button from "@/components/Button";
@@ -31,34 +31,26 @@ function Hero({
 }) {
   return (
     <section className={`relative bg-brand-red overflow-hidden ${className}`}>
-      {/* Mobile fullscreen | Desktop invariato */}
       <div className="relative h-[600px] sm:h-[620px] lg:h-[800px]">
         <img
           src={toPublicSrc(image)}
           alt=""
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
-
         <div className="absolute inset-0 bg-black/65" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-black/10" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-black/25" />
       </div>
 
-      {/* Contenuto centrato verticalmente su mobile */}
       <div className="absolute inset-0 flex items-center">
         <div className="mx-auto w-full max-w-7xl 2xl:max-w-[1440px] px-4 sm:px-6 lg:px-8">
           <div>
             {kicker ? (
-              <p className="section-title text-white/85">
-                {kicker}
-              </p>
+              <p className="section-title text-white/85">{kicker}</p>
             ) : null}
 
             {title ? (
-              <h1
-                className="font-heading uppercase tracking-wide text-white mt-2 leading-tight
-                           text-3xl sm:text-5xl lg:text-6xl 2xl:text-7xl"
-              >
+              <h1 className="font-heading uppercase tracking-wide text-white mt-2 leading-tight text-3xl sm:text-5xl lg:text-6xl 2xl:text-7xl">
                 {title}
               </h1>
             ) : null}
@@ -85,12 +77,9 @@ function Hero({
 function WhiteSection({ children, id }) {
   return (
     <section id={id} className="bg-brand-red">
-      {/* Mobile: contenuto diretto senza padding/bordi */}
       <div className="sm:hidden bg-white py-8 px-4">
         {children}
       </div>
-
-      {/* Desktop: con container e bordi */}
       <div className="hidden sm:block px-6 lg:px-8">
         <div className="bg-white border border-brand-gray200 shadow-soft rounded-2xl p-10 lg:p-12">
           {children}
@@ -114,7 +103,6 @@ function SectionHead({ kicker, title, lead, ctaHref, ctaLabel }) {
           </p>
         ) : null}
       </div>
-
       {ctaHref ? (
         <div className="shrink-0">
           <Button href={ctaHref} variant="outline">
@@ -130,11 +118,9 @@ function Card({ kicker, title, text, href, ctaLabel, imageSrc, imageAlt }) {
   return (
     <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
       {kicker ? <p className="section-title text-brand-red">{kicker}</p> : null}
-
       <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
         {title}
       </h3>
-
       {imageSrc ? (
         <div className="mt-4 lg:hidden">
           <div className="relative overflow-hidden rounded-xl shadow-soft h-[250px] md:h-[220px]">
@@ -147,11 +133,9 @@ function Card({ kicker, title, text, href, ctaLabel, imageSrc, imageAlt }) {
           </div>
         </div>
       ) : null}
-
       <p className="mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
         {text}
       </p>
-
       {href ? (
         <div className="mt-6">
           <Button href={href}>{ctaLabel || "Scopri di più"}</Button>
@@ -161,11 +145,184 @@ function Card({ kicker, title, text, href, ctaLabel, imageSrc, imageAlt }) {
   );
 }
 
+function TrainersSlideshow() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const trainers = [
+    { image: "ADRIANO.jpeg", name: "Adriano" },
+    { image: "ALEX.jpeg", name: "Alex" },
+    { image: "MORENA.jpeg", name: "Morena" },
+    { image: "CLAUDIA.jpeg", name: "Claudia" },
+    { image: "PAOLO.jpeg", name: "Paolo" },
+    { image: "MASSIMO.jpeg", name: "Massimo" },
+    { image: "BARBARA.jpeg", name: "Barbara" },
+    { image: "MICHELA.jpeg", name: "Michela" },
+    { image: "VITTORIA.jpeg", name: "Vittoria" },
+    { image: "NATALINO.jpeg", name: "Anton Ioan Catalin" },
+    { image: "ASTERIO.jpeg", name: "Asterio" },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % trainers.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [trainers.length]);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 50) {
+      setCurrentSlide((prev) => (prev + 1) % trainers.length);
+    }
+    if (touchStartX.current - touchEndX.current < -50) {
+      setCurrentSlide((prev) => (prev - 1 + trainers.length) % trainers.length);
+    }
+  };
+
+  return (
+    <div className="lg:hidden mt-6">
+      <div
+        className="relative overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        <div
+          className="flex transition-transform duration-500 ease-out"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {trainers.map((trainer, index) => (
+            <div key={index} className="min-w-full">
+              <div className="relative h-[400px] overflow-hidden rounded-xl">
+                <img
+                  src={toPublicSrc(trainer.image)}
+                  alt={trainer.name}
+                  className="absolute inset-0 h-full w-full object-contain object-center bg-white"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h4 className="font-heading uppercase tracking-wide text-white text-2xl text-center">
+                    {trainer.name}
+                  </h4>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex justify-center gap-2 mt-4">
+          {trainers.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`h-2 rounded-full transition-all ${
+                index === currentSlide ? "w-8 bg-brand-red" : "w-2 bg-brand-gray200"
+              }`}
+              aria-label={`Vai allo slide ${index + 1}`}
+            ></button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CoursesSlideshow() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const slides = [
+    { image: "tacfit.webp", title: "Allenamento Funzionale & TacFit" },
+    { image: "pilates.jpg", title: "Ginnastica per la Salute & Yoga" },
+    { image: "boxe.png", title: "Boxe • Kickboxing • Prepugilistica" },
+    { image: "judo-hero.webp", title: "MMA • Karate • Judo" },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 50) {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }
+    if (touchStartX.current - touchEndX.current < -50) {
+      setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    }
+  };
+
+  return (
+    <div className="lg:hidden mt-8">
+      <div
+        className="relative overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        <div
+          className="flex transition-transform duration-500 ease-out"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {slides.map((slide, index) => (
+            <div key={index} className="min-w-full">
+              <div className="relative h-[400px] overflow-hidden rounded-xl">
+                <img
+                  src={toPublicSrc(slide.image)}
+                  alt={slide.title}
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h4 className="font-heading uppercase tracking-wide text-white text-2xl text-center">
+                    {slide.title}
+                  </h4>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex justify-center gap-2 mt-4">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`h-2 rounded-full transition-all ${index === currentSlide ? "w-8 bg-brand-red" : "w-2 bg-brand-gray200"
+                }`}
+              aria-label={`Vai alla slide ${index + 1}`}
+            ></button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function DiagonalCuts({ flip = false, heightClass = "h-16 sm:h-20" }) {
   const topClip = flip
     ? "[clip-path:polygon(0_0,100%_0,100%_100%,0_55%)]"
     : "[clip-path:polygon(0_0,100%_0,100%_55%,0_100%)]";
-
   const bottomClip = flip
     ? "[clip-path:polygon(0_0,100%_45%,100%_100%,0_100%)]"
     : "[clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]";
@@ -188,7 +345,6 @@ function DiagonalPromoOver65({
   const topClip = reverse
     ? "[clip-path:polygon(0_0,100%_0,100%_100%,0_55%)]"
     : "[clip-path:polygon(0_0,100%_0,100%_55%,0_100%)]";
-
   const bottomClip = reverse
     ? "[clip-path:polygon(0_0,100%_45%,100%_100%,0_100%)]"
     : "[clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]";
@@ -196,14 +352,8 @@ function DiagonalPromoOver65({
   return (
     <section className="relative bg-brand-red overflow-hidden">
       <div className="absolute inset-0">
-        <img
-          src={toPublicSrc(image)}
-          alt={title}
-          className="h-full w-full object-cover object-top"
-        />
+        <img src={toPublicSrc(image)} alt={title} className="h-full w-full object-cover object-top" />
         <div className="absolute inset-0 bg-black/55" />
-
-        {/* Tagli diagonali solo desktop */}
         <div className={`hidden sm:block absolute -top-1 left-0 right-0 h-20 bg-brand-red ${topClip}`} />
         <div className={`hidden sm:block absolute -bottom-1 left-0 right-0 h-20 bg-brand-red ${bottomClip}`} />
       </div>
@@ -211,20 +361,16 @@ function DiagonalPromoOver65({
       <div className="relative">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-20">
           <p className="section-title text-white/85">{kicker}</p>
-
           <h3 className="font-heading uppercase tracking-wide text-white text-4xl sm:text-5xl mt-2">
             {title}
           </h3>
-
           <p className="mt-4 text-white/85 max-w-2xl leading-relaxed text-base sm:text-lg">
             {subtitle}
           </p>
-
           <div className="mt-6 grid gap-3 sm:flex sm:flex-row">
             <a
               href="/contact"
-              className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold tracking-wide
-                         bg-white text-brand-red hover:bg-white/90 transition-colors"
+              className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold tracking-wide bg-white text-brand-red hover:bg-white/90 transition-colors"
             >
               Chiedi info
             </a>
@@ -247,23 +393,12 @@ function DiagonalPhoto({
   return (
     <section className="relative bg-brand-red overflow-hidden">
       <div className={["relative", heightClass].join(" ")}>
-        {/* Desktop: foto con taglio diagonale */}
         <div className="hidden sm:block absolute inset-0">
-          <img
-            src={toPublicSrc(image)}
-            alt={alt}
-            className="absolute inset-0 h-full w-full object-cover"
-          />
+          <img src={toPublicSrc(image)} alt={alt} className="absolute inset-0 h-full w-full object-cover" />
           <div className="absolute inset-0 bg-black/40" />
         </div>
-
-        {/* Mobile: foto dritta come background */}
         <div className="sm:hidden absolute inset-0">
-          <img
-            src={toPublicSrc(image)}
-            alt={alt}
-            className="absolute inset-0 h-full w-full object-cover"
-          />
+          <img src={toPublicSrc(image)} alt={alt} className="absolute inset-0 h-full w-full object-cover" />
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
@@ -271,20 +406,12 @@ function DiagonalPhoto({
           <div className="absolute inset-0 flex items-center">
             <div className={[SHELL, "px-4 sm:px-6 lg:px-8"].join(" ")}>
               <div className="max-w-3xl backdrop-blur-sm rounded-xl px-4 py-4 sm:px-8 sm:py-7 sm:mt-6">
-                <p className="section-title text-white/80 tracking-widest">
-                  SAFEGUARDING
-                </p>
-
-                <h3 className="mt-2 font-heading uppercase tracking-wide text-white
-                               text-2xl sm:text-3xl lg:text-4xl leading-tight">
+                <p className="section-title text-white/80 tracking-widest">SAFEGUARDING</p>
+                <h3 className="mt-2 font-heading uppercase tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl leading-tight">
                   Tutela, rispetto e sicurezza
                 </h3>
-
-                <p className="mt-4 text-white/90 leading-relaxed
-                              text-sm sm:text-base lg:text-lg">
-                  Red Gym promuove un ambiente sicuro, inclusivo e rispettoso per
-                  tutti. Per segnalazioni o richieste di chiarimento, è possibile
-                  consultare l'informativa sul{" "}
+                <p className="mt-4 text-white/90 leading-relaxed text-sm sm:text-base lg:text-lg">
+                  Red Gym promuove un ambiente sicuro, inclusivo e rispettoso per tutti. Per segnalazioni o richieste di chiarimento, è possibile consultare l'informativa sul{" "}
                   <button
                     type="button"
                     onClick={onOpenSafeguarding}
@@ -293,13 +420,9 @@ function DiagonalPhoto({
                     SAFEGUARDING
                   </button>{" "}
                   oppure contattare il responsabile all'indirizzo{" "}
-                  <a
-                    href={`mailto:${safeguardingEmail}`}
-                    className="font-semibold hover:text-white"
-                  >
+                  <a href={`mailto:${safeguardingEmail}`} className="font-semibold hover:text-white">
                     {safeguardingEmail}
-                  </a>
-                  .
+                  </a>.
                 </p>
               </div>
             </div>
@@ -321,13 +444,8 @@ function DiagonalBand({ image = "palestra1.webp", title = "Sport & Benessere", f
 
       <div className="absolute inset-0 flex items-center">
         <div className={[SHELL, "px-4 sm:px-6 lg:px-8"].join(" ")}>
-          {/* Logo al posto del kicker */}
           <div className="flex justify-center mb-3">
-            <img
-              src={toPublicSrc("logo-negativo.png")}
-              alt="Red Gym"
-              className="h-12 sm:h-14 lg:h-16 w-auto"
-            />
+            <img src={toPublicSrc("logo-negativo.png")} alt="Red Gym" className="h-12 sm:h-14 lg:h-16 w-auto" />
           </div>
           <h3 className="font-heading uppercase text-center tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl">
             {title}
@@ -346,15 +464,10 @@ export default function HomePage() {
       <Hero className="-mt-[var(--nav-h)]" image="hero1.webp" />
 
       <div className="bg-brand-red">
-        {/* Eliminato space-y su mobile */}
         <div className="space-y-0 sm:space-y-8 lg:space-y-10 pb-0 sm:pt-10 lg:pt-12">
           <WhiteSection id="home-about">
-            <SectionHead
-              kicker="La palestra"
-              title="Perchè scegliere Red Gym?"
-            />
+            <SectionHead kicker="La palestra" title="Perchè scegliere Red Gym?" />
 
-            {/* IMMAGINE PALESTRA2 + PARAGRAFO */}
             <div className="mt-6">
               <div className="relative overflow-hidden rounded-xl shadow-soft h-[250px] sm:h-[300px] lg:h-[360px]">
                 <img
@@ -371,17 +484,14 @@ export default function HomePage() {
 
             <div className="mt-10">
               <div className="grid gap-4 sm:gap-10 lg:grid-cols-2">
-                {/* COLONNA SINISTRA: 4 Card */}
                 <div className="space-y-12 sm:space-y-10">
                   {/* 1. Macchinari */}
                   <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
                     <p className="section-title text-brand-red">Struttura e Spazi</p>
-
                     <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
                       Attrezzature e Spazi per ogni tipo di attività
                     </h3>
 
-                    {/* Immagini sovrapposte MOBILE */}
                     <div className="mt-6 lg:hidden relative h-[360px]">
                       <div className="absolute top-0 left-0 w-[55%] z-10">
                         <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
@@ -397,7 +507,7 @@ export default function HomePage() {
                         <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
                           <img
                             src={toPublicSrc("sala-funzionale.webp")}
-                            alt="Sala Combattimento Red Gym"
+                            alt="Sala Funzionale Red Gym"
                             className="absolute inset-0 h-full w-full object-cover"
                           />
                           <div className="absolute inset-0 bg-black/10" />
@@ -408,7 +518,6 @@ export default function HomePage() {
                     <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
                       Strumenti selezionati per sicurezza, comfort ed efficacia: qui trovi macchinari che fanno la differenza. E per chi ama il combattimento, spazi dedicati a Boxe, MMA e arti marziali organizzati e con l'atmosfera giusta per allenarti con metodo e concentrazione.
                     </p>
-
                     <div className="mt-6">
                       <Button href="/about#palestra">Scopri la palestra</Button>
                     </div>
@@ -417,12 +526,10 @@ export default function HomePage() {
                   {/* 2. Benessere */}
                   <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
                     <p className="section-title text-brand-red">Sport & Benessere</p>
-
                     <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
                       Mente e Corpo in Equilibrio
                     </h3>
 
-                    {/* Immagini sovrapposte MOBILE */}
                     <div className="mt-6 lg:hidden relative h-[360px]">
                       <div className="absolute top-0 left-0 w-[55%] z-10">
                         <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
@@ -449,7 +556,6 @@ export default function HomePage() {
                     <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
                       Red Gym propone un percorso completo che unisce sport da combattimento, prepugilistica e allenamento funzionale a discipline dedicate al benessere come yoga e ginnastica posturale. Un approccio integrato per sviluppare forza, tecnica, mobilità ed equilibrio, adatto a ogni età e livello di preparazione.
                     </p>
-
                     <div className="mt-6">
                       <Button href="/courses">I nostri corsi</Button>
                     </div>
@@ -458,27 +564,16 @@ export default function HomePage() {
                   {/* 3. Trainer */}
                   <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
                     <p className="section-title text-brand-red">Il Team</p>
-
                     <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
                       Istruttori Qualificati e Appassionati
                     </h3>
 
-                    {/* Immagine MOBILE */}
-                    <div className="mt-4 lg:hidden">
-                      <div className="relative overflow-hidden rounded-xl shadow-soft h-[250px] md:h-[220px]">
-                        <img
-                          src={toPublicSrc("rgym2.jpeg")}
-                          alt="Team Red Gym"
-                          className="absolute inset-0 h-full w-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/10" />
-                      </div>
-                    </div>
+                    {/* SLIDESHOW ISTRUTTORI - SOLO MOBILE */}
+                    <TrainersSlideshow />
 
                     <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
                       Ogni corso è seguito da istruttori certificati, con anni di esperienza e la passione per quello che fanno. Non troverai solo tecnici preparati, ma guide attente che ti aiutano a crescere con metodo, sicurezza e motivazione costante.
                     </p>
-
                     <div className="mt-6">
                       <Button href="/courses">Conosci il team</Button>
                     </div>
@@ -487,12 +582,10 @@ export default function HomePage() {
                   {/* 4. Community */}
                   <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
                     <p className="section-title text-brand-red">Community</p>
-
                     <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
                       Un Ambiente Accogliente e Motivante
                     </h3>
 
-                    {/* Immagine MOBILE */}
                     <div className="mt-4 lg:hidden">
                       <div className="relative overflow-hidden rounded-xl shadow-soft h-[250px] md:h-[220px]">
                         <img
@@ -504,10 +597,9 @@ export default function HomePage() {
                       </div>
                     </div>
 
-                    <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px] whitespace-pre-line">
+                    <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
                       Qui alla Red Gym non sei mai 'lasciato solo': trovi un ambiente serio, accogliente e pieno di energia positiva. Contattaci ed entra a far parte della community!
                     </p>
-
                     <div className="mt-6">
                       <Button href="/contact">Contattaci</Button>
                     </div>
@@ -516,7 +608,6 @@ export default function HomePage() {
 
                 {/* COLONNA DESTRA: ImageGrid - SOLO DESKTOP */}
                 <div className="hidden lg:block space-y-10">
-                  {/* 1. ImageGrid superiore: palestra3 + sala2 */}
                   <div className="grid grid-cols-2 gap-3 sm:gap-4">
                     <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
                       <img
@@ -529,14 +620,13 @@ export default function HomePage() {
                     <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
                       <img
                         src={toPublicSrc("sala-funzionale.webp")}
-                        alt="Sala Combattimento Red Gym"
+                        alt="Sala Funzionale Red Gym"
                         className="absolute inset-0 h-full w-full object-cover"
                       />
                       <div className="absolute inset-0 bg-black/10" />
                     </div>
                   </div>
 
-                  {/* 2. ImageGrid inferiore: yoga + judo-hero */}
                   <div className="grid grid-cols-2 gap-3 sm:gap-4">
                     <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
                       <img
@@ -556,7 +646,6 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  {/* 3. Immagine singola rgym2.jpeg - allineata con "Istruttori" */}
                   <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
                     <img
                       src={toPublicSrc("rgym2.jpeg")}
@@ -566,7 +655,6 @@ export default function HomePage() {
                     <div className="absolute inset-0 bg-black/10" />
                   </div>
 
-                  {/* 4. Immagine singola community.jpeg - allineata con "Community" */}
                   <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
                     <img
                       src={toPublicSrc("community.jpeg")}
@@ -586,93 +674,85 @@ export default function HomePage() {
             <SectionHead
               kicker="Corsi & attività"
               title="Trova il tuo percorso."
-              lead="Che tu sia all’inizio o già ad un livello avanzato, trovi corsi con guide competenti e progressioni chiare: allenamento funzionale e TACFIT, ginnastica posturale e yoga, boxe/kickboxing/prepugilistica, MMA, karate e judo."
+              lead="Che tu sia all'inizio o già ad un livello avanzato, trovi corsi con guide competenti e progressioni chiare: allenamento funzionale e TACFIT, ginnastica posturale e yoga, boxe/kickboxing/prepugilistica, MMA, karate e judo."
             />
 
-            {/* Grid 2x2 Desktop, colonna singola Mobile */}
-            <div className="mt-8 lg:mt-10 grid gap-8 lg:grid-cols-2">
-              {/* 1. Sala pesi & Fitness */}
-              <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
-                <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
-                  Allenamento Funzionale & TacFit
-                </p>
+            {/* SLIDESHOW - SOLO MOBILE */}
+            <CoursesSlideshow />
 
-                <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px] sm:h-[220px]">
-                  <img
-                    src={toPublicSrc("tacfit.webp")}
-                    alt="Sala pesi Red Gym"
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/10" />
+            {/* GRID 2x2 - SOLO DESKTOP */}
+            <div className="hidden lg:block mt-10">
+              <div className="grid gap-8 lg:grid-cols-2">
+                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
+                  <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
+                    Allenamento Funzionale & TacFit
+                  </p>
+                  <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px] sm:h-[220px]">
+                    <img
+                      src={toPublicSrc("tacfit.webp")}
+                      alt="Funzionale Red Gym"
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/10" />
+                  </div>
+                  <p className="mt-4 text-sm text-black/70 leading-relaxed">
+                    Forza, mobilità e condizionamento in un unico percorso. Allenamenti dinamici e ad alta intensità per migliorare performance, resistenza e controllo del corpo.
+                  </p>
                 </div>
 
-                <p className="mt-4 text-sm text-black/70 leading-relaxed">
-                  Forza, mobilità e condizionamento in un unico percorso. Allenamenti dinamici e ad alta intensità per migliorare performance, resistenza e controllo del corpo.
-                </p>
-              </div>
-
-              {/* 2. Pilates & postura */}
-              <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
-                <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
-                  Ginnastica Per La Salute & Yoga
-                </p>
-
-                <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px] sm:h-[220px]">
-                  <img
-                    src={toPublicSrc("pilates.jpg")}
-                    alt="Pilates Red Gym"
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/10" />
+                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
+                  <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
+                    Ginnastica per la Salute & Yoga
+                  </p>
+                  <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px] sm:h-[220px]">
+                    <img
+                      src={toPublicSrc("pilates.jpg")}
+                      alt="Pilates Red Gym"
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/10" />
+                  </div>
+                  <p className="mt-4 text-sm text-black/70 leading-relaxed">
+                    Benessere, equilibrio e consapevolezza. Discipline che lavorano su postura, respirazione e flessibilità per ritrovare armonia tra mente e corpo.
+                  </p>
                 </div>
 
-                <p className="mt-4 text-sm text-black/70 leading-relaxed">
-                  Benessere, equilibrio e consapevolezza. Discipline che lavorano su postura, respirazione e flessibilità per ritrovare armonia tra mente e corpo.
-                </p>
-              </div>
-
-              {/* 3. Boxe + Prepugilistica */}
-              <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
-                <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
-                  Boxe • Kickboxing • Prepugilistica
-                </p>
-
-                <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px] sm:h-[220px]">
-                  <img
-                    src={toPublicSrc("boxe.webp")}
-                    alt="Boxe Red Gym"
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/10" />
+                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
+                  <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
+                    Boxe • Kickboxing • Prepugilistica
+                  </p>
+                  <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px] sm:h-[220px]">
+                    <img
+                      src={toPublicSrc("boxe.png")}
+                      alt="Boxe Red Gym"
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/10" />
+                  </div>
+                  <p className="mt-4 text-sm text-black/70 leading-relaxed">
+                    Colpi, tecnica e strategia. Sport da ring che sviluppano potenza, velocità e concentrazione, costruendo fiducia e disciplina dentro e fuori dalla palestra.
+                  </p>
                 </div>
 
-                <p className="mt-4 text-sm text-black/70 leading-relaxed">
-                  Colpi, tecnica e strategia. Sport da ring che sviluppano potenza, velocità e concentrazione, costruendo fiducia e disciplina dentro e fuori dalla palestra.
-                </p>
-              </div>
-
-              {/* 4. MMA • Karate • Judo */}
-              <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
-                <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
-                  MMA • Karate • Judo
-                </p>
-
-                <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px] sm:h-[220px]">
-                  <img
-                    src={toPublicSrc("mma.webp")}
-                    alt="Arti Marziali Red Gym"
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/10" />
+                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
+                  <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
+                    MMA • Karate • Judo
+                  </p>
+                  <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px] sm:h-[220px]">
+                    <img
+                      src={toPublicSrc("judo-hero.webp")}
+                      alt="Arti Marziali Red Gym"
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/10" />
+                  </div>
+                  <p className="mt-4 text-sm text-black/70 leading-relaxed">
+                    Arti marziali che formano atleti completi. Tecnica, rispetto e determinazione in percorsi che uniscono tradizione, combattimento e crescita personale.
+                  </p>
                 </div>
-
-                <p className="mt-4 text-sm text-black/70 leading-relaxed">
-                  Arti marziali che formano atleti completi. Tecnica, rispetto e determinazione in percorsi che uniscono tradizione, combattimento e crescita personale.
-                </p>
               </div>
             </div>
 
-            {/* Bottoni CTA */}
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
               <Button href="/courses">Vai ai corsi</Button>
               <Button href="/contact" variant="outline">
@@ -681,7 +761,7 @@ export default function HomePage() {
             </div>
           </WhiteSection>
 
-          <DiagonalBand image="palestra1.webp" kicker="Red Gym" title="Energia. Disciplina. Risultati." flip />
+          <DiagonalBand image="palestra1.webp" title="Energia. Disciplina. Risultati." flip />
 
           <WhiteSection id="home-pricing">
             <SectionHead
@@ -722,10 +802,7 @@ export default function HomePage() {
             subtitle="Tariffe dedicate: chiedi in reception o contattaci per tutti i dettagli."
           />
 
-          <SafeguardingModal
-            open={openSafeguarding}
-            onClose={() => setOpenSafeguarding(false)}
-          />
+          <SafeguardingModal open={openSafeguarding} onClose={() => setOpenSafeguarding(false)} />
 
           <WhiteSection id="home-contact">
             <SectionHead
@@ -736,8 +813,6 @@ export default function HomePage() {
 
             <div className="mt-8 lg:mt-10 grid gap-6 lg:grid-cols-12">
               <div className="lg:col-span-6 space-y-6">
-
-                {/* RECAPITI */}
                 <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
                   <p className="font-heading uppercase tracking-wide">Recapiti</p>
                   <div className="mt-3 space-y-2 text-sm text-black/70">

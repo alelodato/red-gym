@@ -157,7 +157,6 @@ const WELLNESS_COURSES = [
       { day: "Mercoledì", time: "09:00, 11:00" },
       { day: "Giovedì", time: "09:00" },
       { day: "Venerdì", time: "09:00, 11:00" },
-      { day: "Sabato", time: "11:00" },
     ],
     trainers: [
       { name: "MORENA", image: "MORENA.jpeg", bio: "ISTRUTTRICE GINNASTICA PER LA SALUTE" },
@@ -262,9 +261,9 @@ const MARTIAL_ARTS_COURSES = [
       {
         title: "Judo Adulti",
         schedule: [
-          { day: "Lunedì", time: "19:45" },
-          { day: "Mercoledì", time: "19:45" },
-          { day: "Venerdì", time: "19:45" },
+          { day: "Lunedì", time: "18:45" },
+          { day: "Mercoledì", time: "18:45" },
+          { day: "Venerdì", time: "18:45" },
         ],
       },
     ],
@@ -300,7 +299,7 @@ const MARTIAL_ARTS_COURSES = [
         schedule: [
           { day: "Martedì", time: "19:00" },
           { day: "Giovedì", time: "19:00" },
-          { day: "Sabato", time: "19:30" },
+          { day: "Venerdì", time: "19:30" },
         ],
       },
       {
@@ -311,7 +310,7 @@ const MARTIAL_ARTS_COURSES = [
           { day: "Martedì", time: "16:00" },
           { day: "Mercoledì", time: "16:00" },
           { day: "Giovedì", time: "16:00" },
-          { day: "Sabato", time: "16:00" },
+          { day: "Venerdì", time: "16:00" },
         ],
       },
       {
