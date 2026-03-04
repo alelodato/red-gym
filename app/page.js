@@ -227,9 +227,8 @@ function TrainersSlideshow() {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`h-2 rounded-full transition-all ${
-                index === currentSlide ? "w-8 bg-brand-red" : "w-2 bg-brand-gray200"
-              }`}
+              className={`h-2 rounded-full transition-all ${index === currentSlide ? "w-8 bg-brand-red" : "w-2 bg-brand-gray200"
+                }`}
               aria-label={`Vai allo slide ${index + 1}`}
             ></button>
           ))}
@@ -486,7 +485,8 @@ export default function HomePage() {
             </div>
 
             <div className="mt-10">
-              <div className="grid gap-4 sm:gap-10 lg:grid-cols-2">
+              <div className="grid gap-4 sm:gap-10 lg:grid-cols-2 lg:items-start">
+                {/* COLONNA SINISTRA: 4 Card */}
                 <div className="space-y-12 sm:space-y-10">
                   {/* 1. Macchinari */}
                   <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
@@ -519,7 +519,8 @@ export default function HomePage() {
                     </div>
 
                     <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
-                      Strumenti selezionati per sicurezza, comfort ed efficacia: qui trovi macchinari che fanno la differenza. E per chi ama il combattimento, spazi dedicati a Boxe, MMA e arti marziali organizzati e con l'atmosfera giusta per allenarti con metodo e concentrazione.
+                      Sala pesi, sala Olicrom, area funzionale e spazi dedicati alle arti marziali,
+                      tutte le attività hanno un'area specifica, ordinata e attrezzata per garantire allenamenti efficaci e in totale sicurezza.
                     </p>
                     <div className="mt-6">
                       <Button href="/about#palestra">Scopri la palestra</Button>
@@ -557,7 +558,7 @@ export default function HomePage() {
                     </div>
 
                     <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
-                      Red Gym propone un percorso completo che unisce sport da combattimento, prepugilistica e allenamento funzionale a discipline dedicate al benessere come yoga e ginnastica posturale. Un approccio integrato per sviluppare forza, tecnica, mobilità ed equilibrio, adatto a ogni età e livello di preparazione.
+                      Red Gym offre un’ampia varietà di corsi e attività pensate per ogni livello ed esigenza: dalle discipline dedicate al benessere, come yoga e ginnastica posturale, all’allenamento funzionale, TACFIT e prepugilistica. Per gli appassionati degli sport da combattimento sono inoltre disponibili corsi di boxe, kickboxing, MMA e arti marziali.
                     </p>
                     <div className="mt-6">
                       <Button href="/courses">I nostri corsi</Button>
@@ -571,7 +572,6 @@ export default function HomePage() {
                       Istruttori Qualificati e Appassionati
                     </h3>
 
-                    {/* SLIDESHOW ISTRUTTORI - SOLO MOBILE */}
                     <TrainersSlideshow />
 
                     <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
@@ -610,9 +610,10 @@ export default function HomePage() {
                 </div>
 
                 {/* COLONNA DESTRA: ImageGrid - SOLO DESKTOP */}
-                <div className="hidden lg:block space-y-10">
-                  <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                    <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
+                <div className="hidden lg:grid lg:grid-rows-4 lg:gap-10">
+                  {/* Riga 1: Grid 2x2 */}
+                  <div className="grid grid-cols-2 gap-4 h-[340px]">
+                    <div className="relative overflow-hidden rounded-xl shadow-soft">
                       <img
                         src={toPublicSrc("palestra3.webp")}
                         alt="Sala Pesi Red Gym"
@@ -620,7 +621,7 @@ export default function HomePage() {
                       />
                       <div className="absolute inset-0 bg-black/10" />
                     </div>
-                    <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
+                    <div className="relative overflow-hidden rounded-xl shadow-soft">
                       <img
                         src={toPublicSrc("sala-funzionale.webp")}
                         alt="Sala Funzionale Red Gym"
@@ -630,8 +631,9 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                    <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
+                  {/* Riga 2: Grid 2x2 */}
+                  <div className="grid grid-cols-2 gap-4 h-[340px]">
+                    <div className="relative overflow-hidden rounded-xl shadow-soft">
                       <img
                         src={toPublicSrc("yoga.webp")}
                         alt="Yoga Red Gym"
@@ -639,7 +641,7 @@ export default function HomePage() {
                       />
                       <div className="absolute inset-0 bg-black/10" />
                     </div>
-                    <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
+                    <div className="relative overflow-hidden rounded-xl shadow-soft">
                       <img
                         src={toPublicSrc("judo-hero.webp")}
                         alt="Judo Red Gym"
@@ -649,7 +651,8 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
+                  {/* Riga 3: Immagine singola */}
+                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[340px]">
                     <img
                       src={toPublicSrc("rgym2.jpeg")}
                       alt="Team Red Gym"
@@ -658,7 +661,8 @@ export default function HomePage() {
                     <div className="absolute inset-0 bg-black/10" />
                   </div>
 
-                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[320px]">
+                  {/* Riga 4: Immagine singola */}
+                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[340px]">
                     <img
                       src={toPublicSrc("community.jpeg")}
                       alt="Community Red Gym"
@@ -683,14 +687,15 @@ export default function HomePage() {
             {/* SLIDESHOW - SOLO MOBILE */}
             <CoursesSlideshow />
 
-            {/* GRID 2x2 - SOLO DESKTOP */}
+            {/* GRID 2x2 - SOLO DESKTOP CON ALTEZZE UNIFORMI */}
             <div className="hidden lg:block mt-10">
               <div className="grid gap-8 lg:grid-cols-2">
-                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
+                {/* Card 1 */}
+                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col">
                   <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
                     Allenamento Funzionale • TacFit • Prepugilistica
                   </p>
-                  <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px] sm:h-[220px]">
+                  <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px]">
                     <img
                       src={toPublicSrc("tacfit.webp")}
                       alt="Funzionale Red Gym"
@@ -698,16 +703,17 @@ export default function HomePage() {
                     />
                     <div className="absolute inset-0 bg-black/10" />
                   </div>
-                  <p className="mt-4 text-sm text-black/70 leading-relaxed">
+                  <p className="mt-4 text-sm text-black/70 leading-relaxed flex-grow">
                     Forza, mobilità e condizionamento in un unico percorso. Allenamenti dinamici e ad alta intensità per migliorare performance, resistenza e controllo del corpo.
                   </p>
                 </div>
 
-                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
+                {/* Card 2 */}
+                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col">
                   <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
                     Ginnastica per la Salute & Yoga
                   </p>
-                  <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px] sm:h-[220px]">
+                  <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px]">
                     <img
                       src={toPublicSrc("pilates.jpg")}
                       alt="Pilates Red Gym"
@@ -715,16 +721,17 @@ export default function HomePage() {
                     />
                     <div className="absolute inset-0 bg-black/10" />
                   </div>
-                  <p className="mt-4 text-sm text-black/70 leading-relaxed">
+                  <p className="mt-4 text-sm text-black/70 leading-relaxed flex-grow">
                     Benessere, equilibrio e consapevolezza. Discipline che lavorano su postura, respirazione e flessibilità per ritrovare armonia tra mente e corpo.
                   </p>
                 </div>
 
-                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
+                {/* Card 3 */}
+                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col">
                   <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
                     Boxe & Kickboxing
                   </p>
-                  <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px] sm:h-[220px]">
+                  <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px]">
                     <img
                       src={toPublicSrc("boxe1.webp")}
                       alt="Boxe Red Gym"
@@ -732,16 +739,17 @@ export default function HomePage() {
                     />
                     <div className="absolute inset-0 bg-black/10" />
                   </div>
-                  <p className="mt-4 text-sm text-black/70 leading-relaxed">
+                  <p className="mt-4 text-sm text-black/70 leading-relaxed flex-grow">
                     Colpi, tecnica e strategia. Sport da ring che sviluppano potenza, velocità e concentrazione, costruendo fiducia e disciplina dentro e fuori dalla palestra.
                   </p>
                 </div>
 
-                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
+                {/* Card 4 */}
+                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col">
                   <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
                     MMA • Karate • Judo
                   </p>
-                  <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px] sm:h-[220px]">
+                  <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px]">
                     <img
                       src={toPublicSrc("judo-hero.webp")}
                       alt="Arti Marziali Red Gym"
@@ -749,7 +757,7 @@ export default function HomePage() {
                     />
                     <div className="absolute inset-0 bg-black/10" />
                   </div>
-                  <p className="mt-4 text-sm text-black/70 leading-relaxed">
+                  <p className="mt-4 text-sm text-black/70 leading-relaxed flex-grow">
                     Arti marziali che formano atleti completi. Tecnica, rispetto e determinazione in percorsi che uniscono tradizione, combattimento e crescita personale.
                   </p>
                 </div>
