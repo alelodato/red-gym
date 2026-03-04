@@ -491,7 +491,7 @@ export default function HomePage() {
                 <div className="space-y-12 sm:space-y-10 lg:space-y-0 lg:grid lg:grid-rows-4 lg:gap-10 lg:auto-rows-fr">
                   {/* 1. Macchinari */}
                   <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
-                    <p className="section-title text-brand-red">Struttura e Spazi</p>
+                    <p className="section-title text-brand-red">La Struttura</p>
                     <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
                       Attrezzature e Spazi per ogni tipo di attività
                     </h3>
@@ -520,7 +520,7 @@ export default function HomePage() {
                     </div>
 
                     <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
-                      Strumenti selezionati per sicurezza, comfort ed efficacia: qui trovi macchinari che fanno la differenza. E per chi ama il combattimento, spazi dedicati a Boxe, MMA e arti marziali organizzati e con l'atmosfera giusta per allenarti con metodo e concentrazione.
+                      Sala pesi, Olicrom, funzionale e arti marziali: Red Gym offre spazi ampi attrezzati con macchinari professionali per garantire un allenamento efficace e confortevole. Che tu voglia potenziare la forza, migliorare la resistenza o praticare sport da combattimento, qui trovi tutto ciò di cui hai bisogno. 
                     </p>
                     <div className="mt-6">
                       <Button href="/about#palestra">Scopri la palestra</Button>
@@ -558,7 +558,7 @@ export default function HomePage() {
                     </div>
 
                     <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
-                      Red Gym propone un percorso completo che unisce sport da combattimento, prepugilistica e allenamento funzionale a discipline dedicate al benessere come yoga e ginnastica posturale. Un approccio integrato per sviluppare forza, tecnica, mobilità ed equilibrio, adatto a ogni età e livello di preparazione.
+                      Red Gym offre un’ampia varietà di corsi e attività pensate per ogni livello ed esigenza: dalle discipline dedicate al benessere, come yoga e ginnastica posturale, all’allenamento funzionale, TACFIT e prepugilistica. Per gli appassionati degli sport da combattimento sono inoltre disponibili corsi di boxe, kickboxing, MMA e arti marziali.
                     </p>
                     <div className="mt-6">
                       <Button href="/courses">I nostri corsi</Button>
@@ -575,7 +575,9 @@ export default function HomePage() {
                     <TrainersSlideshow />
 
                     <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
-                      Ogni corso è seguito da istruttori certificati, con anni di esperienza e la passione per quello che fanno. Non troverai solo tecnici preparati, ma guide attente che ti aiutano a crescere con metodo, sicurezza e motivazione costante.
+                      Ogni corso è seguito da istruttori certificati, con anni di esperienza e la passione per quello che fanno. 
+                      <br />
+                      Non troverai solo tecnici preparati, ma guide attente che ti aiutano a crescere con metodo, sicurezza e motivazione costante.
                     </p>
                     <div className="mt-6">
                       <Button href="/courses">Conosci il team</Button>
@@ -601,7 +603,9 @@ export default function HomePage() {
                     </div>
 
                     <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
-                      Qui alla Red Gym non sei mai 'lasciato solo': trovi un ambiente serio, accogliente e pieno di energia positiva. Contattaci ed entra a far parte della community!
+                      Qui alla Red Gym non sei mai 'lasciato solo': trovi un ambiente serio, accogliente e pieno di energia positiva. 
+                      <br />
+                      Contattaci ed entra a far parte della community!
                     </p>
                     <div className="mt-6">
                       <Button href="/contact">Contattaci</Button>
