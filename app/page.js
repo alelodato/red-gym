@@ -849,7 +849,7 @@ export default function HomePage() {
                   <div className="relative overflow-hidden rounded-xl shadow-soft h-[360px]">
                     <MapEmbed
                       src="https://www.google.com/maps/embed?pb=!4v1772036816336!6m8!1m7!1s647rvD25mgsqmeDhXUMgoQ!2m2!1d42.00111503796409!2d12.66803763518375!3f337.2800964449892!4f6.287296922872244!5f0.7820865974627469"
-                      className="block w-full h-full max-w-full"
+                      className="block w-full h-full max-w-full pointer-events-auto"
                       style={{ border: 0 }}
                       allowFullScreen
                       loading="lazy"
@@ -881,7 +881,7 @@ export default function HomePage() {
                 <div className="relative h-[360px] sm:h-[420px] lg:h-[460px]">
                   <MapEmbed
                     title="Google Maps - Red Gym"
-                    className="absolute inset-0 h-full w-full"
+                    className="absolute inset-0 h-full w-full pointer-events-auto"
                     loading="lazy"
                     allowFullScreen
                     referrerPolicy="no-referrer-when-downgrade"

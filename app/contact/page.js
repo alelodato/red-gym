@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Button from "@/components/Button";
 import { SITE } from "@/lib/site";
+import MapEmbed from "@/components/GoogleMap";
 
 function toPublicSrc(path) {
   if (!path) return "";
@@ -126,8 +126,8 @@ export default function ContactPage() {
               <p className="font-heading uppercase tracking-wide">Dove Siamo</p>
 
               <div className="mt-6 rounded-lg overflow-hidden border border-brand-gray200">
-                <iframe
-                  className="w-full h-[400px] lg:h-[500px]"
+                <MapEmbed
+                  className="w-full h-[400px] lg:h-[500px] pointer-events-auto"
                   loading="lazy"
                   allowFullScreen
                   referrerPolicy="no-referrer-when-downgrade"
