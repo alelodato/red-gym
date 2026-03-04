@@ -52,7 +52,7 @@ export default function CookieBanner() {
   animate-[slideUp_.25s_ease-out]">
             <p className="text-sm max-w-xl">
                 Questo sito utilizza contenuti di terze parti come Google Maps che
-                utilizzare cookies tecnici.
+                utilizzano cookies tecnici.
                 <br />
                 Continuando accetti l'utilizzo di questi servizi.
             </p>
