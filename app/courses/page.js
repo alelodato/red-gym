@@ -106,7 +106,7 @@ const WELLNESS_COURSES = [
     id: "allenamento-funzionale",
     title: "Allenamento Funzionale",
     subtitle: "Movimento naturale, forza e performance",
-    image: "tacfit.webp",
+    image: "funzionale.webp",
     description:
       "L'allenamento funzionale si basa su movimenti naturali del corpo: spingere, tirare, sollevare, saltare e ruotare. È un metodo che migliora forza, mobilità, stabilità e resistenza in modo completo e integrato.\n\nSi lavora con pesi liberi, kettlebell, TRX, corpo libero e attrezzi specifici.",
     schedules: [
@@ -679,7 +679,7 @@ export default function CoursesPage() {
           </div>
         </WhiteBlock>
 
-        <DiagonalBand image="sala3.JPG" />
+        <DiagonalBand image="sala-funzionale.webp" />
 
         {/* CORSI ARTI MARZIALI */}
         <WhiteBlock>

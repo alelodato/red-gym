@@ -688,7 +688,7 @@ export default function HomePage() {
               <div className="grid gap-8 lg:grid-cols-2">
                 <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
                   <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
-                    Allenamento Funzionale & TacFit
+                    Allenamento Funzionale • TacFit • Prepugilistica
                   </p>
                   <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px] sm:h-[220px]">
                     <img
@@ -722,11 +722,11 @@ export default function HomePage() {
 
                 <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
                   <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
-                    Boxe • Kickboxing • Prepugilistica
+                    Boxe & Kickboxing
                   </p>
                   <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px] sm:h-[220px]">
                     <img
-                      src={toPublicSrc("boxe.png")}
+                      src={toPublicSrc("boxe1.webp")}
                       alt="Boxe Red Gym"
                       className="absolute inset-0 h-full w-full object-cover"
                     />
