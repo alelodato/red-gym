@@ -679,7 +679,7 @@ export default function CoursesPage() {
           </div>
         </WhiteBlock>
 
-        <DiagonalBand image="sala-funzionale.webp" />
+        <DiagonalBand image="sala-funzionale2.webp" />
 
         {/* CORSI ARTI MARZIALI */}
         <WhiteBlock>
