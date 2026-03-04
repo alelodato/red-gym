@@ -611,17 +611,17 @@ export default function AboutPage() {
                   -
                 </p>
 
-                <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {/* FOUNDERS - object-contain per vedere tutta la figura */}
+                <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
                   <div className="flex flex-col">
-                    <div className="relative overflow-hidden rounded-xl shadow-soft h-[400px] sm:h-[350px] lg:h-[450px]">
+                    <div className="relative overflow-hidden rounded-xl shadow-soft h-[400px] sm:h-[350px] lg:h-[400px] bg-brand-offwhite">
                       <Image
                         src={toPublicSrc("founder.jpg")}
                         alt="Donato Domenicone - Fondatore Red Gym"
                         fill
-                        className="object-cover"
+                        className="object-contain"
                         sizes="(max-width: 640px) 100vw, 50vw"
                       />
-                      <div className="absolute inset-0 bg-black/10" />
                     </div>
                     <div className="mt-4">
                       <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">Donato Domenicone</h4>
@@ -630,15 +630,14 @@ export default function AboutPage() {
                   </div>
 
                   <div className="flex flex-col">
-                    <div className="relative overflow-hidden rounded-xl shadow-soft h-[400px] sm:h-[350px] lg:h-[450px]">
+                    <div className="relative overflow-hidden rounded-xl shadow-soft h-[400px] sm:h-[350px] lg:h-[400px] bg-brand-offwhite">
                       <Image
                         src={toPublicSrc("VITO.webp")}
                         alt="Vito Lettieri - Direttore Red Gym"
                         fill
-                        className="object-cover"
+                        className="object-contain"
                         sizes="(max-width: 640px) 100vw, 50vw"
                       />
-                      <div className="absolute inset-0 bg-black/10" />
                     </div>
                     <div className="mt-4">
                       <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">Vito Lettieri</h4>
@@ -910,68 +909,61 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
-            <div className="flex flex-col items-center sm:items-stretch">
+          {/* SEGRETERIA - object-contain, più piccole e basse */}
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start max-w-5xl mx-auto">
+  <div className="flex flex-col items-center sm:items-stretch">
+    <div className="w-4/5 max-w-[280px] sm:w-full sm:max-w-none lg:max-w-[280px]">
+      <div className="relative rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft h-[350px] sm:h-[320px] lg:h-[340px]">
+        <Image
+          src={toPublicSrc("GAIA.jpeg")}
+          alt="Gaia - Reception Red Gym"
+          fill
+          className="object-contain"
+        />
+        <div className="absolute inset-0 bg-black/5 pointer-events-none" />
+      </div>
 
-              {/* Wrapper ristretto solo su mobile */}
-              <div className="w-4/5 max-w-[320px] sm:w-full sm:max-w-none">
+      <div className="mt-4 text-left">
+        <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">
+          Gaia
+        </h4>
+        <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">
+          Segreteria
+        </p>
+      </div>
+    </div>
+  </div>
 
-                <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft">
-                  <Image
-                    src={toPublicSrc("GAIA.jpeg")}
-                    alt="Gaia - Reception Red Gym"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/5 pointer-events-none" />
-                </div>
+  <div className="hidden lg:flex flex-col items-center justify-center px-6 text-center italic text-black/60 border-x border-brand-gray200 self-center">
+    <p className="text-base leading-relaxed">
+      "Che tu venga per informarti, iniziare un nuovo allenamento o semplicemente chiedere un consiglio, troverai sempre un sorriso e una presenza disponibile. <br />
+      Per noi sentirsi a proprio agio è fondamentale quanto allenarsi bene."
+    </p>
+  </div>
 
-                <div className="mt-4 text-left">
-                  <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">
-                    Gaia
-                  </h4>
-                  <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">
-                    Segreteria
-                  </p>
-                </div>
+  <div className="flex flex-col items-center sm:items-stretch">
+    <div className="w-4/5 max-w-[280px] sm:w-full sm:max-w-none lg:max-w-[280px]">
+      <div className="relative rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft h-[350px] sm:h-[320px] lg:h-[340px]">
+        <Image
+          src={toPublicSrc("ELEONORA.jpeg")}
+          alt="Eleonora - Reception Red Gym"
+          fill
+          className="object-contain"
+        />
+        <div className="absolute inset-0 bg-black/5 pointer-events-none" />
+      </div>
 
-              </div>
-            </div>
-
-            <div className="hidden lg:flex flex-col items-center justify-center p-8 text-center italic text-black/60 border-x border-brand-gray200 h-full">
-              <p className="text-lg leading-relaxed">
-                "Che tu venga per informarti, iniziare un nuovo allenamento o semplicemente chiedere un consiglio, troverai sempre un sorriso e una presenza disponibile. <br />
-                Per noi sentirsi a proprio agio è fondamentale quanto allenarsi bene."
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center sm:items-stretch">
-
-              {/* Wrapper ristretto solo su mobile */}
-              <div className="w-4/5 max-w-[320px] sm:w-full sm:max-w-none">
-
-                <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft">
-                  <Image
-                    src={toPublicSrc("ELEONORA.jpeg")}
-                    alt="Eleonora - Reception Red Gym"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/5 pointer-events-none" />
-                </div>
-
-                <div className="mt-4 text-left">
-                  <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">
-                    Eleonora
-                  </h4>
-                  <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">
-                    Segreteria
-                  </p>
-                </div>
-
-              </div>
-            </div>
-          </div>
+      <div className="mt-4 text-left">
+        <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">
+          Eleonora
+        </h4>
+        <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">
+          Segreteria
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
         </WhiteBlock>
 
         <FinalCtaHero image="/palestra3.webp" />
