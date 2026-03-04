@@ -735,7 +735,7 @@ export default function AboutPage() {
                 </div>
                 <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px]">
                   <img
-                    src={toPublicSrc("palestra6.webp")}
+                    src={toPublicSrc("palestra7.webp")}
                     alt="Sala Olicrom Red Gym"
                     className="absolute inset-0 h-full w-full object-cover"
                   />
@@ -905,6 +905,7 @@ export default function AboutPage() {
             <h2 className="font-heading uppercase tracking-wide text-3xl sm:text-4xl mt-2">Alla Red Gym ti senti a casa</h2>
             <p className="mt-4 text-black/70 leading-relaxed">
               Per noi l'accoglienza non è un dettaglio, è il primo passo del tuo percorso.
+              <br />
               Gaia ed Eleonora ti accolgono con professionalità e attenzione, pronte ad ascoltare le tue esigenze e a guidarti fin dal primo ingresso.
             </p>
           </div>
