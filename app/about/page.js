@@ -368,7 +368,7 @@ export default function AboutPage() {
         <WhiteBlock>
           <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-12">
-              <div className="grid lg:grid-cols-2 lg:gap-12 lg:items-center">
+              <div className="lg:items-center">
                 {/* COLONNA SINISTRA: TESTO */}
                 <div>
                   <p className="section-title text-brand-red">La nostra storia</p>
@@ -395,32 +395,6 @@ export default function AboutPage() {
                     tranquillità di avere ambienti curati e percorsi chiari. In questi
                     anni la palestra è cresciuta, ma l'obiettivo è rimasto lo stesso:
                     qualità, metodo e costanza, diventando il punto di riferimento per il fitness a Fonte Nuova.
-                  </p>
-                </div>
-
-                {/* COLONNA DESTRA: IFRAME - solo DESKTOP */}
-                <div className="hidden lg:block mt-8 lg:mt-0">
-                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[360px]">
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!4v1772036816336!6m8!1m7!1s647rvD25mgsqmeDhXUMgoQ!2m2!1d42.00111503796409!2d12.66803763518375!3f337.2800964449892!4f6.287296922872244!5f0.7820865974627469"
-                      className="block w-full h-full max-w-full"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                    />
-                    <div className="absolute inset-0 bg-black/5 pointer-events-none" />
-                  </div>
-                  <p className="mt-4 text-center text-sm text-black/60 italic leading-relaxed">
-                    La palestra si trova all'interno del complesso del{" "}
-                    <a
-                      href="https://www.google.com/maps/search/?api=1&query=Centro+Commerciale+La+Fonte+Fonte+Nuova+Roma"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-semibold text-brand-red hover:underline"
-                    >
-                      Centro Commerciale La Fonte
-                    </a> a Fonte Nuova (Roma), con ampio parcheggio dedicato per i nostri soci.
                   </p>
                 </div>
               </div>

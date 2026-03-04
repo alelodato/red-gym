@@ -151,17 +151,17 @@ function TrainersSlideshow() {
   const touchEndX = useRef(0);
 
   const trainers = [
-    { image: "ADRIANO.jpeg", name: "Adriano" },
-    { image: "ALEX.jpeg", name: "Alex" },
-    { image: "MORENA.jpeg", name: "Morena" },
-    { image: "CLAUDIA.jpeg", name: "Claudia" },
-    { image: "PAOLO.jpeg", name: "Paolo" },
-    { image: "MASSIMO.jpeg", name: "Massimo" },
-    { image: "BARBARA.jpeg", name: "Barbara" },
-    { image: "MICHELA.jpeg", name: "Michela" },
-    { image: "VITTORIA.jpeg", name: "Vittoria" },
-    { image: "NATALINO.jpeg", name: "Anton Ioan Catalin" },
-    { image: "ASTERIO.jpeg", name: "Asterio" },
+    { image: "ADRIANO.jpeg", name: "Adriano Sperandio", bio: "Istruttore Allenamento Funzionale e Prepugilistica" },
+    { image: "ALEX.jpeg", name: "Alex", bio: "Istruttore Funzionale/TacFit" },
+    { image: "MORENA.jpeg", name: "Morena", bio: "Istruttrice Ginnastica per la Salute" },
+    { image: "CLAUDIA.jpeg", name: "Claudia", bio: "Istruttrice Yoga" },
+    { image: "PAOLO.jpeg", name: "Paolo Sperandio", bio: "Maestro Boxe" },
+    { image: "MASSIMO.jpeg", name: "Massimo Montecchiani", bio: "Maestro Karate" },
+    { image: "BARBARA.jpeg", name: "Barbara Montecchiani", bio: "Maestra Karate" },
+    { image: "MICHELA.jpeg", name: "Michela Muccioli", bio: "Maestra Judo" },
+    { image: "VITTORIA.jpeg", name: "Vittorina Di Vincenzo", bio: "Maestra Judo" },
+    { image: "NATALINO.jpeg", name: "Anton Ioan Catalin", bio: "Maestro Kickboxing" },
+    { image: "ASTERIO.jpeg", name: "Asterio Lucchesini", bio: "Maestro MMA/Grappling" },
   ];
 
   useEffect(() => {
@@ -213,6 +213,9 @@ function TrainersSlideshow() {
                   <h4 className="font-heading uppercase tracking-wide text-white text-2xl text-center">
                     {trainer.name}
                   </h4>
+                  <p className="text-white/90 text-sm text-center mt-2 font-semibold">
+                    {trainer.bio}
+                  </p>
                 </div>
               </div>
             </div>
@@ -832,6 +835,31 @@ export default function HomePage() {
                       <span className="font-semibold">Indirizzo:</span> Via Delle Molette 245/247, Fonte Nuova 00013 (RM)
                     </p>
                   </div>
+                </div>
+                {/* COLONNA DESTRA: IFRAME - solo DESKTOP */}
+                <div className="hidden lg:block mt-8 lg:mt-0">
+                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[360px]">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!4v1772036816336!6m8!1m7!1s647rvD25mgsqmeDhXUMgoQ!2m2!1d42.00111503796409!2d12.66803763518375!3f337.2800964449892!4f6.287296922872244!5f0.7820865974627469"
+                      className="block w-full h-full max-w-full"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                    <div className="absolute inset-0 bg-black/5 pointer-events-none" />
+                  </div>
+                  <p className="mt-4 text-center text-sm text-black/60 italic leading-relaxed">
+                    La palestra si trova all'interno del complesso del{" "}
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=Centro+Commerciale+La+Fonte+Fonte+Nuova+Roma"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-brand-red hover:underline"
+                    >
+                      Centro Commerciale La Fonte
+                    </a> a Fonte Nuova (Roma), con ampio parcheggio dedicato per i nostri soci.
+                  </p>
                 </div>
               </div>
 
