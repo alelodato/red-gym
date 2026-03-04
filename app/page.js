@@ -705,7 +705,7 @@ export default function HomePage() {
                   </p>
                   <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px]">
                     <img
-                      src={toPublicSrc("tacfit.webp")}
+                      src={toPublicSrc("funzionale.webp")}
                       alt="Funzionale Red Gym"
                       className="absolute inset-0 h-full w-full object-cover"
                     />
