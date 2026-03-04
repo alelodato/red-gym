@@ -1,6 +1,7 @@
-import Section from "@/components/Section";
+"use client"
+
+import { useEffect, useRef, useState } from "react";
 import Button from "@/components/Button";
-import { SITE } from "@/lib/site";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -85,6 +86,165 @@ function WhiteBlock({ children }) {
       <div className="hidden sm:block px-6 lg:px-8">
         <div className="bg-white border border-brand-gray200 shadow-soft rounded-2xl p-10 lg:p-12">
           {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function GymRoomSlideshow({ images, title }) {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 50) {
+      setCurrentSlide((prev) => (prev + 1) % images.length);
+    }
+    if (touchStartX.current - touchEndX.current < -50) {
+      setCurrentSlide((prev) => (prev - 1 + images.length) % images.length);
+    }
+  };
+
+  return (
+    <div className="lg:hidden">
+      <div
+        className="relative overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        <div
+          className="flex transition-transform duration-500 ease-out"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {images.map((image, index) => (
+            <div key={index} className="min-w-full">
+              <div className="relative h-[300px] overflow-hidden rounded-xl">
+                <img
+                  src={toPublicSrc(image)}
+                  alt={`${title} ${index + 1}`}
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/10"></div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex justify-center gap-2 mt-4">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`h-2 rounded-full transition-all ${index === currentSlide ? "w-8 bg-brand-red" : "w-2 bg-brand-gray200"
+                }`}
+              aria-label={`Vai alla slide ${index + 1}`}
+            ></button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SalaPesiTrainersSlideshow() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const trainers = [
+    { image: "DANIELE.jpeg", name: "Daniele" },
+    { image: "EMANUELE.jpeg", name: "Emanuele" },
+    { image: "ROBERTO.jpeg", name: "Roberto" },
+    { image: "EUGENIA.jpeg", name: "Eugenia" },
+    { image: "GARY.jpeg", name: "Gary" },
+    { image: "JACOPO.jpeg", name: "Jacopo" },
+    { image: "LUIGI.jpeg", name: "Luigi" },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % trainers.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [trainers.length]);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 50) {
+      setCurrentSlide((prev) => (prev + 1) % trainers.length);
+    }
+    if (touchStartX.current - touchEndX.current < -50) {
+      setCurrentSlide((prev) => (prev - 1 + trainers.length) % trainers.length);
+    }
+  };
+
+  return (
+    <div className="lg:hidden">
+      <div
+        className="relative overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        <div
+          className="flex transition-transform duration-500 ease-out"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {trainers.map((trainer, index) => (
+            <div key={index} className="min-w-full">
+              <div className="relative h-[400px] overflow-hidden rounded-xl bg-white border border-brand-gray200">
+                <img
+                  src={toPublicSrc(trainer.image)}
+                  alt={trainer.name}
+                  className="absolute inset-0 h-full w-full object-contain object-center"
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 to-transparent">
+                  <h4 className="font-heading uppercase tracking-wide text-white text-2xl text-center">
+                    {trainer.name}
+                  </h4>
+                  <p className="text-white/90 text-sm text-center mt-1 font-semibold">
+                    Istruttore Sala Pesi
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex justify-center gap-2 mt-4">
+          {trainers.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`h-2 rounded-full transition-all ${index === currentSlide ? "w-8 bg-brand-red" : "w-2 bg-brand-gray200"
+                }`}
+              aria-label={`Vai alla slide ${index + 1}`}
+            ></button>
+          ))}
         </div>
       </div>
     </div>
@@ -508,95 +668,231 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="mt-10 space-y-0 sm:space-y-8">
-            <SplitSection
-              kicker="La Palestra"
-              title="Sala Pesi"
-              text="La sala pesi è ideale per chi desidera rimettersi in forma e migliorare le proprie performance sportive, all’interno troverete un’ampia gamma di macchine Panatta."
-              image="/palestra2.webp"
-              alt="Sala pesi"
-            />
-            <SplitSection
-              kicker="La Palestra"
-              title="Sala Olicrom"
-              text="La sala Olicrom è una novità assoluta, puoi allenarti e ottenere risultai importanti, con le macchine della linea CableQuad e TwinStrength."
-              image="/sala-olicrom.webp"
-              alt="Sala Olicrom"
-              invert
-            />
+          <div className="mt-10 space-y-8 sm:space-y-8">
+            {/* SALA PESI */}
+            <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-8 lg:p-10">
+              <p className="section-title text-brand-red text-sm">La Palestra</p>
+              <h3 className="font-heading uppercase tracking-wide text-2xl sm:text-3xl mt-2">
+                Sala Pesi
+              </h3>
 
+              {/* SLIDESHOW MOBILE - 5 immagini */}
+              <div className="mt-6">
+                <GymRoomSlideshow
+                  images={["palestra1.webp", "palestra2.webp", "palestra3.webp", "palestra4.webp", "palestra5.webp"]}
+                  title="Sala Pesi"
+                />
+              </div>
+
+              {/* GRID 2 FOTO DESKTOP */}
+              <div className="hidden lg:grid lg:grid-cols-2 lg:gap-6 mt-6">
+                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px]">
+                  <img
+                    src={toPublicSrc("palestra2.webp")}
+                    alt="Sala Pesi Red Gym"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/10" />
+                </div>
+                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px]">
+                  <img
+                    src={toPublicSrc("palestra3.webp")}
+                    alt="Sala Pesi Red Gym"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/10" />
+                </div>
+              </div>
+
+              <p className="mt-6 text-black/70 leading-relaxed">
+                La sala pesi è ideale per chi desidera rimettersi in forma e migliorare le proprie performance sportive, all'interno troverete un'ampia gamma di macchine Panatta.
+              </p>
+            </div>
+
+            {/* SALA OLICROM */}
+            <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-8 lg:p-10">
+              <p className="section-title text-brand-red text-sm">La Palestra</p>
+              <h3 className="font-heading uppercase tracking-wide text-2xl sm:text-3xl mt-2">
+                Sala Olicrom
+              </h3>
+
+              {/* SLIDESHOW MOBILE - 3 immagini */}
+              <div className="mt-6">
+                <GymRoomSlideshow
+                  images={["sala-olicrom.webp", "palestra6.webp", "palestra7.webp"]}
+                  title="Sala Olicrom"
+                />
+              </div>
+
+              {/* GRID 2 FOTO DESKTOP */}
+              <div className="hidden lg:grid lg:grid-cols-2 lg:gap-6 mt-6">
+                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px]">
+                  <img
+                    src={toPublicSrc("sala-olicrom.webp")}
+                    alt="Sala Olicrom Red Gym"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/10" />
+                </div>
+                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px]">
+                  <img
+                    src={toPublicSrc("palestra6.webp")}
+                    alt="Sala Olicrom Red Gym"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/10" />
+                </div>
+              </div>
+
+              <p className="mt-6 text-black/70 leading-relaxed">
+                La sala Olicrom è una novità assoluta, puoi allenarti e ottenere risultati importanti, con le macchine della linea CableQuad e TwinStrength.
+              </p>
+            </div>
+
+            {/* ISTRUTTORI SALA PESI/OLICROM */}
             <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-brand-offwhite sm:p-8 lg:p-12">
               <p className="section-title text-brand-red text-center mb-8">Gli istruttori di sala pesi/Olicrom</p>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
-                {[
-                  { name: "DANIELE", image: "DANIELE.jpeg" },
-                  { name: "EMANUELE", image: "EMANUELE.jpeg" },
-                  { name: "ROBERTO", image: "ROBERTO.jpeg" },
-                  { name: "EUGENIA", image: "EUGENIA.jpeg" },
-                ].map((t) => (
-                  <div key={t.name} className="flex flex-col items-center">
-                    <div className="relative w-full aspect-[3/4] rounded-none sm:rounded-lg overflow-hidden bg-white border-y sm:border border-brand-gray200">
-                      <Image
-                        src={toPublicSrc(t.image)}
-                        alt={t.name}
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                    <p className="my-3 font-heading uppercase tracking-wide text-center text-xs sm:text-sm text-brand-black">
-                      {t.name}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              {/* SLIDESHOW MOBILE - 7 trainer */}
+              <SalaPesiTrainersSlideshow />
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 mt-4 sm:mt-6 max-w-4xl mx-auto">
-                {[
-                  { name: "GARY", image: "GARY.jpeg" },
-                  { name: "JACOPO", image: "JACOPO.jpeg" },
-                  { name: "LUIGI", image: "LUIGI.jpeg" },
-                ].map((t) => (
-                  <div key={t.name} className="flex flex-col items-center">
-                    <div className="relative w-full aspect-[3/4] rounded-none sm:rounded-lg overflow-hidden bg-white border-y sm:border border-brand-gray200">
-                      <Image
-                        src={toPublicSrc(t.image)}
-                        alt={t.name}
-                        fill
-                        className="object-contain"
-                      />
+              {/* GRID DESKTOP */}
+              <div className="hidden lg:block">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+                  {[
+                    { name: "DANIELE", image: "DANIELE.jpeg" },
+                    { name: "EMANUELE", image: "EMANUELE.jpeg" },
+                    { name: "ROBERTO", image: "ROBERTO.jpeg" },
+                    { name: "EUGENIA", image: "EUGENIA.jpeg" },
+                  ].map((t) => (
+                    <div key={t.name} className="flex flex-col items-center">
+                      <div className="relative w-full aspect-[3/4] rounded-none sm:rounded-lg overflow-hidden bg-white border-y sm:border border-brand-gray200">
+                        <Image
+                          src={toPublicSrc(t.image)}
+                          alt={t.name}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                      <p className="my-3 font-heading uppercase tracking-wide text-center text-xs sm:text-sm text-brand-black">
+                        {t.name}
+                      </p>
                     </div>
-                    <p className="my-3 font-heading uppercase tracking-wide text-center text-xs sm:text-sm text-brand-black">
-                      {t.name}
-                    </p>
-                  </div>
-                ))}
+                  ))}
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 mt-4 sm:mt-6 max-w-4xl mx-auto">
+                  {[
+                    { name: "GARY", image: "GARY.jpeg" },
+                    { name: "JACOPO", image: "JACOPO.jpeg" },
+                    { name: "LUIGI", image: "LUIGI.jpeg" },
+                  ].map((t) => (
+                    <div key={t.name} className="flex flex-col items-center">
+                      <div className="relative w-full aspect-[3/4] rounded-none sm:rounded-lg overflow-hidden bg-white border-y sm:border border-brand-gray200">
+                        <Image
+                          src={toPublicSrc(t.image)}
+                          alt={t.name}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                      <p className="my-3 font-heading uppercase tracking-wide text-center text-xs sm:text-sm text-brand-black">
+                        {t.name}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <SplitSection
-              kicker="La Palestra"
-              title="Sala Funzionale"
-              text="Nella sala funzionale troverai tutte le attrezzature per diversi tipi di allenamenti specifici, utilizzando esercizi basati sui movimenti naturali del corpo per migliorare forza, coordinazione, equilibrio e stabilità."
-              image="/sala-funzionale.webp"
-              alt="Sala funzionale"
-            />
+            {/* SALA FUNZIONALE */}
+            <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-8 lg:p-10">
+              <p className="section-title text-brand-red text-sm">La Palestra</p>
+              <h3 className="font-heading uppercase tracking-wide text-2xl sm:text-3xl mt-2">
+                Sala Funzionale
+              </h3>
 
-            <SplitSection
-              kicker="La Palestra"
-              title="Sala Arti Marziali"
-              text="L’ampia sala di arti marziali è dotata di tatami, ideale per le diverse discipline presenti all’interno dei corsi. "
-              image="/sala-arti-marziali.webp"
-              alt="Sala arti marziali"
-              invert
-            />
+              {/* SLIDESHOW MOBILE - 2 immagini */}
+              <div className="mt-6">
+                <GymRoomSlideshow
+                  images={["sala-funzionale.webp", "sala-funzionale2.webp"]}
+                  title="Sala Funzionale"
+                />
+              </div>
+
+              {/* GRID 2 FOTO DESKTOP */}
+              <div className="hidden lg:grid lg:grid-cols-2 lg:gap-6 mt-6">
+                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px]">
+                  <img
+                    src={toPublicSrc("sala-funzionale.webp")}
+                    alt="Sala Funzionale Red Gym"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/10" />
+                </div>
+                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px]">
+                  <img
+                    src={toPublicSrc("sala-funzionale2.webp")}
+                    alt="Sala Funzionale Red Gym"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/10" />
+                </div>
+              </div>
+
+              <p className="mt-6 text-black/70 leading-relaxed">
+                Nella sala funzionale troverai tutte le attrezzature per diversi tipi di allenamenti specifici, utilizzando esercizi basati sui movimenti naturali del corpo per migliorare forza, coordinazione, equilibrio e stabilità.
+              </p>
+            </div>
+
+            {/* SALA ARTI MARZIALI */}
+            <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-8 lg:p-10">
+              <p className="section-title text-brand-red text-sm">La Palestra</p>
+              <h3 className="font-heading uppercase tracking-wide text-2xl sm:text-3xl mt-2">
+                Sala Arti Marziali
+              </h3>
+
+              {/* SLIDESHOW MOBILE - 2 immagini */}
+              <div className="mt-6">
+                <GymRoomSlideshow
+                  images={["sala-arti-marziali.webp", "sala-arti-marziali2.webp"]}
+                  title="Sala Arti Marziali"
+                />
+              </div>
+
+              {/* GRID 2 FOTO DESKTOP */}
+              <div className="hidden lg:grid lg:grid-cols-2 lg:gap-6 mt-6">
+                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px]">
+                  <img
+                    src={toPublicSrc("sala-arti-marziali.webp")}
+                    alt="Sala Arti Marziali Red Gym"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/10" />
+                </div>
+                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px]">
+                  <img
+                    src={toPublicSrc("sala-arti-marziali2.webp")}
+                    alt="Sala Arti Marziali Red Gym"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/10" />
+                </div>
+              </div>
+
+              <p className="mt-6 text-black/70 leading-relaxed">
+                L'ampia sala di arti marziali è dotata di tatami, ideale per le diverse discipline presenti all'interno dei corsi.
+              </p>
+            </div>
           </div>
-          <div className="space-y-3 text-center">
-            <h2 className="font-heading uppercase tracking-wide text-2xl sm:text-3xl mt-10">
+
+          {/* CTA FINALE */}
+          <div className="space-y-3 text-center mt-10">
+            <h2 className="font-heading uppercase tracking-wide text-2xl sm:text-3xl">
               SCOPRI TUTTI I CORSI E LE ATTIVITÀ.
             </h2>
             <p className="mt-2 text-black/70 leading-relaxed text-center">
-            Scopri tutti i corsi, le attività e gli altri istruttori nella pagina dedicata.
+              Scopri tutti i corsi, le attività e gli altri istruttori nella pagina dedicata.
             </p>
             <Button href="/courses">Vai ai corsi</Button>
           </div>
