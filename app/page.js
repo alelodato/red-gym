@@ -770,7 +770,7 @@ export default function HomePage() {
             <SectionHead
               kicker="Abbonamenti"
               title="Scegli la formula giusta."
-              lead="Prezzi chiari, nessuna sorpresa. Che tu venga una volta a settimana o ti alleni ogni giorno, c'è una soluzione pensata per te."
+              lead="Che tu venga una volta a settimana o ti alleni ogni giorno, c'è una soluzione pensata per te."
             />
 
             <div className="mt-8 lg:mt-10 grid gap-10 lg:grid-cols-3 lg:gap-6">
