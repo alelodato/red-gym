@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import MapEmbed from "@/components/GoogleMap";
 import SafeguardingModal from "@/components/SafeguardingModal";
 import StatsCounterBand from "@/components/StatsCounterBand";
 import Button from "@/components/Button";
@@ -846,7 +847,7 @@ export default function HomePage() {
                 {/* COLONNA DESTRA: IFRAME - solo DESKTOP */}
                 <div className="hidden lg:block mt-8 lg:mt-0">
                   <div className="relative overflow-hidden rounded-xl shadow-soft h-[360px]">
-                    <iframe
+                    <MapEmbed
                       src="https://www.google.com/maps/embed?pb=!4v1772036816336!6m8!1m7!1s647rvD25mgsqmeDhXUMgoQ!2m2!1d42.00111503796409!2d12.66803763518375!3f337.2800964449892!4f6.287296922872244!5f0.7820865974627469"
                       className="block w-full h-full max-w-full"
                       style={{ border: 0 }}
@@ -878,7 +879,7 @@ export default function HomePage() {
                   </p>
                 </div>
                 <div className="relative h-[360px] sm:h-[420px] lg:h-[460px]">
-                  <iframe
+                  <MapEmbed
                     title="Google Maps - Red Gym"
                     className="absolute inset-0 h-full w-full"
                     loading="lazy"

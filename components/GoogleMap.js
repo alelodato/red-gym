@@ -2,42 +2,61 @@
 
 import { useEffect, useState } from "react";
 
-export default function GoogleMap() {
+function hasConsent() {
+  return localStorage.getItem("cookie-consent") === "accepted";
+}
+
+export default function MapEmbed({
+  title = "Mappa",
+  src,
+  height = 360,
+  className = "",
+}) {
   const [consent, setConsent] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem("cookie-consent");
-    if (saved === "accepted") {
-      setConsent(true);
-    }
+    setConsent(hasConsent());
   }, []);
 
   if (!consent) {
     return (
-      <div className="bg-gray-200 p-6 text-center rounded-md">
-        <p className="mb-4">
-          Per visualizzare la mappa devi accettare i cookie di terze parti.
-        </p>
-        <button
-          onClick={() => {
-            localStorage.setItem("cookie-consent", "accepted");
-            window.location.reload();
-          }}
-          className="bg-brand-red text-white px-4 py-2 rounded-md"
-        >
-          Accetta e visualizza mappa
-        </button>
+      <div
+        className={`rounded-2xl border border-brand-gray200 bg-black/80 p-6 text-white ${className}`}
+        style={{ height }}
+      >
+        <div className="h-full flex flex-col items-center justify-center text-center">
+          <p className="text-sm text-white/80">
+            Per visualizzare <span className="font-semibold">{title}</span> è necessario accettare i
+            cookie di terze parti (Google Maps).
+          </p>
+
+          <button
+            className="mt-4 rounded-md bg-brand-red px-4 py-2 text-sm font-semibold"
+            onClick={() => {
+              localStorage.setItem("cookie-consent", "accepted");
+              setConsent(true);
+              // facoltativo: avvisa anche altri componenti
+              window.dispatchEvent(new Event("cookie-consent-updated"));
+            }}
+          >
+            Abilita mappe
+          </button>
+        </div>
       </div>
     );
   }
 
   return (
     <iframe
-      src="https://www.google.com/maps/embed?..."
+      title={title}
+      src={src}
       width="100%"
-      height="450"
+      height={height}
+      style={{ border: 0 }}
       loading="lazy"
-      className="rounded-md"
-    ></iframe>
+      allowFullScreen=""
+      referrerPolicy="no-referrer-when-downgrade"
+      className={`rounded-2xl ${className}`}
+    />
   );
 }

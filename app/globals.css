@@ -44,3 +44,8 @@ html, body { height: 100%; }
   );
   animation: rgGlow 0.7s ease-in-out infinite;
 }
+
+@keyframes slideUp {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
