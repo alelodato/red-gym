@@ -19,9 +19,6 @@ export default function Footer() {
                 className="h-8 w-auto sm:h-9 lg:h-12 xl:h-14"
               />
             </div>
-            <p className="mt-4 text-sm text-black/70 max-w-sm">
-              Palestra completa e dinamica: sala pesi, corsi e coaching.
-            </p>
           </div>
 
           {/* SITEMAP */}
