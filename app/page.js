@@ -485,9 +485,9 @@ export default function HomePage() {
             </div>
 
             <div className="mt-10">
-              <div className="grid gap-4 sm:gap-10 lg:grid-cols-2 lg:items-start">
-                {/* COLONNA SINISTRA: 4 Card */}
-                <div className="space-y-12 sm:space-y-10">
+              <div className="grid gap-4 sm:gap-10 lg:grid-cols-2">
+                {/* COLONNA SINISTRA: 4 Card con rows uguali */}
+                <div className="space-y-12 sm:space-y-10 lg:space-y-0 lg:grid lg:grid-rows-4 lg:gap-10 lg:auto-rows-fr">
                   {/* 1. Macchinari */}
                   <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
                     <p className="section-title text-brand-red">Struttura e Spazi</p>
@@ -519,8 +519,7 @@ export default function HomePage() {
                     </div>
 
                     <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
-                      Sala pesi, sala Olicrom, area funzionale e spazi dedicati alle arti marziali,
-                      tutte le attività hanno un'area specifica, ordinata e attrezzata per garantire allenamenti efficaci e in totale sicurezza.
+                      Strumenti selezionati per sicurezza, comfort ed efficacia: qui trovi macchinari che fanno la differenza. E per chi ama il combattimento, spazi dedicati a Boxe, MMA e arti marziali organizzati e con l'atmosfera giusta per allenarti con metodo e concentrazione.
                     </p>
                     <div className="mt-6">
                       <Button href="/about#palestra">Scopri la palestra</Button>
@@ -558,7 +557,7 @@ export default function HomePage() {
                     </div>
 
                     <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
-                      Red Gym offre un’ampia varietà di corsi e attività pensate per ogni livello ed esigenza: dalle discipline dedicate al benessere, come yoga e ginnastica posturale, all’allenamento funzionale, TACFIT e prepugilistica. Per gli appassionati degli sport da combattimento sono inoltre disponibili corsi di boxe, kickboxing, MMA e arti marziali.
+                      Red Gym propone un percorso completo che unisce sport da combattimento, prepugilistica e allenamento funzionale a discipline dedicate al benessere come yoga e ginnastica posturale. Un approccio integrato per sviluppare forza, tecnica, mobilità ed equilibrio, adatto a ogni età e livello di preparazione.
                     </p>
                     <div className="mt-6">
                       <Button href="/courses">I nostri corsi</Button>
@@ -609,11 +608,11 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* COLONNA DESTRA: ImageGrid - SOLO DESKTOP */}
-                <div className="hidden lg:grid lg:grid-rows-4 lg:gap-10">
+                {/* COLONNA DESTRA: ImageGrid con rows uguali - SOLO DESKTOP */}
+                <div className="hidden lg:grid lg:grid-rows-4 lg:gap-10 lg:auto-rows-fr">
                   {/* Riga 1: Grid 2x2 */}
-                  <div className="grid grid-cols-2 gap-4 h-[340px]">
-                    <div className="relative overflow-hidden rounded-xl shadow-soft">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="relative overflow-hidden rounded-xl shadow-soft h-full">
                       <img
                         src={toPublicSrc("palestra3.webp")}
                         alt="Sala Pesi Red Gym"
@@ -621,7 +620,7 @@ export default function HomePage() {
                       />
                       <div className="absolute inset-0 bg-black/10" />
                     </div>
-                    <div className="relative overflow-hidden rounded-xl shadow-soft">
+                    <div className="relative overflow-hidden rounded-xl shadow-soft h-full">
                       <img
                         src={toPublicSrc("sala-funzionale.webp")}
                         alt="Sala Funzionale Red Gym"
@@ -632,8 +631,8 @@ export default function HomePage() {
                   </div>
 
                   {/* Riga 2: Grid 2x2 */}
-                  <div className="grid grid-cols-2 gap-4 h-[340px]">
-                    <div className="relative overflow-hidden rounded-xl shadow-soft">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="relative overflow-hidden rounded-xl shadow-soft h-full">
                       <img
                         src={toPublicSrc("yoga.webp")}
                         alt="Yoga Red Gym"
@@ -641,7 +640,7 @@ export default function HomePage() {
                       />
                       <div className="absolute inset-0 bg-black/10" />
                     </div>
-                    <div className="relative overflow-hidden rounded-xl shadow-soft">
+                    <div className="relative overflow-hidden rounded-xl shadow-soft h-full">
                       <img
                         src={toPublicSrc("judo-hero.webp")}
                         alt="Judo Red Gym"
@@ -652,7 +651,7 @@ export default function HomePage() {
                   </div>
 
                   {/* Riga 3: Immagine singola */}
-                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[340px]">
+                  <div className="relative overflow-hidden rounded-xl shadow-soft h-full">
                     <img
                       src={toPublicSrc("rgym2.jpeg")}
                       alt="Team Red Gym"
@@ -662,7 +661,7 @@ export default function HomePage() {
                   </div>
 
                   {/* Riga 4: Immagine singola */}
-                  <div className="relative overflow-hidden rounded-xl shadow-soft h-[340px]">
+                  <div className="relative overflow-hidden rounded-xl shadow-soft h-full">
                     <img
                       src={toPublicSrc("community.jpeg")}
                       alt="Community Red Gym"
