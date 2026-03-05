@@ -89,8 +89,8 @@ function TripleDiagonalBand({
             ) : null}
 
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <Button href="/contact">Chiedi maggiori info</Button>
-              <Button href="/pricing" variant="white">
+              <Button href="/contact" className="hero-button">Chiedi maggiori info</Button>
+              <Button href="/pricing" variant="white" className="hero-button">
                 I nostri piani e abbonamenti
               </Button>
             </div>

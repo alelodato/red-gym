@@ -62,8 +62,8 @@ function PhotoHeroBand({
             ) : null}
 
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <Button href="/contact">Chiedi info</Button>
-              <Button href="/courses" variant="white">
+              <Button href="/contact" className="hero-button">Chiedi info</Button>
+              <Button href="/courses" variant="white" className="hero-button">
                 Corsi e attività
               </Button>
             </div>
