@@ -68,11 +68,11 @@ html, body { height: 100%; }
 }
 
 .hero-button:nth-child(1) {
-  animation-delay: 0.4s;
+  animation-delay: 0.5s;
 }
 
 .hero-button:nth-child(2) {
-  animation-delay: 0.6s;
+  animation-delay: 0.7s;
 }
 
 @keyframes heroButtonReveal {

@@ -660,7 +660,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     <div className="mt-6 lg:hidden relative h-[360px]">
                       {/* TOP (appare dopo) */}
                       <div className="absolute top-0 left-0 w-[55%] z-10">
-                        <Reveal delay={0.18}>
+                        <Reveal delay={0.5}>
                           <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
                             <img
                               src={toPublicSrc("yoga.webp")}
