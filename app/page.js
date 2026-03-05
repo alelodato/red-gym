@@ -5,7 +5,6 @@ import MapEmbed from "@/components/GoogleMap";
 import SafeguardingModal from "@/components/SafeguardingModal";
 import StatsCounterBand from "@/components/StatsCounterBand";
 import Button from "@/components/Button";
-
 function toPublicSrc(path) {
   if (!path) return "";
   return path.startsWith("/") ? path : `/${path}`;
@@ -63,8 +62,8 @@ function Hero({
             ) : null}
 
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <Button href="/courses">I nostri corsi</Button>
-              <Button href="/about" variant="white">
+              <Button href="/courses" className="hero-button">I nostri corsi</Button>
+              <Button href="/about" variant="white" className="hero-button">
                 Scopri la palestra
               </Button>
             </div>
@@ -117,7 +116,8 @@ function SectionHead({ kicker, title, lead, ctaHref, ctaLabel }) {
 
 function Card({ kicker, title, text, href, ctaLabel, imageSrc, imageAlt }) {
   return (
-    <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
+    <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       {kicker ? <p className="section-title text-brand-red">{kicker}</p> : null}
       <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
         {title}
@@ -347,9 +347,8 @@ function SalaPesiTrainersCarousel() {
       {trainers.map((trainer, index) => (
         <div
           key={index}
-          className={`absolute inset-0 flex flex-col transition-opacity duration-1000 ${
-            index === currentSlide ? "opacity-100" : "opacity-0"
-          }`}
+          className={`absolute inset-0 flex flex-col transition-opacity duration-1000 ${index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
         >
           {/* Immagine - occupa il 65% dell'altezza */}
           <div className="h-[65%] flex items-center justify-center p-4 bg-white">
@@ -359,7 +358,7 @@ function SalaPesiTrainersCarousel() {
               className="max-h-full max-w-full object-contain"
             />
           </div>
-          
+
           {/* Didascalia - occupa il 35% dell'altezza */}
           <div className="h-[35%] bg-brand-offwhite flex flex-col items-center justify-center p-4">
             <p className="font-heading uppercase tracking-wide text-brand-black text-lg">
@@ -404,9 +403,8 @@ function OtherTrainersCarousel() {
       {trainers.map((trainer, index) => (
         <div
           key={index}
-          className={`absolute inset-0 flex flex-col transition-opacity duration-1000 ${
-            index === currentSlide ? "opacity-100" : "opacity-0"
-          }`}
+          className={`absolute inset-0 flex flex-col transition-opacity duration-1000 ${index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
         >
           {/* Immagine - occupa il 65% dell'altezza */}
           <div className="h-[65%] flex items-center justify-center p-4 bg-white">
@@ -416,7 +414,7 @@ function OtherTrainersCarousel() {
               className="max-h-full max-w-full object-contain"
             />
           </div>
-          
+
           {/* Didascalia - occupa il 35% dell'altezza */}
           <div className="h-[35%] bg-brand-offwhite flex flex-col items-center justify-center p-4">
             <p className="font-heading uppercase tracking-wide text-brand-black text-lg">
@@ -602,14 +600,15 @@ export default function HomePage() {
                 {/* COLONNA SINISTRA: 4 Card con rows uguali */}
                 <div className="space-y-12 sm:space-y-10 lg:space-y-0 lg:grid lg:grid-rows-4 lg:gap-10 lg:auto-rows-fr">
                   {/* 1. Macchinari */}
-                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
+                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     <p className="section-title text-brand-red">La Struttura</p>
                     <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
                       Attrezzature e Spazi per ogni tipo di attività
                     </h3>
 
                     <div className="mt-6 lg:hidden relative h-[360px]">
-                      <div className="absolute top-0 left-0 w-[55%] z-10">
+                      <div className="absolute top-0 left-0 w-[55%] z-10 ">
                         <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
                           <img
                             src={toPublicSrc("palestra3.webp")}
@@ -642,7 +641,8 @@ export default function HomePage() {
                   </div>
 
                   {/* 2. Benessere */}
-                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
+                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     <p className="section-title text-brand-red">Sport & Benessere</p>
                     <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
                       Mente e Corpo in Equilibrio
@@ -650,7 +650,9 @@ export default function HomePage() {
 
                     <div className="mt-6 lg:hidden relative h-[360px]">
                       <div className="absolute top-0 left-0 w-[55%] z-10">
-                        <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
+                        <div
+                          className="relative overflow-hidden rounded-xl shadow-lg h-[320px]"
+                        >
                           <img
                             src={toPublicSrc("yoga.webp")}
                             alt="Yoga Red Gym"
@@ -660,7 +662,9 @@ export default function HomePage() {
                         </div>
                       </div>
                       <div className="absolute bottom-0 right-0 w-[55%]">
-                        <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
+                        <div
+                          className="relative overflow-hidden rounded-xl shadow-lg h-[320px]"
+                        >
                           <img
                             src={toPublicSrc("judo-hero.webp")}
                             alt="Judo Red Gym"
@@ -680,7 +684,8 @@ export default function HomePage() {
                   </div>
 
                   {/* 3. Trainer */}
-                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
+                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     <p className="section-title text-brand-red">Il Team</p>
                     <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
                       Istruttori Qualificati e Appassionati
@@ -699,7 +704,8 @@ export default function HomePage() {
                   </div>
 
                   {/* 4. Community */}
-                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7">
+                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     <p className="section-title text-brand-red">Community</p>
                     <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
                       Un Ambiente Accogliente e Motivante
@@ -805,7 +811,8 @@ export default function HomePage() {
             <div className="hidden lg:block mt-10">
               <div className="grid gap-8 lg:grid-cols-2">
                 {/* Card 1 */}
-                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col">
+                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
                     Allenamento Funzionale • TacFit • Prepugilistica
                   </p>
@@ -818,14 +825,15 @@ export default function HomePage() {
                     <div className="absolute inset-0 bg-black/10" />
                   </div>
                   <p className="mt-4 text-sm text-black/70 leading-relaxed flex-grow">
-                    Forza, mobilità e condizionamento. 
+                    Forza, mobilità e condizionamento.
                     <br />
                     Allenamenti dinamici e ad alta intensità per migliorare performance, resistenza e controllo del corpo.
                   </p>
                 </div>
 
                 {/* Card 2 */}
-                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col">
+                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
                     Ginnastica per la Salute & Yoga
                   </p>
@@ -845,7 +853,8 @@ export default function HomePage() {
                 </div>
 
                 {/* Card 3 */}
-                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col">
+                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
                     Boxe & Kickboxing
                   </p>
@@ -858,14 +867,15 @@ export default function HomePage() {
                     <div className="absolute inset-0 bg-black/10" />
                   </div>
                   <p className="mt-4 text-sm text-black/70 leading-relaxed flex-grow">
-                    Colpi, tecnica e strategia. 
+                    Colpi, tecnica e strategia.
                     <br />
                     Sport da ring che sviluppano potenza, velocità e concentrazione, costruendo fiducia e disciplina dentro e fuori dalla palestra.
                   </p>
                 </div>
 
                 {/* Card 4 */}
-                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col">
+                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
                     MMA • Karate • Judo
                   </p>
@@ -878,7 +888,7 @@ export default function HomePage() {
                     <div className="absolute inset-0 bg-black/10" />
                   </div>
                   <p className="mt-4 text-sm text-black/70 leading-relaxed flex-grow">
-                    Arti marziali che formano atleti completi. 
+                    Arti marziali che formano atleti completi.
                     <br />
                     Tecnica, rispetto e determinazione in percorsi che uniscono tradizione, combattimento e crescita personale.
                   </p>
@@ -946,7 +956,8 @@ export default function HomePage() {
 
             <div className="mt-8 lg:mt-10 grid gap-6 lg:grid-cols-12">
               <div className="lg:col-span-6 space-y-6">
-                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white">
+                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <p className="font-heading uppercase tracking-wide">Recapiti</p>
                   <div className="mt-3 space-y-2 text-sm text-black/70">
                     <p>
@@ -992,7 +1003,8 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="lg:col-span-6 sm:rounded-xl overflow-hidden sm:border sm:border-brand-gray200 sm:bg-white">
+              <div className="lg:col-span-6 sm:rounded-xl overflow-hidden sm:border sm:border-brand-gray200 sm:bg-white shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <div className="p-6 sm:p-7">
                   <p className="font-heading uppercase tracking-wide text-lg">Red Gym – Fonte Nuova</p>
                   <p className="mt-2 text-sm text-black/70">
