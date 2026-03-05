@@ -5,6 +5,8 @@ import MapEmbed from "@/components/GoogleMap";
 import SafeguardingModal from "@/components/SafeguardingModal";
 import StatsCounterBand from "@/components/StatsCounterBand";
 import Button from "@/components/Button";
+import Reveal from "@/components/Reveal";
+
 function toPublicSrc(path) {
   if (!path) return "";
   return path.startsWith("/") ? path : `/${path}`;
@@ -600,15 +602,9 @@ export default function HomePage() {
                 {/* COLONNA SINISTRA: 4 Card con rows uguali */}
                 <div className="space-y-12 sm:space-y-10 lg:space-y-0 lg:grid lg:grid-rows-4 lg:gap-10 lg:auto-rows-fr">
                   {/* 1. Macchinari */}
-                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 shadow-soft overflow-hidden 
-transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                    <p className="section-title text-brand-red">La Struttura</p>
-                    <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
-                      Attrezzature e Spazi per ogni tipo di attività
-                    </h3>
-
-                    <div className="mt-6 lg:hidden relative h-[360px]">
-                      <div className="absolute top-0 left-0 w-[55%] z-10 ">
+                  <div className="mt-6 lg:hidden relative h-[360px]">
+                    <div className="absolute top-0 left-0 w-[55%] z-10">
+                      <Reveal delay={0.8}>
                         <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
                           <img
                             src={toPublicSrc("palestra3.webp")}
@@ -617,8 +613,11 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                           />
                           <div className="absolute inset-0 bg-black/10" />
                         </div>
-                      </div>
-                      <div className="absolute bottom-0 right-0 w-[55%]">
+                      </Reveal>
+                    </div>
+
+                    <div className="absolute bottom-0 right-0 w-[55%]">
+                      <Reveal delay={0}>
                         <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
                           <img
                             src={toPublicSrc("sala-funzionale.webp")}
@@ -627,32 +626,15 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                           />
                           <div className="absolute inset-0 bg-black/10" />
                         </div>
-                      </div>
-                    </div>
-
-                    <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
-                      Sala pesi, Olicrom, funzionale e arti marziali: Red Gym offre spazi ampi attrezzati con macchinari professionali per garantire un allenamento efficace e confortevole.
-                      <br />
-                      Che tu voglia potenziare forza e resistenza, praticare dicipline dedicate al benessere o sport da combattimento, qui trovi tutto ciò di cui hai bisogno.
-                    </p>
-                    <div className="mt-6">
-                      <Button href="/about#palestra">Scopri la palestra</Button>
+                      </Reveal>
                     </div>
                   </div>
 
                   {/* 2. Benessere */}
-                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 shadow-soft overflow-hidden 
-transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                    <p className="section-title text-brand-red">Sport & Benessere</p>
-                    <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
-                      Mente e Corpo in Equilibrio
-                    </h3>
-
-                    <div className="mt-6 lg:hidden relative h-[360px]">
-                      <div className="absolute top-0 left-0 w-[55%] z-10">
-                        <div
-                          className="relative overflow-hidden rounded-xl shadow-lg h-[320px]"
-                        >
+                  <div className="mt-6 lg:hidden relative h-[360px]">
+                    <div className="absolute top-0 left-0 w-[55%] z-10">
+                      <Reveal delay={0.8}>
+                        <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
                           <img
                             src={toPublicSrc("yoga.webp")}
                             alt="Yoga Red Gym"
@@ -660,11 +642,12 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                           />
                           <div className="absolute inset-0 bg-black/10" />
                         </div>
-                      </div>
-                      <div className="absolute bottom-0 right-0 w-[55%]">
-                        <div
-                          className="relative overflow-hidden rounded-xl shadow-lg h-[320px]"
-                        >
+                      </Reveal>
+                    </div>
+
+                    <div className="absolute bottom-0 right-0 w-[55%]">
+                      <Reveal delay={0}>
+                        <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
                           <img
                             src={toPublicSrc("judo-hero.webp")}
                             alt="Judo Red Gym"
@@ -672,14 +655,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                           />
                           <div className="absolute inset-0 bg-black/10" />
                         </div>
-                      </div>
-                    </div>
-
-                    <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
-                      Red Gym offre un’ampia varietà di corsi e attività pensate per ogni livello ed esigenza: dalle discipline dedicate al benessere, come yoga e ginnastica posturale, all’allenamento funzionale, TACFIT e prepugilistica. Per gli appassionati degli sport da combattimento sono inoltre disponibili corsi di boxe, kickboxing, MMA e arti marziali.
-                    </p>
-                    <div className="mt-6">
-                      <Button href="/courses">I nostri corsi</Button>
+                      </Reveal>
                     </div>
                   </div>
 
