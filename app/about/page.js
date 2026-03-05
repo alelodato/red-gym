@@ -923,8 +923,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
           {/* SEGRETERIA - object-contain, più piccole e basse */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start max-w-5xl mx-auto">
             <div className="flex flex-col items-center sm:items-stretch">
-              <div className="w-4/5 max-w-[280px] sm:w-full sm:max-w-none lg:max-w-[280px] lg:shadow-soft overflow-hidden 
-transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <div className="w-4/5 max-w-[280px] sm:w-full sm:max-w-none lg:max-w-[280px]">
                 <div className="relative rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft h-[350px] sm:h-[320px] lg:h-[340px]">
                   <Image
                     src={toPublicSrc("GAIA.jpeg")}
@@ -954,8 +953,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
             </div>
 
             <div className="flex flex-col items-center sm:items-stretch">
-              <div className="w-4/5 max-w-[280px] sm:w-full sm:max-w-none lg:max-w-[280px] lg:shadow-soft overflow-hidden 
-transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <div className="w-4/5 max-w-[280px] sm:w-full sm:max-w-none lg:max-w-[280px] ">
                 <div className="relative rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft h-[350px] sm:h-[320px] lg:h-[340px]">
                   <Image
                     src={toPublicSrc("ELEONORA.jpeg")}

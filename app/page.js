@@ -119,7 +119,7 @@ function SectionHead({ kicker, title, lead, ctaHref, ctaLabel }) {
 function Card({ kicker, title, text, href, ctaLabel, imageSrc, imageAlt }) {
   return (
     <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 lg:shadow-soft overflow-hidden 
-transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
       {kicker ? <p className="section-title text-brand-red">{kicker}</p> : null}
       <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
         {title}
@@ -603,7 +603,7 @@ export default function HomePage() {
                 <div className="space-y-12 sm:space-y-10 lg:space-y-0 lg:grid lg:grid-rows-4 lg:gap-10 lg:auto-rows-fr">
                   {/* 1. Macchinari */}
                   <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 lg:shadow-soft overflow-hidden 
-transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
                     <p className="section-title text-brand-red">La Struttura</p>
                     <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
                       Attrezzature e Spazi per ogni tipo di attività
@@ -651,7 +651,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
                   {/* 2. Benessere */}
                   <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 lg:shadow-soft overflow-hidden 
-transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
                     <p className="section-title text-brand-red">Sport & Benessere</p>
                     <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
                       Mente e Corpo in Equilibrio
@@ -697,7 +697,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
                   {/* 3. Trainer */}
                   <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 lg:shadow-soft overflow-hidden 
-transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
                     <p className="section-title text-brand-red">Il Team</p>
                     <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
                       Istruttori Qualificati e Appassionati
@@ -717,7 +717,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
                   {/* 4. Community */}
                   <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 lg:shadow-soft overflow-hidden 
-transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
                     <p className="section-title text-brand-red">Community</p>
                     <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
                       Un Ambiente Accogliente e Motivante
