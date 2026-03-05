@@ -353,17 +353,17 @@ function SalaPesiTrainersCarousel() {
           className={`absolute inset-0 flex flex-col transition-opacity duration-1000 ${index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
         >
-          {/* Immagine - occupa il 65% dell'altezza */}
-          <div className="h-[65%] flex items-center justify-center p-4 bg-white">
+          {/* Immagine - occupa il 75% dell'altezza */}
+          <div className="h-[75%] flex items-center justify-center p-4 bg-white">
             <img
               src={toPublicSrc(trainer.image)}
               alt={trainer.name}
-              className="max-h-full max-w-full object-contain"
+              className="max-h-full max-w-full object-cover object-top"
             />
           </div>
 
-          {/* Didascalia - occupa il 35% dell'altezza */}
-          <div className="h-[35%] bg-brand-offwhite flex flex-col items-center justify-center p-4">
+          {/* Didascalia - occupa il 25% dell'altezza */}
+          <div className="h-[25%] bg-brand-offwhite flex flex-col items-center justify-center p-4">
             <p className="font-heading uppercase tracking-wide text-brand-black text-lg">
               {trainer.name}
             </p>
@@ -384,10 +384,10 @@ function OtherTrainersCarousel() {
     { image: "ADRIANO.jpeg", name: "Adriano Sperandio", role: "Istruttore Funzionale e Prepugilistica" },
     { image: "ALEX.jpeg", name: "Alex", role: "Istruttore Funzionale/TacFit" },
     { image: "MORENA.jpeg", name: "Morena", role: "Istruttrice Ginnastica per la Salute" },
-    { image: "CLAUDIA.jpeg", name: "Claudia", role: "Istruttrice Yoga" },
+    { image: "claudia.webp", name: "Claudia", role: "Istruttrice Yoga" },
     { image: "PAOLO.jpeg", name: "Paolo Sperandio", role: "Maestro Boxe" },
     { image: "MASSIMO.jpeg", name: "Massimo Montecchiani", role: "Maestro Karate" },
-    { image: "BARBARA.jpeg", name: "Barbara Montecchiani", role: "Maestra Karate" },
+    { image: "barbara.webp", name: "Barbara Montecchiani", role: "Maestra Karate" },
     { image: "MICHELA.jpeg", name: "Michela Muccioli", role: "Maestra Judo" },
     { image: "VITTORIA.jpeg", name: "Vittorina Di Vincenzo", role: "Maestra Judo" },
     { image: "NATALINO.jpeg", name: "Anton Ioan Catalin", role: "Maestro Kickboxing" },
@@ -409,17 +409,17 @@ function OtherTrainersCarousel() {
           className={`absolute inset-0 flex flex-col transition-opacity duration-1000 ${index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
         >
-          {/* Immagine - occupa il 65% dell'altezza */}
-          <div className="h-[65%] flex items-center justify-center p-4 bg-white">
+          {/* Immagine - occupa il 75% dell'altezza */}
+          <div className="h-[75%] flex items-center justify-center p-4 bg-white">
             <img
               src={toPublicSrc(trainer.image)}
               alt={trainer.name}
-              className="max-h-full max-w-full object-contain"
+              className="max-h-full max-w-full object-cover object-top"
             />
           </div>
 
-          {/* Didascalia - occupa il 35% dell'altezza */}
-          <div className="h-[35%] bg-brand-offwhite flex flex-col items-center justify-center p-4">
+          {/* Didascalia - occupa il 25% dell'altezza */}
+          <div className="h-[25%] bg-brand-offwhite flex flex-col items-center justify-center p-4">
             <p className="font-heading uppercase tracking-wide text-brand-black text-lg">
               {trainer.name}
             </p>
