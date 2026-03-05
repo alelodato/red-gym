@@ -814,7 +814,7 @@ transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
             <SectionHead
               kicker="Corsi & attività"
               title="Trova il tuo percorso."
-              lead="Che tu sia all'inizio o già ad un livello avanzato, trovi corsi con guide competenti e progressioni chiare: allenamento funzionale e TACFIT, ginnastica posturale e yoga, boxe/kickboxing/prepugilistica, MMA, karate e judo."
+              lead="Che tu sia all'inizio o già ad un livello avanzato, trovi corsi con guide competenti e progressioni chiare: allenamento funzionale, TACFIT e prepugilistica, ginnastica posturale e yoga, boxe e kickboxing, MMA, karate e judo."
             />
 
             {/* SLIDESHOW - SOLO MOBILE */}
