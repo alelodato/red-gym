@@ -67,10 +67,6 @@ function PhotoHeroBand({
                 {subtitle}
               </p>
             ) : null}
-
-            <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <Button href="/contact">Chiedi info</Button>
-            </div>
           </div>
         </div>
       </div>
@@ -296,10 +292,7 @@ export default function PricingPage() {
             </div>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Button href="/contact">Richiedi info</Button>
-              <Button href="/courses" variant="outline">
-                Vedi corsi
-              </Button>
+              <Button href="/contact" variant="outline">Richiedi info</Button>
             </div>
           </WhiteBlock>
         </section>
@@ -330,10 +323,7 @@ export default function PricingPage() {
             </div>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Button href="/contact">Chiedi disponibilità</Button>
-              <Button href="/courses" variant="outline">
-                Scopri le attività
-              </Button>
+              <Button href="/contact" variant="outline">Richiedi info</Button>
             </div>
           </WhiteBlock>
         </section>
