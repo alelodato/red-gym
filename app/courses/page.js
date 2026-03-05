@@ -346,7 +346,8 @@ const ALL_COURSES = [...WELLNESS_COURSES, ...MARTIAL_ARTS_COURSES];
 
 function ScheduleTable({ schedule }) {
   return (
-    <div className="sm:rounded-lg sm:border sm:border-brand-gray200 overflow-hidden">
+    <div className="sm:rounded-lg sm:border sm:border-brand-gray200 overflow-hidden shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <div className="bg-brand-black text-white px-4 py-3 text-sm font-semibold">Orari</div>
       <div className="divide-y divide-brand-gray200 sm:bg-white">
         {schedule.map((s) => (
@@ -365,7 +366,8 @@ function ScheduleTable({ schedule }) {
 
 function SingleScheduleBlock({ item }) {
   return (
-    <div>
+    <div className="shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <p className="font-heading uppercase tracking-wide text-base mb-3">{item.title}</p>
       <div className="sm:rounded-lg sm:border sm:border-brand-gray200 overflow-hidden">
         <div className="bg-brand-black text-white px-4 py-3 text-sm font-semibold">Orari</div>
@@ -392,7 +394,8 @@ function SingleTrainerBlock({ trainer }) {
 
       <div className="max-w-2xl mx-auto">
         <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 overflow-hidden">
-          <div className="grid sm:grid-cols-5">
+          <div className="grid sm:grid-cols-5 shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
             <div className="sm:col-span-2 relative h-[380px] sm:h-[420px]">
               <img
                 src={toPublicSrc(trainer.image)}
@@ -417,16 +420,17 @@ function SingleTrainerBlock({ trainer }) {
 
 function MultipleTrainersBlock({ trainers }) {
   return (
-    <div>
+    <div className="">
       <p className="section-title text-brand-red text-sm mb-5">Trainer</p>
 
       <div className="grid sm:grid-cols-2 gap-5">
         {trainers.map((t, idx) => (
           <div
             key={idx}
-            className="sm:rounded-lg sm:bg-white sm:border sm:border-brand-gray200 overflow-hidden"
+            className="sm:rounded-lg sm:bg-white sm:border sm:border-brand-gray200 overflow-hidden shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
           >
-            <div className="relative h-[400px]">
+            <div className="relative h-[400px] ">
               <img
                 src={toPublicSrc(t.image)}
                 alt={t.name}
@@ -476,7 +480,7 @@ function CourseSection({ course, invert = false }) {
         </h2>
       </div>
 
-      <div className="grid lg:grid-cols-12">
+      <div className="grid lg:grid-cols-12 ">
         {/* FOTO */}
         <div
           className={[
@@ -526,7 +530,7 @@ function CourseSection({ course, invert = false }) {
 
           {/* TABELLE */}
           {hasMultipleSchedules ? (
-            <div className="mt-5 space-y-6">
+            <div className="mt-5 space-y-6 ">
               {/* Mobile: tutte le tabelle in colonna */}
               <div className="lg:hidden space-y-6">
                 {course.schedules.map((item, idx) => (

@@ -685,15 +685,17 @@ export default function AboutPage() {
 
               {/* GRID 2 FOTO DESKTOP */}
               <div className="hidden lg:grid lg:grid-cols-2 lg:gap-6 mt-6">
-                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px]">
+                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px] shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <img
                     src={toPublicSrc("palestra2.webp")}
                     alt="Sala Pesi Red Gym"
-                    className="absolute inset-0 h-full w-full object-cover"
+                    className="absolute inset-0 h-full w-full object-cover "
                   />
                   <div className="absolute inset-0 bg-black/10" />
                 </div>
-                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px]">
+                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px] shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <img
                     src={toPublicSrc("palestra3.webp")}
                     alt="Sala Pesi Red Gym"
@@ -725,7 +727,8 @@ export default function AboutPage() {
 
               {/* GRID 2 FOTO DESKTOP */}
               <div className="hidden lg:grid lg:grid-cols-2 lg:gap-6 mt-6">
-                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px]">
+                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px] shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <img
                     src={toPublicSrc("sala-olicrom.webp")}
                     alt="Sala Olicrom Red Gym"
@@ -733,7 +736,8 @@ export default function AboutPage() {
                   />
                   <div className="absolute inset-0 bg-black/10" />
                 </div>
-                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px]">
+                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px] shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <img
                     src={toPublicSrc("palestra7.webp")}
                     alt="Sala Olicrom Red Gym"
@@ -765,7 +769,8 @@ export default function AboutPage() {
                     { name: "EUGENIA", image: "EUGENIA.jpeg" },
                   ].map((t) => (
                     <div key={t.name} className="flex flex-col items-center">
-                      <div className="relative w-full aspect-[3/4] rounded-none sm:rounded-lg overflow-hidden bg-white border-y sm:border border-brand-gray200">
+                      <div className="relative w-full aspect-[3/4] rounded-none sm:rounded-lg overflow-hidden bg-white border-y sm:border border-brand-gray200 shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                         <Image
                           src={toPublicSrc(t.image)}
                           alt={t.name}
@@ -787,7 +792,8 @@ export default function AboutPage() {
                     { name: "LUIGI", image: "LUIGI.jpeg" },
                   ].map((t) => (
                     <div key={t.name} className="flex flex-col items-center">
-                      <div className="relative w-full aspect-[3/4] rounded-none sm:rounded-lg overflow-hidden bg-white border-y sm:border border-brand-gray200">
+                      <div className="relative w-full aspect-[3/4] rounded-none sm:rounded-lg overflow-hidden bg-white border-y sm:border border-brand-gray200 shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                         <Image
                           src={toPublicSrc(t.image)}
                           alt={t.name}
@@ -821,7 +827,8 @@ export default function AboutPage() {
 
               {/* GRID 2 FOTO DESKTOP */}
               <div className="hidden lg:grid lg:grid-cols-2 lg:gap-6 mt-6">
-                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px]">
+                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px] shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <img
                     src={toPublicSrc("sala-funzionale.webp")}
                     alt="Sala Funzionale Red Gym"
@@ -829,7 +836,8 @@ export default function AboutPage() {
                   />
                   <div className="absolute inset-0 bg-black/10" />
                 </div>
-                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px]">
+                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px] shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <img
                     src={toPublicSrc("sala-funzionale2.webp")}
                     alt="Sala Funzionale Red Gym"
@@ -861,7 +869,8 @@ export default function AboutPage() {
 
               {/* GRID 2 FOTO DESKTOP */}
               <div className="hidden lg:grid lg:grid-cols-2 lg:gap-6 mt-6">
-                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px]">
+                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px] shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <img
                     src={toPublicSrc("sala-arti-marziali.webp")}
                     alt="Sala Arti Marziali Red Gym"
@@ -869,7 +878,8 @@ export default function AboutPage() {
                   />
                   <div className="absolute inset-0 bg-black/10" />
                 </div>
-                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px]">
+                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px] shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <img
                     src={toPublicSrc("sala-arti-marziali2.webp")}
                     alt="Sala Arti Marziali Red Gym"
@@ -913,7 +923,8 @@ export default function AboutPage() {
           {/* SEGRETERIA - object-contain, più piccole e basse */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start max-w-5xl mx-auto">
             <div className="flex flex-col items-center sm:items-stretch">
-              <div className="w-4/5 max-w-[280px] sm:w-full sm:max-w-none lg:max-w-[280px]">
+              <div className="w-4/5 max-w-[280px] sm:w-full sm:max-w-none lg:max-w-[280px] shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <div className="relative rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft h-[350px] sm:h-[320px] lg:h-[340px]">
                   <Image
                     src={toPublicSrc("GAIA.jpeg")}
@@ -924,7 +935,7 @@ export default function AboutPage() {
                   <div className="absolute inset-0 bg-black/5 pointer-events-none" />
                 </div>
 
-                <div className="mt-4 text-left">
+                <div className="my-4 mx-4 text-left">
                   <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">
                     Gaia
                   </h4>
@@ -943,7 +954,8 @@ export default function AboutPage() {
             </div>
 
             <div className="flex flex-col items-center sm:items-stretch">
-              <div className="w-4/5 max-w-[280px] sm:w-full sm:max-w-none lg:max-w-[280px]">
+              <div className="w-4/5 max-w-[280px] sm:w-full sm:max-w-none lg:max-w-[280px] shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <div className="relative rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft h-[350px] sm:h-[320px] lg:h-[340px]">
                   <Image
                     src={toPublicSrc("ELEONORA.jpeg")}
@@ -954,7 +966,7 @@ export default function AboutPage() {
                   <div className="absolute inset-0 bg-black/5 pointer-events-none" />
                 </div>
 
-                <div className="mt-4 text-left">
+                <div className="my-4 mx-4 text-left">
                   <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">
                     Eleonora
                   </h4>
