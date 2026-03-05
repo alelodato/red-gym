@@ -118,7 +118,7 @@ function SectionHead({ kicker, title, lead, ctaHref, ctaLabel }) {
 
 function Card({ kicker, title, text, href, ctaLabel, imageSrc, imageAlt }) {
   return (
-    <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 shadow-soft overflow-hidden 
+    <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 lg:shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       {kicker ? <p className="section-title text-brand-red">{kicker}</p> : null}
       <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
@@ -602,7 +602,7 @@ export default function HomePage() {
                 {/* COLONNA SINISTRA: 4 Card con rows uguali */}
                 <div className="space-y-12 sm:space-y-10 lg:space-y-0 lg:grid lg:grid-rows-4 lg:gap-10 lg:auto-rows-fr">
                   {/* 1. Macchinari */}
-                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 shadow-soft overflow-hidden 
+                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 lg:shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     <p className="section-title text-brand-red">La Struttura</p>
                     <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
@@ -610,25 +610,32 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     </h3>
 
                     <div className="mt-6 lg:hidden relative h-[360px]">
-                      <div className="absolute top-0 left-0 w-[55%] z-10 ">
-                        <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
-                          <img
-                            src={toPublicSrc("palestra3.webp")}
-                            alt="Sala Pesi Red Gym"
-                            className="absolute inset-0 h-full w-full object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/10" />
-                        </div>
+                      {/* TOP (dopo) */}
+                      <div className="absolute top-0 left-0 w-[55%] z-10">
+                        <Reveal delay={0.5}>
+                          <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
+                            <img
+                              src={toPublicSrc("palestra3.webp")}
+                              alt="Sala Pesi Red Gym"
+                              className="absolute inset-0 h-full w-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-black/10" />
+                          </div>
+                        </Reveal>
                       </div>
+
+                      {/* BOTTOM (prima) */}
                       <div className="absolute bottom-0 right-0 w-[55%]">
-                        <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
-                          <img
-                            src={toPublicSrc("sala-funzionale.webp")}
-                            alt="Sala Funzionale Red Gym"
-                            className="absolute inset-0 h-full w-full object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/10" />
-                        </div>
+                        <Reveal delay={0}>
+                          <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
+                            <img
+                              src={toPublicSrc("sala-funzionale.webp")}
+                              alt="Sala Funzionale Red Gym"
+                              className="absolute inset-0 h-full w-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-black/10" />
+                          </div>
+                        </Reveal>
                       </div>
                     </div>
 
@@ -643,7 +650,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   </div>
 
                   {/* 2. Benessere */}
-                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 shadow-soft overflow-hidden 
+                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 lg:shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     <p className="section-title text-brand-red">Sport & Benessere</p>
                     <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
@@ -651,29 +658,32 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     </h3>
 
                     <div className="mt-6 lg:hidden relative h-[360px]">
+                      {/* TOP (appare dopo) */}
                       <div className="absolute top-0 left-0 w-[55%] z-10">
-                        <div
-                          className="relative overflow-hidden rounded-xl shadow-lg h-[320px]"
-                        >
-                          <img
-                            src={toPublicSrc("yoga.webp")}
-                            alt="Yoga Red Gym"
-                            className="absolute inset-0 h-full w-full object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/10" />
-                        </div>
+                        <Reveal delay={0.18}>
+                          <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
+                            <img
+                              src={toPublicSrc("yoga.webp")}
+                              alt="Yoga Red Gym"
+                              className="absolute inset-0 h-full w-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-black/10" />
+                          </div>
+                        </Reveal>
                       </div>
+
+                      {/* BOTTOM (appare prima) */}
                       <div className="absolute bottom-0 right-0 w-[55%]">
-                        <div
-                          className="relative overflow-hidden rounded-xl shadow-lg h-[320px]"
-                        >
-                          <img
-                            src={toPublicSrc("judo-hero.webp")}
-                            alt="Judo Red Gym"
-                            className="absolute inset-0 h-full w-full object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/10" />
-                        </div>
+                        <Reveal delay={0}>
+                          <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
+                            <img
+                              src={toPublicSrc("judo-hero.webp")}
+                              alt="Judo Red Gym"
+                              className="absolute inset-0 h-full w-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-black/10" />
+                          </div>
+                        </Reveal>
                       </div>
                     </div>
 
@@ -686,7 +696,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   </div>
 
                   {/* 3. Trainer */}
-                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 shadow-soft overflow-hidden 
+                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 lg:shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     <p className="section-title text-brand-red">Il Team</p>
                     <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
@@ -706,7 +716,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   </div>
 
                   {/* 4. Community */}
-                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 shadow-soft overflow-hidden 
+                  <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 lg:shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     <p className="section-title text-brand-red">Community</p>
                     <h3 className="font-heading uppercase tracking-wide text-xl sm:text-2xl mt-2">
@@ -958,7 +968,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
             <div className="mt-8 lg:mt-10 grid gap-6 lg:grid-cols-12">
               <div className="lg:col-span-6 space-y-6">
-                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white shadow-soft overflow-hidden 
+                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white lg:shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <p className="font-heading uppercase tracking-wide">Recapiti</p>
                   <div className="mt-3 space-y-2 text-sm text-black/70">
@@ -1005,7 +1015,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                 </div>
               </div>
 
-              <div className="lg:col-span-6 sm:rounded-xl overflow-hidden sm:border sm:border-brand-gray200 sm:bg-white shadow-soft overflow-hidden 
+              <div className="lg:col-span-6 sm:rounded-xl overflow-hidden sm:border sm:border-brand-gray200 sm:bg-white lg:shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <div className="p-6 sm:p-7">
                   <p className="font-heading uppercase tracking-wide text-lg">Red Gym – Fonte Nuova</p>

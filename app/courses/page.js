@@ -346,7 +346,7 @@ const ALL_COURSES = [...WELLNESS_COURSES, ...MARTIAL_ARTS_COURSES];
 
 function ScheduleTable({ schedule }) {
   return (
-    <div className="sm:rounded-lg sm:border sm:border-brand-gray200 overflow-hidden shadow-soft overflow-hidden 
+    <div className="sm:rounded-lg sm:border sm:border-brand-gray200 overflow-hidden lg:shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <div className="bg-brand-black text-white px-4 py-3 text-sm font-semibold">Orari</div>
       <div className="divide-y divide-brand-gray200 sm:bg-white">
@@ -394,7 +394,7 @@ function SingleTrainerBlock({ trainer }) {
 
       <div className="max-w-2xl mx-auto">
         <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 overflow-hidden">
-          <div className="grid sm:grid-cols-5 shadow-soft overflow-hidden 
+          <div className="grid sm:grid-cols-5 lg:shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
             <div className="sm:col-span-2 relative h-[380px] sm:h-[420px]">
               <img
@@ -427,7 +427,7 @@ function MultipleTrainersBlock({ trainers }) {
         {trainers.map((t, idx) => (
           <div
             key={idx}
-            className="sm:rounded-lg sm:bg-white sm:border sm:border-brand-gray200 overflow-hidden shadow-soft overflow-hidden 
+            className="sm:rounded-lg sm:bg-white sm:border sm:border-brand-gray200 overflow-hidden lg:shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
           >
             <div className="relative h-[400px] ">
