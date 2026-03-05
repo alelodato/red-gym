@@ -322,6 +322,116 @@ function CoursesSlideshow() {
   );
 }
 
+function SalaPesiTrainersCarousel() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const trainers = [
+    { image: "DANIELE.jpeg", name: "Daniele" },
+    { image: "EMANUELE.jpeg", name: "Emanuele" },
+    { image: "ROBERTO.jpeg", name: "Roberto" },
+    { image: "EUGENIA.jpeg", name: "Eugenia" },
+    { image: "GARY.jpeg", name: "Gary" },
+    { image: "JACOPO.jpeg", name: "Jacopo" },
+    { image: "LUIGI.jpeg", name: "Luigi" },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % trainers.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [trainers.length]);
+
+  return (
+    <div className="relative overflow-hidden rounded-xl shadow-soft h-full bg-white flex flex-col">
+      {trainers.map((trainer, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 flex flex-col transition-opacity duration-1000 ${
+            index === currentSlide ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          {/* Immagine - occupa il 65% dell'altezza */}
+          <div className="h-[65%] flex items-center justify-center p-4 bg-white">
+            <img
+              src={toPublicSrc(trainer.image)}
+              alt={trainer.name}
+              className="max-h-full max-w-full object-contain"
+            />
+          </div>
+          
+          {/* Didascalia - occupa il 35% dell'altezza */}
+          <div className="h-[35%] bg-brand-offwhite flex flex-col items-center justify-center p-4">
+            <p className="font-heading uppercase tracking-wide text-brand-black text-lg">
+              {trainer.name}
+            </p>
+            <p className="text-brand-red text-xs font-semibold mt-1">
+              Istruttore Sala Pesi
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function OtherTrainersCarousel() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const trainers = [
+    { image: "ADRIANO.jpeg", name: "Adriano Sperandio", role: "Istruttore Funzionale e Prepugilistica" },
+    { image: "ALEX.jpeg", name: "Alex", role: "Istruttore Funzionale/TacFit" },
+    { image: "MORENA.jpeg", name: "Morena", role: "Istruttrice Ginnastica per la Salute" },
+    { image: "CLAUDIA.jpeg", name: "Claudia", role: "Istruttrice Yoga" },
+    { image: "PAOLO.jpeg", name: "Paolo Sperandio", role: "Maestro Boxe" },
+    { image: "MASSIMO.jpeg", name: "Massimo Montecchiani", role: "Maestro Karate" },
+    { image: "BARBARA.jpeg", name: "Barbara Montecchiani", role: "Maestra Karate" },
+    { image: "MICHELA.jpeg", name: "Michela Muccioli", role: "Maestra Judo" },
+    { image: "VITTORIA.jpeg", name: "Vittorina Di Vincenzo", role: "Maestra Judo" },
+    { image: "NATALINO.jpeg", name: "Anton Ioan Catalin", role: "Maestro Kickboxing" },
+    { image: "ASTERIO.jpeg", name: "Asterio Lucchesini", role: "Maestro MMA/Grappling" },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % trainers.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [trainers.length]);
+
+  return (
+    <div className="relative overflow-hidden rounded-xl shadow-soft h-full bg-white flex flex-col">
+      {trainers.map((trainer, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 flex flex-col transition-opacity duration-1000 ${
+            index === currentSlide ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          {/* Immagine - occupa il 65% dell'altezza */}
+          <div className="h-[65%] flex items-center justify-center p-4 bg-white">
+            <img
+              src={toPublicSrc(trainer.image)}
+              alt={trainer.name}
+              className="max-h-full max-w-full object-contain"
+            />
+          </div>
+          
+          {/* Didascalia - occupa il 35% dell'altezza */}
+          <div className="h-[35%] bg-brand-offwhite flex flex-col items-center justify-center p-4">
+            <p className="font-heading uppercase tracking-wide text-brand-black text-lg">
+              {trainer.name}
+            </p>
+            <p className="text-brand-red text-xs font-semibold mt-1">
+              {trainer.role}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function DiagonalCuts({ flip = false, heightClass = "h-16 sm:h-20" }) {
   const topClip = flip
     ? "[clip-path:polygon(0_0,100%_0,100%_100%,0_55%)]"
@@ -481,7 +591,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-black/10" />
               </div>
               <p className="mt-4 text-black/70 leading-relaxed text-sm sm:text-[15px] lg:text-[18px]">
-                Red Gym è una palestra a Fonte Nuova (RM) con oltre 1.800 mq dedicati al fitness e agli sport da combattimento. Offriamo sale attrezzata con macchinari professionali, aree specifiche per boxe e arti marziali e un ambiente ordinato, motivante e seguito da istruttori qualificati. 
+                Red Gym è una palestra a Fonte Nuova (RM) con oltre 1.800 mq dedicati al fitness e agli sport da combattimento. Offriamo sale attrezzate con macchinari professionali, aree specifiche per boxe e arti marziali e un ambiente ordinato, motivante e seguito da istruttori qualificati.
                 <br />
                 La nostra struttura è pensata per chi cerca qualità, spazio e un allenamento efficace a Fonte Nuova.
               </p>
@@ -522,9 +632,9 @@ export default function HomePage() {
                     </div>
 
                     <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
-                      Sala pesi, Olicrom, funzionale e arti marziali: Red Gym offre spazi ampi attrezzati con macchinari professionali per garantire un allenamento efficace e confortevole. 
+                      Sala pesi, Olicrom, funzionale e arti marziali: Red Gym offre spazi ampi attrezzati con macchinari professionali per garantire un allenamento efficace e confortevole.
                       <br />
-                      Che tu voglia potenziare forza e resistenza, praticare dicipline dedicate al benessere o sport da combattimento, qui trovi tutto ciò di cui hai bisogno. 
+                      Che tu voglia potenziare forza e resistenza, praticare dicipline dedicate al benessere o sport da combattimento, qui trovi tutto ciò di cui hai bisogno.
                     </p>
                     <div className="mt-6">
                       <Button href="/about#palestra">Scopri la palestra</Button>
@@ -579,7 +689,7 @@ export default function HomePage() {
                     <TrainersSlideshow />
 
                     <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
-                      Ogni corso è seguito da istruttori certificati, con anni di esperienza e la passione per quello che fanno. 
+                      Ogni corso è seguito da istruttori certificati, con anni di esperienza e la passione per quello che fanno.
                       <br />
                       Non troverai solo tecnici preparati, ma guide attente che ti aiutano a crescere con metodo, sicurezza e motivazione costante.
                     </p>
@@ -607,7 +717,7 @@ export default function HomePage() {
                     </div>
 
                     <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
-                      Qui alla Red Gym non sei mai 'lasciato solo': trovi un ambiente serio, accogliente e pieno di energia positiva. 
+                      Qui alla Red Gym non sei mai 'lasciato solo': trovi un ambiente serio, accogliente e pieno di energia positiva.
                       <br />
                       Contattaci ed entra a far parte della community!
                     </p>
@@ -659,14 +769,10 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  {/* Riga 3: Immagine singola */}
-                  <div className="relative overflow-hidden rounded-xl shadow-soft h-full">
-                    <img
-                      src={toPublicSrc("rgym2.jpeg")}
-                      alt="Team Red Gym"
-                      className="absolute inset-0 h-full w-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/10" />
+                  {/* Riga 3: Grid 2x2 - Slideshow Trainer */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <SalaPesiTrainersCarousel />
+                    <OtherTrainersCarousel />
                   </div>
 
                   {/* Riga 4: Immagine singola */}
@@ -712,7 +818,9 @@ export default function HomePage() {
                     <div className="absolute inset-0 bg-black/10" />
                   </div>
                   <p className="mt-4 text-sm text-black/70 leading-relaxed flex-grow">
-                    Forza, mobilità e condizionamento in un unico percorso. Allenamenti dinamici e ad alta intensità per migliorare performance, resistenza e controllo del corpo.
+                    Forza, mobilità e condizionamento. 
+                    <br />
+                    Allenamenti dinamici e ad alta intensità per migliorare performance, resistenza e controllo del corpo.
                   </p>
                 </div>
 
@@ -730,7 +838,9 @@ export default function HomePage() {
                     <div className="absolute inset-0 bg-black/10" />
                   </div>
                   <p className="mt-4 text-sm text-black/70 leading-relaxed flex-grow">
-                    Benessere, equilibrio e consapevolezza. Discipline che lavorano su postura, respirazione e flessibilità per ritrovare armonia tra mente e corpo.
+                    Benessere, equilibrio e consapevolezza.
+                    <br />
+                    Discipline che lavorano su postura, respirazione e flessibilità per ritrovare armonia tra mente e corpo.
                   </p>
                 </div>
 
@@ -748,7 +858,9 @@ export default function HomePage() {
                     <div className="absolute inset-0 bg-black/10" />
                   </div>
                   <p className="mt-4 text-sm text-black/70 leading-relaxed flex-grow">
-                    Colpi, tecnica e strategia. Sport da ring che sviluppano potenza, velocità e concentrazione, costruendo fiducia e disciplina dentro e fuori dalla palestra.
+                    Colpi, tecnica e strategia. 
+                    <br />
+                    Sport da ring che sviluppano potenza, velocità e concentrazione, costruendo fiducia e disciplina dentro e fuori dalla palestra.
                   </p>
                 </div>
 
@@ -766,7 +878,9 @@ export default function HomePage() {
                     <div className="absolute inset-0 bg-black/10" />
                   </div>
                   <p className="mt-4 text-sm text-black/70 leading-relaxed flex-grow">
-                    Arti marziali che formano atleti completi. Tecnica, rispetto e determinazione in percorsi che uniscono tradizione, combattimento e crescita personale.
+                    Arti marziali che formano atleti completi. 
+                    <br />
+                    Tecnica, rispetto e determinazione in percorsi che uniscono tradizione, combattimento e crescita personale.
                   </p>
                 </div>
               </div>
@@ -786,7 +900,7 @@ export default function HomePage() {
             <SectionHead
               kicker="Abbonamenti"
               title="Scegli la formula giusta."
-              lead="Pacchetti flessibili e convenienti, pensati per ogni esigenza: accesso alla sala pesi, corsi e sconti dedicati e promozioni per chi vuole allenarsi con noi a lungo termine."
+              lead="Pacchetti flessibili e convenienti, pensati per ogni esigenza: accesso alla sala pesi, corsi, sconti dedicati e promozioni per chi vuole allenarsi con noi a lungo termine."
             />
 
             <div className="mt-8 lg:mt-10 grid gap-10 lg:grid-cols-3 lg:gap-6">

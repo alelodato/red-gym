@@ -64,7 +64,7 @@ function PhotoHeroBand({
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <Button href="/contact">Chiedi info</Button>
               <Button href="/courses" variant="white">
-                Scopri i corsi
+                Corsi e attività
               </Button>
             </div>
           </div>
