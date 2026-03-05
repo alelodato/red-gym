@@ -164,7 +164,7 @@ const WELLNESS_COURSES = [
     id: "ginnastica-salute",
     title: "Ginnastica per la Salute",
     subtitle: "Postura, controllo, mobilità e benessere",
-    image: "pilates.jpg",
+    image: "pilates.webp",
     description:
       "Allenarsi non vuol dire sempre spingersi al limite: a volte vuol dire ascoltare il corpo e rimetterlo in equilibrio. La ginnastica per la salute aiuta a migliorare postura e controllo, aumentare mobilità e ridurre tensioni.\n\nÈ un percorso adatto a tutti e utile anche come integrazione alla sala pesi o agli sport da combattimento: più consapevolezza, più qualità di movimento.\n\nApproccio progressivo e accessibile: postura, respirazione e controllo, con attenzione ai dettagli.",
     schedule: [

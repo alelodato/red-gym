@@ -855,7 +855,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   </p>
                   <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px]">
                     <img
-                      src={toPublicSrc("pilates.jpg")}
+                      src={toPublicSrc("pilates.webp")}
                       alt="Pilates Red Gym"
                       className="absolute inset-0 h-full w-full object-cover"
                     />
