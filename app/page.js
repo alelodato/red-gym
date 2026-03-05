@@ -249,7 +249,7 @@ function CoursesSlideshow() {
 
   const slides = [
     { image: "tacfit.webp", title: "Allenamento Funzionale & TacFit" },
-    { image: "pilates.jpg", title: "Ginnastica per la Salute & Yoga" },
+    { image: "pilates.webp", title: "Ginnastica per la Salute & Yoga" },
     { image: "boxe.png", title: "Boxe • Kickboxing • Prepugilistica" },
     { image: "judo-hero.webp", title: "MMA • Karate • Judo" },
   ];
@@ -450,7 +450,7 @@ function DiagonalCuts({ flip = false, heightClass = "h-16 sm:h-20" }) {
 }
 
 function DiagonalPromoOver65({
-  image = "over65.webp",
+  image = "over65.jpeg",
   kicker = "Benessere",
   title = "Sconto Over 65",
   subtitle = "Tariffe dedicate: chiedi in reception o contattaci per tutti i dettagli.",
@@ -960,7 +960,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
           </WhiteSection>
 
           <DiagonalPromoOver65
-            image="over65.webp"
+            image="over65.jpeg"
             kicker="Benessere"
             title="Sconto Over 65"
             subtitle="Tariffe dedicate: chiedi in reception o contattaci per tutti i dettagli."
