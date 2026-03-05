@@ -178,7 +178,7 @@ const WELLNESS_COURSES = [
     id: "prepugilistica",
     title: "Prepugilistica",
     subtitle: "Tecnica, fiducia e autocontrollo",
-    image: "boxe.png",
+    image: "prepugilistica.webp",
     description:
       "La prepugilistica è perfetta per chi vuole costruire basi solide (anche senza contatto) con metodo e disciplina. Si lavora su tecnica, lavoro al sacco, combinazioni e condizionamento.\n\nAllenamenti seri e progressivi: tecnica, timing e condizionamento, con attenzione alla sicurezza e alla crescita dell'allievo.",
     schedule: [
@@ -346,7 +346,7 @@ const ALL_COURSES = [...WELLNESS_COURSES, ...MARTIAL_ARTS_COURSES];
 
 function ScheduleTable({ schedule }) {
   return (
-    <div className="sm:rounded-lg sm:border sm:border-brand-gray200 overflow-hidden lg:shadow-soft overflow-hidden 
+    <div className="sm:rounded-lg sm:border sm:border-brand-gray200 overflow-hidden lg:shadow-soft
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <div className="bg-brand-black text-white px-4 py-3 text-sm font-semibold">Orari</div>
       <div className="divide-y divide-brand-gray200 sm:bg-white">
@@ -366,7 +366,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
 function SingleScheduleBlock({ item }) {
   return (
-    <div className="shadow-soft overflow-hidden 
+    <div className="lg:shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <p className="font-heading uppercase tracking-wide text-base mb-3">{item.title}</p>
       <div className="sm:rounded-lg sm:border sm:border-brand-gray200 overflow-hidden">
