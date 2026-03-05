@@ -6,6 +6,7 @@ import SafeguardingModal from "@/components/SafeguardingModal";
 import StatsCounterBand from "@/components/StatsCounterBand";
 import Button from "@/components/Button";
 import Reveal from "@/components/Reveal";
+import Link from "next/link";
 
 function toPublicSrc(path) {
   if (!path) return "";
@@ -209,7 +210,7 @@ function TrainersSlideshow() {
                 <img
                   src={toPublicSrc(trainer.image)}
                   alt={trainer.name}
-                  className="absolute inset-0 h-full w-full object-contain object-center bg-white"
+                  className="absolute inset-0 h-full w-full object-cover object-top bg-white"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -823,6 +824,7 @@ transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
             <div className="hidden lg:block mt-10">
               <div className="grid gap-8 lg:grid-cols-2">
                 {/* Card 1 */}
+                <Link href="/courses#allenamento-funzionale" >
                 <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
@@ -842,8 +844,10 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     Allenamenti dinamici e ad alta intensità per migliorare performance, resistenza e controllo del corpo.
                   </p>
                 </div>
+                </Link>
 
                 {/* Card 2 */}
+                <Link href="/courses#ginnastica-salute" >
                 <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
@@ -863,8 +867,10 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     Discipline che lavorano su postura, respirazione e flessibilità per ritrovare armonia tra mente e corpo.
                   </p>
                 </div>
+                </Link>
 
                 {/* Card 3 */}
+                <Link href="/courses#boxe" >
                 <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
@@ -884,8 +890,10 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     Sport da ring che sviluppano potenza, velocità e concentrazione, costruendo fiducia e disciplina dentro e fuori dalla palestra.
                   </p>
                 </div>
+                </Link>
 
                 {/* Card 4 */}
+                <Link href="/courses#karate" scroll={true}>
                 <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
@@ -905,6 +913,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     Tecnica, rispetto e determinazione in percorsi che uniscono tradizione, combattimento e crescita personale.
                   </p>
                 </div>
+                </Link>
               </div>
             </div>
 
@@ -1016,7 +1025,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               </div>
 
               <div className="lg:col-span-6 sm:rounded-xl overflow-hidden sm:border sm:border-brand-gray200 sm:bg-white lg:shadow-soft overflow-hidden 
-transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
                 <div className="p-6 sm:p-7">
                   <p className="font-heading uppercase tracking-wide text-lg">Red Gym – Fonte Nuova</p>
                   <p className="mt-2 text-sm text-black/70">

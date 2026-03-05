@@ -118,7 +118,7 @@ const WELLNESS_COURSES = [
           { day: "Venerdì", time: "10:00, 13:30, 17:30, 18:30, 21:00" },
         ],
       },
-      
+
     ],
     trainers: [
       { name: "ADRIANO SPERANDIO", image: "ADRIANO.jpeg", bio: "ISTRUTTORE PREPUGILISTICA/FUNZIONALE" },
@@ -142,6 +142,22 @@ const WELLNESS_COURSES = [
     ],
     trainers: [
       { name: "ALEX", image: "ALEX.jpeg", bio: "ISTRUTTORE FUNZIONALE/TAC FIT" },
+    ],
+  },
+  {
+    id: "prepugilistica",
+    title: "Prepugilistica",
+    subtitle: "Tecnica, fiducia e autocontrollo",
+    image: "prepugilistica.webp",
+    description:
+      "La prepugilistica è perfetta per chi vuole costruire basi solide (anche senza contatto) con metodo e disciplina. Si lavora su tecnica, lavoro al sacco, combinazioni e condizionamento.\n\nAllenamenti seri e progressivi: tecnica, timing e condizionamento, con attenzione alla sicurezza e alla crescita dell'allievo.",
+    schedule: [
+      { day: "Martedì", time: "10:00, 13:30" },
+      { day: "Giovedì", time: "10:00, 13:30" },
+      { day: "Sabato", time: "10:00" },
+    ],
+    trainers: [
+      { name: "ADRIANO SPERANDIO", image: "ADRIANO.jpeg", bio: "ISTRUTTORE PREPUGILISTICA/FUNZIONALE" },
     ],
   },
   {
@@ -173,22 +189,6 @@ const WELLNESS_COURSES = [
       { day: "Sabato", time: "11:00" },
     ],
     trainers: [{ name: "CLAUDIA", image: "CLAUDIA.jpeg", bio: "ISTRUTTRICE YOGA" }],
-  },
-  {
-    id: "prepugilistica",
-    title: "Prepugilistica",
-    subtitle: "Tecnica, fiducia e autocontrollo",
-    image: "prepugilistica.webp",
-    description:
-      "La prepugilistica è perfetta per chi vuole costruire basi solide (anche senza contatto) con metodo e disciplina. Si lavora su tecnica, lavoro al sacco, combinazioni e condizionamento.\n\nAllenamenti seri e progressivi: tecnica, timing e condizionamento, con attenzione alla sicurezza e alla crescita dell'allievo.",
-    schedule: [
-      { day: "Martedì", time: "10:00, 13:30" },
-      { day: "Giovedì", time: "10:00, 13:30" },
-      { day: "Sabato", time: "10:00" },
-    ],
-    trainers: [
-      { name: "ADRIANO SPERANDIO", image: "ADRIANO.jpeg", bio: "ISTRUTTORE PREPUGILISTICA/FUNZIONALE" },
-    ],
   },
 ];
 
@@ -273,19 +273,6 @@ const MARTIAL_ARTS_COURSES = [
     ],
   },
   {
-    id: "kickboxing",
-    title: "Kick Boxing",
-    subtitle: "Potenza, tecnica e controllo",
-    image: "kick.jpeg",
-    description:
-      "La kickboxing unisce pugni e calci in un allenamento completo, dinamico e coinvolgente. Migliora potenza e resistenza, coordinazione e agilità, tecnica e concentrazione.\n\nÈ perfetta sia per chi inizia sia per chi ha già esperienza: ogni lezione è pensata per farti crescere con metodo, in sicurezza e sempre seguito.\n\nProgressioni chiare e lavoro tecnico: migliora sicurezza nei colpi, timing e condizionamento, senza improvvisazione.",
-    schedule: [
-      { day: "Martedì", time: "20:30" },
-      { day: "Giovedì", time: "20:30" },
-    ],
-    trainers: [{ name: "ANTON IOAN CATALIN", image: "NATALINO.jpeg", bio: "MAESTRO KICKBOXING" }],
-  },
-  {
     id: "boxe",
     title: "Boxe",
     subtitle: "Tecnica, fiducia e autocontrollo",
@@ -325,6 +312,19 @@ const MARTIAL_ARTS_COURSES = [
     trainers: [
       { name: "PAOLO SPERANDIO", image: "PAOLO.jpeg", bio: "MAESTRO BOXE" },
     ],
+  },
+  {
+    id: "kickboxing",
+    title: "Kick Boxing",
+    subtitle: "Potenza, tecnica e controllo",
+    image: "kick.jpeg",
+    description:
+      "La kickboxing unisce pugni e calci in un allenamento completo, dinamico e coinvolgente. Migliora potenza e resistenza, coordinazione e agilità, tecnica e concentrazione.\n\nÈ perfetta sia per chi inizia sia per chi ha già esperienza: ogni lezione è pensata per farti crescere con metodo, in sicurezza e sempre seguito.\n\nProgressioni chiare e lavoro tecnico: migliora sicurezza nei colpi, timing e condizionamento, senza improvvisazione.",
+    schedule: [
+      { day: "Martedì", time: "20:30" },
+      { day: "Giovedì", time: "20:30" },
+    ],
+    trainers: [{ name: "ANTON IOAN CATALIN", image: "NATALINO.jpeg", bio: "MAESTRO KICKBOXING" }],
   },
   {
     id: "grappling",
@@ -456,7 +456,6 @@ function CourseSection({ course, invert = false }) {
   const hasSingleTrainer = course.trainers.length === 1;
   const hasMultipleSchedules = course.schedules && course.schedules.length > 0;
 
-  // Calcola distribuzione tabelle se presenti più schedule
   let leftSchedules = [];
   let rightSchedules = [];
 
@@ -470,7 +469,7 @@ function CourseSection({ course, invert = false }) {
   return (
     <section
       id={course.id}
-      className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 overflow-hidden scroll-mt-32"
+      className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 overflow-hidden"
     >
       {/* Mobile: Titolo prima della foto */}
       <div className="lg:hidden py-7 px-4">
@@ -612,31 +611,27 @@ function DiagonalBand({
 
 export default function CoursesPage() {
   useEffect(() => {
-    // Gestisce il click sui link di navigazione
-    const handleHashClick = (e) => {
-      const target = e.target.closest('a');
-      const hash = target?.hash;
-
-      if (hash && hash.startsWith('#')) {
-        e.preventDefault();
-        const element = document.querySelector(hash);
-
-        if (element) {
-          const offset = 120; // Offset per navbar + margine
-          const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
+  const scrollToHash = () => {
+    const hash = window.location.hash;
+    
+    if (hash) {
+      const element = document.querySelector(hash);
+      
+      if (element) {
+        element.style.scrollMarginTop = '150px';
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    };
+    }
+  };
 
-    document.addEventListener('click', handleHashClick);
-    return () => document.removeEventListener('click', handleHashClick);
-  }, []);
+  // Aspetta che tutto sia caricato
+  if (document.readyState === 'complete') {
+    setTimeout(scrollToHash, 100);
+  } else {
+    window.addEventListener('load', scrollToHash);
+    return () => window.removeEventListener('load', scrollToHash);
+  }
+}, []);
 
   return (
     <div className="bg-brand-red">

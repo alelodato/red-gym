@@ -220,7 +220,7 @@ function SalaPesiTrainersSlideshow() {
                 <img
                   src={toPublicSrc(trainer.image)}
                   alt={trainer.name}
-                  className="absolute inset-0 h-full w-full object-contain object-center"
+                  className="absolute inset-0 h-full w-full object-cover object-top"
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 to-transparent">
                   <h4 className="font-heading uppercase tracking-wide text-white text-2xl text-center">
@@ -619,7 +619,7 @@ export default function AboutPage() {
                         src={toPublicSrc("founder.jpg")}
                         alt="Donato Domenicone - Fondatore Red Gym"
                         fill
-                        className="object-contain"
+                        className="object-cover object-top"
                         sizes="(max-width: 640px) 100vw, 50vw"
                       />
                     </div>
@@ -685,7 +685,7 @@ export default function AboutPage() {
 
               {/* GRID 2 FOTO DESKTOP */}
               <div className="hidden lg:grid lg:grid-cols-2 lg:gap-6 mt-6">
-                <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px] shadow-soft overflow-hidden 
+                <div className="relative overflow-hidden rounded-xl  h-[300px] shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <img
                     src={toPublicSrc("palestra2.webp")}
@@ -775,7 +775,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                           src={toPublicSrc(t.image)}
                           alt={t.name}
                           fill
-                          className="object-contain"
+                          className="object-cover object-top"
                         />
                       </div>
                       <p className="my-3 font-heading uppercase tracking-wide text-center text-xs sm:text-sm text-brand-black">
@@ -798,7 +798,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                           src={toPublicSrc(t.image)}
                           alt={t.name}
                           fill
-                          className="object-contain"
+                          className="object-cover object-top"
                         />
                       </div>
                       <p className="my-3 font-heading uppercase tracking-wide text-center text-xs sm:text-sm text-brand-black">
@@ -929,7 +929,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     src={toPublicSrc("GAIA.jpeg")}
                     alt="Gaia - Reception Red Gym"
                     fill
-                    className="object-contain"
+                    className="object-cover object-top"
                   />
                   <div className="absolute inset-0 bg-black/5 pointer-events-none" />
                 </div>
@@ -959,7 +959,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     src={toPublicSrc("ELEONORA.jpeg")}
                     alt="Eleonora - Reception Red Gym"
                     fill
-                    className="object-contain"
+                    className="object-cover object-top"
                   />
                   <div className="absolute inset-0 bg-black/5 pointer-events-none" />
                 </div>
