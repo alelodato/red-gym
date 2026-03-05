@@ -34,7 +34,8 @@ export default function ContactPage() {
                 Vieni a trovarci o scrivici.
               </h1>
 
-              <div className="mt-6 rounded-xl bg-white border border-brand-gray200 p-6 shadow-lg">
+              <div className="mt-6 rounded-xl bg-white border border-brand-gray200 p-6 shadow-lg shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <p className="font-heading uppercase tracking-wide">Recapiti</p>
                 <div className="mt-3 space-y-2 text-sm text-black/70">
                   <p>
@@ -102,7 +103,8 @@ export default function ContactPage() {
               </div>
 
               {/* Orari di Apertura */}
-              <div className="mt-6 rounded-xl bg-white border border-brand-gray200 p-6 shadow-lg">
+              <div className="mt-6 rounded-xl bg-white border border-brand-gray200 p-6 shadow-lg shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <p className="font-heading uppercase tracking-wide">Orari di Apertura</p>
                 <div className="mt-3 space-y-2 text-sm text-black/70">
                   <div className="flex justify-between">
@@ -122,7 +124,8 @@ export default function ContactPage() {
             </div>
 
             {/* Colonna Destra: Mappa */}
-            <div className="rounded-xl bg-white border border-brand-gray200 p-6 shadow-lg">
+            <div className="rounded-xl bg-white border border-brand-gray200 p-6 shadow-lg shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <p className="font-heading uppercase tracking-wide">Dove Siamo</p>
 
               <div className="mt-6 rounded-lg overflow-hidden border border-brand-gray200">

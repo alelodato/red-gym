@@ -150,7 +150,8 @@ function PriceGrid({ groups }) {
   return (
     <div className="grid gap-6 lg:grid-cols-2">
       {groups.map((g) => (
-        <div key={g.duration} className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-white overflow-hidden">
+        <div key={g.duration} className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-white overflow-hidden shadow-soft
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
           <div className="bg-brand-black text-white px-5 py-4">
             <p className="font-heading uppercase tracking-wide text-lg">{g.duration}</p>
           </div>
@@ -188,7 +189,8 @@ function ExtraCoursesGrid() {
   return (
     <div className="grid gap-6 lg:grid-cols-2">
       {EXTRA_COURSES.map((c) => (
-        <div key={c.title} className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-white overflow-hidden">
+        <div key={c.title} className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-white overflow-hidden shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
           <div className="bg-brand-black text-white px-5 py-4">
             <p className="font-heading uppercase tracking-wide text-lg">{c.title}</p>
           </div>
@@ -219,12 +221,10 @@ function ExtraCoursesGrid() {
 }
 
 export default function PricingPage() {
-  // Scroll affidabile sugli hash (#pesi, #annuale, #corsi)
   useEffect(() => {
     const hash = window.location.hash;
     if (!hash) return;
 
-    // aspetta un frame per sicurezza (render + immagini)
     requestAnimationFrame(() => {
       const el = document.querySelector(hash);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -256,14 +256,16 @@ export default function PricingPage() {
             <div id="sconti" className="scroll-mt-[var(--nav-h)]" />
 
             <div className="mt-10 grid gap-4 lg:grid-cols-3 scroll-mt-[var(--nav-h)]">
-              <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-brand-offwhite p-6">
+              <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-brand-offwhite p-6 shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <p className="font-heading uppercase tracking-wide text-lg">Over 65</p>
                 <p className="mt-2 text-black/70">
                   <span className="font-semibold text-brand-black">-20%</span> su tutte le soluzioni.
                 </p>
               </div>
 
-              <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-brand-offwhite p-6">
+              <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-brand-offwhite p-6 shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <p className="font-heading uppercase tracking-wide text-lg">Weekend & Festivi</p>
                 <p className="mt-2 text-black/70">
                   Le opzioni con fascia oraria nel weekend e festivi{" "}
@@ -271,7 +273,8 @@ export default function PricingPage() {
                 </p>
               </div>
 
-              <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-brand-offwhite p-6">
+              <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-brand-offwhite p-6 shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <p className="font-heading uppercase tracking-wide text-lg">Nucleo familiare</p>
                 <p className="mt-2 text-black/70">
                   <span className="font-semibold text-brand-black">-10%</span> dal 2° componente (applicarsi sulla quota
@@ -280,7 +283,8 @@ export default function PricingPage() {
               </div>
             </div>
 
-            <div className="mt-6 sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-white p-6 sm:p-7">
+            <div className="mt-6 sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-white p-6 sm:p-7 shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <p className="font-heading uppercase tracking-wide text-lg">Convenzioni</p>
               <p className="mt-2 text-black/70 leading-relaxed">
                 Convenzioni con: <span className="font-semibold text-brand-black">Forze dell'Ordine</span>,{" "}
@@ -314,7 +318,8 @@ export default function PricingPage() {
               <ExtraCoursesGrid />
             </div>
 
-            <div className="mt-8 sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-brand-offwhite p-6 sm:p-7">
+            <div className="mt-8 sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-brand-offwhite p-6 sm:p-7 shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <p className="font-heading uppercase tracking-wide text-lg">Certificato medico</p>
               <p className="mt-2 text-black/70 leading-relaxed">
                 Consegnare il <span className="font-semibold text-brand-black">certificato medico sportivo non agonistico</span>{" "}
