@@ -24,7 +24,7 @@ function PhotoHeroBand({
     <>
     Alla RED GYM crediamo che l'allenamento sia molto più di una semplice attività fisica.
     <br />
-    Per questo abbiamo creato uno spazio dove ambiente, staff qualificato e passione per lo sport aiutano ogni persona a raggiungere i propri obiettivi.
+    Per questo abbiamo creato uno spazio dove ambiente, staff qualificato e passione per lo sport aiutano chi si allena con noi a raggiungere i propri obiettivi.
     </>
   ),
   className = "",
