@@ -258,10 +258,10 @@ function SalaPesiTrainersSlideshow() {
 
 function StatsBand({
   bgImage = "palestra7.webp",
-  kicker="",
+  kicker="I Numeri di RED GYM",
   title = (
     <>
-      I dettagli che fanno la differenza.
+      Dettagli che fanno la differenza.
     </>
   ),
   lead = "",
@@ -308,7 +308,8 @@ function StatsBand({
               {stats.map((s) => (
                 <div
                   key={s.value + s.label}
-                  className="rounded-2xl border border-white/15 bg-black/30 backdrop-blur-[1px] p-6 shadow-soft"
+                  className="rounded-2xl border border-white/15 bg-black/30 backdrop-blur-[1px] p-6 shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                 >
                   <div className="flex items-end gap-2">
                     <span className="font-heading uppercase tracking-wide text-white text-4xl sm:text-5xl">
@@ -403,7 +404,7 @@ function DiagonalCuts({ flip = false, heightClass = "h-16 sm:h-20" }) {
   );
 }
 
-function DiagonalBand({ image = "pilates.webp", title = "Respiro. Armonia. Benessere.", flip = true }) {
+function DiagonalBand({ image = "pilates.webp", title = "Movimento. Armonia. Benessere.", flip = true }) {
   return (
     <section className="relative bg-brand-red overflow-hidden">
       <div className="relative h-[230px] sm:h-[280px] lg:h-[340px]">
@@ -658,7 +659,7 @@ export default function AboutPage() {
 
         <WhiteBlock>
           <div className="flex flex-col gap-2">
-            <p className="section-title text-brand-red">Gli ambienti</p>
+            <p className="section-title text-brand-red">Gli Ambienti</p>
             <h2 className="font-heading uppercase tracking-wide text-3xl sm:text-4xl">
               Spazi grandi, curati, pensati per allenarti bene.
             </h2>
@@ -675,7 +676,7 @@ export default function AboutPage() {
           <div className="mt-10 space-y-8 sm:space-y-8">
             {/* SALA PESI */}
             <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-8 lg:p-10">
-              <p className="section-title text-brand-red text-sm">La Palestra</p>
+              <p className="section-title text-brand-red text-sm">Gli Ambienti</p>
               <h3 className="font-heading uppercase tracking-wide text-2xl sm:text-3xl mt-2">
                 Sala Pesi
               </h3>
@@ -717,7 +718,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
             {/* SALA OLICROM */}
             <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-8 lg:p-10">
-              <p className="section-title text-brand-red text-sm">La Palestra</p>
+              <p className="section-title text-brand-red text-sm">Gli Ambienti</p>
               <h3 className="font-heading uppercase tracking-wide text-2xl sm:text-3xl mt-2">
                 Sala Olicrom
               </h3>
@@ -817,7 +818,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
             {/* SALA FUNZIONALE */}
             <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-8 lg:p-10">
-              <p className="section-title text-brand-red text-sm">La Palestra</p>
+              <p className="section-title text-brand-red text-sm">Gli Ambienti</p>
               <h3 className="font-heading uppercase tracking-wide text-2xl sm:text-3xl mt-2">
                 Sala Funzionale
               </h3>
@@ -859,7 +860,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
             {/* SALA ARTI MARZIALI */}
             <div className="sm:rounded-xl sm:bg-white sm:border sm:border-brand-gray200 sm:p-8 lg:p-10">
-              <p className="section-title text-brand-red text-sm">La Palestra</p>
+              <p className="section-title text-brand-red text-sm">Gli Ambienti</p>
               <h3 className="font-heading uppercase tracking-wide text-2xl sm:text-3xl mt-2">
                 Sala Arti Marziali
               </h3>
