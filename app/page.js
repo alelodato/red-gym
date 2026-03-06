@@ -613,8 +613,8 @@ transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
                         <Reveal delay={0.5}>
                           <div className="relative overflow-hidden rounded-xl shadow-lg h-[320px]">
                             <img
-                              src={toPublicSrc("palestra3.webp")}
-                              alt="Sala Pesi Red Gym"
+                              src={toPublicSrc("sala-olicrom.webp")}
+                              alt="Sala Olicrom Red Gym"
                               className="absolute inset-0 h-full w-full object-cover"
                             />
                             <div className="absolute inset-0 bg-black/10" />
@@ -749,8 +749,8 @@ transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="relative overflow-hidden rounded-xl shadow-soft h-full">
                       <img
-                        src={toPublicSrc("palestra3.webp")}
-                        alt="Sala Pesi Red Gym"
+                        src={toPublicSrc("sala-olicrom.webp")}
+                        alt="Sala Olicrom Red Gym"
                         className="absolute inset-0 h-full w-full object-cover"
                       />
                       <div className="absolute inset-0 bg-black/10" />
