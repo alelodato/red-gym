@@ -898,7 +898,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
-                    MMA • Karate • Judo
+                    Karate • Judo • MMA 
                   </p>
                   <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px]">
                     <img
