@@ -366,10 +366,10 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
 function SingleScheduleBlock({ item }) {
   return (
-    <div className="lg:shadow-soft overflow-hidden 
-transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <div>
       <p className="font-heading uppercase tracking-wide text-base mb-3">{item.title}</p>
-      <div className="sm:rounded-lg sm:border sm:border-brand-gray200 overflow-hidden">
+      <div className="sm:rounded-lg sm:border sm:border-brand-gray200 lg:shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
         <div className="bg-brand-black text-white px-4 py-3 text-sm font-semibold">Orari</div>
         <div className="divide-y divide-brand-gray200 sm:bg-white">
           {item.schedule.map((s) => (
