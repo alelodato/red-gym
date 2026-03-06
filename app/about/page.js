@@ -557,7 +557,9 @@ export default function AboutPage() {
                   <p className="mt-4 text-black/70 leading-relaxed">
                     Red Gym nasce nel 2018 con un'idea semplice: creare uno spazio ordinato,
                     completo e concreto dove allenarsi bene ogni giorno, con la
-                    tranquillità di avere ambienti curati e percorsi chiari. In questi
+                    tranquillità di avere ambienti curati e supporto costante.
+                    <br />
+                    In questi
                     anni la palestra è cresciuta, ma l'obiettivo è rimasto lo stesso:
                     qualità, metodo e costanza, diventando il punto di riferimento per il fitness a Fonte Nuova.
                   </p>
