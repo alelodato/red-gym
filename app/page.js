@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import MapEmbed from "@/components/GoogleMap";
 import SafeguardingModal from "@/components/SafeguardingModal";
 import StatsCounterBand from "@/components/StatsCounterBand";
@@ -37,9 +38,11 @@ function Hero({
   return (
     <section className={`relative bg-brand-red overflow-hidden ${className}`}>
       <div className="relative h-[600px] sm:h-[620px] lg:h-[800px]">
-        <img
+        <Image
           src={toPublicSrc(image)}
           alt="Red Gym Reception"
+          width={1920}
+          height={1080}
           priority
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
@@ -591,9 +594,10 @@ export default function HomePage() {
 
             <div className="mt-6">
               <div className="relative overflow-hidden rounded-xl shadow-soft h-[250px] sm:h-[300px] lg:h-[360px]">
-                <img
+                <Image
                   src={toPublicSrc("palestra4.webp")}
                   alt="Red Gym Fonte Nuova"
+                  fill
                   className="absolute inset-0 h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black/10" />
