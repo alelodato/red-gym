@@ -258,21 +258,19 @@ function SalaPesiTrainersSlideshow() {
 
 function StatsBand({
   bgImage = "palestra7.webp",
-  kicker = "In numeri",
+  kicker="",
   title = (
     <>
-      Spazi, esperienza e varietà.
-      <br />
-      Tutto nello stesso posto.
+      I dettagli che fanno la differenza.
     </>
   ),
-  lead = "Questi sono i dettagli che rendono Red Gym concreta: struttura ampia, anni di lavoro sul campo, percorsi diversi e attrezzatura pensata per allenarti bene.",
+  lead = "",
 }) {
   const stats = [
     { value: "1.800", label: "mq di struttura", note: "spazi ampi e organizzati" },
     { value: "7", label: "anni di attività", note: "a Fonte Nuova" },
     { value: "8+", label: "discipline", note: "corsi e percorsi per ogni livello" },
-    { value: "TOP", label: "macchinari", note: "Macchinari professionali Olicrom e attrezzatura di ultima generazione" },
+    { value: "TOP", label: "attrezzature", note: "Macchinari professionali all'avanguardia" },
   ];
 
   return (
@@ -881,7 +879,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <img
                     src={toPublicSrc("sala-arti-marziali.webp")}
                     alt="Sala Arti Marziali Red Gym"
-                    className="absolute inset-0 h-full w-full object-cover"
+                    className="absolute inset-0 h-full w-full object-cover 2xl:object-top"
                   />
                   <div className="absolute inset-0 bg-black/10" />
                 </div>
