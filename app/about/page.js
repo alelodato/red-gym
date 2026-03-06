@@ -22,9 +22,9 @@ function PhotoHeroBand({
   ),
   subtitle = (
     <>
-    Alla RED GYM crediamo che l'allenamento sia molto più di una semplice attività fisica.
-    <br />
-    Per questo abbiamo creato uno spazio dove ambiente, staff qualificato e passione per lo sport aiutano chi si allena con noi a raggiungere i propri obiettivi.
+      Alla RED GYM crediamo che l'allenamento sia molto più di una semplice attività fisica.
+      <br />
+      Per questo abbiamo creato uno spazio dove ambiente, staff qualificato e passione per lo sport aiutano chi si allena con noi a raggiungere i propri obiettivi.
     </>
   ),
   className = "",
@@ -456,15 +456,12 @@ function FinalCtaHero({ image = "/hero-final.jpg" }) {
           <p className="text-sm font-semibold text-white/80">Vieni a trovarci</p>
 
           <h2 className="font-heading uppercase tracking-wide text-white text-3xl mt-2">
-            Vieni a scoprire RED GYM.
+            Capisci RED GYM solo quando la vivi.
           </h2>
 
           <p className="mt-4 text-white/85 leading-relaxed">
             Passa in palestra, conosci il nostro staff e scegli il
-            percorso più adatto. 
-            <br />
-            Qui trovi qualità, ordine e un supporto reale
-            dal principiante all'atleta avanzato.
+            percorso più adatto a te.
           </p>
 
           <div className="mt-6 flex flex-col gap-3">
@@ -493,12 +490,12 @@ function FinalCtaHero({ image = "/hero-final.jpg" }) {
                 <p className="text-sm font-semibold text-white/70">Vieni a trovarci</p>
 
                 <h2 className="font-heading uppercase tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl mt-2">
-                  Vieni a scoprire RED GYM da vicino.
+                  Capisci RED GYM solo quando la vivi.
                 </h2>
 
                 <p className="mt-4 text-white/80 leading-relaxed max-w-2xl">
-                  Passa in palestra, guarda gli spazi, parla con lo staff e scegli
-                  il percorso più adatto a te.
+                  Passa in palestra, conosci il nostro staff e scegli il
+                  percorso più adatto a te.
                 </p>
               </div>
 
