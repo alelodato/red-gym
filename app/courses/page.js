@@ -640,7 +640,13 @@ export default function CoursesPage() {
         images={["yoga.webp", "judo-hero.webp", "kick-hero.webp"]}
         kicker="Corsi"
         title="Scegli il tuo percorso."
-        subtitle="Ogni corso ha un metodo, una guida e un obiettivo. Scegli cosa ti rappresenta e allenati con disciplina, sicurezza e continuità."
+        subtitle={
+          <>
+          Ogni corso é pensato per accompagnarti passo dopo passo.
+          <br />
+          Scegli quello che fa per te e allenati con il supporto dei nostri istruttori.
+          </>
+          }
       />
 
       <div className="space-y-0 sm:space-y-8 lg:space-y-10 sm:py-10 lg:py-12 pb-0">
