@@ -39,7 +39,8 @@ function Hero({
       <div className="relative h-[600px] sm:h-[620px] lg:h-[800px]">
         <img
           src={toPublicSrc(image)}
-          alt=""
+          alt="Red Gym Reception"
+          priority
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-black/65" />
