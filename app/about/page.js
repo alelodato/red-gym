@@ -20,8 +20,13 @@ function PhotoHeroBand({
       Il tuo centro sportivo. <br /> Pensato per i tuoi obiettivi.
     </>
   ),
-  subtitle =
-  "RED GYM è un centro sportivo a Fonte Nuova (Roma) con ampio parcheggio e circa 1.800 mq di spazio: sala pesi completa, aree dedicate e corsi pensati per ogni livello, dal principiante all'atleta esperto.",
+  subtitle = (
+    <>
+    Alla RED GYM crediamo che l'allenamento sia molto più di una semplice attività fisica.
+    <br />
+    Per questo abbiamo creato uno spazio dove ambiente, staff qualificato e passione per lo sport aiutano ogni persona a raggiungere i propri obiettivi.
+    </>
+  ),
   className = "",
 }) {
 
