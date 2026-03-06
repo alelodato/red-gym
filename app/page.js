@@ -582,7 +582,7 @@ export default function HomePage() {
       <div className="bg-brand-red">
         <div className="space-y-0 sm:space-y-8 lg:space-y-10 pb-0 sm:pt-10 lg:pt-12">
           <WhiteSection id="home-about">
-            <SectionHead title="Perchè scegliere Red Gym?" />
+            <SectionHead kicker="La tua palestra a fonte nuova" title="Perchè scegliere Red Gym" />
 
             <div className="mt-6">
               <div className="relative overflow-hidden rounded-xl shadow-soft h-[250px] sm:h-[300px] lg:h-[360px]">
