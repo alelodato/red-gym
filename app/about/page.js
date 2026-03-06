@@ -405,7 +405,7 @@ function DiagonalCuts({ flip = false, heightClass = "h-16 sm:h-20" }) {
   );
 }
 
-function DiagonalBand({ image = "diagonal3.webp", title = "Sport & Benessere", flip = true }) {
+function DiagonalBand({ image = "pilates.webp", title = "Respiro. Armonia. Benessere.", flip = true }) {
   return (
     <section className="relative bg-brand-red overflow-hidden">
       <div className="relative h-[230px] sm:h-[280px] lg:h-[340px]">
@@ -914,7 +914,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
           </div>
         </WhiteBlock>
 
-        <DiagonalBand image="diagonal3.webp" />
+        <DiagonalBand image="pilates.webp" />
 
         <WhiteBlock>
           <div className="text-center max-w-2xl mx-auto mb-10">

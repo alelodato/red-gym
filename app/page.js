@@ -527,13 +527,17 @@ function DiagonalPhoto({
                   Tutela, rispetto e sicurezza
                 </h3>
                 <p className="mt-4 text-white/90 leading-relaxed text-sm sm:text-base lg:text-lg">
-                  Red Gym promuove un ambiente sicuro, inclusivo e rispettoso per tutti. Per segnalazioni o richieste di chiarimento, è possibile consultare l'informativa sul{" "}
+                  Red Gym promuove un ambiente sicuro, inclusivo e rispettoso per tutti. 
+                  <br />
+                  Per segnalazioni o richieste di chiarimento, è possibile consultare 
+                  <br />
+                  l'
                   <button
                     type="button"
                     onClick={onOpenSafeguarding}
                     className="font-semibold underline underline-offset-4 hover:text-white"
                   >
-                    SAFEGUARDING
+                    INFORMATIVA SUL SAFEGUARDING
                   </button>{" "}
                   oppure contattare il responsabile all'indirizzo{" "}
                   <a href={`mailto:${safeguardingEmail}`} className="font-semibold hover:text-white">

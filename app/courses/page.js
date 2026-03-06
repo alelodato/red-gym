@@ -572,7 +572,7 @@ function CourseSection({ course, invert = false }) {
 
 function DiagonalBand({
   image = "sala-funzionale2.webp",
-  title = "Energia. Disciplina. Risultati.",
+  title = "Forza. Tecnica. Controllo.",
 }) {
   return (
     <section className="relative bg-brand-red overflow-hidden">
