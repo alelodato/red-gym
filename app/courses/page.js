@@ -108,7 +108,7 @@ const WELLNESS_COURSES = [
     subtitle: "Movimento naturale, forza e performance",
     image: "funzionale.webp",
     description:
-      "L'allenamento funzionale si basa su movimenti naturali del corpo: spingere, tirare, sollevare, saltare e ruotare. È un metodo che migliora forza, mobilità, stabilità e resistenza in modo completo e integrato.\n\nSi lavora con pesi liberi, kettlebell, TRX, corpo libero e attrezzi specifici.",
+      "L'allenamento funzionale si basa su movimenti naturali del corpo: spingere, tirare, sollevare, saltare e ruotare. È un metodo che migliora forza, mobilità, stabilità e resistenza in modo completo e integrato.\nSi lavora con pesi liberi, kettlebell, TRX, corpo libero e attrezzi specifici.",
     schedules: [
       {
         title: "Funzionale",
@@ -130,7 +130,7 @@ const WELLNESS_COURSES = [
     subtitle: "Allenamento tattico ad alta intensitá",
     image: "tacfit.webp",
     description:
-      "TACFIT è una specializzazione dell'allenamento funzionale con focus tattico e ad alta intensità. Nato per preparare operatori militari e di sicurezza, combina mobilità, forza esplosiva e condizionamento cardiovascolare in protocolli strutturati e progressivi. Ideale per chi vuole portare il funzionale a un livello superiore.\n\nPerfetto per chi cerca un allenamento dinamico, vario e ad alta intensità, con focus su tecnica, sicurezza e progressione costante.",
+      "TACFIT è una specializzazione dell'allenamento funzionale con focus tattico e ad alta intensità. Nato per preparare operatori militari e di sicurezza, combina mobilità, forza esplosiva e condizionamento cardiovascolare in protocolli strutturati e progressivi. Ideale per chi vuole portare il funzionale a un livello superiore.\nPerfetto per chi cerca un allenamento dinamico, vario e ad alta intensità, con focus su tecnica, sicurezza e progressione costante.",
     schedules: [
       {
         title: "TACFIT",
@@ -150,7 +150,7 @@ const WELLNESS_COURSES = [
     subtitle: "Tecnica, fiducia e autocontrollo",
     image: "prepugilistica.webp",
     description:
-      "La prepugilistica è perfetta per chi vuole costruire basi solide (anche senza contatto) con metodo e disciplina. Si lavora su tecnica, lavoro al sacco, combinazioni e condizionamento.\n\nAllenamenti seri e progressivi: tecnica, timing e condizionamento, con attenzione alla sicurezza e alla crescita dell'allievo.",
+      "La prepugilistica è perfetta per chi vuole costruire basi solide (anche senza contatto) con metodo e disciplina. \nSi lavora su tecnica, lavoro al sacco, combinazioni e condizionamento.",
     schedule: [
       { day: "Martedì", time: "10:00, 13:30" },
       { day: "Giovedì", time: "10:00, 13:30" },
@@ -166,7 +166,7 @@ const WELLNESS_COURSES = [
     subtitle: "Postura, controllo, mobilità e benessere",
     image: "pilates.webp",
     description:
-      "Allenarsi non vuol dire sempre spingersi al limite: a volte vuol dire ascoltare il corpo e rimetterlo in equilibrio. La ginnastica per la salute aiuta a migliorare postura e controllo, aumentare mobilità e ridurre tensioni.\n\nÈ un percorso adatto a tutti e utile anche come integrazione alla sala pesi o agli sport da combattimento: più consapevolezza, più qualità di movimento.\n\nApproccio progressivo e accessibile: postura, respirazione e controllo, con attenzione ai dettagli.",
+      "Allenarsi non vuol dire sempre spingersi al limite: a volte vuol dire ascoltare il corpo e rimetterlo in equilibrio. La ginnastica per la salute aiuta a migliorare postura e controllo, aumentare mobilità e ridurre tensioni.\nÈ un percorso adatto a tutti e utile anche come integrazione alla sala pesi o agli sport da combattimento: più consapevolezza, più qualità di movimento.",
     schedule: [
       { day: "Lunedì", time: "09:00" },
       { day: "Martedì", time: "09:00" },
@@ -184,7 +184,7 @@ const WELLNESS_COURSES = [
     subtitle: "Respiro, equilibrio e movimento consapevole",
     image: "yoga.webp",
     description:
-      "Lo yoga migliora postura e mobilità, scioglie le tensioni e favorisce un benessere mentale concreto. La pratica unisce respiro consapevole e movimento fluido, per rafforzare il corpo in modo armonico.\n\nÈ un'attività adatta a tutti: puoi iniziare anche se non hai mai praticato, e usarla per completare il tuo allenamento settimanale.",
+      "Lo yoga migliora postura e mobilità, scioglie le tensioni e favorisce un benessere mentale concreto. La pratica unisce respiro consapevole e movimento fluido, per rafforzare il corpo in modo armonico.\nÈ un'attività adatta a tutti: puoi iniziare anche se non hai mai praticato, e usarla per completare il tuo allenamento settimanale.",
     schedule: [
       { day: "Sabato", time: "11:00" },
     ],
@@ -199,7 +199,7 @@ const MARTIAL_ARTS_COURSES = [
     subtitle: "Disciplina, rispetto e crescita personale",
     image: "karate.png",
     description:
-      "Il Karate è molto più di uno sport: è un percorso che forma corpo e mente. Aiuta a sviluppare postura, equilibrio e sicurezza in sé stessi, insieme a rispetto delle regole, autocontrollo e concentrazione.\n\nUn'attività adatta a bambini, ragazzi e adulti, con un approccio serio ma sempre motivante: si cresce passo dopo passo, con passione e attenzione all'allievo.\n\nProgressioni tecniche e lavoro sulla mentalità: postura, coordinazione e controllo, con attenzione alla crescita personale.",
+      "Il Karate è molto più di uno sport: è un percorso che forma corpo e mente. \nE' un'attività adatta a bambini, ragazzi e adulti che aiuta a sviluppare postura, equilibrio e sicurezza in sé stessi, insieme a rispetto delle regole, autocontrollo e concentrazione.",
     schedules: [
       {
         title: "Karate Bambini 4-6 Anni",
@@ -240,7 +240,7 @@ const MARTIAL_ARTS_COURSES = [
     subtitle: "Tecnica, valori e controllo",
     image: "judo-hero.webp",
     description:
-      "Il Judo è disciplina, tecnica e valori. Un percorso completo che sviluppa coordinazione, equilibrio e consapevolezza del corpo, con lavoro progressivo e strutturato.\n\nAdatto a bambini, ragazzi e adulti, con gruppi suddivisi per età e livello: si impara sul serio, con rispetto e passione sul tatami.\n\nAllenamenti progressivi su tecnica e controllo, con attenzione alla sicurezza e alla crescita dell'allievo.",
+      "Il Judo è disciplina, tecnica e valori. \nUn percorso completo che sviluppa coordinazione, equilibrio e consapevolezza del corpo, con lavoro progressivo e strutturato.\nAdatto a bambini, ragazzi e adulti, con gruppi suddivisi per età e livello: allenamenti progressivi, con attenzione alla sicurezza e alla crescita dell'allievo.",
     schedules: [
       {
         title: "Judo Bambini 4-7 Anni",
@@ -278,7 +278,7 @@ const MARTIAL_ARTS_COURSES = [
     subtitle: "Tecnica, fiducia e autocontrollo",
     image: "boxe.png",
     description:
-      "La boxe è uno degli sport più completi: migliora forza, resistenza, coordinazione e riflessi, ma soprattutto costruisce fiducia, autocontrollo e determinazione.\n\nIl percorso è guidato e strutturato: tecnica, lavoro al sacco, combinazioni e condizionamento.\n\nAllenamenti seri e progressivi: tecnica, timing e condizionamento, con attenzione alla sicurezza e alla crescita dell'allievo.",
+      "La boxe è uno degli sport più completi: migliora forza, resistenza, coordinazione e riflessi, ma soprattutto costruisce fiducia, autocontrollo e determinazione.\nIl percorso è guidato e strutturato: tecnica, lavoro al sacco, combinazioni e condizionamento, con attenzione alla sicurezza e alla crescita dell'allievo.",
     schedules: [
       {
         title: "Boxe",
@@ -319,7 +319,7 @@ const MARTIAL_ARTS_COURSES = [
     subtitle: "Potenza, tecnica e controllo",
     image: "kick.jpeg",
     description:
-      "La kickboxing unisce pugni e calci in un allenamento completo, dinamico e coinvolgente. Migliora potenza e resistenza, coordinazione e agilità, tecnica e concentrazione.\n\nÈ perfetta sia per chi inizia sia per chi ha già esperienza: ogni lezione è pensata per farti crescere con metodo, in sicurezza e sempre seguito.\n\nProgressioni chiare e lavoro tecnico: migliora sicurezza nei colpi, timing e condizionamento, senza improvvisazione.",
+      "La kickboxing combina tecniche con braccia e gambe in un allenamento completo, dinamico e coinvolgente. Migliora potenza e resistenza, coordinazione e agilità, tecnica e concentrazione.\nÈ perfetta sia per chi inizia sia per chi ha già esperienza: ogni lezione è pensata per far crescere sicurezza nei colpi, timing e condizionamento.",
     schedule: [
       { day: "Martedì", time: "20:30" },
       { day: "Giovedì", time: "20:30" },
@@ -332,7 +332,7 @@ const MARTIAL_ARTS_COURSES = [
     subtitle: "Forza, tecnica e versatilità",
     image: "mma.png",
     description:
-      "Tecnica, potenza, concentrazione. L'MMA è uno degli sport più completi: unisce striking e grappling e sviluppa forza, resistenza, agilità e capacità di reazione.\n\nÈ un percorso adatto a tutti i livelli: si lavora con metodo e progressione, imparando sia principi tecnici che gestione del corpo e controllo, sempre in un ambiente serio e seguito.\n\nPercorso strutturato e completo: tecnica, condizionamento e progressione, con focus su sicurezza e controllo.",
+      "Il grappling è una disciplina tecnica basata su controllo, leve e posizionamento. \nAttraverso il lavoro a terra sviluppa forza, coordinazione, resistenza e capacità di gestione dell’avversario. \nÈ un percorso adatto a tutti i livelli: si lavora con metodo e progressione, imparando principi tecnici, controllo del corpo e gestione delle posizioni in sicurezza.",
     schedule: [
       { day: "Lunedì", time: "19:45" },
       { day: "Mercoledì", time: "19:45" },
