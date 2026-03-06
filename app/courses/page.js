@@ -748,7 +748,9 @@ export default function CoursesPage() {
             </h2>
 
             <p className="mt-6 text-white/85 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
-              Hai trovato il corso che fa per te? Siamo qui per rispondere a ogni tua domanda e
+              Hai trovato il corso che fa per te?
+              <br />
+              Siamo qui per rispondere a ogni tua domanda e
               aiutarti a scegliere il percorso più adatto ai tuoi obiettivi. Contattaci per maggiori
               informazioni, orari dettagliati o per prenotare una lezione di prova.
             </p>

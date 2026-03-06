@@ -244,7 +244,11 @@ export default function PricingPage() {
               Abbonamenti e fasce orarie
             </h2>
             <p className="mt-4 text-black/70 max-w-3xl leading-relaxed">
-              Scegli la formula più adatta alle tue esigenze: Open oppure fasce orarie. Se vuoi, ti aiutiamo a capire
+              Scegli la formula più adatta alle tue esigenze: 
+              <br />
+              Open o fasce orarie. 
+              <br />
+              Se vuoi contattaci e ti aiutiamo a capire
               qual è la scelta migliore in base ai tuoi obiettivi e alla tua disponibilità.
             </p>
 
@@ -309,7 +313,9 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               Judo, Grappling, Karate e Boxe
             </h2>
             <p className="mt-4 text-black/70 max-w-3xl leading-relaxed">
-              Qui trovi le formule dedicate ai corsi extra. Se sei già socio Red Gym, puoi accedere ai corsi extra
+              Qui trovi le formule dedicate ai corsi extra. 
+              <br />
+              Se sei già socio Red Gym, puoi accedere ai corsi extra
               pagando <span className="font-semibold text-brand-black">€40</span> per ogni disciplina che scegli di
               integrare.
             </p>
@@ -323,7 +329,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <p className="font-heading uppercase tracking-wide text-lg">Certificato medico</p>
               <p className="mt-2 text-black/70 leading-relaxed">
                 Consegnare il <span className="font-semibold text-brand-black">certificato medico sportivo non agonistico</span>{" "}
-                rilasciato dal proprio medico di base o dal medico sportivo (altri medici non valido).
+                rilasciato dal proprio medico di base o dal medico sportivo (non valido se rilasciato da altri medici).
               </p>
             </div>
 
