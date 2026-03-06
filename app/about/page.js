@@ -34,9 +34,11 @@ function PhotoHeroBand({
     <section className={`relative bg-brand-red overflow-hidden ${className}`}>
       {/* Mobile: hero più compatta */}
       <div className="relative h-[600px] sm:h-[620px] lg:h-[720px]">
-        <img
+        <Image
           src={toPublicSrc(image)}
           alt="Sala Red Gym"
+          height={1920}
+          width={1080}
           priority
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
@@ -543,9 +545,10 @@ export default function AboutPage() {
                   {/* Immagine MOBILE - dopo il titolo */}
                   <div className="mt-6 lg:hidden">
                     <div className="relative overflow-hidden rounded-xl shadow-soft h-[250px] sm:h-[300px]">
-                      <img
+                      <Image
                         src={toPublicSrc("palestra1.webp")}
                         alt="Red Gym Fonte Nuova"
+                        fill
                         className="absolute inset-0 h-full w-full object-cover"
                       />
                       <div className="absolute inset-0 bg-black/10" />
@@ -597,9 +600,10 @@ export default function AboutPage() {
               {/* IMMAGINE PALESTRA1 FULL-WIDTH - solo DESKTOP */}
               <div className="hidden lg:block mt-10">
                 <div className="relative overflow-hidden rounded-xl shadow-soft h-[400px]">
-                  <img
+                  <Image
                     src={toPublicSrc("palestra1.webp")}
                     alt="Red Gym Fonte Nuova"
+                    fill
                     className="absolute inset-0 h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-black/10" />

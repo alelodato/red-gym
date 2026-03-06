@@ -41,10 +41,12 @@ function TripleDiagonalBand({
       <div className="relative h-[600px] sm:h-[620px] lg:h-[720px]">
         {/* MOBILE: 1 immagine (judo-hero) */}
         <div className="absolute inset-0 sm:hidden">
-          <img
+          <Image
             src={toPublicSrc(mobileImage)}
             alt="Hero pagina corsi"
             priority
+            height={1920}
+            width={1080}
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
         </div>
@@ -53,9 +55,11 @@ function TripleDiagonalBand({
         <div className="absolute inset-0 hidden sm:grid sm:grid-cols-3">
           {images.slice(0, 3).map((src, idx) => (
             <div key={src + idx} className="relative">
-              <img
+              <Image
                 src={toPublicSrc(src)}
-                alt=""
+                alt="Hero pagina corsi"
+                height={1920}
+                width={1080}
                 className="absolute inset-0 h-full w-full object-cover object-center"
               />
             </div>

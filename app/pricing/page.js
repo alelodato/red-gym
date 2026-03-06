@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
 import Button from "@/components/Button";
 
 function toPublicSrc(path) {
@@ -41,10 +42,12 @@ function PhotoHeroBand({
   return (
     <section className={`relative bg-brand-red overflow-hidden ${className}`}>
       <div className="relative h-[600px] sm:h-[620px] lg:h-[720px]">
-        <img
+        <Image
           src={toPublicSrc(image)}
-          alt=""
+          alt="hero pagina abbonamenti"
           className="absolute inset-0 h-full w-full object-cover object-center"
+          height={1920}
+          width={1080}
         />
         <div className="absolute inset-0 bg-black/75" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-black/10" />
