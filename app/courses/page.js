@@ -571,7 +571,7 @@ function CourseSection({ course, invert = false }) {
 }
 
 function DiagonalBand({
-  image = "sala-funzionale2.webp",
+  image = "diagonal3.webp",
   title = "Forza. Tecnica. Controllo.",
 }) {
   return (
@@ -684,7 +684,7 @@ export default function CoursesPage() {
           </div>
         </WhiteBlock>
 
-        <DiagonalBand image="sala-funzionale2.webp" />
+        <DiagonalBand image="diagonal3.webp" />
 
         {/* CORSI ARTI MARZIALI */}
         <WhiteBlock>
