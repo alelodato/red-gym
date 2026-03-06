@@ -456,12 +456,14 @@ function FinalCtaHero({ image = "/hero-final.jpg" }) {
           <p className="text-sm font-semibold text-white/80">Vieni a trovarci</p>
 
           <h2 className="font-heading uppercase tracking-wide text-white text-3xl mt-2">
-            Capisci Red Gym solo quando la vivi.
+            Vieni a scoprire RED GYM.
           </h2>
 
           <p className="mt-4 text-white/85 leading-relaxed">
-            Passa in palestra, guarda gli spazi, parla con lo staff e scegli il
-            percorso più adatto. Qui trovi qualità, ordine e un supporto reale
+            Passa in palestra, conosci il nostro staff e scegli il
+            percorso più adatto. 
+            <br />
+            Qui trovi qualità, ordine e un supporto reale
             dal principiante all'atleta avanzato.
           </p>
 
@@ -491,13 +493,12 @@ function FinalCtaHero({ image = "/hero-final.jpg" }) {
                 <p className="text-sm font-semibold text-white/70">Vieni a trovarci</p>
 
                 <h2 className="font-heading uppercase tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl mt-2">
-                  Capisci Red Gym solo quando la vivi.
+                  Vieni a scoprire RED GYM da vicino.
                 </h2>
 
                 <p className="mt-4 text-white/80 leading-relaxed max-w-2xl">
                   Passa in palestra, guarda gli spazi, parla con lo staff e scegli
-                  il percorso più adatto. Qui non sei mai "da solo": trovi guide,
-                  metodo e un ambiente che ti spinge a fare le cose nel modo giusto.
+                  il percorso più adatto a te.
                 </p>
               </div>
 
@@ -669,7 +670,9 @@ export default function AboutPage() {
             <p className="mt-2 text-black/70 leading-relaxed max-w-3xl">
               Red Gym è organizzata per farti vivere l'allenamento con qualità:
               aree dedicate, attrezzatura selezionata per sicurezza e comfort, e
-              un ambiente ordinato e motivante. Allenarsi "nel modo giusto" fa la
+              un ambiente ordinato e motivante.
+              <br />
+              Allenarsi "nel modo giusto" fa la
               differenza.
             </p>
           </div>
@@ -760,7 +763,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
             </div>
 
             {/* ISTRUTTORI SALA PESI/OLICROM */}
-            <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-brand-offwhite sm:p-8 lg:p-12">
+            <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-brand-offwhite sm:p-8 lg:p-12 2xl:p-32">
               <p className="section-title text-brand-red text-center mb-8">Gli istruttori di sala pesi/Olicrom</p>
 
               {/* SLIDESHOW MOBILE - 7 trainer */}
@@ -768,7 +771,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
               {/* GRID DESKTOP */}
               <div className="hidden lg:block">
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+                <div className="grid grid-cols-4 gap-4">
                   {[
                     { name: "DANIELE", image: "DANIELE.jpeg" },
                     { name: "EMANUELE", image: "EMANUELE.jpeg" },
@@ -931,7 +934,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start max-w-5xl mx-auto">
             <div className="flex flex-col items-center sm:items-stretch">
               <div className="w-4/5 max-w-[280px] sm:w-full sm:max-w-none lg:max-w-[280px]">
-                <div className="relative rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft h-[350px] sm:h-[320px] lg:h-[340px]">
+                <div className="relative rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft h-[350px] sm:h-[320px] lg:h-[340px] 2xl:h-[420px]">
                   <Image
                     src={toPublicSrc("GAIA.jpeg")}
                     alt="Gaia - Reception Red Gym"
@@ -961,7 +964,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
             <div className="flex flex-col items-center sm:items-stretch">
               <div className="w-4/5 max-w-[280px] sm:w-full sm:max-w-none lg:max-w-[280px] ">
-                <div className="relative rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft h-[350px] sm:h-[320px] lg:h-[340px]">
+                <div className="relative rounded-xl overflow-hidden bg-white border border-brand-gray200 shadow-soft h-[350px] sm:h-[320px] lg:h-[340px] 2xl:h-[420px]">
                   <Image
                     src={toPublicSrc("ELEONORA.jpeg")}
                     alt="Eleonora - Reception Red Gym"
