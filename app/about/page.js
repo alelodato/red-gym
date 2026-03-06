@@ -36,7 +36,8 @@ function PhotoHeroBand({
       <div className="relative h-[600px] sm:h-[620px] lg:h-[720px]">
         <img
           src={toPublicSrc(image)}
-          alt=""
+          alt="Sala Red Gym"
+          priority
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
 

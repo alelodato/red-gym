@@ -43,7 +43,8 @@ function TripleDiagonalBand({
         <div className="absolute inset-0 sm:hidden">
           <img
             src={toPublicSrc(mobileImage)}
-            alt=""
+            alt="Hero pagina corsi"
+            priority
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
         </div>
@@ -624,7 +625,6 @@ export default function CoursesPage() {
     }
   };
 
-  // Aspetta che tutto sia caricato
   if (document.readyState === 'complete') {
     setTimeout(scrollToHash, 100);
   } else {
