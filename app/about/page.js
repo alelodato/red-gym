@@ -455,7 +455,7 @@ function FinalCtaHero({ image = "/hero-final.jpg" }) {
 
       <div className="absolute inset-0 flex sm:hidden">
         <div className="w-full px-4 pt-16 pb-[calc(env(safe-area-inset-bottom)+24px)] flex flex-col justify-end">
-          <p className="text-sm font-semibold text-white/80">VIENI A TROVARCI</p>
+          <p className="text-sm font-semibold text-white/80">PASSA A TROVARCI</p>
 
           <h2 className="font-heading uppercase tracking-wide text-white text-3xl mt-2">
             Capisci RED GYM solo quando la vivi.
@@ -489,7 +489,7 @@ function FinalCtaHero({ image = "/hero-final.jpg" }) {
           <div className="rounded-2xl p-7 sm:p-10 lg:p-12 shadow-soft">
             <div className="grid gap-6 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-8">
-                <p className="text-sm font-semibold text-white/70">VIENI A TROVARCI</p>
+                <p className="text-sm font-semibold text-white/70">PASSA A TROVARCI</p>
 
                 <h2 className="font-heading uppercase tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl mt-2">
                   Capisci RED GYM solo quando la vivi.
