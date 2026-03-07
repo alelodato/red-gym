@@ -30,7 +30,7 @@ function Hero({
     <>
       Red Gym è il punto di riferimento per il fitness a Fonte Nuova (RM).
       <br />
-      Sale fitness moderne, sport da contatto, arti marziali e programmi di allenamento dedicati alla salute e al benessere.
+      Sale fitness moderne, boxe, kickboxing, arti marziali e programmi di allenamento dedicati alla salute e al benessere.
     </>
   ),
   className = "",
@@ -649,7 +649,7 @@ transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
                     <p className="mt-5 sm:mt-3 text-black/70 leading-relaxed text-sm sm:text-[14px]">
                       Sala pesi, Olicrom, funzionale e arti marziali: Red Gym offre spazi ampi attrezzati con macchinari professionali per garantire un allenamento efficace e confortevole.
                       <br />
-                      Che tu voglia potenziare forza e resistenza, praticare dicipline dedicate al benessere o sport da combattimento, qui trovi tutto ciò di cui hai bisogno.
+                      Qualsiasi tipo di attività tu voglia praticare, qui trovi tutto ciò di cui hai bisogno.
                     </p>
                     <div className="mt-6">
                       <Button href="/about#palestra">Scopri la palestra</Button>
@@ -978,7 +978,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
             <SectionHead
               kicker="Contatti"
               title="Scrivici o passa in sede."
-              lead="Per info su corsi, orari e abbonamenti puoi contattarci: ti rispondiamo e ti aiutiamo a scegliere il percorso più adatto."
+              lead="Per info su corsi, orari e abbonamenti puoi contattarci: ti aiutiamo a scegliere il percorso più adatto a te."
             />
 
             <div className="mt-8 lg:mt-10 grid gap-6 lg:grid-cols-12">
@@ -1035,7 +1035,7 @@ transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
                 <div className="p-6 sm:p-7">
                   <p className="font-heading uppercase tracking-wide text-lg">Red Gym – Fonte Nuova</p>
                   <p className="mt-2 text-sm text-black/70">
-                    Vieni a trovarci in sede: ampio parcheggio e spazi grandi per allenarti con calma, metodo e supporto reale.
+                    Passa a trovarci in sede!
                   </p>
                 </div>
                 <div className="relative h-[360px] sm:h-[420px] lg:h-[460px]">
