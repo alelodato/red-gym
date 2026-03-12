@@ -756,7 +756,8 @@ transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
                 <div className="hidden lg:grid lg:grid-rows-4 lg:gap-10 lg:auto-rows-fr">
                   {/* Riga 1: Grid 2x2 */}
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="relative overflow-hidden rounded-xl shadow-soft h-full">
+                    <div className="relative overflow-hidden rounded-xl shadow-soft h-full lg:shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
                       <img
                         src={toPublicSrc("sala-olicrom.webp")}
                         alt="Sala Olicrom Red Gym"
@@ -764,7 +765,8 @@ transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
                       />
                       <div className="absolute inset-0 bg-black/10" />
                     </div>
-                    <div className="relative overflow-hidden rounded-xl shadow-soft h-full">
+                    <div className="relative overflow-hidden rounded-xl shadow-soft h-full lg:shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
                       <img
                         src={toPublicSrc("sala-funzionale.webp")}
                         alt="Sala Funzionale Red Gym"
@@ -776,7 +778,8 @@ transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
 
                   {/* Riga 2: Grid 2x2 */}
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="relative overflow-hidden rounded-xl shadow-soft h-full">
+                    <div className="relative overflow-hidden rounded-xl shadow-soft h-full lg:shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
                       <img
                         src={toPublicSrc("yoga.webp")}
                         alt="Yoga Red Gym"
@@ -784,7 +787,8 @@ transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
                       />
                       <div className="absolute inset-0 bg-black/10" />
                     </div>
-                    <div className="relative overflow-hidden rounded-xl shadow-soft h-full">
+                    <div className="relative overflow-hidden rounded-xl shadow-soft h-full lg:shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
                       <img
                         src={toPublicSrc("judo-hero.webp")}
                         alt="Judo Red Gym"
@@ -801,7 +805,8 @@ transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
                   </div>
 
                   {/* Riga 4: Immagine singola */}
-                  <div className="relative overflow-hidden rounded-xl shadow-soft h-full">
+                  <div className="relative overflow-hidden rounded-xl shadow-soft h-full lg:shadow-soft overflow-hidden 
+transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
                     <img
                       src={toPublicSrc("community.jpeg")}
                       alt="Community Red Gym"
