@@ -43,8 +43,8 @@ export default function RootLayout({ children }) {
       }
     ],
     sameAs: [
-      "https://www.facebook.com/redgymfontenuova",
-      "https://www.instagram.com/red.gym.fontenuova/"
+      "https://www.facebook.com/RedGymPalestra",
+      "https://www.instagram.com/red.gym.fontenuova"
     ]
   };
 
