@@ -153,7 +153,7 @@ const WELLNESS_COURSES = [
     id: "prepugilistica",
     title: "Prepugilistica",
     subtitle: "Tecnica, fiducia e autocontrollo",
-    image: "prepugilistica.webp",
+    image: "prep.webp",
     description:
       "La prepugilistica è perfetta per chi vuole costruire basi solide (anche senza contatto) con metodo e disciplina. \nSi lavora su tecnica, lavoro al sacco, combinazioni e condizionamento.",
     schedule: [

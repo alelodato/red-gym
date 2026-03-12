@@ -612,20 +612,12 @@ export default function AboutPage() {
               <div className="mt-10 sm:rounded-xl sm:border sm:border-brand-gray200 sm:bg-brand-offwhite sm:p-8 lg:p-12">
                 <p className="section-title text-brand-red">Il team di red gym</p>
 
-                <h3 className="font-heading uppercase tracking-wide text-2xl mt-2">
-                  -
-                </h3>
-
-                <p className="mt-4 text-black/70 leading-relaxed max-w-3xl">
-                  -
-                </p>
-
                 {/* FOUNDERS - object-contain per vedere tutta la figura */}
                 <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
                   <div className="flex flex-col">
                     <div className="relative overflow-hidden rounded-xl shadow-soft h-[400px] sm:h-[350px] lg:h-[400px] bg-brand-offwhite">
                       <Image
-                        src={toPublicSrc("founder.jpg")}
+                        src={toPublicSrc("donato.webp")}
                         alt="Donato Domenicone - Fondatore Red Gym"
                         fill
                         className="object-cover object-top"
@@ -634,7 +626,7 @@ export default function AboutPage() {
                     </div>
                     <div className="mt-4">
                       <h4 className="font-heading uppercase tracking-wide text-xl text-brand-black">Donato Domenicone</h4>
-                      <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">Fondatore e Titolare di Red Gym</p>
+                      <p className="text-xs uppercase tracking-widest text-brand-red font-bold mt-1">Fondatore di Red Gym</p>
                     </div>
                   </div>
 
@@ -883,9 +875,9 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <div className="relative overflow-hidden rounded-xl shadow-soft h-[300px] shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <img
-                    src={toPublicSrc("sala-arti-marziali.webp")}
+                    src={toPublicSrc("sala-arti-marziali3.webp")}
                     alt="Sala Arti Marziali Red Gym"
-                    className="absolute inset-0 h-full w-full object-cover 2xl:object-top"
+                    className="absolute inset-0 h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-black/10" />
                 </div>

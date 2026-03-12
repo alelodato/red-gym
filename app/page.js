@@ -508,7 +508,7 @@ function DiagonalPhoto({
   heightClass = "h-[280px] sm:h-[340px] lg:h-[430px]",
   showSafeguarding = false,
   onOpenSafeguarding,
-  safeguardingEmail = "vito.lettieri@email.it",
+  safeguardingEmail = "safeguarding@redgym.it",
 }) {
   return (
     <section className="relative bg-brand-red overflow-hidden">
@@ -1057,7 +1057,7 @@ transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
             alt="Red Gym - energia"
             flip={false}
             showSafeguarding
-            safeguardingEmail="vito.lettieri@email.it"
+            safeguardingEmail="safeguarding@redgym.it"
             onOpenSafeguarding={() => setOpenSafeguarding(true)}
           />
         </div>
