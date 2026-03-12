@@ -1,2 +1,10 @@
+# Robots.txt per Red Gym - Fonte Nuova
+
 User-agent: *
-Disallow: /
+Allow: /
+
+# Sitemap
+Sitemap: https://www.redgym.it/sitemap.xml
+
+# Disallow admin/private areas
+Disallow: /api/

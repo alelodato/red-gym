@@ -582,7 +582,6 @@ function DiagonalBand({ image = "palestra1.webp", title = "Sport & Benessere", f
 
 export default function HomePage() {
   const [openSafeguarding, setOpenSafeguarding] = useState(false);
-
   return (
     <>
       <Hero className="-mt-[var(--nav-h)]" image="hero1.webp" />

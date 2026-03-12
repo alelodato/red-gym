@@ -57,6 +57,9 @@ export default function RootLayout({ children }) {
       postalCode: "00013",
       addressCountry: "IT",
     },
+    verification: {
+      google: 'CODICE_GOOGLE_SEARCH_CONSOLE',//da aggiungere dopo la verifica su Google Search Console
+    }
   };
 
   return (
