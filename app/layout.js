@@ -58,7 +58,7 @@ export default function RootLayout({ children }) {
       addressCountry: "IT",
     },
     verification: {
-      google: 'CODICE_GOOGLE_SEARCH_CONSOLE',//da aggiungere dopo la verifica su Google Search Console
+      google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
     }
   };
 
