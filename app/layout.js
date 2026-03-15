@@ -32,7 +32,7 @@ export const metadata = {
       "Sala pesi, boxe, arti marziali e allenamento funzionale a Fonte Nuova. Orari e abbonamenti.",
     url: "https://www.redgym.it",
     siteName: "Red Gym",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Red Gym" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Red Gym" }],
     locale: "it_IT",
     type: "website",
   },
