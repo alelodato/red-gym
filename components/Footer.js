@@ -138,7 +138,7 @@ export default function Footer() {
           </p>
 
           <p className="font-semibold text-black/70">
-            P.IVA 123xxxxxxxx
+            P.IVA 14340631002 
           </p>
 
           <div className="flex gap-4">
