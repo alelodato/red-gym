@@ -105,13 +105,6 @@ function GymRoomSlideshow({ images, title }) {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % images.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, [images.length]);
-
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
   };
