@@ -263,10 +263,10 @@ function StatsBand({
   lead = "",
 }) {
   const stats = [
-    { value: "1.800", label: "mq di struttura", note: "spazi ampi e organizzati" },
-    { value: "7", label: "anni di attività", note: "a Fonte Nuova" },
-    { value: "8+", label: "discipline", note: "corsi e percorsi per ogni livello" },
-    { value: "TOP", label: "attrezzature", note: "Macchinari professionali all'avanguardia" },
+    { value: "1.800", label: "mq di struttura", note: "Una struttura ampia e moderna pensata per le tue esigenze" },
+    { value: "25+", label: "corsi", note: "Discipline e attività per ogni livello" },
+    { value: "20+", label: "istruttori", note: " Professionisti qualificati pronti ad aiutarti a raggiungere i tuoi obiettivi" },
+    { value: "4", label: "sale", note: "Spazi dedicati per ogni tipo di attività" },
   ];
 
   return (

@@ -105,6 +105,7 @@ const GYM_PLANS = [
       { name: "1 fascia oraria (20/23)", price: "280€", note: "+ iscr. annuale 20€" },
     ],
     paymentNote: "Modalità di pagamento: contanti / bancomat. In 2 rate: 1ª all'acquisto, 2ª entro 30 gg.",
+    sospensione: "Possibilità di sospensione dell'abbonamento per 2 settimane."
   },
   {
     duration: "12 mesi",
@@ -116,6 +117,7 @@ const GYM_PLANS = [
     ],
     paymentNote:
       "Modalità di pagamento: contanti / bancomat. Unica soluzione (omaggio: borsone) oppure in 2 rate: 1ª all'acquisto, 2ª entro 30 gg (omaggio: borsone).",
+    sospensione: "Possibilità di sospensione dell'abbonamento per 5 settimane."
   },
 ];
 
@@ -179,6 +181,11 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
             {g.paymentNote ? (
               <div className="pt-3 text-sm text-black/70">
                 <span className="font-semibold text-brand-black">Pagamento:</span> {g.paymentNote}
+              </div>
+            ) : null}
+            {g.sospensione ? (
+              <div className="pt-3 text-sm text-black/70">
+                <span className="font-semibold text-brand-black">Sospensione:</span> {g.sospensione}
               </div>
             ) : null}
           </div>
@@ -294,10 +301,9 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <p className="font-heading uppercase tracking-wide text-lg">Convenzioni</p>
               <p className="mt-2 text-black/70 leading-relaxed">
-                Convenzioni con: <span className="font-semibold text-brand-black">Forze dell'Ordine</span>,{" "}
-                <span className="font-semibold text-brand-black">Dipendenti C.C. "La Fonte"</span>,{" "}
-                <span className="font-semibold text-brand-black">"Conad"</span>,{" "}
-                <span className="font-semibold text-brand-black">Amm. Comune Fonte Nuova</span>. Agevolazione personale
+                Convenzioni con: <span className="font-semibold text-brand-black">Militari</span> e <span className="font-semibold text-brand-black">Forze dell'Ordine</span>. 
+                <br />
+                Agevolazione personale
                 non cedibile e non estendibile al nucleo familiare.
               </p>
             </div>
