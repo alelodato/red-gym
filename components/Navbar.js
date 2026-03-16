@@ -154,13 +154,13 @@ export default function Navbar() {
       {/* OVERLAY MOBILE */}
       <div
         className={[
-          "fixed inset-0 z-[60] md:hidden transition-opacity",
+          "fixed inset-0 z-[60] md:hidden transition-opacity duration-300",
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
         ].join(" ")}
       >
         {/* sfondo */}
         <button
-          className="absolute inset-0 bg-black/55"
+          className="absolute inset-0 bg-black/55 transition-opacity"
           onClick={() => setOpen(false)}
           aria-label="Chiudi menu"
         />
@@ -170,8 +170,8 @@ export default function Navbar() {
           className={[
             "absolute left-0 right-0 top-0",
             "bg-white border-b border-brand-gray200 shadow-soft",
-            "transition-transform duration-200",
-            open ? "translate-y-0" : "-translate-y-4",
+            "transition-transform duration-300 ease-out",
+            open ? "translate-y-0" : "-translate-y-full",
           ].join(" ")}
         >
           <div className={SHELL}>
