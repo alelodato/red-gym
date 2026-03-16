@@ -125,7 +125,7 @@ export default function Navbar() {
                     key={i.href}
                     href={i.href}
                     className={[
-                      "text-sm font-display lg:text-2xl tracking-wide transition-colors",
+                      "text-base font-display md:text-xl lg:text-2xl tracking-wide transition-colors",
                       active
                         ? "text-brand-red"
                         : "text-brand-black/80 hover:text-brand-red",
