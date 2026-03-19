@@ -173,7 +173,7 @@ const WELLNESS_COURSES = [
     description:
       "Allenarsi non vuol dire sempre spingersi al limite: a volte vuol dire ascoltare il corpo e rimetterlo in equilibrio. La ginnastica per la salute aiuta a migliorare postura e controllo, aumentare mobilità e ridurre tensioni.\nÈ un percorso adatto a tutti e utile anche come integrazione alla sala pesi o agli sport da combattimento: più consapevolezza, più qualità di movimento.",
     schedule: [
-      { day: "Lunedì", time: "09:00" },
+      { day: "Lunedì", time: "09:00, 11:00" },
       { day: "Martedì", time: "09:00" },
       { day: "Mercoledì", time: "09:00, 11:00" },
       { day: "Giovedì", time: "09:00" },
@@ -616,26 +616,26 @@ function DiagonalBand({
 
 export default function CoursesPage() {
   useEffect(() => {
-  const scrollToHash = () => {
-    const hash = window.location.hash;
-    
-    if (hash) {
-      const element = document.querySelector(hash);
-      
-      if (element) {
-        element.style.scrollMarginTop = '150px';
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-  };
+    const scrollToHash = () => {
+      const hash = window.location.hash;
 
-  if (document.readyState === 'complete') {
-    setTimeout(scrollToHash, 100);
-  } else {
-    window.addEventListener('load', scrollToHash);
-    return () => window.removeEventListener('load', scrollToHash);
-  }
-}, []);
+      if (hash) {
+        const element = document.querySelector(hash);
+
+        if (element) {
+          element.style.scrollMarginTop = '150px';
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    };
+
+    if (document.readyState === 'complete') {
+      setTimeout(scrollToHash, 100);
+    } else {
+      window.addEventListener('load', scrollToHash);
+      return () => window.removeEventListener('load', scrollToHash);
+    }
+  }, []);
 
   return (
     <div className="bg-brand-red">
@@ -646,11 +646,11 @@ export default function CoursesPage() {
         title="Scegli il tuo percorso."
         subtitle={
           <>
-          Ogni corso é pensato per accompagnarti passo dopo passo.
-          <br />
-          Scegli quello che fa per te e allenati con il supporto dei nostri istruttori.
+            Ogni corso é pensato per accompagnarti passo dopo passo.
+            <br />
+            Scegli quello che fa per te e allenati con il supporto dei nostri istruttori.
           </>
-          }
+        }
       />
 
       <div className="space-y-0 sm:space-y-8 lg:space-y-10 sm:py-10 lg:py-12 pb-0">
