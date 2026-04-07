@@ -744,9 +744,7 @@ transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               </div>
 
               <p className="mt-6 text-black/70 leading-relaxed">
-                La sala Olicrom è una novità assoluta, puoi allenarti e ottenere risultati importanti, con le macchine della linea CableQuad e TwinStrength.
-                <br />
-                Inoltre, nella sala sono presenti anche macchine cardio, per completare il tuo allenamento con sessioni di cardio fitness.
+                La sala Olicrom è una novità assoluta, puoi allenarti e ottenere risultati importanti, con le macchine della linea CableQuad e TwinStrength. L'area è completata da una selezione di macchine cardio, ideale per integrare ogni sessione e rendere il tuo allenamento davvero completo.
               </p>
             </div>
 
