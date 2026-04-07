@@ -531,9 +531,9 @@ function DiagonalPhoto({
                   Tutela, rispetto e sicurezza
                 </h3>
                 <p className="mt-4 text-white/90 leading-relaxed text-sm sm:text-base lg:text-lg">
-                  Red Gym promuove un ambiente sicuro, inclusivo e rispettoso per tutti. 
+                  Red Gym promuove un ambiente sicuro, inclusivo e rispettoso per tutti.
                   <br />
-                  Per segnalazioni o richieste di chiarimento, è possibile consultare 
+                  Per segnalazioni o richieste di chiarimento, è possibile consultare
                   <br />
                   l'
                   <button
@@ -817,6 +817,106 @@ transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
               </div>
             </div>
           </WhiteSection>
+          {/* SEZIONE NUTRIZIONISTA */}
+          <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24 bg-brand-red">
+
+            <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10">
+              <p className="section-title text-white/70 text-center">Servizi Extra</p>
+              <h2 className="font-heading uppercase tracking-wide text-white text-center text-3xl sm:text-4xl lg:text-5xl mt-2">
+                Nutrizionista in sede
+              </h2>
+              <p className="mt-3 text-white/70 text-center text-sm sm:text-base max-w-xl mx-auto">
+                Red Gym mette a disposizione dei propri soci una professionista qualificata per supportare il percorso di allenamento con una corretta alimentazione.
+              </p>
+
+              <div className="mt-10 sm:mt-12 rounded-2xl overflow-hidden shadow-2xl">
+                <div className="flex flex-col lg:flex-row">
+
+                  {/* Foto nutrizionista */}
+                  <div className="relative w-full lg:w-[320px] xl:w-[360px] shrink-0 h-[340px] sm:h-[400px] lg:h-auto">
+                    <Image
+                      src={toPublicSrc("nutrizionista.webp")}
+                      alt="Dott.ssa Maria Letizia D'Aprile - Biologa Nutrizionista"
+                      fill
+                      className="object-cover object-top"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-white/20" />
+
+                    {/* Nome overlay su mobile */}
+                    <div className="absolute bottom-0 left-0 right-0 p-5 lg:hidden">
+                      <p className="text-white/70 text-xs font-semibold uppercase tracking-widest">Biologa Nutrizionista</p>
+                      <p className="text-white font-heading text-xl mt-1">Dott.ssa Maria Letizia D'Aprile</p>
+                    </div>
+                  </div>
+
+                  {/* Contenuto */}
+                  <div className="flex-1 p-6 sm:p-8 lg:p-10 flex flex-col justify-center bg-white">
+
+                    {/* Nome - solo desktop */}
+                    <div className="hidden lg:block">
+                      <p className="text-black/40 text-xs font-semibold uppercase tracking-widest">Biologa Nutrizionista</p>
+                      <h3 className="font-heading text-2xl xl:text-3xl mt-1">
+                        Dott.ssa Maria Letizia D'Aprile
+                      </h3>
+                    </div>
+
+                    {/* Servizi */}
+                    <div className="mt-6 lg:mt-8 space-y-3">
+                      {[
+                        "Valutazione dello stato nutrizionale e della composizione corporea mediante BIA",
+                        "Percorsi nutrizionali personalizzati",
+                        "Nutrizione sportiva",
+                      ].map((item, i) => (
+                        <div key={i} className="flex items-start gap-3">
+                          <span className="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-brand-red flex items-center justify-center">
+                            <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                          </span>
+                          <p className="text-black/80 text-sm sm:text-[15px] leading-snug">{item}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="mt-8 border-t border-black/10" />
+
+                    {/* Contatti */}
+                    <div className="mt-6 space-y-3">
+                      <p className="text-black/40 text-xs uppercase tracking-widest font-semibold">Prenota la tua consulenza</p>
+
+                      <a href="tel:3895591648" className="flex items-center gap-3 text-black hover:text-brand-red transition-colors group">
+                        <span className="w-8 h-8 rounded-full bg-black/5 group-hover:bg-brand-red/10 flex items-center justify-center transition-colors shrink-0">
+                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.01 21 3 13.99 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.01l-2.21 2.21z" />
+                          </svg>
+                        </span>
+                        <span className="text-sm sm:text-base font-medium">389 559 1648</span>
+                      </a>
+
+                      <a href="mailto:marialetizia.daprile@gmail.com" className="flex items-center gap-3 text-black hover:text-brand-red transition-colors group">
+                        <span className="w-8 h-8 rounded-full bg-black/5 group-hover:bg-brand-red/10 flex items-center justify-center transition-colors shrink-0">
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                          </svg>
+                        </span>
+                        <span className="text-sm sm:text-[15px] font-medium break-all">marialetizia.daprile@gmail.com</span>
+                      </a>
+
+                      <div className="flex items-start gap-3 text-black/50">
+                        <span className="w-8 h-8 rounded-full bg-black/5 flex items-center justify-center shrink-0 mt-0.5">
+                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 119.5 9 2.5 2.5 0 0112 11.5z" />
+                          </svg>
+                        </span>
+                        <span className="text-sm leading-snug pt-1.5">Via Alessandro Bausani 60, 00166 Roma</span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </section>
 
           <StatsCounterBand />
 
@@ -835,94 +935,94 @@ transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
               <div className="grid gap-8 lg:grid-cols-2">
                 {/* Card 1 */}
                 <Link href="/courses#allenamento-funzionale" >
-                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col shadow-soft overflow-hidden 
+                  <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                  <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
-                    Allenamento Funzionale • TacFit • Prepugilistica
-                  </p>
-                  <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px]">
-                    <img
-                      src={toPublicSrc("funzionale.webp")}
-                      alt="Funzionale Red Gym"
-                      className="absolute inset-0 h-full w-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/10" />
+                    <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
+                      Allenamento Funzionale • TacFit • Prepugilistica
+                    </p>
+                    <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px]">
+                      <img
+                        src={toPublicSrc("funzionale.webp")}
+                        alt="Funzionale Red Gym"
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/10" />
+                    </div>
+                    <p className="mt-4 text-sm text-black/70 leading-relaxed flex-grow">
+                      Forza, mobilità e condizionamento.
+                      <br />
+                      Allenamenti dinamici e ad alta intensità per migliorare performance, resistenza e controllo del corpo.
+                    </p>
                   </div>
-                  <p className="mt-4 text-sm text-black/70 leading-relaxed flex-grow">
-                    Forza, mobilità e condizionamento.
-                    <br />
-                    Allenamenti dinamici e ad alta intensità per migliorare performance, resistenza e controllo del corpo.
-                  </p>
-                </div>
                 </Link>
 
                 {/* Card 2 */}
                 <Link href="/courses#ginnastica-salute" >
-                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col shadow-soft overflow-hidden 
+                  <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                  <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
-                    Ginnastica per la Salute & Yoga
-                  </p>
-                  <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px]">
-                    <img
-                      src={toPublicSrc("pilates.webp")}
-                      alt="Pilates Red Gym"
-                      className="absolute inset-0 h-full w-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/10" />
+                    <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
+                      Ginnastica per la Salute & Yoga
+                    </p>
+                    <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px]">
+                      <img
+                        src={toPublicSrc("pilates.webp")}
+                        alt="Pilates Red Gym"
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/10" />
+                    </div>
+                    <p className="mt-4 text-sm text-black/70 leading-relaxed flex-grow">
+                      Benessere, equilibrio e consapevolezza.
+                      <br />
+                      Discipline che lavorano su postura, respirazione e flessibilità per ritrovare armonia tra mente e corpo.
+                    </p>
                   </div>
-                  <p className="mt-4 text-sm text-black/70 leading-relaxed flex-grow">
-                    Benessere, equilibrio e consapevolezza.
-                    <br />
-                    Discipline che lavorano su postura, respirazione e flessibilità per ritrovare armonia tra mente e corpo.
-                  </p>
-                </div>
                 </Link>
 
                 {/* Card 3 */}
                 <Link href="/courses#boxe" >
-                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col shadow-soft overflow-hidden 
+                  <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                  <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
-                    Boxe & Kickboxing
-                  </p>
-                  <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px]">
-                    <img
-                      src={toPublicSrc("boxe.webp")}
-                      alt="Boxe Red Gym"
-                      className="absolute inset-0 h-full w-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/10" />
+                    <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
+                      Boxe & Kickboxing
+                    </p>
+                    <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px]">
+                      <img
+                        src={toPublicSrc("boxe.webp")}
+                        alt="Boxe Red Gym"
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/10" />
+                    </div>
+                    <p className="mt-4 text-sm text-black/70 leading-relaxed flex-grow">
+                      Colpi, tecnica e strategia.
+                      <br />
+                      Sport da ring che sviluppano potenza, velocità e concentrazione, costruendo fiducia e disciplina dentro e fuori dalla palestra.
+                    </p>
                   </div>
-                  <p className="mt-4 text-sm text-black/70 leading-relaxed flex-grow">
-                    Colpi, tecnica e strategia.
-                    <br />
-                    Sport da ring che sviluppano potenza, velocità e concentrazione, costruendo fiducia e disciplina dentro e fuori dalla palestra.
-                  </p>
-                </div>
                 </Link>
 
                 {/* Card 4 */}
                 <Link href="/courses#karate" scroll={true}>
-                <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col shadow-soft overflow-hidden 
+                  <div className="sm:rounded-xl sm:border sm:border-brand-gray200 sm:p-6 lg:p-7 sm:bg-white flex flex-col shadow-soft overflow-hidden 
 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                  <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
-                    Karate • Judo • MMA 
-                  </p>
-                  <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px]">
-                    <img
-                      src={toPublicSrc("judo-hero.webp")}
-                      alt="Arti Marziali Red Gym"
-                      className="absolute inset-0 h-full w-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/10" />
+                    <p className="font-heading uppercase tracking-wide text-lg lg:text-xl">
+                      Karate • Judo • MMA
+                    </p>
+                    <div className="mt-4 relative overflow-hidden rounded-xl shadow-soft h-[200px]">
+                      <img
+                        src={toPublicSrc("judo-hero.webp")}
+                        alt="Arti Marziali Red Gym"
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/10" />
+                    </div>
+                    <p className="mt-4 text-sm text-black/70 leading-relaxed flex-grow">
+                      Arti marziali che formano atleti completi.
+                      <br />
+                      Tecnica, rispetto e determinazione in percorsi che uniscono tradizione, combattimento e crescita personale.
+                    </p>
                   </div>
-                  <p className="mt-4 text-sm text-black/70 leading-relaxed flex-grow">
-                    Arti marziali che formano atleti completi.
-                    <br />
-                    Tecnica, rispetto e determinazione in percorsi che uniscono tradizione, combattimento e crescita personale.
-                  </p>
-                </div>
                 </Link>
               </div>
             </div>
