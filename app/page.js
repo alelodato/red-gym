@@ -821,9 +821,9 @@ transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
           <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24 bg-brand-red">
 
             <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10">
-              <p className="section-title text-white/70 text-center">Servizi Extra</p>
+              <p className="section-title text-white/70 text-center">Biologa Nutrizionista</p>
               <h2 className="font-heading uppercase tracking-wide text-white text-center text-3xl sm:text-4xl lg:text-5xl mt-2">
-                Nutrizionista in sede
+                Prenota la tua consulenza nutrizionale
               </h2>
               <p className="mt-3 text-white/70 text-center text-sm sm:text-base max-w-xl mx-auto">
                 Red Gym mette a disposizione dei propri soci una professionista qualificata per supportare il percorso di allenamento con una corretta alimentazione.
