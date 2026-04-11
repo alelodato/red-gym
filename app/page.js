@@ -818,7 +818,7 @@ transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
             </div>
           </WhiteSection>
           {/* SEZIONE NUTRIZIONISTA */}
-          <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24 bg-brand-red">
+          <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24 bg-[linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('/nutribg.webp')] bg-cover bg-center lg:bg-none">
 
             <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10">
               <p className="section-title text-white/70 text-center">Biologa Nutrizionista</p>
