@@ -457,44 +457,71 @@ function DiagonalCuts({ flip = false, heightClass = "h-16 sm:h-20" }) {
 
 function DiagonalPromoOver65({
   image = "over65.webp",
-  kicker = "",
+  kicker = "Agevolazioni",
   title = "Sconto Over 65",
   subtitle = "Tariffe dedicate: chiedi in reception o contattaci per tutti i dettagli.",
   reverse = false,
 }) {
-  const topClip = reverse
-    ? "[clip-path:polygon(0_0,100%_0,100%_100%,0_55%)]"
-    : "[clip-path:polygon(0_0,100%_0,100%_55%,0_100%)]";
-  const bottomClip = reverse
-    ? "[clip-path:polygon(0_0,100%_45%,100%_100%,0_100%)]"
-    : "[clip-path:polygon(0_45%,100%_0,100%_100%,0_100%)]";
-
   return (
-    <section className="relative bg-brand-red overflow-hidden">
+    <section className="relative bg-brand-red overflow-hidden min-h-[480px] sm:min-h-[560px] lg:min-h-[620px]">
+
+      {/* Immagine di sfondo */}
       <div className="absolute inset-0">
-        <img src={toPublicSrc(image)} alt={title} className="h-full w-full object-cover object-top" />
-        <div className="absolute inset-0 bg-black/55" />
-        <div className={`hidden sm:block absolute -top-1 left-0 right-0 h-20 bg-brand-red ${topClip}`} />
-        <div className={`hidden sm:block absolute -bottom-1 left-0 right-0 h-20 bg-brand-red ${bottomClip}`} />
+        <img
+          src={toPublicSrc(image)}
+          alt={title}
+          className="h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/50" />
       </div>
 
-      <div className="relative">
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-20">
-          <p className="section-title text-white/85">{kicker}</p>
-          <h3 className="font-heading uppercase tracking-wide text-white text-4xl sm:text-5xl mt-2">
+      {/* Taglio diagonale TOP */}
+      <div
+        className="absolute top-0 left-0 right-0 bg-brand-red"
+        style={{
+          height: "120px",
+          clipPath: reverse
+            ? "polygon(0 0, 100% 0, 100% 100%, 0 60%)"
+            : "polygon(0 0, 100% 0, 100% 60%, 0 100%)",
+        }}
+      />
+
+      {/* Taglio diagonale BOTTOM */}
+      <div
+        className="absolute bottom-0 left-0 right-0 bg-brand-red"
+        style={{
+          height: "120px",
+          clipPath: reverse
+            ? "polygon(0 40%, 100% 0, 100% 100%, 0 100%)"
+            : "polygon(0 0, 100% 40%, 100% 100%, 0 100%)",
+        }}
+      />
+
+      {/* Contenuto */}
+      <div className="relative h-full min-h-[480px] sm:min-h-[560px] lg:min-h-[620px] flex items-center">
+        <div className="mx-auto w-full max-w-7xl 2xl:max-w-[1440px] px-4 sm:px-6 lg:px-8 py-28 sm:py-36">
+
+          {kicker ? (
+            <p className="section-title text-white/85">{kicker}</p>
+          ) : null}
+
+          <h3 className="font-heading uppercase tracking-wide text-white mt-2 leading-tight text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl">
             {title}
           </h3>
-          <p className="mt-4 text-white/85 max-w-2xl leading-relaxed text-base sm:text-lg">
+
+          <p className="mt-4 text-white/85 max-w-2xl leading-relaxed text-base sm:text-lg lg:text-xl">
             {subtitle}
           </p>
-          <div className="mt-6 grid gap-3 sm:flex sm:flex-row">
+
+          <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <a
               href="/contact"
-              className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold tracking-wide bg-white text-brand-red hover:bg-white/90 transition-colors"
+              className="inline-flex items-center justify-center rounded-xl px-6 py-4 text-sm font-semibold tracking-wide bg-white text-brand-red hover:bg-white/90 transition-colors"
             >
               Chiedi info
             </a>
           </div>
+
         </div>
       </div>
     </section>
@@ -817,103 +844,157 @@ transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
               </div>
             </div>
           </WhiteSection>
-          {/* SEZIONE NUTRIZIONISTA */}
-          <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24 bg-[linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('/nutribg.webp')] bg-cover bg-center lg:bg-none">
+          {/* SEZIONE PROFESSIONISTI */}
+          <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24 bg-[linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),url('/nutribg.webp')] bg-cover bg-center sm:bg-cover">
 
             <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10">
-              <p className="section-title text-white/70 text-center">Biologa Nutrizionista</p>
-              <h2 className="font-heading uppercase tracking-wide text-white text-center text-3xl sm:text-4xl lg:text-5xl mt-2">
-                Prenota la tua consulenza nutrizionale
-              </h2>
-              <p className="mt-3 text-white/70 text-center text-sm sm:text-base max-w-xl mx-auto">
-                Red Gym mette a disposizione dei propri soci una professionista qualificata per supportare il percorso di allenamento con una corretta alimentazione.
-              </p>
 
-              <div className="mt-10 sm:mt-12 rounded-2xl overflow-hidden shadow-2xl">
-                <div className="flex flex-col lg:flex-row">
+              {/* Header sezione */}
+              <div className="text-center mb-12 lg:mb-16">
+                <p className="section-title text-brand-white/80">I Nostri Professionisti</p>
+                <h2 className="font-heading uppercase tracking-wide text-white text-4xl sm:text-5xl lg:text-6xl mt-2">
+                  Salute e Benessere
+                </h2>
+                <p className="mt-4 text-white/80 max-w-2xl mx-auto leading-relaxed">
+                  A Red Gym puoi contare su professionisti qualificati per seguirti a 360°, dall'idoneità sportiva alla nutrizione personalizzata con la quale supportare il percorso di allenamento.
+                </p>
+              </div>
 
-                  {/* Foto nutrizionista */}
-                  <div className="relative w-full lg:w-[320px] xl:w-[360px] shrink-0 h-[340px] sm:h-[400px] lg:h-auto">
-                    <Image
-                      src={toPublicSrc("nutrizionista.webp")}
-                      alt="Dott.ssa Maria Letizia D'Aprile - Biologa Nutrizionista"
-                      fill
-                      className="object-cover object-top"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-white/20" />
+              <div className="space-y-6">
 
-                    {/* Nome overlay su mobile */}
-                    <div className="absolute bottom-0 left-0 right-0 p-5 lg:hidden">
-                      <p className="text-white/70 text-xs font-semibold uppercase tracking-widest">Biologa Nutrizionista</p>
-                      <p className="text-white font-heading text-xl mt-1">Dott.ssa Maria Letizia D'Aprile</p>
-                    </div>
-                  </div>
-
-                  {/* Contenuto */}
-                  <div className="flex-1 p-6 sm:p-8 lg:p-10 flex flex-col justify-center bg-white">
-
-                    {/* Nome - solo desktop */}
-                    <div className="hidden lg:block">
-                      <p className="text-black/40 text-xs font-semibold uppercase tracking-widest">Biologa Nutrizionista</p>
-                      <h3 className="font-heading text-2xl xl:text-3xl mt-1">
-                        Dott.ssa Maria Letizia D'Aprile
-                      </h3>
+                {/* CARD NUTRIZIONISTA */}
+                <div className="rounded-2xl overflow-hidden shadow-2xl">
+                  <div className="flex flex-col lg:flex-row">
+                    <div className="relative w-full lg:w-[320px] xl:w-[360px] shrink-0 h-[340px] sm:h-[400px] lg:h-auto">
+                      <Image
+                        src={toPublicSrc("nutrizionista.webp")}
+                        alt="Dott.ssa Maria Letizia D'Aprile - Biologa Nutrizionista"
+                        fill
+                        className="object-cover object-top"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-white/20" />
+                      <div className="absolute bottom-0 left-0 right-0 p-5 lg:hidden">
+                        <p className="text-white/70 text-xs font-semibold uppercase tracking-widest">Biologa Nutrizionista</p>
+                        <p className="text-white font-heading text-xl mt-1">Dott.ssa Maria Letizia D'Aprile</p>
+                      </div>
                     </div>
 
-                    {/* Servizi */}
-                    <div className="mt-6 lg:mt-8 space-y-3">
-                      {[
-                        "Valutazione dello stato nutrizionale e della composizione corporea mediante BIA",
-                        "Percorsi nutrizionali personalizzati",
-                        "Nutrizione sportiva",
-                      ].map((item, i) => (
-                        <div key={i} className="flex items-start gap-3">
-                          <span className="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-brand-red flex items-center justify-center">
-                            <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    <div className="flex-1 p-6 sm:p-8 lg:p-10 flex flex-col justify-center bg-white">
+                      <div className="hidden lg:block">
+                        <p className="text-black/40 text-xs font-semibold uppercase tracking-widest">Biologa Nutrizionista</p>
+                        <h3 className="font-heading text-2xl xl:text-3xl mt-1">Dott.ssa Maria Letizia D'Aprile</h3>
+                      </div>
+
+                      <div className="mt-6 lg:mt-8 space-y-3">
+                        {[
+                          "Valutazione dello stato nutrizionale e della composizione corporea mediante BIA",
+                          "Percorsi nutrizionali personalizzati",
+                          "Nutrizione sportiva",
+                        ].map((item, i) => (
+                          <div key={i} className="flex items-start gap-3">
+                            <span className="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-brand-red flex items-center justify-center">
+                              <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                              </svg>
+                            </span>
+                            <p className="text-black/80 text-sm sm:text-[15px] leading-snug">{item}</p>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="mt-8 border-t border-black/10" />
+
+                      <div className="mt-6 space-y-3">
+                        <p className="text-black/40 text-xs uppercase tracking-widest font-semibold">Prenota la tua consulenza</p>
+                        <a href="tel:3895591648" className="flex items-center gap-3 text-black hover:text-brand-red transition-colors group">
+                          <span className="w-8 h-8 rounded-full bg-black/5 group-hover:bg-brand-red/10 flex items-center justify-center transition-colors shrink-0">
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.01 21 3 13.99 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.01l-2.21 2.21z" />
                             </svg>
                           </span>
-                          <p className="text-black/80 text-sm sm:text-[15px] leading-snug">{item}</p>
+                          <span className="text-sm sm:text-base font-medium">389 559 1648</span>
+                        </a>
+
+                        <a href="mailto:marialetizia.daprile@gmail.com" className="flex items-center gap-3 text-black hover:text-brand-red transition-colors group">
+                          <span className="w-8 h-8 rounded-full bg-black/5 group-hover:bg-brand-red/10 flex items-center justify-center transition-colors shrink-0">
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                          </span>
+                          <span className="text-sm sm:text-[15px] font-medium break-all">marialetizia.daprile@gmail.com</span>
+                        </a>
+
+                        <div className="flex items-start gap-3 text-black/50">
+                          <span className="w-8 h-8 rounded-full bg-black/5 flex items-center justify-center shrink-0 mt-0.5">
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 119.5 9 2.5 2.5 0 0112 11.5z" />
+                            </svg>
+                          </span>
+                          <span className="text-sm leading-snug pt-1.5">Via Alessandro Bausani 60, 00166 Roma</span>
                         </div>
-                      ))}
-                    </div>
-
-                    <div className="mt-8 border-t border-black/10" />
-
-                    {/* Contatti */}
-                    <div className="mt-6 space-y-3">
-                      <p className="text-black/40 text-xs uppercase tracking-widest font-semibold">Prenota la tua consulenza</p>
-
-                      <a href="tel:3895591648" className="flex items-center gap-3 text-black hover:text-brand-red transition-colors group">
-                        <span className="w-8 h-8 rounded-full bg-black/5 group-hover:bg-brand-red/10 flex items-center justify-center transition-colors shrink-0">
-                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.01 21 3 13.99 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.01l-2.21 2.21z" />
-                          </svg>
-                        </span>
-                        <span className="text-sm sm:text-base font-medium">389 559 1648</span>
-                      </a>
-
-                      <a href="mailto:marialetizia.daprile@gmail.com" className="flex items-center gap-3 text-black hover:text-brand-red transition-colors group">
-                        <span className="w-8 h-8 rounded-full bg-black/5 group-hover:bg-brand-red/10 flex items-center justify-center transition-colors shrink-0">
-                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                          </svg>
-                        </span>
-                        <span className="text-sm sm:text-[15px] font-medium break-all">marialetizia.daprile@gmail.com</span>
-                      </a>
-
-                      <div className="flex items-start gap-3 text-black/50">
-                        <span className="w-8 h-8 rounded-full bg-black/5 flex items-center justify-center shrink-0 mt-0.5">
-                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 119.5 9 2.5 2.5 0 0112 11.5z" />
-                          </svg>
-                        </span>
-                        <span className="text-sm leading-snug pt-1.5">Via Alessandro Bausani 60, 00166 Roma</span>
                       </div>
                     </div>
                   </div>
-
                 </div>
+
+                {/* BANNER MEDICO */}
+                <div className="rounded-2xl overflow-hidden shadow-2xl bg-white/10 backdrop-blur-sm border border-white/20">
+                  <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 p-6 sm:p-8 lg:p-10">
+
+                    {/* Left */}
+                    <div className="flex items-start gap-5">
+                      <div className="shrink-0 w-14 h-14 rounded-full bg-brand-red flex items-center justify-center mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="section-title text-brand-red">Medico Sportivo</p>
+                        <h3 className="font-heading uppercase tracking-wide text-white text-2xl sm:text-3xl lg:text-4xl mt-1">
+                          Dott. Raffaele Acierno
+                        </h3>
+                        <p className="mt-3 text-white/70 leading-relaxed max-w-2xl">
+                          Il nostro medico riceve ogni{" "}
+                          <span className="text-white font-semibold">martedì</span>{" "}
+                          per la visita medica e il rilascio del certificato medico.
+                          Per prenotare un appuntamento rivolgersi alla segreteria.
+                        </p>
+                        <div className="mt-4 flex flex-wrap gap-3">
+                          <div className="flex items-center gap-2 bg-white/15 rounded-lg px-4 py-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-brand-red shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span className="text-white text-sm font-semibold">10:30 – 12:00</span>
+                          </div>
+                          <div className="flex items-center gap-2 bg-white/15 rounded-lg px-4 py-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-brand-red shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span className="text-white text-sm font-semibold">16:00 – 18:00</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Right - CTA */}
+                    <div className="shrink-0 w-full lg:w-auto">
+                      <a
+                        href="tel:3496504500"
+                        className="flex items-center justify-center gap-3 bg-brand-red hover:bg-red-700 transition-colors rounded-xl px-8 py-5 w-full lg:w-auto"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-white shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z" />
+                        </svg>
+                        <div className="text-left">
+                          <p className="text-white/70 text-xs uppercase tracking-wide">Prenota appuntamento</p>
+                          <p className="text-white font-heading text-xl tracking-wide">349 650 4500</p>
+                        </div>
+                      </a>
+                    </div>
+
+                  </div>
+                </div>
+
               </div>
             </div>
           </section>
