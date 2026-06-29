@@ -851,12 +851,14 @@ transition-all duration-300 hover:-translate-y-1 lg:hover:shadow-xl">
 
               {/* Header sezione */}
               <div className="text-center mb-12 lg:mb-16">
-                <p className="section-title text-brand-white/80">I Nostri Professionisti</p>
+                <p className="section-title text-brand-white/80">Salute e Benessere</p>
                 <h2 className="font-heading uppercase tracking-wide text-white text-4xl sm:text-5xl lg:text-6xl mt-2">
-                  Salute e Benessere
+                  Biologa Nutrizionista
+                  <br></br>
+                  e Medico Sportivo in sede
                 </h2>
                 <p className="mt-4 text-white/80 max-w-2xl mx-auto leading-relaxed">
-                  A Red Gym puoi contare su professionisti qualificati per seguirti a 360°, dall'idoneità sportiva alla nutrizione personalizzata con la quale supportare il percorso di allenamento.
+                  A Red Gym puoi contare su professionisti qualificati per seguirti a 360°, dall'idoneità sportiva alla nutrizione personalizzata con la quale supportare il tuo percorso di allenamento.
                 </p>
               </div>
 
